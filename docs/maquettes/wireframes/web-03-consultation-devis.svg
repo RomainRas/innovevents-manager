@@ -1,0 +1,116 @@
+<svg width="1440" height="1798" viewBox="0 0 1440 1798" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_23_226)">
+<rect width="1440" height="1798" fill="white"/>
+<mask id="path-1-inside-1_23_226" fill="white">
+<path d="M0 0H1440V89H0V0Z"/>
+</mask>
+<path d="M1440 89V88H0V89V90H1440V89Z" fill="#D9D9D9" mask="url(#path-1-inside-1_23_226)"/>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="24" font-weight="600" letter-spacing="-0.02em"><tspan x="96" y="52.7273">Innov&#x2019;Events</tspan></text>
+<g clip-path="url(#clip1_23_226)">
+<text fill="#303030" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="692" y="49.8182">Accueil</tspan></text>
+<text fill="#303030" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="779" y="49.8182">&#xc9;v&#xe9;nements</tspan></text>
+<text fill="#303030" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="904" y="49.8182">Avis</tspan></text>
+<text fill="#303030" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="967" y="49.8182">Contact</tspan></text>
+<text fill="#303030" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="1060" y="49.8182">Demande de devis</tspan></text>
+<path d="M1229 24.5H1336C1340.14 24.5 1343.5 27.8579 1343.5 32V56C1343.5 60.1421 1340.14 63.5 1336 63.5H1229C1224.86 63.5 1221.5 60.1421 1221.5 56V32C1221.5 27.9872 1224.65 24.7105 1228.61 24.5098L1229 24.5Z" fill="#E3E3E3"/>
+<path d="M1229 24.5H1336C1340.14 24.5 1343.5 27.8579 1343.5 32V56C1343.5 60.1421 1340.14 63.5 1336 63.5H1229C1224.86 63.5 1221.5 60.1421 1221.5 56V32C1221.5 27.9872 1224.65 24.7105 1228.61 24.5098L1229 24.5Z" stroke="#767676" stroke-linecap="round"/>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="1233" y="49.8182">D&#xe9;connexion</tspan></text>
+</g>
+<rect width="1440" height="72" transform="translate(0 89)" fill="#F5F5F5"/>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="-0.02em"><tspan x="96" y="132.273">Mon espace</tspan></text>
+<mask id="path-17-inside-2_23_226" fill="white">
+<path d="M700 113C700 108.582 703.582 105 708 105H793C797.418 105 801 108.582 801 113V137C801 141.418 797.418 145 793 145H708C703.582 145 700 141.418 700 137V113Z"/>
+</mask>
+<path d="M700 113C700 108.582 703.582 105 708 105H793C797.418 105 801 108.582 801 113V137C801 141.418 797.418 145 793 145H708C703.582 145 700 141.418 700 137V113Z" fill="#2C2C2C"/>
+<path d="M708 105V106H793V105V104H708V105ZM801 113H800V137H801H802V113H801ZM793 145V144H708V145V146H793V145ZM700 137H701V113H700H699V137H700ZM708 145V144C704.134 144 701 140.866 701 137H700H699C699 141.971 703.029 146 708 146V145ZM801 137H800C800 140.866 796.866 144 793 144V145V146C797.971 146 802 141.971 802 137H801ZM793 105V106C796.866 106 800 109.134 800 113H801H802C802 108.029 797.971 104 793 104V105ZM708 105V104C703.029 104 699 108.029 699 113H700H701C701 109.134 704.134 106 708 106V105Z" fill="#2C2C2C" mask="url(#path-17-inside-2_23_226)"/>
+<text fill="#F5F5F5" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="712" y="130.818">Mes devis</tspan></text>
+<text fill="#303030" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="837" y="130.818">Mes &#xe9;v&#xe9;nements</tspan></text>
+<text fill="#303030" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="1014" y="130.818">Mon profil</tspan></text>
+<text fill="#757575" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="96" y="225.818">Mon espace / Mes devis / [R&#xe9;f&#xe9;rence du devis]</tspan></text>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="36" font-weight="600" letter-spacing="-0.02em"><tspan x="96" y="289.591">Votre devis</tspan></text>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="96" y="338.818">[R&#xe9;f&#xe9;rence] &#xb7; [Nom de l&#x2019;&#xe9;v&#xe9;nement]</tspan></text>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="-0.02em"><tspan x="920" y="341.273">&#xc9;tude c&#xf4;t&#xe9; client</tspan></text>
+<text fill="#303030" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="108" y="395.818">Retour &#xe0; mes devis</tspan></text>
+<rect x="96.5" y="434.5" width="847" height="278" rx="7.5" fill="white"/>
+<rect x="96.5" y="434.5" width="847" height="278" rx="7.5" stroke="#D9D9D9"/>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="24" font-weight="600" letter-spacing="-0.02em"><tspan x="129" y="490.227">Votre &#xe9;v&#xe9;nement</tspan></text>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="129" y="536.818">[Nom de l&#x2019;&#xe9;v&#xe9;nement]</tspan></text>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="129" y="582.818">Du [date de d&#xe9;but] &#xe0; [heure] au [date de fin] &#xe0; [heure]</tspan></text>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="129" y="628.818">Lieu : [lieu de l&#x2019;&#xe9;v&#xe9;nement]</tspan></text>
+<text fill="#757575" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="129" y="674.818">Client : [entreprise] &#xb7; [pr&#xe9;nom et nom]</tspan></text>
+<rect x="96.5" y="737.5" width="847" height="514" rx="7.5" fill="white"/>
+<rect x="96.5" y="737.5" width="847" height="514" rx="7.5" stroke="#D9D9D9"/>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="24" font-weight="600" letter-spacing="-0.02em"><tspan x="129" y="793.227">Prestations propos&#xe9;es</tspan></text>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="18" font-weight="600" letter-spacing="-0.02em"><tspan x="129" y="840.545">Prestation</tspan></text>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="733" y="839.818">Montant HT</tspan></text>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="129" y="885.818">[Libell&#xe9; de la prestation 1]</tspan></text>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="733" y="885.818">[Montant]</tspan></text>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="129" y="931.818">[Libell&#xe9; de la prestation 2]</tspan></text>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="733" y="931.818">[Montant]</tspan></text>
+<text fill="#757575" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="129" y="977.818">Montants exprim&#xe9;s en [devise du devis].</tspan></text>
+<rect width="784" height="148" transform="translate(129 1007)" fill="#F5F5F5"/>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="153" y="1047.82">Total HT</tspan></text>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="709" y="1047.82">[Total HT]</tspan></text>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="153" y="1085.82">TVA ([taux] %)</tspan></text>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="709" y="1085.82">[Montant TVA]</tspan></text>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="-0.02em"><tspan x="153" y="1126.27">Total TTC</tspan></text>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="709" y="1123.82">[Total TTC]</tspan></text>
+<path d="M137 1179.5H333C337.142 1179.5 340.5 1182.86 340.5 1187V1211C340.5 1215.14 337.142 1218.5 333 1218.5H137C132.858 1218.5 129.5 1215.14 129.5 1211V1187C129.5 1182.86 132.858 1179.5 137 1179.5Z" fill="#E3E3E3"/>
+<path d="M137 1179.5H333C337.142 1179.5 340.5 1182.86 340.5 1187V1211C340.5 1215.14 337.142 1218.5 333 1218.5H137C132.858 1218.5 129.5 1215.14 129.5 1211V1187C129.5 1182.86 132.858 1179.5 137 1179.5Z" stroke="#767676" stroke-linecap="round"/>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="141" y="1204.82">T&#xe9;l&#xe9;charger le devis PDF</tspan></text>
+<rect x="96.5" y="1276.5" width="847" height="384" rx="7.5" fill="white"/>
+<rect x="96.5" y="1276.5" width="847" height="384" rx="7.5" stroke="#D9D9D9"/>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="24" font-weight="600" letter-spacing="-0.02em"><tspan x="129" y="1332.23">Vous souhaitez une modification ?</tspan></text>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="129" y="1378.82">Expliquez ce que vous souhaitez changer. Chlo&#xe9; pourra vous faire une contre-proposition.</tspan></text>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="129" y="1424.82">Motif de modification *</tspan></text>
+<path d="M129 1446C129 1441.58 132.582 1438 137 1438H905C909.418 1438 913 1441.58 913 1446V1510C913 1514.42 909.418 1518 905 1518H137C132.582 1518 129 1514.42 129 1510V1446Z" fill="white"/>
+<path d="M137 1438V1438.5H905V1438V1437.5H137V1438ZM913 1446H912.5V1510H913H913.5V1446H913ZM905 1518V1517.5H137V1518V1518.5H905V1518ZM129 1510H129.5V1446H129H128.5V1510H129ZM137 1518V1517.5C132.858 1517.5 129.5 1514.14 129.5 1510H129H128.5C128.5 1514.69 132.306 1518.5 137 1518.5V1518ZM913 1510H912.5C912.5 1514.14 909.142 1517.5 905 1517.5V1518V1518.5C909.694 1518.5 913.5 1514.69 913.5 1510H913ZM905 1438V1438.5C909.142 1438.5 912.5 1441.86 912.5 1446H913H913.5C913.5 1441.31 909.694 1437.5 905 1437.5V1438ZM137 1438V1437.5C132.306 1437.5 128.5 1441.31 128.5 1446H129H129.5C129.5 1441.86 132.858 1438.5 137 1438.5V1438Z" fill="#D9D9D9"/>
+<text fill="#B3B3B3" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="145" y="1466.82">Pr&#xe9;cisez les changements souhait&#xe9;s&#x2026;</tspan></text>
+<path d="M907.523 1505.35L901.354 1511.52M907.981 1508.9L904.896 1511.98" stroke="#B3B3B3"/>
+<text fill="#757575" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="129" y="1558.82">* Obligatoire uniquement pour demander une modification.</tspan></text>
+<path d="M137 1588.5H420C424.142 1588.5 427.5 1591.86 427.5 1596V1620C427.5 1624.14 424.142 1627.5 420 1627.5H137C132.858 1627.5 129.5 1624.14 129.5 1620V1596C129.5 1591.86 132.858 1588.5 137 1588.5Z" fill="#E3E3E3"/>
+<path d="M137 1588.5H420C424.142 1588.5 427.5 1591.86 427.5 1596V1620C427.5 1624.14 424.142 1627.5 420 1627.5H137C132.858 1627.5 129.5 1624.14 129.5 1620V1596C129.5 1591.86 132.858 1588.5 137 1588.5Z" stroke="#767676" stroke-linecap="round"/>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="141" y="1613.82">Envoyer la demande de modification</tspan></text>
+<rect x="992.5" y="434.5" width="351" height="380" rx="7.5" fill="#F5F5F5"/>
+<rect x="992.5" y="434.5" width="351" height="380" rx="7.5" stroke="#D9D9D9"/>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="24" font-weight="600" letter-spacing="-0.02em"><tspan x="1025" y="490.227">Votre r&#xe9;ponse</tspan></text>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="1025" y="536.818">Consultez le devis avant de choisir </tspan><tspan x="1025" y="558.818">votre r&#xe9;ponse.</tspan></text>
+<mask id="path-67-inside-3_23_226" fill="white">
+<path d="M1025 596C1025 591.582 1028.58 588 1033 588H1305C1309.42 588 1313 591.582 1313 596V620C1313 624.418 1309.42 628 1305 628H1033C1028.58 628 1025 624.418 1025 620V596Z"/>
+</mask>
+<path d="M1025 596C1025 591.582 1028.58 588 1033 588H1305C1309.42 588 1313 591.582 1313 596V620C1313 624.418 1309.42 628 1305 628H1033C1028.58 628 1025 624.418 1025 620V596Z" fill="#2C2C2C"/>
+<path d="M1033 588V589H1305V588V587H1033V588ZM1313 596H1312V620H1313H1314V596H1313ZM1305 628V627H1033V628V629H1305V628ZM1025 620H1026V596H1025H1024V620H1025ZM1033 628V627C1029.13 627 1026 623.866 1026 620H1025H1024C1024 624.971 1028.03 629 1033 629V628ZM1313 620H1312C1312 623.866 1308.87 627 1305 627V628V629C1309.97 629 1314 624.971 1314 620H1313ZM1305 588V589C1308.87 589 1312 592.134 1312 596H1313H1314C1314 591.029 1309.97 587 1305 587V588ZM1033 588V587C1028.03 587 1024 591.029 1024 596H1025H1026C1026 592.134 1029.13 589 1033 589V588Z" fill="#2C2C2C" mask="url(#path-67-inside-3_23_226)"/>
+<text fill="#F5F5F5" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="1103.5" y="613.818">Accepter le devis</tspan></text>
+<path d="M1033 652.5H1305C1309.14 652.5 1312.5 655.858 1312.5 660V684C1312.5 688.142 1309.14 691.5 1305 691.5H1033C1028.86 691.5 1025.5 688.142 1025.5 684V660C1025.5 655.858 1028.86 652.5 1033 652.5Z" fill="#E3E3E3"/>
+<path d="M1033 652.5H1305C1309.14 652.5 1312.5 655.858 1312.5 660V684C1312.5 688.142 1309.14 691.5 1305 691.5H1033C1028.86 691.5 1025.5 688.142 1025.5 684V660C1025.5 655.858 1028.86 652.5 1033 652.5Z" stroke="#767676" stroke-linecap="round"/>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="1108.5" y="677.818">Refuser le devis</tspan></text>
+<text fill="#757575" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="1025" y="732.818">Pour demander une modification, </tspan><tspan x="1025" y="754.818">compl&#xe9;tez le motif dans le formulaire </tspan><tspan x="1025" y="776.818">ci-contre.</tspan></text>
+<rect x="992.5" y="839.5" width="351" height="582" rx="7.5" fill="white"/>
+<rect x="992.5" y="839.5" width="351" height="582" rx="7.5" stroke="#D9D9D9"/>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="24" font-weight="600" letter-spacing="-0.02em"><tspan x="1025" y="895.227">Prochains &#xe9;v&#xe9;nements</tspan></text>
+<text fill="#757575" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="1025" y="941.818">Vos 3 &#xe9;v&#xe9;nements &#xe0; venir les plus </tspan><tspan x="1025" y="963.818">proches.</tspan></text>
+<text fill="#757575" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="1025" y="1009.82">[Date 1] &#xb7; [Heure]</tspan></text>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="1025" y="1047.82">[Nom de l&#x2019;&#xe9;v&#xe9;nement 1]</tspan></text>
+<text fill="#303030" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="1037" y="1094.82">Voir l&#x2019;&#xe9;v&#xe9;nement 1</tspan></text>
+<text fill="#757575" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="1025" y="1149.82">[Date 2] &#xb7; [Heure]</tspan></text>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="1025" y="1187.82">[Nom de l&#x2019;&#xe9;v&#xe9;nement 2]</tspan></text>
+<text fill="#303030" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="1037" y="1234.82">Voir l&#x2019;&#xe9;v&#xe9;nement 2</tspan></text>
+<text fill="#757575" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="1025" y="1289.82">[Date 3] &#xb7; [Heure]</tspan></text>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="1025" y="1327.82">[Nom de l&#x2019;&#xe9;v&#xe9;nement 3]</tspan></text>
+<text fill="#303030" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="1037" y="1374.82">Voir l&#x2019;&#xe9;v&#xe9;nement 3</tspan></text>
+<mask id="path-88-inside-4_23_226" fill="white">
+<path d="M0 1709H1440V1798H0V1709Z"/>
+</mask>
+<path d="M0 1709V1710H1440V1709V1708H0V1709Z" fill="#D9D9D9" mask="url(#path-88-inside-4_23_226)"/>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="96" y="1759.82">Innov&#x2019;Events</tspan></text>
+<text fill="#303030" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="1204" y="1759.82">Mentions l&#xe9;gales</tspan></text>
+</g>
+<defs>
+<clipPath id="clip0_23_226">
+<rect width="1440" height="1798" fill="white"/>
+</clipPath>
+<clipPath id="clip1_23_226">
+<rect width="664" height="40" fill="white" transform="translate(680 24)"/>
+</clipPath>
+</defs>
+</svg>
