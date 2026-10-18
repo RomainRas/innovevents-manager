@@ -1,5 +1,5 @@
-<svg width="1200" height="1964" viewBox="0 0 1200 1964" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="1200" height="1964" fill="#F4F7FA"/>
+<svg width="1200" height="2132" viewBox="0 0 1200 2132" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="1200" height="2132" fill="#F4F7FA"/>
 <rect width="1104" height="212" transform="translate(48 48)" fill="#142D43"/>
 <text fill="white" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="36" font-weight="bold" letter-spacing="0em"><tspan x="80" y="115.091">Innov&#x2019;Events</tspan></text>
 <text fill="white" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="24" font-weight="600" letter-spacing="0em"><tspan x="80" y="172.727">Charte graphique &#xb7; Proposition v1</tspan></text>
@@ -62,4 +62,6 @@
 <text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="644" y="1621.82">Blanc / turquoise : 4,75:1&#10;</tspan><tspan x="644" y="1645.82">Bleu nuit / blanc : 14,13:1&#10;</tspan><tspan x="644" y="1669.82">Texte courant / blanc : 14,55:1&#10;</tspan><tspan x="644" y="1693.82">Texte secondaire / blanc : 6,05:1</tspan></text>
 <text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="644" y="1741.82">Mesures sur les paires indiqu&#xe9;es uniquement. La navigation </tspan><tspan x="644" y="1765.82">clavier, les &#xe9;tats, le zoom et les lecteurs d&#x2019;&#xe9;cran devront &#xea;tre </tspan><tspan x="644" y="1789.82">test&#xe9;s dans l&#x2019;application.</tspan></text>
 <text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="48" y="1891.09">Base de conception du projet ECF, sans reprise d&#x2019;une identit&#xe9; commerciale officielle. Les six maquettes et leur encha&#xee;nement restent &#xe0; r&#xe9;aliser. Source : &#xe9;nonc&#xe9; p. 4, 6 </tspan><tspan x="48" y="1911.09">et 16.</tspan></text>
+<rect width="1104" height="120" transform="translate(48 1964)" fill="#F3A48B"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="80" y="2005.82">Accent corail &#xb7; #F3A48B&#10;</tspan><tspan x="80" y="2029.82">&#xc0; utiliser ponctuellement sur les pages publiques : rep&#xe8;res, accroches et actions secondaires. Texte bleu nuit sur corail ; &#xe9;viter le blanc </tspan><tspan x="80" y="2053.82">sur ce fond clair.</tspan></text>
 </svg>
