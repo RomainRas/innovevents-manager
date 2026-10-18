@@ -1,0 +1,40 @@
+<svg width="390" height="1225" viewBox="0 0 390 1225" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_31_331)">
+<rect width="390" height="1225" fill="white"/>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="24" font-weight="600" letter-spacing="-0.02em"><tspan x="24" y="47.2273">Innov&#x2019;Events</tspan></text>
+<text fill="#303030" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="116" y="106.818">Retour &#xe0; l&#x2019;&#xe9;v&#xe9;nement</tspan></text>
+<rect width="390" height="908" transform="translate(0 149)" fill="#F5F5F5"/>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="28" font-weight="600" letter-spacing="-0.02em"><tspan x="24" y="200.182">Fiche client</tspan></text>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="-0.02em"><tspan x="24" y="250.273">[Nom de l&#x2019;entreprise]</tspan></text>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="24" y="295.818">[Pr&#xe9;nom et nom du contact]</tspan></text>
+<text fill="#757575" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="24" y="341.818">&#xc9;v&#xe9;nement associ&#xe9; :&#10;</tspan><tspan x="24" y="363.818">[Nom de l&#x2019;&#xe9;v&#xe9;nement]</tspan></text>
+<rect x="24.5" y="393.5" width="341" height="191" rx="7.5" fill="white"/>
+<rect x="24.5" y="393.5" width="341" height="191" rx="7.5" stroke="#D9D9D9"/>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="-0.02em"><tspan x="49" y="437.273">Appeler</tspan></text>
+<path d="M57 466.5H335C339.142 466.5 342.5 469.858 342.5 474V506C342.5 510.142 339.142 513.5 335 513.5H57C52.8579 513.5 49.5 510.142 49.5 506V474L49.5098 473.614C49.7105 469.651 52.9872 466.5 57 466.5Z" fill="#E3E3E3"/>
+<path d="M57 466.5H335C339.142 466.5 342.5 469.858 342.5 474V506C342.5 510.142 339.142 513.5 335 513.5H57C52.8579 513.5 49.5 510.142 49.5 506V474L49.5098 473.614C49.7105 469.651 52.9872 466.5 57 466.5Z" stroke="#767676" stroke-linecap="round"/>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="108" y="495.818">[Num&#xe9;ro de t&#xe9;l&#xe9;phone]</tspan></text>
+<text fill="#757575" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="49" y="554.818">Ouvrir l&#x2019;application t&#xe9;l&#xe9;phone.</tspan></text>
+<rect x="24.5" y="609.5" width="341" height="191" rx="7.5" fill="white"/>
+<rect x="24.5" y="609.5" width="341" height="191" rx="7.5" stroke="#D9D9D9"/>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="-0.02em"><tspan x="49" y="653.273">Envoyer un courriel</tspan></text>
+<path d="M57 682.5H335C339.142 682.5 342.5 685.858 342.5 690V722C342.5 726.142 339.142 729.5 335 729.5H57C52.8579 729.5 49.5 726.142 49.5 722V690L49.5098 689.614C49.7105 685.651 52.9872 682.5 57 682.5Z" fill="#E3E3E3"/>
+<path d="M57 682.5H335C339.142 682.5 342.5 685.858 342.5 690V722C342.5 726.142 339.142 729.5 335 729.5H57C52.8579 729.5 49.5 726.142 49.5 722V690L49.5098 689.614C49.7105 685.651 52.9872 682.5 57 682.5Z" stroke="#767676" stroke-linecap="round"/>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="133" y="711.818">[Adresse e-mail]</tspan></text>
+<text fill="#757575" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="49" y="770.818">Ouvrir votre messagerie.</tspan></text>
+<rect x="24.5" y="825.5" width="341" height="207" rx="7.5" fill="white"/>
+<rect x="24.5" y="825.5" width="341" height="207" rx="7.5" stroke="#D9D9D9"/>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="-0.02em"><tspan x="49" y="869.273">Itin&#xe9;raire</tspan></text>
+<path d="M57 898.5H335C339.142 898.5 342.5 901.858 342.5 906V954C342.5 958.142 339.142 961.5 335 961.5H57C52.8579 961.5 49.5 958.142 49.5 954V906C49.5 901.858 52.8579 898.5 57 898.5Z" fill="#E3E3E3"/>
+<path d="M57 898.5H335C339.142 898.5 342.5 901.858 342.5 906V954C342.5 958.142 339.142 961.5 335 961.5H57C52.8579 961.5 49.5 958.142 49.5 954V906C49.5 901.858 52.8579 898.5 57 898.5Z" stroke="#767676" stroke-linecap="round"/>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="94.5" y="935.818">[Adresse postale du client]</tspan></text>
+<text fill="#757575" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="49" y="1002.82">Ouvrir l&#x2019;itin&#xe9;raire vers le client.</tspan></text>
+<text fill="#303030" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="109.5" y="1110.82">Conditions d&#x2019;utilisation</tspan></text>
+<text fill="#303030" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="119" y="1182.82">Conditions de vente</tspan></text>
+</g>
+<defs>
+<clipPath id="clip0_31_331">
+<rect width="390" height="1225" fill="white"/>
+</clipPath>
+</defs>
+</svg>
