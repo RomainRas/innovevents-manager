@@ -1,0 +1,38 @@
+<svg width="390" height="1081" viewBox="0 0 390 1081" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_29_304)">
+<rect width="390" height="1081" fill="white"/>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="24" font-weight="600" letter-spacing="-0.02em"><tspan x="24" y="47.2273">Innov&#x2019;Events</tspan></text>
+<text fill="#303030" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="105.5" y="106.818">Retour aux &#xe9;v&#xe9;nements</tspan></text>
+<rect width="390" height="764" transform="translate(0 149)" fill="#F5F5F5"/>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="28" font-weight="600" letter-spacing="-0.02em"><tspan x="24" y="200.182">[Nom de l&#x2019;&#xe9;v&#xe9;nement]</tspan></text>
+<mask id="path-5-inside-1_29_304" fill="white">
+<path d="M24 239C24 234.582 27.5817 231 32 231H358C362.418 231 366 234.582 366 239V271C366 275.418 362.418 279 358 279H32C27.5817 279 24 275.418 24 271V239Z"/>
+</mask>
+<path d="M24 239C24 234.582 27.5817 231 32 231H358C362.418 231 366 234.582 366 239V271C366 275.418 362.418 279 358 279H32C27.5817 279 24 275.418 24 271V239Z" fill="#2C2C2C"/>
+<path d="M32 231V232H358V231V230H32V231ZM366 239H365V271H366H367V239H366ZM358 279V278H32V279V280H358V279ZM24 271H25V239H24H23V271H24ZM32 279V278C28.134 278 25 274.866 25 271H24H23C23 275.971 27.0294 280 32 280V279ZM366 271H365C365 274.866 361.866 278 358 278V279V280C362.971 280 367 275.971 367 271H366ZM358 231V232C361.866 232 365 235.134 365 239H366H367C367 234.029 362.971 230 358 230V231ZM32 231V230C27.0294 230 23 234.029 23 239H24H25C25 235.134 28.134 232 32 232V231Z" fill="#2C2C2C" mask="url(#path-5-inside-1_29_304)"/>
+<text fill="#F5F5F5" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="132" y="260.818">Ajouter une note</tspan></text>
+<rect x="24.5" y="303.5" width="341" height="347" rx="7.5" fill="white"/>
+<rect x="24.5" y="303.5" width="341" height="347" rx="7.5" stroke="#D9D9D9"/>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="-0.02em"><tspan x="49" y="347.273">Informations cl&#xe9;s</tspan></text>
+<text fill="#757575" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="49" y="392.818">D&#xe9;but</tspan></text>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="49" y="430.818">[Date de d&#xe9;but] &#xe0; [heure]</tspan></text>
+<text fill="#757575" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="49" y="476.818">Fin</tspan></text>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="49" y="514.818">[Date de fin] &#xe0; [heure]</tspan></text>
+<text fill="#757575" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="49" y="560.818">Lieu</tspan></text>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="49" y="598.818">[Nom du lieu]&#10;</tspan><tspan x="49" y="620.818">[Adresse de l&#x2019;&#xe9;v&#xe9;nement]</tspan></text>
+<rect x="24.5" y="675.5" width="341" height="213" rx="7.5" fill="white"/>
+<rect x="24.5" y="675.5" width="341" height="213" rx="7.5" stroke="#D9D9D9"/>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="-0.02em"><tspan x="49" y="719.273">Client associ&#xe9;</tspan></text>
+<path d="M57 748.5H335C339.142 748.5 342.5 751.858 342.5 756V788C342.5 792.142 339.142 795.5 335 795.5H57C52.8579 795.5 49.5 792.142 49.5 788V756L49.5098 755.614C49.7105 751.651 52.9872 748.5 57 748.5Z" fill="#E3E3E3"/>
+<path d="M57 748.5H335C339.142 748.5 342.5 751.858 342.5 756V788C342.5 792.142 339.142 795.5 335 795.5H57C52.8579 795.5 49.5 792.142 49.5 788V756L49.5098 755.614C49.7105 751.651 52.9872 748.5 57 748.5Z" stroke="#767676" stroke-linecap="round"/>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="137.5" y="777.818">[Nom du client]</tspan></text>
+<text fill="#757575" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="49" y="836.818">Ouvrir les coordonn&#xe9;es et les actions </tspan><tspan x="49" y="858.818">de contact.</tspan></text>
+<text fill="#303030" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="109.5" y="966.818">Conditions d&#x2019;utilisation</tspan></text>
+<text fill="#303030" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="119" y="1038.82">Conditions de vente</tspan></text>
+</g>
+<defs>
+<clipPath id="clip0_29_304">
+<rect width="390" height="1081" fill="white"/>
+</clipPath>
+</defs>
+</svg>
