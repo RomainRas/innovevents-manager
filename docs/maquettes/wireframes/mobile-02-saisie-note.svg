@@ -1,0 +1,27 @@
+<svg width="390" height="595" viewBox="0 0 390 595" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_29_305)">
+<rect width="390" height="595" fill="white"/>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="24" font-weight="600" letter-spacing="-0.02em"><tspan x="24" y="47.2273">Innov&#x2019;Events</tspan></text>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="28" font-weight="600" letter-spacing="-0.02em"><tspan x="24" y="104.182">Ajouter une note</tspan></text>
+<text fill="#757575" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="24" y="151.818">&#xc9;v&#xe9;nement :&#10;</tspan><tspan x="24" y="173.818">[Nom de l&#x2019;&#xe9;v&#xe9;nement]</tspan></text>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="24" y="219.818">Consignez une information apr&#xe8;s votre </tspan><tspan x="24" y="241.818">&#xe9;change.</tspan></text>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="24" y="287.818">Votre note *</tspan></text>
+<path d="M24 309C24 304.582 27.5817 301 32 301H358C362.418 301 366 304.582 366 309V373C366 377.418 362.418 381 358 381H32C27.5817 381 24 377.418 24 373V309Z" fill="white"/>
+<path d="M32 301V301.5H358V301V300.5H32V301ZM366 309H365.5V373H366H366.5V309H366ZM358 381V380.5H32V381V381.5H358V381ZM24 373H24.5V309H24H23.5V373H24ZM32 381V380.5C27.8579 380.5 24.5 377.142 24.5 373H24H23.5C23.5 377.694 27.3056 381.5 32 381.5V381ZM366 373H365.5C365.5 377.142 362.142 380.5 358 380.5V381V381.5C362.694 381.5 366.5 377.694 366.5 373H366ZM358 301V301.5C362.142 301.5 365.5 304.858 365.5 309H366H366.5C366.5 304.306 362.694 300.5 358 300.5V301ZM32 301V300.5C27.3056 300.5 23.5 304.306 23.5 309H24H24.5C24.5 304.858 27.8579 301.5 32 301.5V301Z" fill="#D9D9D9"/>
+<text fill="#B3B3B3" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="40" y="329.818">Saisissez votre note&#x2026;</tspan></text>
+<path d="M360.523 368.354L354.354 374.523M360.981 371.896L357.896 374.981" stroke="#B3B3B3"/>
+<text fill="#757575" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="24" y="421.818">* Champ obligatoire.</tspan></text>
+<mask id="path-11-inside-1_29_305" fill="white">
+<path d="M24 459C24 454.582 27.5817 451 32 451H358C362.418 451 366 454.582 366 459V491C366 495.418 362.418 499 358 499H32C27.5817 499 24 495.418 24 491V459Z"/>
+</mask>
+<path d="M24 459C24 454.582 27.5817 451 32 451H358C362.418 451 366 454.582 366 459V491C366 495.418 362.418 499 358 499H32C27.5817 499 24 495.418 24 491V459Z" fill="#2C2C2C"/>
+<path d="M32 451V452H358V451V450H32V451ZM366 459H365V491H366H367V459H366ZM358 499V498H32V499V500H358V499ZM24 491H25V459H24H23V491H24ZM32 499V498C28.134 498 25 494.866 25 491H24H23C23 495.971 27.0294 500 32 500V499ZM366 491H365C365 494.866 361.866 498 358 498V499V500C362.971 500 367 495.971 367 491H366ZM358 451V452C361.866 452 365 455.134 365 459H366H367C367 454.029 362.971 450 358 450V451ZM32 451V450C27.0294 450 23 454.029 23 459H24H25C25 455.134 28.134 452 32 452V451Z" fill="#2C2C2C" mask="url(#path-11-inside-1_29_305)"/>
+<text fill="#F5F5F5" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="125.5" y="480.818">Enregistrer la note</tspan></text>
+<text fill="#303030" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="166" y="552.818">Annuler</tspan></text>
+</g>
+<defs>
+<clipPath id="clip0_29_305">
+<rect width="390" height="595" fill="white"/>
+</clipPath>
+</defs>
+</svg>
