@@ -27,6 +27,7 @@ Romain a confié la proposition de direction graphique à l’assistant. La dire
 | Succès | #216E4E | Retour positif avec libellé |
 | Erreur | #B42318 | Erreur avec explication |
 | Attention | #8A4B08 | Avertissement avec libellé |
+| Accent corail | #F3A48B | Accroches et touches chaleureuses sur les pages publiques |
 
 Les liens intégrés dans un texte seront soulignés. Un état ne repose jamais uniquement sur sa couleur. Les états désactivés et autres variantes seront détaillés lors des maquettes.
 
@@ -79,8 +80,8 @@ Les mesures concernent ces paires seulement, sans transparence, image ou dégrad
 ## Fondations Figma réalisées
 
 - Deux collections locales : IE — Primitives et IE — Interface.
-- 30 variables : 11 couleurs primitives, 13 rôles de couleur, 5 espacements et un rayon.
-- 18 alias : 13 couleurs liées aux primitives et 5 espacements liés à la bibliothèque Simple Design System.
+- 32 variables : 12 couleurs primitives, 14 rôles de couleur, 5 espacements et un rayon.
+- 19 alias : 14 couleurs liées aux primitives et 5 espacements liés à la bibliothèque Simple Design System.
 - Sept styles de texte locaux IE/.
 - Un seul mode clair pour la proposition ; aucun mode sombre n’est annoncé.
 - Noms CSS proposés dans le JSON et associés aux variables Figma. Ils ne sont pas encore implémentés dans une application.
@@ -91,7 +92,7 @@ La bibliothèque Simple Design System a été inspectée. Les espacements compat
 
 Les six cadres principaux ont été retrouvés dans Figma : trois web et trois mobile, avec leurs sources et notes de conception sauvegardées. Leur validation finale avec Romain reste à faire.
 
-La planche de charte a été contrôlée visuellement : aucune coupure ni chevauchement constaté. Les sept styles sont appliqués. Les 30 variables ont une syntaxe CSS ; aucune n’a une portée ALL_SCOPES. Les 18 alias ont été retrouvés.
+La planche de charte a été contrôlée visuellement : aucune coupure ni chevauchement constaté. Les sept styles sont appliqués. Les 32 variables ont une syntaxe CSS ; aucune n’a une portée ALL_SCOPES. Les 19 alias ont été retrouvés.
 
 Les wireframes restent en niveaux de gris. Cette charte prépare les futures maquettes sans transformer rétroactivement les wireframes en maquettes.
 
@@ -99,4 +100,8 @@ Les wireframes restent en niveaux de gris. Cette charte prépare les futures maq
 
 Figma reste la source modifiable. La planche SVG, les valeurs JSON et ce document sont sauvegardés sur dev. La planche ne remplace pas les six maquettes attendues dans la charte finale.
 
-Prochaine étape : appliquer cette direction à la première maquette web, Demande de devis, puis aux cinq autres écrans. Il restera à formaliser l’enchaînement des maquettes, les diagrammes et les exports pour le rendu. La tâche #5 reste ouverte.
+Première maquette web Demande de devis réalisée en v1. Prochaine étape : les cinq autres écrans. Il restera à formaliser l’enchaînement des maquettes, les diagrammes et les exports pour le rendu. La tâche #5 reste ouverte.
+
+## Complément événementiel — 18 octobre 2026
+
+À la suite des échanges sur l’identité de l’agence, l’accent corail #F3A48B apporte une touche chaleureuse aux pages publiques. Il complète le bleu nuit et le turquoise ; il ne remplace pas la couleur d’action principale. Sur fond corail, utiliser le texte bleu nuit, sans blanc. L’accent est ajouté aux variables Figma et à la planche. La première maquette de demande de devis applique ces règles sans image d’ambiance ; les images restent à préparer pour les écrans où elles servent le contenu.
