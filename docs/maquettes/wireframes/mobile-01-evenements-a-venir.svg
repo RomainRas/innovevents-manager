@@ -1,0 +1,43 @@
+<svg width="390" height="1269" viewBox="0 0 390 1269" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_25_286)">
+<rect width="390" height="1269" fill="white"/>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="24" font-weight="600" letter-spacing="-0.02em"><tspan x="24" y="47.2273">Innov&#x2019;Events</tspan></text>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="24" y="98.8182">Bonjour [pr&#xe9;nom]</tspan></text>
+<text fill="#303030" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="241.5" y="98.8182">D&#xe9;connexion</tspan></text>
+<rect width="390" height="930" transform="translate(0 141)" fill="#F5F5F5"/>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="28" font-weight="600" letter-spacing="-0.02em"><tspan x="24" y="192.182">&#xc9;v&#xe9;nements &#xe0; venir</tspan></text>
+<text fill="#757575" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="24" y="239.818">Retrouvez les informations utiles pour vos </tspan><tspan x="24" y="261.818">d&#xe9;placements.</tspan></text>
+<rect x="24.5" y="291.5" width="341" height="235" rx="7.5" fill="white"/>
+<rect x="24.5" y="291.5" width="341" height="235" rx="7.5" stroke="#D9D9D9"/>
+<text fill="#757575" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="49" y="332.818">[Date de d&#xe9;but] &#xb7; [Heure]</tspan></text>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="-0.02em"><tspan x="49" y="373.273">[Nom de l&#x2019;&#xe9;v&#xe9;nement 1]</tspan></text>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="49" y="410.818">Lieu : [lieu]&#10;</tspan><tspan x="49" y="432.818">Client : [nom du client]</tspan></text>
+<path d="M57 454.5H335C339.142 454.5 342.5 457.858 342.5 462V494C342.5 498.142 339.142 501.5 335 501.5H57C52.8579 501.5 49.5 498.142 49.5 494V462L49.5098 461.614C49.7105 457.651 52.9872 454.5 57 454.5Z" fill="#E3E3E3"/>
+<path d="M57 454.5H335C339.142 454.5 342.5 457.858 342.5 462V494C342.5 498.142 339.142 501.5 335 501.5H57C52.8579 501.5 49.5 498.142 49.5 494V462L49.5098 461.614C49.7105 457.651 52.9872 454.5 57 454.5Z" stroke="#767676" stroke-linecap="round"/>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="134" y="483.818">Voir l&#x2019;&#xe9;v&#xe9;nement</tspan></text>
+<rect x="24.5" y="551.5" width="341" height="235" rx="7.5" fill="white"/>
+<rect x="24.5" y="551.5" width="341" height="235" rx="7.5" stroke="#D9D9D9"/>
+<text fill="#757575" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="49" y="592.818">[Date de d&#xe9;but] &#xb7; [Heure]</tspan></text>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="-0.02em"><tspan x="49" y="633.273">[Nom de l&#x2019;&#xe9;v&#xe9;nement 2]</tspan></text>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="49" y="670.818">Lieu : [lieu]&#10;</tspan><tspan x="49" y="692.818">Client : [nom du client]</tspan></text>
+<path d="M57 714.5H335C339.142 714.5 342.5 717.858 342.5 722V754C342.5 758.142 339.142 761.5 335 761.5H57C52.8579 761.5 49.5 758.142 49.5 754V722L49.5098 721.614C49.7105 717.651 52.9872 714.5 57 714.5Z" fill="#E3E3E3"/>
+<path d="M57 714.5H335C339.142 714.5 342.5 717.858 342.5 722V754C342.5 758.142 339.142 761.5 335 761.5H57C52.8579 761.5 49.5 758.142 49.5 754V722L49.5098 721.614C49.7105 717.651 52.9872 714.5 57 714.5Z" stroke="#767676" stroke-linecap="round"/>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="134" y="743.818">Voir l&#x2019;&#xe9;v&#xe9;nement</tspan></text>
+<rect x="24.5" y="811.5" width="341" height="235" rx="7.5" fill="white"/>
+<rect x="24.5" y="811.5" width="341" height="235" rx="7.5" stroke="#D9D9D9"/>
+<text fill="#757575" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="49" y="852.818">[Date de d&#xe9;but] &#xb7; [Heure]</tspan></text>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="-0.02em"><tspan x="49" y="893.273">[Nom de l&#x2019;&#xe9;v&#xe9;nement 3]</tspan></text>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="49" y="930.818">Lieu : [lieu]&#10;</tspan><tspan x="49" y="952.818">Client : [nom du client]</tspan></text>
+<path d="M57 974.5H335C339.142 974.5 342.5 977.858 342.5 982V1014C342.5 1018.14 339.142 1021.5 335 1021.5H57C52.8579 1021.5 49.5 1018.14 49.5 1014V982L49.5098 981.614C49.7105 977.651 52.9872 974.5 57 974.5Z" fill="#E3E3E3"/>
+<path d="M57 974.5H335C339.142 974.5 342.5 977.858 342.5 982V1014C342.5 1018.14 339.142 1021.5 335 1021.5H57C52.8579 1021.5 49.5 1018.14 49.5 1014V982L49.5098 981.614C49.7105 977.651 52.9872 974.5 57 974.5Z" stroke="#767676" stroke-linecap="round"/>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="134" y="1003.82">Voir l&#x2019;&#xe9;v&#xe9;nement</tspan></text>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="18" font-weight="600" letter-spacing="-0.02em"><tspan x="24" y="1112.55">Informations l&#xe9;gales</tspan></text>
+<text fill="#303030" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="109.5" y="1162.82">Conditions d&#x2019;utilisation</tspan></text>
+<text fill="#303030" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="119" y="1226.82">Conditions de vente</tspan></text>
+</g>
+<defs>
+<clipPath id="clip0_25_286">
+<rect width="390" height="1269" fill="white"/>
+</clipPath>
+</defs>
+</svg>
