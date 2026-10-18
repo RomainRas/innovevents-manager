@@ -1,0 +1,136 @@
+<svg width="1440" height="1437" viewBox="0 0 1440 1437" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="1440" height="1437" fill="white"/>
+<mask id="path-1-inside-1_7_24" fill="white">
+<path d="M0 0H1440V89H0V0Z"/>
+</mask>
+<path d="M1440 89V88H0V89V90H1440V89Z" fill="#D9D9D9" mask="url(#path-1-inside-1_7_24)"/>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="24" font-weight="600" letter-spacing="-0.02em"><tspan x="96" y="52.7273">Innov&#x2019;Events</tspan></text>
+<g clip-path="url(#clip0_7_24)">
+<text fill="#303030" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="710" y="49.8182">Accueil</tspan></text>
+<text fill="#303030" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="797" y="49.8182">&#xc9;v&#xe9;nements</tspan></text>
+<text fill="#303030" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="922" y="49.8182">Avis</tspan></text>
+<text fill="#303030" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="985" y="49.8182">Contact</tspan></text>
+<mask id="path-12-inside-2_7_24" fill="white">
+<path d="M1066 32C1066 27.5817 1069.58 24 1074 24H1223C1227.42 24 1231 27.5817 1231 32V56C1231 60.4183 1227.42 64 1223 64H1074C1069.58 64 1066 60.4183 1066 56V32Z"/>
+</mask>
+<path d="M1066 32C1066 27.5817 1069.58 24 1074 24H1223C1227.42 24 1231 27.5817 1231 32V56C1231 60.4183 1227.42 64 1223 64H1074C1069.58 64 1066 60.4183 1066 56V32Z" fill="#2C2C2C"/>
+<path d="M1074 24V25H1223V24V23H1074V24ZM1231 32H1230V56H1231H1232V32H1231ZM1223 64V63H1074V64V65H1223V64ZM1066 56H1067V32H1066H1065V56H1066ZM1074 64V63C1070.13 63 1067 59.866 1067 56H1066H1065C1065 60.9706 1069.03 65 1074 65V64ZM1231 56H1230C1230 59.866 1226.87 63 1223 63V64V65C1227.97 65 1232 60.9706 1232 56H1231ZM1223 24V25C1226.87 25 1230 28.134 1230 32H1231H1232C1232 27.0294 1227.97 23 1223 23V24ZM1074 24V23C1069.03 23 1065 27.0294 1065 32H1066H1067C1067 28.134 1070.13 25 1074 25V24Z" fill="#2C2C2C" mask="url(#path-12-inside-2_7_24)"/>
+<text fill="#F5F5F5" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="1078" y="49.8182">Demande de devis</tspan></text>
+<path d="M1247 24.5H1336C1340.14 24.5 1343.5 27.8579 1343.5 32V56C1343.5 60.1421 1340.14 63.5 1336 63.5H1247C1242.86 63.5 1239.5 60.1421 1239.5 56V32C1239.5 27.8579 1242.86 24.5 1247 24.5Z" fill="#E3E3E3"/>
+<path d="M1247 24.5H1336C1340.14 24.5 1343.5 27.8579 1343.5 32V56C1343.5 60.1421 1340.14 63.5 1336 63.5H1247C1242.86 63.5 1239.5 60.1421 1239.5 56V32C1239.5 27.8579 1242.86 24.5 1247 24.5Z" stroke="#767676" stroke-linecap="round"/>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="1251" y="49.8182">Connexion</tspan></text>
+</g>
+<text fill="#757575" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="96" y="152.091">Accueil / Demande de devis</tspan></text>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="36" font-weight="600" letter-spacing="-0.02em"><tspan x="96" y="223.591">Parlons de votre &#xe9;v&#xe9;nement</tspan></text>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="96" y="264.818">D&#xe9;crivez votre projet. Notre &#xe9;quipe vous recontactera pour pr&#xe9;parer une proposition adapt&#xe9;e.</tspan></text>
+<text fill="#757575" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="96" y="301.091">Tous les champs marqu&#xe9;s d&#x2019;un ast&#xe9;risque (*) sont obligatoires.</tspan></text>
+<g clip-path="url(#clip1_7_24)">
+<rect x="96.5" y="338.5" width="847" height="961" fill="white"/>
+<rect x="96.5" y="338.5" width="847" height="961" stroke="#D9D9D9"/>
+<g clip-path="url(#clip2_7_24)">
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="24" font-weight="600" letter-spacing="-0.02em"><tspan x="129" y="394.227">1. Vos coordonn&#xe9;es</tspan></text>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="129" y="440.818">Nom de l&#x2019;entreprise *</tspan></text>
+<path d="M129 462C129 457.582 132.582 454 137 454H905C909.418 454 913 457.582 913 462V486C913 490.418 909.418 494 905 494H137C132.582 494 129 490.418 129 486V462Z" fill="white"/>
+<path d="M137 454V454.5H905V454V453.5H137V454ZM913 462H912.5V486H913H913.5V462H913ZM905 494V493.5H137V494V494.5H905V494ZM129 486H129.5V462H129H128.5V486H129ZM137 494V493.5C132.858 493.5 129.5 490.142 129.5 486H129H128.5C128.5 490.694 132.306 494.5 137 494.5V494ZM913 486H912.5C912.5 490.142 909.142 493.5 905 493.5V494V494.5C909.694 494.5 913.5 490.694 913.5 486H913ZM905 454V454.5C909.142 454.5 912.5 457.858 912.5 462H913H913.5C913.5 457.306 909.694 453.5 905 453.5V454ZM137 454V453.5C132.306 453.5 128.5 457.306 128.5 462H129H129.5C129.5 457.858 132.858 454.5 137 454.5V454Z" fill="#D9D9D9"/>
+<text fill="#B3B3B3" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="145" y="479.818">Nom de votre entreprise</tspan></text>
+<g clip-path="url(#clip3_7_24)">
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="129" y="534.818">Nom *</tspan></text>
+<path d="M129 556C129 551.582 132.582 548 137 548H501C505.418 548 509 551.582 509 556V580C509 584.418 505.418 588 501 588H137C132.582 588 129 584.418 129 580V556Z" fill="white"/>
+<path d="M137 548V548.5H501V548V547.5H137V548ZM509 556H508.5V580H509H509.5V556H509ZM501 588V587.5H137V588V588.5H501V588ZM129 580H129.5V556H129H128.5V580H129ZM137 588V587.5C132.858 587.5 129.5 584.142 129.5 580H129H128.5C128.5 584.694 132.306 588.5 137 588.5V588ZM509 580H508.5C508.5 584.142 505.142 587.5 501 587.5V588V588.5C505.694 588.5 509.5 584.694 509.5 580H509ZM501 548V548.5C505.142 548.5 508.5 551.858 508.5 556H509H509.5C509.5 551.306 505.694 547.5 501 547.5V548ZM137 548V547.5C132.306 547.5 128.5 551.306 128.5 556H129H129.5C129.5 551.858 132.858 548.5 137 548.5V548Z" fill="#D9D9D9"/>
+<text fill="#B3B3B3" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="145" y="573.818">Votre nom</tspan></text>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="533" y="534.818">Pr&#xe9;nom *</tspan></text>
+<path d="M533 556C533 551.582 536.582 548 541 548H905C909.418 548 913 551.582 913 556V580C913 584.418 909.418 588 905 588H541C536.582 588 533 584.418 533 580V556Z" fill="white"/>
+<path d="M541 548V548.5H905V548V547.5H541V548ZM913 556H912.5V580H913H913.5V556H913ZM905 588V587.5H541V588V588.5H905V588ZM533 580H533.5V556H533H532.5V580H533ZM541 588V587.5C536.858 587.5 533.5 584.142 533.5 580H533H532.5C532.5 584.694 536.306 588.5 541 588.5V588ZM913 580H912.5C912.5 584.142 909.142 587.5 905 587.5V588V588.5C909.694 588.5 913.5 584.694 913.5 580H913ZM905 548V548.5C909.142 548.5 912.5 551.858 912.5 556H913H913.5C913.5 551.306 909.694 547.5 905 547.5V548ZM541 548V547.5C536.306 547.5 532.5 551.306 532.5 556H533H533.5C533.5 551.858 536.858 548.5 541 548.5V548Z" fill="#D9D9D9"/>
+<text fill="#B3B3B3" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="549" y="573.818">Votre pr&#xe9;nom</tspan></text>
+</g>
+<g clip-path="url(#clip4_7_24)">
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="129" y="628.818">Adresse e-mail *</tspan></text>
+<path d="M129 650C129 645.582 132.582 642 137 642H501C505.418 642 509 645.582 509 650V674C509 678.418 505.418 682 501 682H137C132.582 682 129 678.418 129 674V650Z" fill="white"/>
+<path d="M137 642V642.5H501V642V641.5H137V642ZM509 650H508.5V674H509H509.5V650H509ZM501 682V681.5H137V682V682.5H501V682ZM129 674H129.5V650H129H128.5V674H129ZM137 682V681.5C132.858 681.5 129.5 678.142 129.5 674H129H128.5C128.5 678.694 132.306 682.5 137 682.5V682ZM509 674H508.5C508.5 678.142 505.142 681.5 501 681.5V682V682.5C505.694 682.5 509.5 678.694 509.5 674H509ZM501 642V642.5C505.142 642.5 508.5 645.858 508.5 650H509H509.5C509.5 645.306 505.694 641.5 501 641.5V642ZM137 642V641.5C132.306 641.5 128.5 645.306 128.5 650H129H129.5C129.5 645.858 132.858 642.5 137 642.5V642Z" fill="#D9D9D9"/>
+<text fill="#B3B3B3" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="145" y="667.818">vous@entreprise.fr</tspan></text>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="533" y="628.818">T&#xe9;l&#xe9;phone *</tspan></text>
+<path d="M533 650C533 645.582 536.582 642 541 642H905C909.418 642 913 645.582 913 650V674C913 678.418 909.418 682 905 682H541C536.582 682 533 678.418 533 674V650Z" fill="white"/>
+<path d="M541 642V642.5H905V642V641.5H541V642ZM913 650H912.5V674H913H913.5V650H913ZM905 682V681.5H541V682V682.5H905V682ZM533 674H533.5V650H533H532.5V674H533ZM541 682V681.5C536.858 681.5 533.5 678.142 533.5 674H533H532.5C532.5 678.694 536.306 682.5 541 682.5V682ZM913 674H912.5C912.5 678.142 909.142 681.5 905 681.5V682V682.5C909.694 682.5 913.5 678.694 913.5 674H913ZM905 642V642.5C909.142 642.5 912.5 645.858 912.5 650H913H913.5C913.5 645.306 909.694 641.5 905 641.5V642ZM541 642V641.5C536.306 641.5 532.5 645.306 532.5 650H533H533.5C533.5 645.858 536.858 642.5 541 642.5V642Z" fill="#D9D9D9"/>
+<text fill="#B3B3B3" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="549" y="667.818">Votre num&#xe9;ro de t&#xe9;l&#xe9;phone</tspan></text>
+</g>
+</g>
+<g clip-path="url(#clip5_7_24)">
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="24" font-weight="600" letter-spacing="-0.02em"><tspan x="129" y="737.227">2. Votre &#xe9;v&#xe9;nement</tspan></text>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="129" y="783.818">Lieu *</tspan></text>
+<path d="M129 805C129 800.582 132.582 797 137 797H905C909.418 797 913 800.582 913 805V829C913 833.418 909.418 837 905 837H137C132.582 837 129 833.418 129 829V805Z" fill="white"/>
+<path d="M137 797V797.5H905V797V796.5H137V797ZM913 805H912.5V829H913H913.5V805H913ZM905 837V836.5H137V837V837.5H905V837ZM129 829H129.5V805H129H128.5V829H129ZM137 837V836.5C132.858 836.5 129.5 833.142 129.5 829H129H128.5C128.5 833.694 132.306 837.5 137 837.5V837ZM913 829H912.5C912.5 833.142 909.142 836.5 905 836.5V837V837.5C909.694 837.5 913.5 833.694 913.5 829H913ZM905 797V797.5C909.142 797.5 912.5 800.858 912.5 805H913H913.5C913.5 800.306 909.694 796.5 905 796.5V797ZM137 797V796.5C132.306 796.5 128.5 800.306 128.5 805H129H129.5C129.5 800.858 132.858 797.5 137 797.5V797Z" fill="#D9D9D9"/>
+<text fill="#B3B3B3" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="145" y="822.818">Lieu ou adresse de l&#x2019;&#xe9;v&#xe9;nement</tspan></text>
+<g clip-path="url(#clip6_7_24)">
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="129" y="877.818">Type d&#x2019;&#xe9;v&#xe9;nement envisag&#xe9; *</tspan></text>
+<path d="M129 899C129 894.582 132.582 891 137 891H501C505.418 891 509 894.582 509 899V923C509 927.418 505.418 931 501 931H137C132.582 931 129 927.418 129 923V899Z" fill="white"/>
+<path d="M137 891V891.5H501V891V890.5H137V891ZM509 899H508.5V923H509H509.5V899H509ZM501 931V930.5H137V931V931.5H501V931ZM129 923H129.5V899H129H128.5V923H129ZM137 931V930.5C132.858 930.5 129.5 927.142 129.5 923H129H128.5C128.5 927.694 132.306 931.5 137 931.5V931ZM509 923H508.5C508.5 927.142 505.142 930.5 501 930.5V931V931.5C505.694 931.5 509.5 927.694 509.5 923H509ZM501 891V891.5C505.142 891.5 508.5 894.858 508.5 899H509H509.5C509.5 894.306 505.694 890.5 501 890.5V891ZM137 891V890.5C132.306 890.5 128.5 894.306 128.5 899H129H129.5C129.5 894.858 132.858 891.5 137 891.5V891Z" fill="#D9D9D9"/>
+<text fill="#B3B3B3" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="145" y="916.818">Ex. : s&#xe9;minaire, conf&#xe9;rence&#x2026;</tspan></text>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="533" y="877.818">Date souhait&#xe9;e *</tspan></text>
+<path d="M533 899C533 894.582 536.582 891 541 891H905C909.418 891 913 894.582 913 899V923C913 927.418 909.418 931 905 931H541C536.582 931 533 927.418 533 923V899Z" fill="white"/>
+<path d="M541 891V891.5H905V891V890.5H541V891ZM913 899H912.5V923H913H913.5V899H913ZM905 931V930.5H541V931V931.5H905V931ZM533 923H533.5V899H533H532.5V923H533ZM541 931V930.5C536.858 930.5 533.5 927.142 533.5 923H533H532.5C532.5 927.694 536.306 931.5 541 931.5V931ZM913 923H912.5C912.5 927.142 909.142 930.5 905 930.5V931V931.5C909.694 931.5 913.5 927.694 913.5 923H913ZM905 891V891.5C909.142 891.5 912.5 894.858 912.5 899H913H913.5C913.5 894.306 909.694 890.5 905 890.5V891ZM541 891V890.5C536.306 890.5 532.5 894.306 532.5 899H533H533.5C533.5 894.858 536.858 891.5 541 891.5V891Z" fill="#D9D9D9"/>
+<text fill="#B3B3B3" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="549" y="916.818">JJ / MM / AAAA</tspan></text>
+</g>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="129" y="971.818">Nombre de participants estim&#xe9; *</tspan></text>
+<path d="M129 993C129 988.582 132.582 985 137 985H501C505.418 985 509 988.582 509 993V1017C509 1021.42 505.418 1025 501 1025H137C132.582 1025 129 1021.42 129 1017V993Z" fill="white"/>
+<path d="M137 985V985.5H501V985V984.5H137V985ZM509 993H508.5V1017H509H509.5V993H509ZM501 1025V1024.5H137V1025V1025.5H501V1025ZM129 1017H129.5V993H129H128.5V1017H129ZM137 1025V1024.5C132.858 1024.5 129.5 1021.14 129.5 1017H129H128.5C128.5 1021.69 132.306 1025.5 137 1025.5V1025ZM509 1017H508.5C508.5 1021.14 505.142 1024.5 501 1024.5V1025V1025.5C505.694 1025.5 509.5 1021.69 509.5 1017H509ZM501 985V985.5C505.142 985.5 508.5 988.858 508.5 993H509H509.5C509.5 988.306 505.694 984.5 501 984.5V985ZM137 985V984.5C132.306 984.5 128.5 988.306 128.5 993H129H129.5C129.5 988.858 132.858 985.5 137 985.5V985Z" fill="#D9D9D9"/>
+<text fill="#B3B3B3" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="145" y="1010.82">Nombre de personnes</tspan></text>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="129" y="1065.82">Votre besoin en quelques mots *</tspan></text>
+<path d="M129 1087C129 1082.58 132.582 1079 137 1079H905C909.418 1079 913 1082.58 913 1087V1151C913 1155.42 909.418 1159 905 1159H137C132.582 1159 129 1155.42 129 1151V1087Z" fill="white"/>
+<path d="M137 1079V1079.5H905V1079V1078.5H137V1079ZM913 1087H912.5V1151H913H913.5V1087H913ZM905 1159V1158.5H137V1159V1159.5H905V1159ZM129 1151H129.5V1087H129H128.5V1151H129ZM137 1159V1158.5C132.858 1158.5 129.5 1155.14 129.5 1151H129H128.5C128.5 1155.69 132.306 1159.5 137 1159.5V1159ZM913 1151H912.5C912.5 1155.14 909.142 1158.5 905 1158.5V1159V1159.5C909.694 1159.5 913.5 1155.69 913.5 1151H913ZM905 1079V1079.5C909.142 1079.5 912.5 1082.86 912.5 1087H913H913.5C913.5 1082.31 909.694 1078.5 905 1078.5V1079ZM137 1079V1078.5C132.306 1078.5 128.5 1082.31 128.5 1087H129H129.5C129.5 1082.86 132.858 1079.5 137 1079.5V1079Z" fill="#D9D9D9"/>
+<text fill="#B3B3B3" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="145" y="1107.82">D&#xe9;crivez votre projet et vos attentes.</tspan></text>
+<path d="M907.523 1146.35L901.354 1152.52M907.981 1149.9L904.896 1152.98" stroke="#B3B3B3"/>
+</g>
+<g clip-path="url(#clip7_7_24)">
+<text fill="#757575" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="129" y="1206.09">Ces informations permettent &#xe0; Innov&#x2019;Events d&#x2019;&#xe9;tudier votre demande et de vous recontacter.</tspan></text>
+<mask id="path-66-inside-3_7_24" fill="white">
+<path d="M129 1235C129 1230.58 132.582 1227 137 1227H308C312.418 1227 316 1230.58 316 1235V1259C316 1263.42 312.418 1267 308 1267H137C132.582 1267 129 1263.42 129 1259V1235Z"/>
+</mask>
+<path d="M129 1235C129 1230.58 132.582 1227 137 1227H308C312.418 1227 316 1230.58 316 1235V1259C316 1263.42 312.418 1267 308 1267H137C132.582 1267 129 1263.42 129 1259V1235Z" fill="#2C2C2C"/>
+<path d="M137 1227V1228H308V1227V1226H137V1227ZM316 1235H315V1259H316H317V1235H316ZM308 1267V1266H137V1267V1268H308V1267ZM129 1259H130V1235H129H128V1259H129ZM137 1267V1266C133.134 1266 130 1262.87 130 1259H129H128C128 1263.97 132.029 1268 137 1268V1267ZM316 1259H315C315 1262.87 311.866 1266 308 1266V1267V1268C312.971 1268 317 1263.97 317 1259H316ZM308 1227V1228C311.866 1228 315 1231.13 315 1235H316H317C317 1230.03 312.971 1226 308 1226V1227ZM137 1227V1226C132.029 1226 128 1230.03 128 1235H129H130C130 1231.13 133.134 1228 137 1228V1227Z" fill="#2C2C2C" mask="url(#path-66-inside-3_7_24)"/>
+<text fill="#F5F5F5" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="141" y="1252.82">Envoyer ma demande</tspan></text>
+</g>
+<rect width="352" height="487" transform="translate(992 338)" fill="#F5F5F5"/>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="24" font-weight="600" letter-spacing="-0.02em"><tspan x="1024" y="393.227">Et ensuite ?</tspan></text>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="1024" y="439.818">01  Vous d&#xe9;crivez votre projet</tspan></text>
+<text fill="#757575" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="1024" y="484.091">Pr&#xe9;cisez vos coordonn&#xe9;es et les </tspan><tspan x="1024" y="504.091">informations utiles sur votre &#xe9;v&#xe9;nement.</tspan></text>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="1024" y="549.818">02  Nous &#xe9;changeons avec vous</tspan></text>
+<text fill="#757575" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="1024" y="594.091">Chlo&#xe9; vous recontacte pour pr&#xe9;ciser votre </tspan><tspan x="1024" y="614.091">besoin.</tspan></text>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="1024" y="659.818">03  Vous recevez une proposition</tspan></text>
+<text fill="#757575" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="1024" y="704.091">Si votre projet peut &#xea;tre pris en charge, </tspan><tspan x="1024" y="724.091">l&#x2019;agence pr&#xe9;pare votre devis.</tspan></text>
+<path d="M1032 753.5H1157C1161.14 753.5 1164.5 756.858 1164.5 761V785C1164.5 789.142 1161.14 792.5 1157 792.5H1032C1027.86 792.5 1024.5 789.142 1024.5 785V761C1024.5 756.858 1027.86 753.5 1032 753.5Z" fill="#E3E3E3"/>
+<path d="M1032 753.5H1157C1161.14 753.5 1164.5 756.858 1164.5 761V785C1164.5 789.142 1161.14 792.5 1157 792.5H1032C1027.86 792.5 1024.5 789.142 1024.5 785V761C1024.5 756.858 1027.86 753.5 1032 753.5Z" stroke="#767676" stroke-linecap="round"/>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="1036" y="778.818">Nous contacter</tspan></text>
+</g>
+<mask id="path-78-inside-4_7_24" fill="white">
+<path d="M0 1348H1440V1437H0V1348Z"/>
+</mask>
+<path d="M0 1348V1349H1440V1348V1347H0V1348Z" fill="#D9D9D9" mask="url(#path-78-inside-4_7_24)"/>
+<text fill="#1E1E1E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="96" y="1398.82">Innov&#x2019;Events</tspan></text>
+<text fill="#303030" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="1204" y="1398.82">Mentions l&#xe9;gales</tspan></text>
+<defs>
+<clipPath id="clip0_7_24">
+<rect width="646" height="40" fill="white" transform="translate(698 24)"/>
+</clipPath>
+<clipPath id="clip1_7_24">
+<rect width="1248" height="962" fill="white" transform="translate(96 338)"/>
+</clipPath>
+<clipPath id="clip2_7_24">
+<rect width="784" height="311" fill="white" transform="translate(129 371)"/>
+</clipPath>
+<clipPath id="clip3_7_24">
+<rect width="784" height="70" fill="white" transform="translate(129 518)"/>
+</clipPath>
+<clipPath id="clip4_7_24">
+<rect width="784" height="70" fill="white" transform="translate(129 612)"/>
+</clipPath>
+<clipPath id="clip5_7_24">
+<rect width="784" height="445" fill="white" transform="translate(129 714)"/>
+</clipPath>
+<clipPath id="clip6_7_24">
+<rect width="784" height="70" fill="white" transform="translate(129 861)"/>
+</clipPath>
+<clipPath id="clip7_7_24">
+<rect width="784" height="76" fill="white" transform="translate(129 1191)"/>
+</clipPath>
+</defs>
+</svg>
