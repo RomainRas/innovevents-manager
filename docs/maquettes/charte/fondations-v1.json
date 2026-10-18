@@ -13,7 +13,8 @@
     "border": "#718391",
     "success": "#216E4E",
     "error": "#B42318",
-    "warning": "#8A4B08"
+    "warning": "#8A4B08",
+    "coral": "#F3A48B"
   },
   "cssVariables": {
     "--ie-color-brand": "#142D43",
@@ -28,7 +29,8 @@
     "--ie-color-focus": "#142D43",
     "--ie-color-success": "#216E4E",
     "--ie-color-error": "#B42318",
-    "--ie-color-warning": "#8A4B08"
+    "--ie-color-warning": "#8A4B08",
+    "--ie-color-accent": "#F3A48B"
   },
   "spacing": [
     8,
@@ -159,7 +161,8 @@
       "space/24": "VariableID:35:377",
       "space/32": "VariableID:35:378",
       "space/48": "VariableID:35:379",
-      "radius/card": "VariableID:35:380"
+      "radius/card": "VariableID:35:380",
+      "color/accent": "VariableID:42:365"
     },
     "primitiveVariables": {
       "color/navy": "VariableID:35:351",
@@ -172,7 +175,8 @@
       "color/border": "VariableID:35:358",
       "color/success": "VariableID:35:359",
       "color/error": "VariableID:35:360",
-      "color/warning": "VariableID:35:361"
+      "color/warning": "VariableID:35:361",
+      "color/coral": "VariableID:42:364"
     },
     "styles": {
       "Titre web": "S:b0245d43b4f039654b8d47ec2fd1b50f517febd3,",
@@ -185,8 +189,8 @@
     },
     "frame": "35:388",
     "counts": {
-      "primitives": 11,
-      "semantic": 13,
+      "primitives": 12,
+      "semantic": 14,
       "geometry": 6,
       "styles": 7
     }
