@@ -1,0 +1,194 @@
+{
+  "version": 1,
+  "status": "proposition",
+  "fontFamily": "Inter",
+  "colors": {
+    "navy": "#142D43",
+    "primary": "#087F8C",
+    "hover": "#06616B",
+    "ink": "#172B3A",
+    "muted": "#526574",
+    "bg": "#F4F7FA",
+    "white": "#FFFFFF",
+    "border": "#718391",
+    "success": "#216E4E",
+    "error": "#B42318",
+    "warning": "#8A4B08"
+  },
+  "cssVariables": {
+    "--ie-color-brand": "#142D43",
+    "--ie-color-action": "#087F8C",
+    "--ie-color-action-hover": "#06616B",
+    "--ie-color-text": "#172B3A",
+    "--ie-color-text-secondary": "#526574",
+    "--ie-color-background": "#F4F7FA",
+    "--ie-color-surface": "#FFFFFF",
+    "--ie-color-on-action": "#FFFFFF",
+    "--ie-color-border": "#718391",
+    "--ie-color-focus": "#142D43",
+    "--ie-color-success": "#216E4E",
+    "--ie-color-error": "#B42318",
+    "--ie-color-warning": "#8A4B08"
+  },
+  "spacing": [
+    8,
+    16,
+    24,
+    32,
+    48
+  ],
+  "cardRadius": 8,
+  "touchTargetHeight": 48,
+  "typography": [
+    [
+      "Titre web",
+      36,
+      44,
+      "Bold"
+    ],
+    [
+      "Titre mobile",
+      28,
+      36,
+      "Bold"
+    ],
+    [
+      "Section",
+      24,
+      32,
+      "Semi Bold"
+    ],
+    [
+      "Sous-titre",
+      20,
+      28,
+      "Semi Bold"
+    ],
+    [
+      "Corps",
+      16,
+      24,
+      "Regular"
+    ],
+    [
+      "Libellé",
+      16,
+      24,
+      "Semi Bold"
+    ],
+    [
+      "Légende",
+      14,
+      20,
+      "Regular"
+    ]
+  ],
+  "contrastsOnWhite": [
+    {
+      "color": "primary",
+      "hex": "#087F8C",
+      "onWhite": "4.75"
+    },
+    {
+      "color": "hover",
+      "hex": "#06616B",
+      "onWhite": "7.17"
+    },
+    {
+      "color": "navy",
+      "hex": "#142D43",
+      "onWhite": "14.13"
+    },
+    {
+      "color": "ink",
+      "hex": "#172B3A",
+      "onWhite": "14.55"
+    },
+    {
+      "color": "muted",
+      "hex": "#526574",
+      "onWhite": "6.05"
+    },
+    {
+      "color": "success",
+      "hex": "#216E4E",
+      "onWhite": "6.17"
+    },
+    {
+      "color": "error",
+      "hex": "#B42318",
+      "onWhite": "6.57"
+    },
+    {
+      "color": "warning",
+      "hex": "#8A4B08",
+      "onWhite": "6.79"
+    }
+  ],
+  "figma": {
+    "created": [
+      "35:388"
+    ],
+    "collections": [
+      "VariableCollectionId:35:349",
+      "VariableCollectionId:35:350"
+    ],
+    "variables": {
+      "color/navy": "VariableID:35:351",
+      "color/primary": "VariableID:35:352",
+      "color/hover": "VariableID:35:353",
+      "color/ink": "VariableID:35:354",
+      "color/muted": "VariableID:35:355",
+      "color/bg": "VariableID:35:356",
+      "color/white": "VariableID:35:357",
+      "color/border": "VariableID:35:370",
+      "color/success": "VariableID:35:372",
+      "color/error": "VariableID:35:373",
+      "color/warning": "VariableID:35:374",
+      "color/brand": "VariableID:35:362",
+      "color/action": "VariableID:35:363",
+      "color/action-hover": "VariableID:35:364",
+      "color/text": "VariableID:35:365",
+      "color/text-secondary": "VariableID:35:366",
+      "color/background": "VariableID:35:367",
+      "color/surface": "VariableID:35:368",
+      "color/on-action": "VariableID:35:369",
+      "color/focus": "VariableID:35:371",
+      "space/8": "VariableID:35:375",
+      "space/16": "VariableID:35:376",
+      "space/24": "VariableID:35:377",
+      "space/32": "VariableID:35:378",
+      "space/48": "VariableID:35:379",
+      "radius/card": "VariableID:35:380"
+    },
+    "primitiveVariables": {
+      "color/navy": "VariableID:35:351",
+      "color/primary": "VariableID:35:352",
+      "color/hover": "VariableID:35:353",
+      "color/ink": "VariableID:35:354",
+      "color/muted": "VariableID:35:355",
+      "color/bg": "VariableID:35:356",
+      "color/white": "VariableID:35:357",
+      "color/border": "VariableID:35:358",
+      "color/success": "VariableID:35:359",
+      "color/error": "VariableID:35:360",
+      "color/warning": "VariableID:35:361"
+    },
+    "styles": {
+      "Titre web": "S:b0245d43b4f039654b8d47ec2fd1b50f517febd3,",
+      "Titre mobile": "S:2f22f11e3497eeb90c020765f596a6ca6a4136d1,",
+      "Section": "S:d5189c0d6c97059cca316f51b971a9e2b21c1e9a,",
+      "Sous-titre": "S:27487d63abbad5384252343d979b156041a94ca1,",
+      "Corps": "S:083b0b898a4db5e67f47d32e7e95ae6e03c51ef6,",
+      "Libellé": "S:d99f26be3d3e01fe8e3f65b46144a518a07bfc43,",
+      "Légende": "S:3249c3a71176068aa1616fe55a2cbab10d896245,"
+    },
+    "frame": "35:388",
+    "counts": {
+      "primitives": 11,
+      "semantic": 13,
+      "geometry": 6,
+      "styles": 7
+    }
+  }
+}
