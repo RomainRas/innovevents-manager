@@ -1,0 +1,30 @@
+<svg width="390" height="600" viewBox="0 0 390 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_55_392)">
+<rect width="390" height="600" fill="#F4F7FA"/>
+<rect width="390" height="600" fill="#F4F7FA"/>
+<path d="M24 32C24 27.5817 27.5817 24 32 24H358C362.418 24 366 27.5817 366 32V208C366 212.418 362.418 216 358 216H32C27.5817 216 24 212.418 24 208V32Z" fill="#142D43"/>
+<text fill="white" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="48" y="69.2727">Innov&#x2019;Events</tspan></text>
+<text fill="white" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="28" font-weight="bold" letter-spacing="0em"><tspan x="48" y="120.182">Ajouter une note</tspan></text>
+<text fill="white" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="48" y="161.818">&#xc9;v&#xe9;nement :&#10;</tspan><tspan x="48" y="185.818">[Nom de l&#x2019;&#xe9;v&#xe9;nement]</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="24" y="249.818">Consignez une information apr&#xe8;s votre </tspan><tspan x="24" y="273.818">&#xe9;change.</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="24" y="313.818">Votre note *</tspan></text>
+<path d="M24 336C24 331.582 27.5817 328 32 328H358C362.418 328 366 331.582 366 336V400C366 404.418 362.418 408 358 408H32C27.5817 408 24 404.418 24 400V336Z" fill="white"/>
+<path d="M32 328V328.5H358V328V327.5H32V328ZM366 336H365.5V400H366H366.5V336H366ZM358 408V407.5H32V408V408.5H358V408ZM24 400H24.5V336H24H23.5V400H24ZM32 408V407.5C27.8579 407.5 24.5 404.142 24.5 400H24H23.5C23.5 404.694 27.3056 408.5 32 408.5V408ZM366 400H365.5C365.5 404.142 362.142 407.5 358 407.5V408V408.5C362.694 408.5 366.5 404.694 366.5 400H366ZM358 328V328.5C362.142 328.5 365.5 331.858 365.5 336H366H366.5C366.5 331.306 362.694 327.5 358 327.5V328ZM32 328V327.5C27.3056 327.5 23.5 331.306 23.5 336H24H24.5C24.5 331.858 27.8579 328.5 32 328.5V328Z" fill="#718391"/>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="40" y="357.818">Saisissez votre note&#x2026;</tspan></text>
+<path d="M360.523 395.354L354.354 401.523M360.981 398.896L357.896 401.981" stroke="#B3B3B3"/>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="24" y="441.818">* Champ obligatoire.</tspan></text>
+<path d="M24 472C24 467.582 27.5817 464 32 464H358C362.418 464 366 467.582 366 472V504C366 508.418 362.418 512 358 512H32C27.5817 512 24 508.418 24 504V472Z" fill="#087F8C"/>
+<text fill="white" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="123.5" y="493.818">Enregistrer la note</tspan></text>
+<mask id="path-14-inside-1_55_392" fill="white">
+<path d="M24 536C24 531.582 27.5817 528 32 528H358C362.418 528 366 531.582 366 536V568C366 572.418 362.418 576 358 576H32C27.5817 576 24 572.418 24 568V536Z"/>
+</mask>
+<path d="M24 536C24 531.582 27.5817 528 32 528H358C362.418 528 366 531.582 366 536V568C366 572.418 362.418 576 358 576H32C27.5817 576 24 572.418 24 568V536Z" fill="white"/>
+<path d="M32 528V529H358V528V527H32V528ZM366 536H365V568H366H367V536H366ZM358 576V575H32V576V577H358V576ZM24 568H25V536H24H23V568H24ZM32 576V575C28.134 575 25 571.866 25 568H24H23C23 572.971 27.0294 577 32 577V576ZM366 568H365C365 571.866 361.866 575 358 575V576V577C362.971 577 367 572.971 367 568H366ZM358 528V529C361.866 529 365 532.134 365 536H366H367C367 531.029 362.971 527 358 527V528ZM32 528V527C27.0294 527 23 531.029 23 536H24H25C25 532.134 28.134 529 32 529V528Z" fill="#718391" mask="url(#path-14-inside-1_55_392)"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="164.5" y="557.818">Annuler</tspan></text>
+</g>
+<defs>
+<clipPath id="clip0_55_392">
+<rect width="390" height="600" fill="white"/>
+</clipPath>
+</defs>
+</svg>
