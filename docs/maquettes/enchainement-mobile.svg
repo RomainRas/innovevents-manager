@@ -1,0 +1,56 @@
+<svg width="1600" height="1280" viewBox="0 0 1600 1280" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="1600" height="1280" fill="#F4F7FA"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="36" font-weight="bold" letter-spacing="0em"><tspan x="48" y="75.0909">MOBILE &#x2014; Consulter, contacter, noter</tspan></text>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="48" y="117.818">Chlo&#xe9; et Jos&#xe9; &#xb7; Session interne autoris&#xe9;e requise, selon le mod&#xe8;le de droits retenu. Aucun acc&#xe8;s client &#xe0; ce parcours.</tspan></text>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="48" y="167.091">Contour turquoise : &#xe9;cran maquett&#xe9;  &#x2022;  Contour gris : &#xe9;tat, application externe ou r&#xe8;gle &#xe0; pr&#xe9;voir  &#x2022;  Les retours sont explicit&#xe9;s</tspan></text>
+<path d="M488 355H580" stroke="#526574" stroke-width="2"/>
+<path d="M570 350L580 355L570 360" stroke="#526574" stroke-width="2"/>
+<path d="M1020 355H1112" stroke="#526574" stroke-width="2"/>
+<path d="M1102 350L1112 355L1102 360" stroke="#526574" stroke-width="2"/>
+<path d="M875 460V650" stroke="#526574" stroke-width="2"/>
+<path d="M880 640L875 650L870 640" stroke="#526574" stroke-width="2"/>
+<path d="M580 770H540V520H680V460" stroke="#526574" stroke-width="2"/>
+<path d="M675 470L680 460L685 470" stroke="#526574" stroke-width="2"/>
+<path d="M1400 460V650" stroke="#526574" stroke-width="2"/>
+<path d="M1405 640L1400 650L1395 640" stroke="#526574" stroke-width="2"/>
+<path d="M1112 770H1070V520H1200V460" stroke="#526574" stroke-width="2" stroke-dasharray="7 6"/>
+<path d="M1195 470L1200 460L1205 470" stroke="#526574" stroke-width="2"/>
+<path d="M56 251H480C483.866 251 487 254.134 487 258V452C487 455.866 483.866 459 480 459H56C52.134 459 49 455.866 49 452V258C49 254.134 52.134 251 56 251Z" fill="white"/>
+<path d="M56 251H480C483.866 251 487 254.134 487 258V452C487 455.866 483.866 459 480 459H56C52.134 459 49 455.866 49 452V258C49 254.134 52.134 251 56 251Z" stroke="#087F8C" stroke-width="2"/>
+<text fill="#087F8C" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="74" y="291.091">MOB01 &#xb7; &#xc9;QUIPE &#xb7; &#xc9;CRAN MAQUETT&#xc9;</tspan></text>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="24" font-weight="600" letter-spacing="0em"><tspan x="74" y="328.727">&#xc9;v&#xe9;nements &#xe0; venir</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="74" y="361.818">&#xc0; l&#x2019;ouverture : liste des &#xe9;v&#xe9;nements &#xe0; venir. </tspan><tspan x="74" y="385.818">S&#xe9;lectionner un &#xe9;v&#xe9;nement pour consulter ses </tspan><tspan x="74" y="409.818">informations.</tspan></text>
+<path d="M588 251H1012C1015.87 251 1019 254.134 1019 258V452C1019 455.866 1015.87 459 1012 459H588C584.134 459 581 455.866 581 452V258C581 254.134 584.134 251 588 251Z" fill="white"/>
+<path d="M588 251H1012C1015.87 251 1019 254.134 1019 258V452C1019 455.866 1015.87 459 1012 459H588C584.134 459 581 455.866 581 452V258C581 254.134 584.134 251 588 251Z" stroke="#087F8C" stroke-width="2"/>
+<text fill="#087F8C" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="606" y="291.091">MOB02 &#xb7; &#xc9;QUIPE &#xb7; &#xc9;CRAN MAQUETT&#xc9;</tspan></text>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="24" font-weight="600" letter-spacing="0em"><tspan x="606" y="328.727">Fiche &#xe9;v&#xe9;nement</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="606" y="361.818">Nom, dates, lieu et client associ&#xe9;. Retour possible &#xe0; </tspan><tspan x="606" y="385.818">la liste. Action &#xab; Ajouter une note &#xbb; bien visible.</tspan></text>
+<path d="M1120 251H1544C1547.87 251 1551 254.134 1551 258V452C1551 455.866 1547.87 459 1544 459H1120C1116.13 459 1113 455.866 1113 452V258C1113 254.134 1116.13 251 1120 251Z" fill="white"/>
+<path d="M1120 251H1544C1547.87 251 1551 254.134 1551 258V452C1551 455.866 1547.87 459 1544 459H1120C1116.13 459 1113 455.866 1113 452V258C1113 254.134 1116.13 251 1120 251Z" stroke="#087F8C" stroke-width="2"/>
+<text fill="#087F8C" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="1138" y="291.091">MOB03 &#xb7; &#xc9;QUIPE &#xb7; &#xc9;CRAN MAQUETT&#xc9;</tspan></text>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="24" font-weight="600" letter-spacing="0em"><tspan x="1138" y="328.727">Fiche client</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="1138" y="361.818">Entreprise, contact et coordonn&#xe9;es. Retour </tspan><tspan x="1138" y="385.818">possible &#xe0; l&#x2019;&#xe9;v&#xe9;nement d&#x2019;origine.</tspan></text>
+<path d="M56 650.5H480C484.142 650.5 487.5 653.858 487.5 658V882C487.5 886.142 484.142 889.5 480 889.5H56C51.8579 889.5 48.5 886.142 48.5 882V658C48.5 653.858 51.8579 650.5 56 650.5Z" fill="white"/>
+<path d="M56 650.5H480C484.142 650.5 487.5 653.858 487.5 658V882C487.5 886.142 484.142 889.5 480 889.5H56C51.8579 889.5 48.5 886.142 48.5 882V658C48.5 653.858 51.8579 650.5 56 650.5Z" stroke="#718391"/>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="73" y="690.091">R&#xc8;GLES &#xb7; VARIANTES &#xc0; COMPL&#xc9;TER</tspan></text>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="24" font-weight="600" letter-spacing="0em"><tspan x="73" y="727.727">En cas d&#x2019;&#xe9;chec</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="73" y="760.818">Note vide : demander une saisie. &#xc9;chec de </tspan><tspan x="73" y="784.818">sauvegarde : conserver le texte. Coordonn&#xe9;e </tspan><tspan x="73" y="808.818">absente : aucun lien actif.</tspan></text>
+<path d="M588 650.5H1012C1016.14 650.5 1019.5 653.858 1019.5 658V882C1019.5 886.142 1016.14 889.5 1012 889.5H588C583.858 889.5 580.5 886.142 580.5 882V658C580.5 653.858 583.858 650.5 588 650.5Z" fill="white"/>
+<path d="M588 650.5H1012C1016.14 650.5 1019.5 653.858 1019.5 658V882C1019.5 886.142 1016.14 889.5 1012 889.5H588C583.858 889.5 580.5 886.142 580.5 882V658C580.5 653.858 583.858 650.5 588 650.5Z" stroke="#718391"/>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="605" y="690.091">MOB02-N &#xb7; &#xc9;TAT COMPL&#xc9;MENTAIRE MAQUETT&#xc9;</tspan></text>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="24" font-weight="600" letter-spacing="0em"><tspan x="605" y="727.727">Ajouter une note</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="605" y="760.818">Saisir puis enregistrer. Apr&#xe8;s succ&#xe8;s : retour &#xe0; </tspan><tspan x="605" y="784.818">MOB02 et confirmation. Annuler : retour sans </tspan><tspan x="605" y="808.818">enregistrer ; confirmer l&#x2019;abandon si un texte est </tspan><tspan x="605" y="832.818">saisi.</tspan></text>
+<path d="M1120 650.5H1544C1548.14 650.5 1551.5 653.858 1551.5 658V882C1551.5 886.142 1548.14 889.5 1544 889.5H1120C1115.86 889.5 1112.5 886.142 1112.5 882V658C1112.5 653.858 1115.86 650.5 1120 650.5Z" fill="white"/>
+<path d="M1120 650.5H1544C1548.14 650.5 1551.5 653.858 1551.5 658V882C1551.5 886.142 1548.14 889.5 1544 889.5H1120C1115.86 889.5 1112.5 886.142 1112.5 882V658C1112.5 653.858 1115.86 650.5 1120 650.5Z" stroke="#718391"/>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="1137" y="690.091">APPLICATIONS EXTERNES</tspan></text>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="24" font-weight="600" letter-spacing="0em"><tspan x="1137" y="727.727">T&#xe9;l&#xe9;phone &#xb7; Courriel &#xb7; Plan</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="1137" y="760.818">Num&#xe9;ro &#x2192; t&#xe9;l&#xe9;phone&#10;</tspan><tspan x="1137" y="784.818">E-mail &#x2192; messagerie par d&#xe9;faut&#10;</tspan><tspan x="1137" y="808.818">Adresse du client &#x2192; itin&#xe9;raire&#10;</tspan><tspan x="1137" y="832.818">Aucun appel ou envoi automatique.</tspan></text>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="510" y="341.091">Choisir</tspan></text>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="1025" y="341.091">Nom client</tspan></text>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="893" y="575.091">Ajouter une note</tspan></text>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="48" y="550.091">Retour apr&#xe8;s succ&#xe8;s ou annulation</tspan></text>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="1418" y="555.091">Toucher une </tspan><tspan x="1418" y="575.091">coordonn&#xe9;e</tspan></text>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="1112" y="955.091">Retour depuis l&#x2019;application externe</tspan></text>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="48" y="1037.82">Acc&#xe8;s transversaux : conditions g&#xe9;n&#xe9;rales d&#x2019;utilisation et de vente depuis les trois fiches principales. Si la session expire, r&#xe9;authentification avant d&#x2019;acc&#xe9;der aux donn&#xe9;es internes ; comportement </tspan><tspan x="48" y="1061.82">&#xe0; d&#xe9;velopper et tester.</tspan></text>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="48" y="1147.82">Le trajet utilise l&#x2019;adresse postale du client, pas le lieu de l&#x2019;&#xe9;v&#xe9;nement. Sch&#xe9;ma statique : t&#xe9;l&#xe9;phone, messagerie, cartographie et sauvegarde de note ne sont pas ex&#xe9;cut&#xe9;s. Les six maquettes </tspan><tspan x="48" y="1171.82">principales ne couvrent pas toutes les pages de l&#x2019;application.</tspan></text>
+</svg>
