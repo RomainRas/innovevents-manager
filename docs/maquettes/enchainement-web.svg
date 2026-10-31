@@ -1,0 +1,79 @@
+<svg width="1600" height="1360" viewBox="0 0 1600 1360" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="1600" height="1360" fill="#F4F7FA"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="36" font-weight="bold" letter-spacing="0em"><tspan x="48" y="75.0909">WEB &#x2014; De la demande au devis</tspan></text>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="48" y="117.818">Les fl&#xe8;ches distinguent navigation et transmissions m&#xe9;tier. Chaque acteur utilise sa propre session.</tspan></text>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="48" y="167.091">Contour turquoise : &#xe9;cran maquett&#xe9;  &#x2022;  Contour gris : &#xe9;tape, &#xe9;tat ou &#xe9;cran compl&#xe9;mentaire &#xe0; concevoir  &#x2022;  Pointill&#xe9;s : reprise du parcours</tspan></text>
+<path d="M488 355H580" stroke="#526574" stroke-width="2"/>
+<path d="M570 350L580 355L570 360" stroke="#526574" stroke-width="2"/>
+<path d="M1020 355H1112" stroke="#526574" stroke-width="2"/>
+<path d="M1102 350L1112 355L1102 360" stroke="#526574" stroke-width="2"/>
+<path d="M1332 460V510H268V570" stroke="#526574" stroke-width="2"/>
+<path d="M273 560L268 570L263 560" stroke="#526574" stroke-width="2"/>
+<path d="M488 675H580" stroke="#526574" stroke-width="2"/>
+<path d="M570 670L580 675L570 680" stroke="#526574" stroke-width="2"/>
+<path d="M1020 675H1112" stroke="#526574" stroke-width="2"/>
+<path d="M1102 670L1112 675L1102 680" stroke="#526574" stroke-width="2"/>
+<path d="M800 780V900" stroke="#526574" stroke-width="2"/>
+<path d="M805 890L800 900L795 890" stroke="#526574" stroke-width="2"/>
+<path d="M1020 720H1060V850H1332V900" stroke="#526574" stroke-width="2"/>
+<path d="M1337 890L1332 900L1327 890" stroke="#526574" stroke-width="2"/>
+<path d="M580 1005H488" stroke="#526574" stroke-width="2"/>
+<path d="M498 1010L488 1005L498 1000" stroke="#526574" stroke-width="2"/>
+<path d="M268 1110V1190H1576V220H1332V250" stroke="#526574" stroke-width="2" stroke-dasharray="7 6"/>
+<path d="M1337 240L1332 250L1327 240" stroke="#526574" stroke-width="2"/>
+<path d="M56 251H480C483.866 251 487 254.134 487 258V452C487 455.866 483.866 459 480 459H56C52.134 459 49 455.866 49 452V258L49.0088 257.64C49.1963 253.941 52.2549 251 56 251Z" fill="white"/>
+<path d="M56 251H480C483.866 251 487 254.134 487 258V452C487 455.866 483.866 459 480 459H56C52.134 459 49 455.866 49 452V258L49.0088 257.64C49.1963 253.941 52.2549 251 56 251Z" stroke="#087F8C" stroke-width="2"/>
+<text fill="#087F8C" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="74" y="291.091">WEB01 &#xb7; PUBLIC &#xb7; &#xc9;CRAN MAQUETT&#xc9;</tspan></text>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="24" font-weight="600" letter-spacing="0em"><tspan x="74" y="328.727">Demande de devis</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="74" y="361.818">Envoyer les 10 champs obligatoires.&#10;</tspan><tspan x="74" y="385.818">Apr&#xe8;s succ&#xe8;s : remerciement affich&#xe9; et prospect &#xab; </tspan><tspan x="74" y="409.818">&#xe0; contacter &#xbb;.</tspan></text>
+<path d="M588 250.5H1012C1016.14 250.5 1019.5 253.858 1019.5 258V452C1019.5 456.142 1016.14 459.5 1012 459.5H588C583.858 459.5 580.5 456.142 580.5 452V258L580.51 257.614C580.711 253.651 583.987 250.5 588 250.5Z" fill="white"/>
+<path d="M588 250.5H1012C1016.14 250.5 1019.5 253.858 1019.5 258V452C1019.5 456.142 1016.14 459.5 1012 459.5H588C583.858 459.5 580.5 456.142 580.5 452V258L580.51 257.614C580.711 253.651 583.987 250.5 588 250.5Z" stroke="#718391"/>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="605" y="290.091">CHLO&#xc9; &#xb7; &#xc9;TAPE DE GESTION</tspan></text>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="24" font-weight="600" letter-spacing="0em"><tspan x="605" y="327.727">Qualifier le besoin</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="605" y="360.818">Contacter le prospect. Si possible : convertir en </tspan><tspan x="605" y="384.818">client. Sinon : &#xe9;tat &#xab; &#xe9;chou&#xe9; &#xbb;, courriel et arr&#xea;t du </tspan><tspan x="605" y="408.818">parcours.</tspan></text>
+<path d="M1120 251H1544C1547.87 251 1551 254.134 1551 258V452C1551 455.866 1547.87 459 1544 459H1120C1116.13 459 1113 455.866 1113 452V258L1113.01 257.64C1113.2 253.941 1116.25 251 1120 251Z" fill="white"/>
+<path d="M1120 251H1544C1547.87 251 1551 254.134 1551 258V452C1551 455.866 1547.87 459 1544 459H1120C1116.13 459 1113 455.866 1113 452V258L1113.01 257.64C1113.2 253.941 1116.25 251 1120 251Z" stroke="#087F8C" stroke-width="2"/>
+<text fill="#087F8C" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="1138" y="291.091">WEB02 &#xb7; CHLO&#xc9; / ADMIN &#xb7; &#xc9;CRAN MAQUETT&#xc9;</tspan></text>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="24" font-weight="600" letter-spacing="0em"><tspan x="1138" y="328.727">Pr&#xe9;paration du devis</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="1138" y="361.818">Compl&#xe9;ter &#xe9;v&#xe9;nement et prestations ; g&#xe9;n&#xe9;rer le </tspan><tspan x="1138" y="385.818">PDF. Transmettre par envoi manuel confirm&#xe9; ou </tspan><tspan x="1138" y="409.818">automatique.</tspan></text>
+<path d="M56 570.5H480C484.142 570.5 487.5 573.858 487.5 578V772C487.5 776.142 484.142 779.5 480 779.5H56C51.8579 779.5 48.5 776.142 48.5 772V578L48.5098 577.614C48.7105 573.651 51.9872 570.5 56 570.5Z" fill="white"/>
+<path d="M56 570.5H480C484.142 570.5 487.5 573.858 487.5 578V772C487.5 776.142 484.142 779.5 480 779.5H56C51.8579 779.5 48.5 776.142 48.5 772V578L48.5098 577.614C48.7105 573.651 51.9872 570.5 56 570.5Z" stroke="#718391"/>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="73" y="610.091">CLIENT &#xb7; ACC&#xc8;S &#xc0; CONCEVOIR</tspan></text>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="24" font-weight="600" letter-spacing="0em"><tspan x="73" y="647.727">Acc&#xe9;der &#xe0; son espace</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="73" y="680.818">Se connecter puis ouvrir le devis affect&#xe9; au </tspan><tspan x="73" y="704.818">compte. Compte absent : cr&#xe9;ation et envoi des </tspan><tspan x="73" y="728.818">acc&#xe8;s pr&#xe9;vus.</tspan></text>
+<path d="M588 571H1012C1015.87 571 1019 574.134 1019 578V772C1019 775.866 1015.87 779 1012 779H588C584.134 779 581 775.866 581 772V578L581.009 577.64C581.196 573.941 584.255 571 588 571Z" fill="white"/>
+<path d="M588 571H1012C1015.87 571 1019 574.134 1019 578V772C1019 775.866 1015.87 779 1012 779H588C584.134 779 581 775.866 581 772V578L581.009 577.64C581.196 573.941 584.255 571 588 571Z" stroke="#087F8C" stroke-width="2"/>
+<text fill="#087F8C" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="606" y="611.091">WEB03 &#xb7; CLIENT &#xb7; &#xc9;CRAN MAQUETT&#xc9;</tspan></text>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="24" font-weight="600" letter-spacing="0em"><tspan x="606" y="648.727">Consultation du devis</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="606" y="681.818">Consulter sa proposition en &#xab; &#xe9;tude c&#xf4;t&#xe9; client &#xbb;. </tspan><tspan x="606" y="705.818">Choisir : accepter, modifier avec motif, ou refuser.</tspan></text>
+<path d="M1120 570.5H1544C1548.14 570.5 1551.5 573.858 1551.5 578V772C1551.5 776.142 1548.14 779.5 1544 779.5H1120C1115.86 779.5 1112.5 776.142 1112.5 772V578L1112.51 577.614C1112.71 573.651 1115.99 570.5 1120 570.5Z" fill="white"/>
+<path d="M1120 570.5H1544C1548.14 570.5 1551.5 573.858 1551.5 578V772C1551.5 776.142 1548.14 779.5 1544 779.5H1120C1115.86 779.5 1112.5 776.142 1112.5 772V578L1112.51 577.614C1112.71 573.651 1115.99 570.5 1120 570.5Z" stroke="#718391"/>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="1137" y="610.091">CLIENT &#x2192; AGENCE &#xb7; R&#xc9;SULTAT</tspan></text>
+<text fill="#216E4E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="24" font-weight="600" letter-spacing="0em"><tspan x="1137" y="647.727">Devis accept&#xe9;</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="1137" y="680.818">Notification &#xe0; Innov&#x2019;Events. Chlo&#xe9; poursuit </tspan><tspan x="1137" y="704.818">l&#x2019;organisation ; le client retrouve le suivi dans son </tspan><tspan x="1137" y="728.818">espace.</tspan></text>
+<path d="M56 900.5H480C484.142 900.5 487.5 903.858 487.5 908V1102C487.5 1106.14 484.142 1109.5 480 1109.5H56C51.8579 1109.5 48.5 1106.14 48.5 1102V908L48.5098 907.614C48.7105 903.651 51.9872 900.5 56 900.5Z" fill="white"/>
+<path d="M56 900.5H480C484.142 900.5 487.5 903.858 487.5 908V1102C487.5 1106.14 484.142 1109.5 480 1109.5H56C51.8579 1109.5 48.5 1106.14 48.5 1102V908L48.5098 907.614C48.7105 903.651 51.9872 900.5 56 900.5Z" stroke="#718391"/>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="73" y="940.091">CHLO&#xc9; &#xb7; REPRISE DU PARCOURS</tspan></text>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="24" font-weight="600" letter-spacing="0em"><tspan x="73" y="977.727">Pr&#xe9;parer une r&#xe9;ponse</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="73" y="1010.82">Lire le motif, reprendre WEB02 puis transmettre la </tspan><tspan x="73" y="1034.82">contre-proposition. Le client retrouve WEB03.</tspan></text>
+<path d="M588 900.5H1012C1016.14 900.5 1019.5 903.858 1019.5 908V1102C1019.5 1106.14 1016.14 1109.5 1012 1109.5H588C583.858 1109.5 580.5 1106.14 580.5 1102V908L580.51 907.614C580.711 903.651 583.987 900.5 588 900.5Z" fill="white"/>
+<path d="M588 900.5H1012C1016.14 900.5 1019.5 903.858 1019.5 908V1102C1019.5 1106.14 1016.14 1109.5 1012 1109.5H588C583.858 1109.5 580.5 1106.14 580.5 1102V908L580.51 907.614C580.711 903.651 583.987 900.5 588 900.5Z" stroke="#718391"/>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="605" y="940.091">CLIENT &#xb7; &#xc9;TAT &#xc0; CONCEVOIR</tspan></text>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="24" font-weight="600" letter-spacing="0em"><tspan x="605" y="977.727">Demander une modification</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="605" y="1010.82">Saisir un motif obligatoire. Apr&#xe8;s validation : devis </tspan><tspan x="605" y="1034.82">en &#xab; modification &#xbb;, &#xe0; traiter par Chlo&#xe9;.</tspan></text>
+<path d="M1120 900.5H1544C1548.14 900.5 1551.5 903.858 1551.5 908V1102C1551.5 1106.14 1548.14 1109.5 1544 1109.5H1120C1115.86 1109.5 1112.5 1106.14 1112.5 1102V908L1112.51 907.614C1112.71 903.651 1115.99 900.5 1120 900.5Z" fill="white"/>
+<path d="M1120 900.5H1544C1548.14 900.5 1551.5 903.858 1551.5 908V1102C1551.5 1106.14 1548.14 1109.5 1544 1109.5H1120C1115.86 1109.5 1112.5 1106.14 1112.5 1102V908L1112.51 907.614C1112.71 903.651 1115.99 900.5 1120 900.5Z" stroke="#718391"/>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="1137" y="940.091">CLIENT &#xb7; R&#xc9;SULTAT</tspan></text>
+<text fill="#B42318" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="24" font-weight="600" letter-spacing="0em"><tspan x="1137" y="977.727">Devis refus&#xe9;</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="1137" y="1010.82">Fin de cette proposition. Conserver l&#x2019;historique ; ne </tspan><tspan x="1137" y="1034.82">pas lancer automatiquement l&#x2019;&#xe9;v&#xe9;nement.</tspan></text>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="492" y="341.091">Transmettre</tspan></text>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="1028" y="341.091">Convertir</tspan></text>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="350" y="493.091">PDF transmis + acc&#xe8;s au compte &#x2014; passage &#xe0; une autre personne, pas une redirection de Chlo&#xe9; vers le compte client</tspan></text>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="493" y="661.091">Connexion</tspan></text>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="1030" y="661.091">Accepter</tspan></text>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="818" y="843.091">Modifier</tspan></text>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="1140" y="835.091">Refuser</tspan></text>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="510" y="991.091">Motif</tspan></text>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="440" y="1173.09">Contre-proposition : retour &#xe0; la pr&#xe9;paration, puis nouvelle d&#xe9;cision du client</tspan></text>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="48" y="1267.82">P&#xe9;rim&#xe8;tre : parcours des trois maquettes web, avec les &#xe9;tapes indispensables autour. Les autres pages de l&#x2019;application restent &#xe0; concevoir et d&#xe9;velopper. Diagramme statique ; r&#xe8;gles d&#xe9;taill&#xe9;es </tspan><tspan x="48" y="1291.82">et cas d&#x2019;&#xe9;chec dans la documentation.</tspan></text>
+</svg>
