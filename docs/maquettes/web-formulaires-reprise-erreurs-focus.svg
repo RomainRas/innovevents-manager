@@ -1,0 +1,92 @@
+<svg width="1440" height="1532" viewBox="0 0 1440 1532" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="1440" height="1532" fill="#F4F7FA"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="36" font-weight="bold" letter-spacing="0em"><tspan x="48" y="83.0909">Formulaires &#x2014; Reprise, erreurs et focus</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="48" y="133.818">WEB01 et WEB02 &#xb7; Extraits compl&#xe9;mentaires. Les valeurs saisies ci-dessous sont des exemples de validation.</tspan></text>
+<g clip-path="url(#clip0_80_763)">
+<path d="M48 172C48 167.582 51.5817 164 56 164H688C692.418 164 696 167.582 696 172V512C696 516.418 692.418 520 688 520H56C51.5817 520 48 516.418 48 512V172Z" fill="white"/>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="72" y="203.091">01 &#x2014; DEMANDE : R&#xc9;SULTAT INCERTAIN</tspan></text>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="72" y="249.818">Demande de devis</tspan></text>
+<path d="M80 281H664C667.866 281 671 284.134 671 288V416C671 419.866 667.866 423 664 423H80C76.134 423 73 419.866 73 416V288C73 284.134 76.134 281 80 281Z" fill="white"/>
+<path d="M80 281H664C667.866 281 671 284.134 671 288V416C671 419.866 667.866 423 664 423H80C76.134 423 73 419.866 73 416V288C73 284.134 76.134 281 80 281Z" stroke="#142D43" stroke-width="2"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="98" y="327.273">V&#xe9;rification n&#xe9;cessaire</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="98" y="367.818">La r&#xe9;ponse a &#xe9;t&#xe9; interrompue. Votre demande a peut-&#xea;tre &#xe9;t&#xe9; </tspan><tspan x="98" y="391.818">enregistr&#xe9;e. V&#xe9;rifiez son &#xe9;tat avant de la renvoyer.</tspan></text>
+<mask id="path-9-inside-1_80_763" fill="white">
+<path d="M72 456C72 451.582 75.5817 448 80 448H344C348.418 448 352 451.582 352 456V488C352 492.418 348.418 496 344 496H80C75.5817 496 72 492.418 72 488V456Z"/>
+</mask>
+<path d="M72 456C72 451.582 75.5817 448 80 448H344C348.418 448 352 451.582 352 456V488C352 492.418 348.418 496 344 496H80C75.5817 496 72 492.418 72 488V456Z" fill="white"/>
+<path d="M80 448V449H344V448V447H80V448ZM352 456H351V488H352H353V456H352ZM344 496V495H80V496V497H344V496ZM72 488H73V456H72H71V488H72ZM80 496V495C76.134 495 73 491.866 73 488H72H71C71 492.971 75.0294 497 80 497V496ZM352 488H351C351 491.866 347.866 495 344 495V496V497C348.971 497 353 492.971 353 488H352ZM344 448V449C347.866 449 351 452.134 351 456H352H353C353 451.029 348.971 447 344 447V448ZM80 448V447C75.0294 447 71 451.029 71 456H72H73C73 452.134 76.134 449 80 449V448Z" fill="#526574" mask="url(#path-9-inside-1_80_763)"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="131.5" y="477.818">V&#xe9;rifier ma demande</tspan></text>
+<path d="M744 172C744 167.582 747.582 164 752 164H1384C1388.42 164 1392 167.582 1392 172V752C1392 756.418 1388.42 760 1384 760H752C747.582 760 744 756.418 744 752V172Z" fill="white"/>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="768" y="203.091">02 &#x2014; DEVIS : DATES INCOH&#xc9;RENTES</tspan></text>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="768" y="249.818">Pr&#xe9;paration du devis</tspan></text>
+<path d="M776 281H1360C1363.87 281 1367 284.134 1367 288V416C1367 419.866 1363.87 423 1360 423H776C772.134 423 769 419.866 769 416V288C769 284.134 772.134 281 776 281Z" fill="white"/>
+<path d="M776 281H1360C1363.87 281 1367 284.134 1367 288V416C1367 419.866 1363.87 423 1360 423H776C772.134 423 769 419.866 769 416V288C769 284.134 772.134 281 776 281Z" stroke="#B42318" stroke-width="2"/>
+<text fill="#B42318" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="794" y="327.273">V&#xe9;rifiez la p&#xe9;riode</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="794" y="367.818">La fin de l&#x2019;&#xe9;v&#xe9;nement doit &#xea;tre post&#xe9;rieure &#xe0; son d&#xe9;but. Corrigez la date </tspan><tspan x="794" y="391.818">ou l&#x2019;heure de fin.</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="768" y="465.818">Date de d&#xe9;but</tspan></text>
+<path d="M768 488C768 483.582 771.582 480 776 480H1360C1364.42 480 1368 483.582 1368 488V520C1368 524.418 1364.42 528 1360 528H776C771.582 528 768 524.418 768 520V488Z" fill="white"/>
+<path d="M768 488C768 483.582 771.582 480 776 480H1360C1364.42 480 1368 483.582 1368 488V520C1368 524.418 1364.42 528 1360 528H776C771.582 528 768 524.418 768 520V488Z" stroke="#718391" stroke-width="2" stroke-linecap="round"/>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="784" y="509.818">12/11/2026</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="768" y="569.818">Date de fin</tspan></text>
+<path d="M768 592C768 587.582 771.582 584 776 584H1360C1364.42 584 1368 587.582 1368 592V624C1368 628.418 1364.42 632 1360 632H776C771.582 632 768 628.418 768 624V592Z" fill="white"/>
+<path d="M768 592C768 587.582 771.582 584 776 584H1360C1364.42 584 1368 587.582 1368 592V624C1368 628.418 1364.42 632 1360 632H776C771.582 632 768 628.418 768 624V592Z" stroke="#B42318" stroke-width="2" stroke-linecap="round"/>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="784" y="613.818">11/11/2026</tspan></text>
+<text fill="#B42318" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="768" y="657.818">La date de fin pr&#xe9;c&#xe8;de la date de d&#xe9;but.</tspan></text>
+<mask id="path-25-inside-2_80_763" fill="white">
+<path d="M768 696C768 691.582 771.582 688 776 688H1040C1044.42 688 1048 691.582 1048 696V728C1048 732.418 1044.42 736 1040 736H776C771.582 736 768 732.418 768 728V696Z"/>
+</mask>
+<path d="M768 696C768 691.582 771.582 688 776 688H1040C1044.42 688 1048 691.582 1048 696V728C1048 732.418 1044.42 736 1040 736H776C771.582 736 768 732.418 768 728V696Z" fill="white"/>
+<path d="M776 688V689H1040V688V687H776V688ZM1048 696H1047V728H1048H1049V696H1048ZM1040 736V735H776V736V737H1040V736ZM768 728H769V696H768H767V728H768ZM776 736V735C772.134 735 769 731.866 769 728H768H767C767 732.971 771.029 737 776 737V736ZM1048 728H1047C1047 731.866 1043.87 735 1040 735V736V737C1044.97 737 1049 732.971 1049 728H1048ZM1040 688V689C1043.87 689 1047 692.134 1047 696H1048H1049C1049 691.029 1044.97 687 1040 687V688ZM776 688V687C771.029 687 767 691.029 767 696H768H769C769 692.134 772.134 689 776 689V688Z" fill="#526574" mask="url(#path-25-inside-2_80_763)"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="805.5" y="717.818">Enregistrer les corrections</tspan></text>
+</g>
+<g clip-path="url(#clip1_80_763)">
+<path d="M48 792C48 787.582 51.5817 784 56 784H688C692.418 784 696 787.582 696 792V1404C696 1408.42 692.418 1412 688 1412H56C51.5817 1412 48 1408.42 48 1404V792Z" fill="white"/>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="72" y="823.091">03 &#x2014; DEVIS : PRESTATION &#xc0; CORRIGER</tspan></text>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="72" y="869.818">Pr&#xe9;paration du devis</tspan></text>
+<path d="M80 901H664C667.866 901 671 904.134 671 908V1036C671 1039.87 667.866 1043 664 1043H80C76.134 1043 73 1039.87 73 1036V908C73 904.134 76.134 901 80 901Z" fill="white"/>
+<path d="M80 901H664C667.866 901 671 904.134 671 908V1036C671 1039.87 667.866 1043 664 1043H80C76.134 1043 73 1039.87 73 1036V908C73 904.134 76.134 901 80 901Z" stroke="#B42318" stroke-width="2"/>
+<text fill="#B42318" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="98" y="947.273">V&#xe9;rifiez la prestation</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="98" y="987.818">Renseignez un libell&#xe9; et un montant HT valide. La g&#xe9;n&#xe9;ration du PDF </tspan><tspan x="98" y="1011.82">reste bloqu&#xe9;e tant que ces erreurs subsistent.</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="72" y="1085.82">Libell&#xe9; de la prestation</tspan></text>
+<path d="M72 1108C72 1103.58 75.5817 1100 80 1100H664C668.418 1100 672 1103.58 672 1108V1140C672 1144.42 668.418 1148 664 1148H80C75.5817 1148 72 1144.42 72 1140V1108Z" fill="white"/>
+<path d="M72 1108C72 1103.58 75.5817 1100 80 1100H664C668.418 1100 672 1103.58 672 1108V1140C672 1144.42 668.418 1148 664 1148H80C75.5817 1148 72 1144.42 72 1140V1108Z" stroke="#B42318" stroke-width="2" stroke-linecap="round"/>
+<text fill="#B42318" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="72" y="1173.82">Indiquez le libell&#xe9; de cette prestation.</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="72" y="1221.82">Montant HT</tspan></text>
+<path d="M72 1244C72 1239.58 75.5817 1236 80 1236H664C668.418 1236 672 1239.58 672 1244V1276C672 1280.42 668.418 1284 664 1284H80C75.5817 1284 72 1280.42 72 1276V1244Z" fill="white"/>
+<path d="M72 1244C72 1239.58 75.5817 1236 80 1236H664C668.418 1236 672 1239.58 672 1244V1276C672 1280.42 668.418 1284 664 1284H80C75.5817 1284 72 1280.42 72 1276V1244Z" stroke="#B42318" stroke-width="2" stroke-linecap="round"/>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="88" y="1265.82">abc</tspan></text>
+<text fill="#B42318" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="72" y="1309.82">Saisissez un montant num&#xe9;rique valide.</tspan></text>
+<mask id="path-41-inside-3_80_763" fill="white">
+<path d="M72 1348C72 1343.58 75.5817 1340 80 1340H344C348.418 1340 352 1343.58 352 1348V1380C352 1384.42 348.418 1388 344 1388H80C75.5817 1388 72 1384.42 72 1380V1348Z"/>
+</mask>
+<path d="M72 1348C72 1343.58 75.5817 1340 80 1340H344C348.418 1340 352 1343.58 352 1348V1380C352 1384.42 348.418 1388 344 1388H80C75.5817 1388 72 1384.42 72 1380V1348Z" fill="white"/>
+<path d="M80 1340V1341H344V1340V1339H80V1340ZM352 1348H351V1380H352H353V1348H352ZM344 1388V1387H80V1388V1389H344V1388ZM72 1380H73V1348H72H71V1380H72ZM80 1388V1387C76.134 1387 73 1383.87 73 1380H72H71C71 1384.97 75.0294 1389 80 1389V1388ZM352 1380H351C351 1383.87 347.866 1387 344 1387V1388V1389C348.971 1389 353 1384.97 353 1380H352ZM344 1340V1341C347.866 1341 351 1344.13 351 1348H352H353C353 1343.03 348.971 1339 344 1339V1340ZM80 1340V1339C75.0294 1339 71 1343.03 71 1348H72H73C73 1344.13 76.134 1341 80 1341V1340Z" fill="#526574" mask="url(#path-41-inside-3_80_763)"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="109.5" y="1369.82">Enregistrer les corrections</tspan></text>
+<path d="M744 792C744 787.582 747.582 784 752 784H1384C1388.42 784 1392 787.582 1392 792V1236C1392 1240.42 1388.42 1244 1384 1244H752C747.582 1244 744 1240.42 744 1236V792Z" fill="white"/>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="768" y="823.091">04 &#x2014; REP&#xc8;RE DE FOCUS CLAVIER</tspan></text>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="768" y="869.818">Pr&#xe9;paration du devis</tspan></text>
+<path d="M776 901H1360C1363.87 901 1367 904.134 1367 908V1036C1367 1039.87 1363.87 1043 1360 1043H776C772.134 1043 769 1039.87 769 1036V908C769 904.134 772.134 901 776 901Z" fill="white"/>
+<path d="M776 901H1360C1363.87 901 1367 904.134 1367 908V1036C1367 1039.87 1363.87 1043 1360 1043H776C772.134 1043 769 1039.87 769 1036V908C769 904.134 772.134 901 776 901Z" stroke="#142D43" stroke-width="2"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="794" y="947.273">Saisie au clavier</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="794" y="987.818">Le contour visible indique le champ actif. Tabulation passe &#xe0; l&#x2019;&#xe9;l&#xe9;ment </tspan><tspan x="794" y="1011.82">suivant ; Maj + Tabulation revient en arri&#xe8;re.</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="768" y="1085.82">Nom de l&#x2019;&#xe9;v&#xe9;nement</tspan></text>
+<path d="M1360 1099C1364.97 1099 1369 1103.03 1369 1108V1140C1369 1144.97 1364.97 1149 1360 1149H776C771.029 1149 767 1144.97 767 1140V1108C767 1103.03 771.029 1099 776 1099H1360Z" fill="white"/>
+<path d="M1360 1099C1364.97 1099 1369 1103.03 1369 1108V1140C1369 1144.97 1364.97 1149 1360 1149H776C771.029 1149 767 1144.97 767 1140V1108C767 1103.03 771.029 1099 776 1099H1360Z" stroke="#142D43" stroke-width="2" stroke-linecap="round"/>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="784" y="1129.82">[Nom de l&#x2019;&#xe9;v&#xe9;nement]</tspan></text>
+<mask id="path-53-inside-4_80_763" fill="white">
+<path d="M768 1180C768 1175.58 771.582 1172 776 1172H1040C1044.42 1172 1048 1175.58 1048 1180V1212C1048 1216.42 1044.42 1220 1040 1220H776C771.582 1220 768 1216.42 768 1212V1180Z"/>
+</mask>
+<path d="M768 1180C768 1175.58 771.582 1172 776 1172H1040C1044.42 1172 1048 1175.58 1048 1180V1212C1048 1216.42 1044.42 1220 1040 1220H776C771.582 1220 768 1216.42 768 1212V1180Z" fill="white"/>
+<path d="M776 1172V1173H1040V1172V1171H776V1172ZM1048 1180H1047V1212H1048H1049V1180H1048ZM1040 1220V1219H776V1220V1221H1040V1220ZM768 1212H769V1180H768H767V1212H768ZM776 1220V1219C772.134 1219 769 1215.87 769 1212H768H767C767 1216.97 771.029 1221 776 1221V1220ZM1048 1212H1047C1047 1215.87 1043.87 1219 1040 1219V1220V1221C1044.97 1221 1049 1216.97 1049 1212H1048ZM1040 1172V1173C1043.87 1173 1047 1176.13 1047 1180H1048H1049C1049 1175.03 1044.97 1171 1040 1171V1172ZM776 1172V1171C771.029 1171 767 1175.03 767 1180H768H769C769 1176.13 772.134 1173 776 1173V1172Z" fill="#526574" mask="url(#path-53-inside-4_80_763)"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="820.5" y="1201.82">Enregistrer le brouillon</tspan></text>
+</g>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="48" y="1453.82">Les erreurs restent associ&#xe9;es aux champs et la saisie est conserv&#xe9;e. Le contour de focus indique la position au clavier ; le parcours et les annonces restent &#xe0; d&#xe9;velopper et </tspan><tspan x="48" y="1477.82">tester.</tspan></text>
+<defs>
+<clipPath id="clip0_80_763">
+<rect width="1344" height="596" fill="white" transform="translate(48 164)"/>
+</clipPath>
+<clipPath id="clip1_80_763">
+<rect width="1344" height="628" fill="white" transform="translate(48 784)"/>
+</clipPath>
+</defs>
+</svg>
