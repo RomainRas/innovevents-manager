@@ -41,7 +41,7 @@ Le corail, proposé pour dynamiser les pages publiques, n’est pas ajouté syst
 
 La maquette montre un brouillon incomplet. Les quatre actions PDF et transmission restent désactivées. Le texte explique qu’il faut compléter le devis puis générer le PDF avant l’envoi. La visibilité publique reste indisponible tant que les conditions prévues ne sont pas réunies.
 
-Les erreurs, les reprises après échec et les transitions sont détaillées dans le document du wireframe. Douze extraits de préparation, génération et transmission sont désormais représentés dans les [planches complémentaires](etats-preparation-transmission-devis.md). Le formulaire complet avec erreurs intégrées, le survol et le focus restent à vérifier/compléter. La maquette n’exécute ni calcul, ni téléversement, ni génération de PDF, ni courriel.
+Les erreurs, les reprises après échec et les transitions sont détaillées dans le document du wireframe. Douze extraits de préparation, génération et transmission sont désormais représentés dans les [planches complémentaires](etats-preparation-transmission-devis.md). Les [extraits de validation et focus](formulaires-reprise-erreurs-focus.md) montrent désormais les erreurs de date et de prestation près des champs, ainsi qu’un repère de focus clavier. Leur intégration dans le formulaire complet et le survol restent à vérifier. La maquette n’exécute ni calcul, ni téléversement, ni génération de PDF, ni courriel.
 
 ## Vérifications réalisées
 
@@ -59,4 +59,4 @@ Source modifiable Figma, SVG et explication sur dev. Les exports destinés au do
 
 Avancement actualisé : six wireframes et six maquettes principales en première version, complétés par les états documentés. La tâche #5 reste ouverte.
 
-Prochaine étape : états communs de chargement, liste vide et accès, puis adaptation web et exports. Voir le [bilan de couverture](bilan-couverture-ecrans.md).
+Les états communs et les compléments de formulaires sont maintenant préparés. Prochaine étape : adaptation web, relecture et exports. Voir le [bilan de couverture](bilan-couverture-ecrans.md).
