@@ -60,3 +60,6 @@ Source modifiable Figma, SVG et explication sur dev. Les exports destinés au do
 Avancement actualisé : six wireframes et six maquettes principales en première version, complétés par les états documentés. La tâche #5 reste ouverte.
 
 Les états communs et les compléments de formulaires sont maintenant préparés. Prochaine étape : adaptation web, relecture et exports. Voir le [bilan de couverture](bilan-couverture-ecrans.md).
+
+## Adaptation aux petits écrans — 3 novembre 2026
+Une variante à 390 pixels et son menu déplié sont maintenant dessinés, relus et sauvegardés. Voir les [visuels, règles de réorganisation et vérifications](adaptation-web-petits-ecrans.md). Cette étape complète les mentions antérieures de responsive restant à préparer ; les tests sur navigateur et appareil restent à réaliser pendant le développement. La relecture finale et les exports de rendu restent à terminer.
