@@ -1,0 +1,116 @@
+<svg width="1440" height="1664" viewBox="0 0 1440 1664" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="1440" height="1664" fill="#F4F7FA"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="36" font-weight="bold" letter-spacing="0em"><tspan x="48" y="83.0909">Transmettre le devis au client</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="48" y="133.818">WEB02 &#xb7; Envoi depuis l&#x2019;application ou suivi d&#x2019;un envoi manuel. M&#xea;me devis, m&#xea;me version.</tspan></text>
+<g clip-path="url(#clip0_75_823)">
+<path d="M48 172C48 167.582 51.5817 164 56 164H688C692.418 164 696 167.582 696 172V608C696 612.418 692.418 616 688 616H56C51.5817 616 48 612.418 48 608V172Z" fill="white"/>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="72" y="203.091">07 &#x2014; CONFIRMATION D&#x2019;ENVOI</tspan></text>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="72" y="249.818">Devis [r&#xe9;f&#xe9;rence] &#x2014; version [n]</tspan></text>
+<path d="M80 281H664C667.866 281 671 284.134 671 288V440C671 443.866 667.866 447 664 447H80C76.134 447 73 443.866 73 440V288C73 284.134 76.134 281 80 281Z" fill="white"/>
+<path d="M80 281H664C667.866 281 671 284.134 671 288V440C671 443.866 667.866 447 664 447H80C76.134 447 73 443.866 73 440V288C73 284.134 76.134 281 80 281Z" stroke="#142D43" stroke-width="2"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="98" y="327.273">V&#xe9;rifier le destinataire</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="98" y="367.818">Destinataire : [email du client]&#10;</tspan><tspan x="98" y="391.818">Pi&#xe8;ce jointe : devis [r&#xe9;f&#xe9;rence], version [n].&#10;</tspan><tspan x="98" y="415.818">V&#xe9;rifiez l&#x2019;adresse et le document avant l&#x2019;envoi.</tspan></text>
+<mask id="path-9-inside-1_75_823" fill="white">
+<path d="M72 480C72 475.582 75.5817 472 80 472H344C348.418 472 352 475.582 352 480V512C352 516.418 348.418 520 344 520H80C75.5817 520 72 516.418 72 512V480Z"/>
+</mask>
+<path d="M72 480C72 475.582 75.5817 472 80 472H344C348.418 472 352 475.582 352 480V512C352 516.418 348.418 520 344 520H80C75.5817 520 72 516.418 72 512V480Z" fill="white"/>
+<path d="M80 472V473H344V472V471H80V472ZM352 480H351V512H352H353V480H352ZM344 520V519H80V520V521H344V520ZM72 512H73V480H72H71V512H72ZM80 520V519C76.134 519 73 515.866 73 512H72H71C71 516.971 75.0294 521 80 521V520ZM352 512H351C351 515.866 347.866 519 344 519V520V521C348.971 521 353 516.971 353 512H352ZM344 472V473C347.866 473 351 476.134 351 480H352H353C353 475.029 348.971 471 344 471V472ZM80 472V471C75.0294 471 71 475.029 71 480H72H73C73 476.134 76.134 473 80 473V472Z" fill="#526574" mask="url(#path-9-inside-1_75_823)"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="146.5" y="501.818">Confirmer l&#x2019;envoi</tspan></text>
+<mask id="path-12-inside-2_75_823" fill="white">
+<path d="M72 552C72 547.582 75.5817 544 80 544H344C348.418 544 352 547.582 352 552V584C352 588.418 348.418 592 344 592H80C75.5817 592 72 588.418 72 584V552Z"/>
+</mask>
+<path d="M72 552C72 547.582 75.5817 544 80 544H344C348.418 544 352 547.582 352 552V584C352 588.418 348.418 592 344 592H80C75.5817 592 72 588.418 72 584V552Z" fill="white"/>
+<path d="M80 544V545H344V544V543H80V544ZM352 552H351V584H352H353V552H352ZM344 592V591H80V592V593H344V592ZM72 584H73V552H72H71V584H72ZM80 592V591C76.134 591 73 587.866 73 584H72H71C71 588.971 75.0294 593 80 593V592ZM352 584H351C351 587.866 347.866 591 344 591V592V593C348.971 593 353 588.971 353 584H352ZM344 544V545C347.866 545 351 548.134 351 552H352H353C353 547.029 348.971 543 344 543V544ZM80 544V543C75.0294 543 71 547.029 71 552H72H73C73 548.134 76.134 545 80 545V544Z" fill="#526574" mask="url(#path-12-inside-2_75_823)"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="181.5" y="573.818">Annuler</tspan></text>
+<path d="M744 172C744 167.582 747.582 164 752 164H1384C1388.42 164 1392 167.582 1392 172V512C1392 516.418 1388.42 520 1384 520H752C747.582 520 744 516.418 744 512V172Z" fill="white"/>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="768" y="203.091">08 &#x2014; ENVOI EN COURS</tspan></text>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="768" y="249.818">Devis [r&#xe9;f&#xe9;rence] &#x2014; version [n]</tspan></text>
+<path d="M776 281H1360C1363.87 281 1367 284.134 1367 288V416C1367 419.866 1363.87 423 1360 423H776C772.134 423 769 419.866 769 416V288C769 284.134 772.134 281 776 281Z" fill="white"/>
+<path d="M776 281H1360C1363.87 281 1367 284.134 1367 288V416C1367 419.866 1363.87 423 1360 423H776C772.134 423 769 419.866 769 416V288C769 284.134 772.134 281 776 281Z" stroke="#142D43" stroke-width="2"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="794" y="327.273">Transmission en cours&#x2026;</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="794" y="367.818">Le PDF est en cours d&#x2019;envoi &#xe0; [email du client]. Patientez pour conna&#xee;tre </tspan><tspan x="794" y="391.818">le r&#xe9;sultat ; ne relancez pas l&#x2019;action.</tspan></text>
+<path d="M776 448.5H1040C1044.14 448.5 1047.5 451.858 1047.5 456V488C1047.5 492.142 1044.14 495.5 1040 495.5H776C771.858 495.5 768.5 492.142 768.5 488V456L768.51 455.614C768.711 451.651 771.987 448.5 776 448.5Z" fill="#D9D9D9"/>
+<path d="M776 448.5H1040C1044.14 448.5 1047.5 451.858 1047.5 456V488C1047.5 492.142 1044.14 495.5 1040 495.5H776C771.858 495.5 768.5 492.142 768.5 488V456L768.51 455.614C768.711 451.651 771.987 448.5 776 448.5Z" stroke="#B3B3B3" stroke-linecap="round"/>
+<text fill="#B3B3B3" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="845" y="477.818">Envoi en cours&#x2026;</tspan></text>
+</g>
+<g clip-path="url(#clip1_75_823)">
+<path d="M48 648C48 643.582 51.5817 640 56 640H688C692.418 640 696 643.582 696 648V1012C696 1016.42 692.418 1020 688 1020H56C51.5817 1020 48 1016.42 48 1012V648Z" fill="white"/>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="72" y="679.091">09 &#x2014; ENVOI CONFIRM&#xc9;</tspan></text>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="72" y="725.818">Devis [r&#xe9;f&#xe9;rence] &#x2014; version [n]</tspan></text>
+<path d="M80 757H664C667.866 757 671 760.134 671 764V916C671 919.866 667.866 923 664 923H80C76.134 923 73 919.866 73 916V764C73 760.134 76.134 757 80 757Z" fill="white"/>
+<path d="M80 757H664C667.866 757 671 760.134 671 764V916C671 919.866 667.866 923 664 923H80C76.134 923 73 919.866 73 916V764C73 760.134 76.134 757 80 757Z" stroke="#216E4E" stroke-width="2"/>
+<text fill="#216E4E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="98" y="803.273">Devis envoy&#xe9;</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="98" y="843.818">Le service d&#x2019;envoi a accept&#xe9; le courriel destin&#xe9; &#xe0; [email du client].&#10;</tspan><tspan x="98" y="867.818">Statut du devis : &#xe9;tude c&#xf4;t&#xe9; client.&#10;</tspan><tspan x="98" y="891.818">L&#x2019;acceptation du devis appartient au client.</tspan></text>
+<mask id="path-29-inside-3_75_823" fill="white">
+<path d="M72 956C72 951.582 75.5817 948 80 948H344C348.418 948 352 951.582 352 956V988C352 992.418 348.418 996 344 996H80C75.5817 996 72 992.418 72 988V956Z"/>
+</mask>
+<path d="M72 956C72 951.582 75.5817 948 80 948H344C348.418 948 352 951.582 352 956V988C352 992.418 348.418 996 344 996H80C75.5817 996 72 992.418 72 988V956Z" fill="white"/>
+<path d="M80 948V949H344V948V947H80V948ZM352 956H351V988H352H353V956H352ZM344 996V995H80V996V997H344V996ZM72 988H73V956H72H71V988H72ZM80 996V995C76.134 995 73 991.866 73 988H72H71C71 992.971 75.0294 997 80 997V996ZM352 988H351C351 991.866 347.866 995 344 995V996V997C348.971 997 353 992.971 353 988H352ZM344 948V949C347.866 949 351 952.134 351 956H352H353C353 951.029 348.971 947 344 947V948ZM80 948V947C75.0294 947 71 951.029 71 956H72H73C73 952.134 76.134 949 80 949V948Z" fill="#526574" mask="url(#path-29-inside-3_75_823)"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="147.5" y="977.818">Retour aux devis</tspan></text>
+<path d="M744 648C744 643.582 747.582 640 752 640H1384C1388.42 640 1392 643.582 1392 648V1060C1392 1064.42 1388.42 1068 1384 1068H752C747.582 1068 744 1064.42 744 1060V648Z" fill="white"/>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="768" y="679.091">10 &#x2014; &#xc9;CHEC CONFIRM&#xc9;</tspan></text>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="768" y="725.818">Devis [r&#xe9;f&#xe9;rence] &#x2014; version [n]</tspan></text>
+<path d="M776 757H1360C1363.87 757 1367 760.134 1367 764V892C1367 895.866 1363.87 899 1360 899H776C772.134 899 769 895.866 769 892V764C769 760.134 772.134 757 776 757Z" fill="white"/>
+<path d="M776 757H1360C1363.87 757 1367 760.134 1367 764V892C1367 895.866 1363.87 899 1360 899H776C772.134 899 769 895.866 769 892V764C769 760.134 772.134 757 776 757Z" stroke="#B42318" stroke-width="2"/>
+<text fill="#B42318" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="794" y="803.273">Le courriel n&#x2019;a pas &#xe9;t&#xe9; envoy&#xe9;</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="794" y="843.818">Le devis et son PDF sont conserv&#xe9;s. V&#xe9;rifiez le destinataire avant de </tspan><tspan x="794" y="867.818">r&#xe9;essayer. Le devis n&#x2019;est pas marqu&#xe9; comme transmis.</tspan></text>
+<mask id="path-38-inside-4_75_823" fill="white">
+<path d="M768 932C768 927.582 771.582 924 776 924H1040C1044.42 924 1048 927.582 1048 932V964C1048 968.418 1044.42 972 1040 972H776C771.582 972 768 968.418 768 964V932Z"/>
+</mask>
+<path d="M768 932C768 927.582 771.582 924 776 924H1040C1044.42 924 1048 927.582 1048 932V964C1048 968.418 1044.42 972 1040 972H776C771.582 972 768 968.418 768 964V932Z" fill="white"/>
+<path d="M776 924V925H1040V924V923H776V924ZM1048 932H1047V964H1048H1049V932H1048ZM1040 972V971H776V972V973H1040V972ZM768 964H769V932H768H767V964H768ZM776 972V971C772.134 971 769 967.866 769 964H768H767C767 968.971 771.029 973 776 973V972ZM1048 964H1047C1047 967.866 1043.87 971 1040 971V972V973C1044.97 973 1049 968.971 1049 964H1048ZM1040 924V925C1043.87 925 1047 928.134 1047 932H1048H1049C1049 927.029 1044.97 923 1040 923V924ZM776 924V923C771.029 923 767 927.029 767 932H768H769C769 928.134 772.134 925 776 925V924Z" fill="#526574" mask="url(#path-38-inside-4_75_823)"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="822.5" y="953.818">V&#xe9;rifier le destinataire</tspan></text>
+<mask id="path-41-inside-5_75_823" fill="white">
+<path d="M768 1004C768 999.582 771.582 996 776 996H1040C1044.42 996 1048 999.582 1048 1004V1036C1048 1040.42 1044.42 1044 1040 1044H776C771.582 1044 768 1040.42 768 1036V1004Z"/>
+</mask>
+<path d="M768 1004C768 999.582 771.582 996 776 996H1040C1044.42 996 1048 999.582 1048 1004V1036C1048 1040.42 1044.42 1044 1040 1044H776C771.582 1044 768 1040.42 768 1036V1004Z" fill="white"/>
+<path d="M776 996V997H1040V996V995H776V996ZM1048 1004H1047V1036H1048H1049V1004H1048ZM1040 1044V1043H776V1044V1045H1040V1044ZM768 1036H769V1004H768H767V1036H768ZM776 1044V1043C772.134 1043 769 1039.87 769 1036H768H767C767 1040.97 771.029 1045 776 1045V1044ZM1048 1036H1047C1047 1039.87 1043.87 1043 1040 1043V1044V1045C1044.97 1045 1049 1040.97 1049 1036H1048ZM1040 996V997C1043.87 997 1047 1000.13 1047 1004H1048H1049C1049 999.029 1044.97 995 1040 995V996ZM776 996V995C771.029 995 767 999.029 767 1004H768H769C769 1000.13 772.134 997 776 997V996Z" fill="#526574" mask="url(#path-41-inside-5_75_823)"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="841.5" y="1025.82">R&#xe9;essayer l&#x2019;envoi</tspan></text>
+</g>
+<g clip-path="url(#clip2_75_823)">
+<path d="M48 1100C48 1095.58 51.5817 1092 56 1092H688C692.418 1092 696 1095.58 696 1100V1440C696 1444.42 692.418 1448 688 1448H56C51.5817 1448 48 1444.42 48 1440V1100Z" fill="white"/>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="72" y="1131.09">11 &#x2014; R&#xc9;SULTAT INCERTAIN</tspan></text>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="72" y="1177.82">Devis [r&#xe9;f&#xe9;rence] &#x2014; version [n]</tspan></text>
+<path d="M80 1209H664C667.866 1209 671 1212.13 671 1216V1344C671 1347.87 667.866 1351 664 1351H80C76.134 1351 73 1347.87 73 1344V1216C73 1212.13 76.134 1209 80 1209Z" fill="white"/>
+<path d="M80 1209H664C667.866 1209 671 1212.13 671 1216V1344C671 1347.87 667.866 1351 664 1351H80C76.134 1351 73 1347.87 73 1344V1216C73 1212.13 76.134 1209 80 1209Z" stroke="#142D43" stroke-width="2"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="98" y="1255.27">V&#xe9;rifier avant de renvoyer</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="98" y="1295.82">La r&#xe9;ponse a &#xe9;t&#xe9; interrompue. L&#x2019;envoi a peut-&#xea;tre abouti. Consultez son </tspan><tspan x="98" y="1319.82">&#xe9;tat avant de recommencer pour &#xe9;viter un doublon.</tspan></text>
+<mask id="path-50-inside-6_75_823" fill="white">
+<path d="M72 1384C72 1379.58 75.5817 1376 80 1376H344C348.418 1376 352 1379.58 352 1384V1416C352 1420.42 348.418 1424 344 1424H80C75.5817 1424 72 1420.42 72 1416V1384Z"/>
+</mask>
+<path d="M72 1384C72 1379.58 75.5817 1376 80 1376H344C348.418 1376 352 1379.58 352 1384V1416C352 1420.42 348.418 1424 344 1424H80C75.5817 1424 72 1420.42 72 1416V1384Z" fill="white"/>
+<path d="M80 1376V1377H344V1376V1375H80V1376ZM352 1384H351V1416H352H353V1384H352ZM344 1424V1423H80V1424V1425H344V1424ZM72 1416H73V1384H72H71V1416H72ZM80 1424V1423C76.134 1423 73 1419.87 73 1416H72H71C71 1420.97 75.0294 1425 80 1425V1424ZM352 1416H351C351 1419.87 347.866 1423 344 1423V1424V1425C348.971 1425 353 1420.97 353 1416H352ZM344 1376V1377C347.866 1377 351 1380.13 351 1384H352H353C353 1379.03 348.971 1375 344 1375V1376ZM80 1376V1375C75.0294 1375 71 1379.03 71 1384H72H73C73 1380.13 76.134 1377 80 1377V1376Z" fill="#526574" mask="url(#path-50-inside-6_75_823)"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="125" y="1405.82">V&#xe9;rifier l&#x2019;&#xe9;tat de l&#x2019;envoi</tspan></text>
+<path d="M744 1100C744 1095.58 747.582 1092 752 1092H1384C1388.42 1092 1392 1095.58 1392 1100V1536C1392 1540.42 1388.42 1544 1384 1544H752C747.582 1544 744 1540.42 744 1536V1100Z" fill="white"/>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="768" y="1131.09">12 &#x2014; ENVOI MANUEL</tspan></text>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="768" y="1177.82">Devis [r&#xe9;f&#xe9;rence] &#x2014; version [n]</tspan></text>
+<path d="M776 1209H1360C1363.87 1209 1367 1212.13 1367 1216V1368C1367 1371.87 1363.87 1375 1360 1375H776C772.134 1375 769 1371.87 769 1368V1216C769 1212.13 772.134 1209 776 1209Z" fill="white"/>
+<path d="M776 1209H1360C1363.87 1209 1367 1212.13 1367 1216V1368C1367 1371.87 1363.87 1375 1360 1375H776C772.134 1375 769 1371.87 769 1368V1216C769 1212.13 772.134 1209 776 1209Z" stroke="#142D43" stroke-width="2"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="794" y="1255.27">Avez-vous envoy&#xe9; ce PDF ?</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="794" y="1295.82">Confirmez seulement apr&#xe8;s l&#x2019;envoi depuis votre messagerie &#xe0; [email du </tspan><tspan x="794" y="1319.82">client]. Le t&#xe9;l&#xe9;chargement seul ne suffit pas.&#10;</tspan><tspan x="794" y="1343.82">La confirmation enregistrera la transmission d&#xe9;clar&#xe9;e.</tspan></text>
+<mask id="path-59-inside-7_75_823" fill="white">
+<path d="M768 1408C768 1403.58 771.582 1400 776 1400H1040C1044.42 1400 1048 1403.58 1048 1408V1440C1048 1444.42 1044.42 1448 1040 1448H776C771.582 1448 768 1444.42 768 1440V1408Z"/>
+</mask>
+<path d="M768 1408C768 1403.58 771.582 1400 776 1400H1040C1044.42 1400 1048 1403.58 1048 1408V1440C1048 1444.42 1044.42 1448 1040 1448H776C771.582 1448 768 1444.42 768 1440V1408Z" fill="white"/>
+<path d="M776 1400V1401H1040V1400V1399H776V1400ZM1048 1408H1047V1440H1048H1049V1408H1048ZM1040 1448V1447H776V1448V1449H1040V1448ZM768 1440H769V1408H768H767V1440H768ZM776 1448V1447C772.134 1447 769 1443.87 769 1440H768H767C767 1444.97 771.029 1449 776 1449V1448ZM1048 1440H1047C1047 1443.87 1043.87 1447 1040 1447V1448V1449C1044.97 1449 1049 1444.97 1049 1440H1048ZM1040 1400V1401C1043.87 1401 1047 1404.13 1047 1408H1048H1049C1049 1403.03 1044.97 1399 1040 1399V1400ZM776 1400V1399C771.029 1399 767 1403.03 767 1408H768H769C769 1404.13 772.134 1401 776 1401V1400Z" fill="#526574" mask="url(#path-59-inside-7_75_823)"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="812" y="1429.82">Confirmer l&#x2019;envoi manuel</tspan></text>
+<mask id="path-62-inside-8_75_823" fill="white">
+<path d="M768 1480C768 1475.58 771.582 1472 776 1472H1040C1044.42 1472 1048 1475.58 1048 1480V1512C1048 1516.42 1044.42 1520 1040 1520H776C771.582 1520 768 1516.42 768 1512V1480Z"/>
+</mask>
+<path d="M768 1480C768 1475.58 771.582 1472 776 1472H1040C1044.42 1472 1048 1475.58 1048 1480V1512C1048 1516.42 1044.42 1520 1040 1520H776C771.582 1520 768 1516.42 768 1512V1480Z" fill="white"/>
+<path d="M776 1472V1473H1040V1472V1471H776V1472ZM1048 1480H1047V1512H1048H1049V1480H1048ZM1040 1520V1519H776V1520V1521H1040V1520ZM768 1512H769V1480H768H767V1512H768ZM776 1520V1519C772.134 1519 769 1515.87 769 1512H768H767C767 1516.97 771.029 1521 776 1521V1520ZM1048 1512H1047C1047 1515.87 1043.87 1519 1040 1519V1520V1521C1044.97 1521 1049 1516.97 1049 1512H1048ZM1040 1472V1473C1043.87 1473 1047 1476.13 1047 1480H1048H1049C1049 1475.03 1044.97 1471 1040 1471V1472ZM776 1472V1471C771.029 1471 767 1475.03 767 1480H768H769C769 1476.13 772.134 1473 776 1473V1472Z" fill="#526574" mask="url(#path-62-inside-8_75_823)"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="865" y="1501.82">Pas encore</tspan></text>
+</g>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="48" y="1585.82">Le statut &#xab; &#xe9;tude c&#xf4;t&#xe9; client &#xbb; suit la transmission confirm&#xe9;e, pas la cr&#xe9;ation du PDF. Un succ&#xe8;s technique d&#x2019;envoi ne prouve ni r&#xe9;ception en bo&#xee;te de r&#xe9;ception ni lecture du </tspan><tspan x="48" y="1609.82">courriel.</tspan></text>
+<defs>
+<clipPath id="clip0_75_823">
+<rect width="1344" height="452" fill="white" transform="translate(48 164)"/>
+</clipPath>
+<clipPath id="clip1_75_823">
+<rect width="1344" height="428" fill="white" transform="translate(48 640)"/>
+</clipPath>
+<clipPath id="clip2_75_823">
+<rect width="1344" height="452" fill="white" transform="translate(48 1092)"/>
+</clipPath>
+</defs>
+</svg>
