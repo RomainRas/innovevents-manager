@@ -1,0 +1,77 @@
+<svg width="1440" height="1092" viewBox="0 0 1440 1092" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="1440" height="1092" fill="#F4F7FA"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="36" font-weight="bold" letter-spacing="0em"><tspan x="48" y="83.0909">Devis &#x2014; Confirmer sa d&#xe9;cision</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="48" y="133.818">WEB03 &#xb7; Extraits des dialogues et &#xe9;tats apr&#xe8;s r&#xe9;ponse. Les rep&#xe8;res entre crochets reprennent les donn&#xe9;es du devis consult&#xe9;.</tspan></text>
+<g clip-path="url(#clip0_69_599)">
+<path d="M48 172C48 167.582 51.5817 164 56 164H688C692.418 164 696 167.582 696 172V560C696 564.418 692.418 568 688 568H56C51.5817 568 48 564.418 48 560V172Z" fill="white"/>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="72" y="203.091">01 &#x2014; AVANT ACCEPTATION</tspan></text>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="72" y="249.818">Devis [r&#xe9;f&#xe9;rence] &#x2014; version [n]</tspan></text>
+<path d="M80 281H664C667.866 281 671 284.134 671 288V392C671 395.866 667.866 399 664 399H80C76.134 399 73 395.866 73 392V288C73 284.134 76.134 281 80 281Z" fill="white"/>
+<path d="M80 281H664C667.866 281 671 284.134 671 288V392C671 395.866 667.866 399 664 399H80C76.134 399 73 395.866 73 392V288C73 284.134 76.134 281 80 281Z" stroke="#142D43" stroke-width="2"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="98" y="327.273">Accepter ce devis ?</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="98" y="367.818">Vous confirmez votre accord sur cette proposition.</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="72" y="441.818">&#xc9;v&#xe9;nement : [nom de l&#x2019;&#xe9;v&#xe9;nement]&#10;</tspan><tspan x="72" y="465.818">Total TTC : [montant et devise]</tspan></text>
+<path d="M72 504C72 499.582 75.5817 496 80 496H344C348.418 496 352 499.582 352 504V536C352 540.418 348.418 544 344 544H80C75.5817 544 72 540.418 72 536V504Z" fill="#087F8C"/>
+<text fill="white" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="121.5" y="525.818">Confirmer l&#x2019;acceptation</tspan></text>
+<mask id="path-12-inside-1_69_599" fill="white">
+<path d="M368 504C368 499.582 371.582 496 376 496H640C644.418 496 648 499.582 648 504V536C648 540.418 644.418 544 640 544H376C371.582 544 368 540.418 368 536V504Z"/>
+</mask>
+<path d="M368 504C368 499.582 371.582 496 376 496H640C644.418 496 648 499.582 648 504V536C648 540.418 644.418 544 640 544H376C371.582 544 368 540.418 368 536V504Z" fill="white"/>
+<path d="M376 496V497H640V496V495H376V496ZM648 504H647V536H648H649V504H648ZM640 544V543H376V544V545H640V544ZM368 536H369V504H368H367V536H368ZM376 544V543C372.134 543 369 539.866 369 536H368H367C367 540.971 371.029 545 376 545V544ZM648 536H647C647 539.866 643.866 543 640 543V544V545C644.971 545 649 540.971 649 536H648ZM640 496V497C643.866 497 647 500.134 647 504H648H649C649 499.029 644.971 495 640 495V496ZM376 496V495C371.029 495 367 499.029 367 504H368H369C369 500.134 372.134 497 376 497V496Z" fill="#526574" mask="url(#path-12-inside-1_69_599)"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="477.5" y="525.818">Annuler</tspan></text>
+<path d="M744 172C744 167.582 747.582 164 752 164H1384C1388.42 164 1392 167.582 1392 172V584C1392 588.418 1388.42 592 1384 592H752C747.582 592 744 588.418 744 584V172Z" fill="white"/>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="768" y="203.091">02 &#x2014; AVANT REFUS</tspan></text>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="768" y="249.818">Devis [r&#xe9;f&#xe9;rence] &#x2014; version [n]</tspan></text>
+<path d="M776 281H1360C1363.87 281 1367 284.134 1367 288V416C1367 419.866 1363.87 423 1360 423H776C772.134 423 769 419.866 769 416V288C769 284.134 772.134 281 776 281Z" fill="white"/>
+<path d="M776 281H1360C1363.87 281 1367 284.134 1367 288V416C1367 419.866 1363.87 423 1360 423H776C772.134 423 769 419.866 769 416V288C769 284.134 772.134 281 776 281Z" stroke="#142D43" stroke-width="2"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="794" y="327.273">Refuser ce devis ?</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="794" y="367.818">Vous allez refuser cette proposition. Votre historique sera </tspan><tspan x="794" y="391.818">conserv&#xe9;.</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="768" y="465.818">&#xc9;v&#xe9;nement : [nom de l&#x2019;&#xe9;v&#xe9;nement]&#10;</tspan><tspan x="768" y="489.818">Total TTC : [montant et devise]</tspan></text>
+<path d="M776 520.5H1040C1044.14 520.5 1047.5 523.858 1047.5 528V560C1047.5 564.142 1044.14 567.5 1040 567.5H776C771.858 567.5 768.5 564.142 768.5 560V528L768.51 527.614C768.711 523.651 771.987 520.5 776 520.5Z" fill="white"/>
+<path d="M776 520.5H1040C1044.14 520.5 1047.5 523.858 1047.5 528V560C1047.5 564.142 1044.14 567.5 1040 567.5H776C771.858 567.5 768.5 564.142 768.5 560V528L768.51 527.614C768.711 523.651 771.987 520.5 776 520.5Z" stroke="#B42318" stroke-linecap="round"/>
+<text fill="#B42318" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="838" y="549.818">Confirmer le refus</tspan></text>
+<mask id="path-24-inside-2_69_599" fill="white">
+<path d="M1064 528C1064 523.582 1067.58 520 1072 520H1336C1340.42 520 1344 523.582 1344 528V560C1344 564.418 1340.42 568 1336 568H1072C1067.58 568 1064 564.418 1064 560V528Z"/>
+</mask>
+<path d="M1064 528C1064 523.582 1067.58 520 1072 520H1336C1340.42 520 1344 523.582 1344 528V560C1344 564.418 1340.42 568 1336 568H1072C1067.58 568 1064 564.418 1064 560V528Z" fill="white"/>
+<path d="M1072 520V521H1336V520V519H1072V520ZM1344 528H1343V560H1344H1345V528H1344ZM1336 568V567H1072V568V569H1336V568ZM1064 560H1065V528H1064H1063V560H1064ZM1072 568V567C1068.13 567 1065 563.866 1065 560H1064H1063C1063 564.971 1067.03 569 1072 569V568ZM1344 560H1343C1343 563.866 1339.87 567 1336 567V568V569C1340.97 569 1345 564.971 1345 560H1344ZM1336 520V521C1339.87 521 1343 524.134 1343 528H1344H1345C1345 523.029 1340.97 519 1336 519V520ZM1072 520V519C1067.03 519 1063 523.029 1063 528H1064H1065C1065 524.134 1068.13 521 1072 521V520Z" fill="#526574" mask="url(#path-24-inside-2_69_599)"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="1173.5" y="549.818">Annuler</tspan></text>
+</g>
+<g clip-path="url(#clip1_69_599)">
+<path d="M48 624C48 619.582 51.5817 616 56 616H688C692.418 616 696 619.582 696 624V964C696 968.418 692.418 972 688 972H56C51.5817 972 48 968.418 48 964V624Z" fill="white"/>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="72" y="655.091">03 &#x2014; APR&#xc8;S ACCEPTATION ENREGISTR&#xc9;E</tspan></text>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="72" y="701.818">Devis [r&#xe9;f&#xe9;rence] &#x2014; version [n]</tspan></text>
+<path d="M80 733H664C667.866 733 671 736.134 671 740V868C671 871.866 667.866 875 664 875H80C76.134 875 73 871.866 73 868V740C73 736.134 76.134 733 80 733Z" fill="white"/>
+<path d="M80 733H664C667.866 733 671 736.134 671 740V868C671 871.866 667.866 875 664 875H80C76.134 875 73 871.866 73 868V740C73 736.134 76.134 733 80 733Z" stroke="#216E4E" stroke-width="2"/>
+<text fill="#216E4E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="98" y="779.273">Devis accept&#xe9;</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="98" y="819.818">Votre acceptation a bien &#xe9;t&#xe9; enregistr&#xe9;e. Vous pouvez retrouver </tspan><tspan x="98" y="843.818">ce devis dans votre espace.</tspan></text>
+<mask id="path-33-inside-3_69_599" fill="white">
+<path d="M72 908C72 903.582 75.5817 900 80 900H344C348.418 900 352 903.582 352 908V940C352 944.418 348.418 948 344 948H80C75.5817 948 72 944.418 72 940V908Z"/>
+</mask>
+<path d="M72 908C72 903.582 75.5817 900 80 900H344C348.418 900 352 903.582 352 908V940C352 944.418 348.418 948 344 948H80C75.5817 948 72 944.418 72 940V908Z" fill="white"/>
+<path d="M80 900V901H344V900V899H80V900ZM352 908H351V940H352H353V908H352ZM344 948V947H80V948V949H344V948ZM72 940H73V908H72H71V940H72ZM80 948V947C76.134 947 73 943.866 73 940H72H71C71 944.971 75.0294 949 80 949V948ZM352 940H351C351 943.866 347.866 947 344 947V948V949C348.971 949 353 944.971 353 940H352ZM344 900V901C347.866 901 351 904.134 351 908H352H353C353 903.029 348.971 899 344 899V900ZM80 900V899C75.0294 899 71 903.029 71 908H72H73C73 904.134 76.134 901 80 901V900Z" fill="#526574" mask="url(#path-33-inside-3_69_599)"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="138.5" y="929.818">Retour &#xe0; mes devis</tspan></text>
+<path d="M744 624C744 619.582 747.582 616 752 616H1384C1388.42 616 1392 619.582 1392 624V964C1392 968.418 1388.42 972 1384 972H752C747.582 972 744 968.418 744 964V624Z" fill="white"/>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="768" y="655.091">04 &#x2014; APR&#xc8;S REFUS ENREGISTR&#xc9;</tspan></text>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="768" y="701.818">Devis [r&#xe9;f&#xe9;rence] &#x2014; version [n]</tspan></text>
+<path d="M776 733H1360C1363.87 733 1367 736.134 1367 740V868C1367 871.866 1363.87 875 1360 875H776C772.134 875 769 871.866 769 868V740C769 736.134 772.134 733 776 733Z" fill="white"/>
+<path d="M776 733H1360C1363.87 733 1367 736.134 1367 740V868C1367 871.866 1363.87 875 1360 875H776C772.134 875 769 871.866 769 868V740C769 736.134 772.134 733 776 733Z" stroke="#142D43" stroke-width="2"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="794" y="779.273">Devis refus&#xe9;</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="794" y="819.818">Votre refus a bien &#xe9;t&#xe9; enregistr&#xe9;. Le devis reste consultable dans </tspan><tspan x="794" y="843.818">votre historique.</tspan></text>
+<mask id="path-42-inside-4_69_599" fill="white">
+<path d="M768 908C768 903.582 771.582 900 776 900H1040C1044.42 900 1048 903.582 1048 908V940C1048 944.418 1044.42 948 1040 948H776C771.582 948 768 944.418 768 940V908Z"/>
+</mask>
+<path d="M768 908C768 903.582 771.582 900 776 900H1040C1044.42 900 1048 903.582 1048 908V940C1048 944.418 1044.42 948 1040 948H776C771.582 948 768 944.418 768 940V908Z" fill="white"/>
+<path d="M776 900V901H1040V900V899H776V900ZM1048 908H1047V940H1048H1049V908H1048ZM1040 948V947H776V948V949H1040V948ZM768 940H769V908H768H767V940H768ZM776 948V947C772.134 947 769 943.866 769 940H768H767C767 944.971 771.029 949 776 949V948ZM1048 940H1047C1047 943.866 1043.87 947 1040 947V948V949C1044.97 949 1049 944.971 1049 940H1048ZM1040 900V901C1043.87 901 1047 904.134 1047 908H1048H1049C1049 903.029 1044.97 899 1040 899V900ZM776 900V899C771.029 899 767 903.029 767 908H768H769C769 904.134 772.134 901 776 901V900Z" fill="#526574" mask="url(#path-42-inside-4_69_599)"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="834.5" y="929.818">Retour &#xe0; mes devis</tspan></text>
+</g>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="48" y="1013.82">Choix de conception : Annuler ferme le dialogue sans enregistrer de d&#xe9;cision. Apr&#xe8;s une r&#xe9;ponse enregistr&#xe9;e, le statut et le r&#xe9;sultat remplacent les actions de r&#xe9;ponse. Ces </tspan><tspan x="48" y="1037.82">extraits ne constituent pas de nouveaux &#xe9;crans principaux.</tspan></text>
+<defs>
+<clipPath id="clip0_69_599">
+<rect width="1344" height="428" fill="white" transform="translate(48 164)"/>
+</clipPath>
+<clipPath id="clip1_69_599">
+<rect width="1344" height="356" fill="white" transform="translate(48 616)"/>
+</clipPath>
+</defs>
+</svg>
