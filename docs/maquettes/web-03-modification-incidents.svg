@@ -1,0 +1,95 @@
+<svg width="1440" height="1544" viewBox="0 0 1440 1544" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="1440" height="1544" fill="#F4F7FA"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="36" font-weight="bold" letter-spacing="0em"><tspan x="48" y="83.0909">Devis &#x2014; Modification et incidents</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="48" y="133.818">WEB03 &#xb7; Extraits des &#xe9;tats du client. La confirmation d&#x2019;une r&#xe9;ponse d&#xe9;pend toujours du r&#xe9;sultat enregistr&#xe9; par le serveur.</tspan></text>
+<g clip-path="url(#clip0_69_600)">
+<path d="M48 172C48 167.582 51.5817 164 56 164H688C692.418 164 696 167.582 696 172V656C696 660.418 692.418 664 688 664H56C51.5817 664 48 660.418 48 656V172Z" fill="white"/>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="72" y="203.091">05 &#x2014; MOTIF DE MODIFICATION VIDE</tspan></text>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="72" y="249.818">Devis [r&#xe9;f&#xe9;rence] &#x2014; version [n]</tspan></text>
+<path d="M80 281H664C667.866 281 671 284.134 671 288V392C671 395.866 667.866 399 664 399H80C76.134 399 73 395.866 73 392V288C73 284.134 76.134 281 80 281Z" fill="white"/>
+<path d="M80 281H664C667.866 281 671 284.134 671 288V392C671 395.866 667.866 399 664 399H80C76.134 399 73 395.866 73 392V288C73 284.134 76.134 281 80 281Z" stroke="#B42318" stroke-width="2"/>
+<text fill="#B42318" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="98" y="327.273">Pr&#xe9;cisez votre demande</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="98" y="367.818">Un motif est n&#xe9;cessaire pour demander une modification.</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="72" y="441.818">Motif de modification *</tspan></text>
+<path d="M72 464C72 459.582 75.5817 456 80 456H664C668.418 456 672 459.582 672 464V528C672 532.418 668.418 536 664 536H80C75.5817 536 72 532.418 72 528V464Z" fill="white"/>
+<path d="M72 464C72 459.582 75.5817 456 80 456H664C668.418 456 672 459.582 672 464V528C672 532.418 668.418 536 664 536H80C75.5817 536 72 532.418 72 528V464Z" stroke="#B42318" stroke-width="2" stroke-linecap="round"/>
+<path d="M666.523 523.354L660.354 529.523M666.981 526.896L663.896 529.981" stroke="#B3B3B3"/>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="72" y="561.818">Indiquez les changements souhait&#xe9;s.</tspan></text>
+<path d="M72 600C72 595.582 75.5817 592 80 592H344C348.418 592 352 595.582 352 600V632C352 636.418 348.418 640 344 640H80C75.5817 640 72 636.418 72 632V600Z" fill="#F3A48B"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="134" y="621.818">Envoyer la demande</tspan></text>
+<path d="M744 172C744 167.582 747.582 164 752 164H1384C1388.42 164 1392 167.582 1392 172V584C1392 588.418 1388.42 592 1384 592H752C747.582 592 744 588.418 744 584V172Z" fill="white"/>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="768" y="203.091">06 &#x2014; APR&#xc8;S DEMANDE ENREGISTR&#xc9;E</tspan></text>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="768" y="249.818">Devis [r&#xe9;f&#xe9;rence] &#x2014; version [n]</tspan></text>
+<path d="M776 281H1360C1363.87 281 1367 284.134 1367 288V416C1367 419.866 1363.87 423 1360 423H776C772.134 423 769 419.866 769 416V288C769 284.134 772.134 281 776 281Z" fill="white"/>
+<path d="M776 281H1360C1363.87 281 1367 284.134 1367 288V416C1367 419.866 1363.87 423 1360 423H776C772.134 423 769 419.866 769 416V288C769 284.134 772.134 281 776 281Z" stroke="#216E4E" stroke-width="2"/>
+<text fill="#216E4E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="794" y="327.273">Modification demand&#xe9;e</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="794" y="367.818">Votre motif a bien &#xe9;t&#xe9; enregistr&#xe9;. Chlo&#xe9; pourra pr&#xe9;parer une </tspan><tspan x="794" y="391.818">contre-proposition.</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="768" y="465.818">Statut du devis : modification&#10;</tspan><tspan x="768" y="489.818">Votre motif : [texte saisi par le client]</tspan></text>
+<mask id="path-22-inside-1_69_600" fill="white">
+<path d="M768 528C768 523.582 771.582 520 776 520H1040C1044.42 520 1048 523.582 1048 528V560C1048 564.418 1044.42 568 1040 568H776C771.582 568 768 564.418 768 560V528Z"/>
+</mask>
+<path d="M768 528C768 523.582 771.582 520 776 520H1040C1044.42 520 1048 523.582 1048 528V560C1048 564.418 1044.42 568 1040 568H776C771.582 568 768 564.418 768 560V528Z" fill="white"/>
+<path d="M776 520V521H1040V520V519H776V520ZM1048 528H1047V560H1048H1049V528H1048ZM1040 568V567H776V568V569H1040V568ZM768 560H769V528H768H767V560H768ZM776 568V567C772.134 567 769 563.866 769 560H768H767C767 564.971 771.029 569 776 569V568ZM1048 560H1047C1047 563.866 1043.87 567 1040 567V568V569C1044.97 569 1049 564.971 1049 560H1048ZM1040 520V521C1043.87 521 1047 524.134 1047 528H1048H1049C1049 523.029 1044.97 519 1040 519V520ZM776 520V519C771.029 519 767 523.029 767 528H768H769C769 524.134 772.134 521 776 521V520Z" fill="#526574" mask="url(#path-22-inside-1_69_600)"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="834.5" y="549.818">Retour &#xe0; mes devis</tspan></text>
+</g>
+<g clip-path="url(#clip1_69_600)">
+<path d="M48 696C48 691.582 51.5817 688 56 688H688C692.418 688 696 691.582 696 696V1012C696 1016.42 692.418 1020 688 1020H56C51.5817 1020 48 1016.42 48 1012V696Z" fill="white"/>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="72" y="727.091">07 &#x2014; TRAITEMENT EN COURS</tspan></text>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="72" y="773.818">Devis [r&#xe9;f&#xe9;rence] &#x2014; version [n]</tspan></text>
+<path d="M80 805H664C667.866 805 671 808.134 671 812V916C671 919.866 667.866 923 664 923H80C76.134 923 73 919.866 73 916V812C73 808.134 76.134 805 80 805Z" fill="white"/>
+<path d="M80 805H664C667.866 805 671 808.134 671 812V916C671 919.866 667.866 923 664 923H80C76.134 923 73 919.866 73 916V812C73 808.134 76.134 805 80 805Z" stroke="#142D43" stroke-width="2"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="98" y="851.273">Enregistrement en cours&#x2026;</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="98" y="891.818">Votre r&#xe9;ponse est en cours de traitement. Merci de patienter.</tspan></text>
+<path d="M72 956C72 951.582 75.5817 948 80 948H344C348.418 948 352 951.582 352 956V988C352 992.418 348.418 996 344 996H80C75.5817 996 72 992.418 72 988V956Z" fill="#F4F7FA"/>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="110.5" y="977.818">Enregistrement en cours&#x2026;</tspan></text>
+<path d="M744 696C744 691.582 747.582 688 752 688H1384C1388.42 688 1392 691.582 1392 696V1036C1392 1040.42 1388.42 1044 1384 1044H752C747.582 1044 744 1040.42 744 1036V696Z" fill="white"/>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="768" y="727.091">08 &#x2014; NON-ENREGISTREMENT CONFIRM&#xc9;</tspan></text>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="768" y="773.818">Devis [r&#xe9;f&#xe9;rence] &#x2014; version [n]</tspan></text>
+<path d="M776 805H1360C1363.87 805 1367 808.134 1367 812V940C1367 943.866 1363.87 947 1360 947H776C772.134 947 769 943.866 769 940V812C769 808.134 772.134 805 776 805Z" fill="white"/>
+<path d="M776 805H1360C1363.87 805 1367 808.134 1367 812V940C1367 943.866 1363.87 947 1360 947H776C772.134 947 769 943.866 769 940V812C769 808.134 772.134 805 776 805Z" stroke="#B42318" stroke-width="2"/>
+<text fill="#B42318" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="794" y="851.273">Votre r&#xe9;ponse n&#x2019;a pas &#xe9;t&#xe9; enregistr&#xe9;e</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="794" y="891.818">Vous pouvez r&#xe9;essayer. Si vous avez saisi un motif, il est </tspan><tspan x="794" y="915.818">conserv&#xe9;.</tspan></text>
+<path d="M768 980C768 975.582 771.582 972 776 972H1040C1044.42 972 1048 975.582 1048 980V1012C1048 1016.42 1044.42 1020 1040 1020H776C771.582 1020 768 1016.42 768 1012V980Z" fill="#087F8C"/>
+<text fill="white" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="867.5" y="1001.82">R&#xe9;essayer</tspan></text>
+</g>
+<g clip-path="url(#clip2_69_600)">
+<path d="M48 1076C48 1071.58 51.5817 1068 56 1068H688C692.418 1068 696 1071.58 696 1076V1416C696 1420.42 692.418 1424 688 1424H56C51.5817 1424 48 1420.42 48 1416V1076Z" fill="white"/>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="72" y="1107.09">09 &#x2014; PROPOSITION REMPLAC&#xc9;E</tspan></text>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="72" y="1153.82">Devis [r&#xe9;f&#xe9;rence] &#x2014; version [n]</tspan></text>
+<path d="M80 1185H664C667.866 1185 671 1188.13 671 1192V1320C671 1323.87 667.866 1327 664 1327H80C76.134 1327 73 1323.87 73 1320V1192C73 1188.13 76.134 1185 80 1185Z" fill="white"/>
+<path d="M80 1185H664C667.866 1185 671 1188.13 671 1192V1320C671 1323.87 667.866 1327 664 1327H80C76.134 1327 73 1323.87 73 1320V1192C73 1188.13 76.134 1185 80 1185Z" stroke="#142D43" stroke-width="2"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="98" y="1231.27">Ce devis a &#xe9;t&#xe9; mis &#xe0; jour</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="98" y="1271.82">Consultez la proposition actuelle avant de r&#xe9;pondre. Aucune </tspan><tspan x="98" y="1295.82">d&#xe9;cision n&#x2019;a &#xe9;t&#xe9; enregistr&#xe9;e sur cette ancienne version.</tspan></text>
+<mask id="path-47-inside-2_69_600" fill="white">
+<path d="M72 1360C72 1355.58 75.5817 1352 80 1352H344C348.418 1352 352 1355.58 352 1360V1392C352 1396.42 348.418 1400 344 1400H80C75.5817 1400 72 1396.42 72 1392V1360Z"/>
+</mask>
+<path d="M72 1360C72 1355.58 75.5817 1352 80 1352H344C348.418 1352 352 1355.58 352 1360V1392C352 1396.42 348.418 1400 344 1400H80C75.5817 1400 72 1396.42 72 1392V1360Z" fill="white"/>
+<path d="M80 1352V1353H344V1352V1351H80V1352ZM352 1360H351V1392H352H353V1360H352ZM344 1400V1399H80V1400V1401H344V1400ZM72 1392H73V1360H72H71V1392H72ZM80 1400V1399C76.134 1399 73 1395.87 73 1392H72H71C71 1396.97 75.0294 1401 80 1401V1400ZM352 1392H351C351 1395.87 347.866 1399 344 1399V1400V1401C348.971 1401 353 1396.97 353 1392H352ZM344 1352V1353C347.866 1353 351 1356.13 351 1360H352H353C353 1355.03 348.971 1351 344 1351V1352ZM80 1352V1351C75.0294 1351 71 1355.03 71 1360H72H73C73 1356.13 76.134 1353 80 1353V1352Z" fill="#526574" mask="url(#path-47-inside-2_69_600)"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="124.5" y="1381.82">Voir la version actuelle</tspan></text>
+<path d="M744 1076C744 1071.58 747.582 1068 752 1068H1384C1388.42 1068 1392 1071.58 1392 1076V1416C1392 1420.42 1388.42 1424 1384 1424H752C747.582 1424 744 1420.42 744 1416V1076Z" fill="white"/>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="768" y="1107.09">10 &#x2014; R&#xc9;PONSE R&#xc9;SEAU INTERROMPUE</tspan></text>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="768" y="1153.82">Devis [r&#xe9;f&#xe9;rence] &#x2014; version [n]</tspan></text>
+<path d="M776 1185H1360C1363.87 1185 1367 1188.13 1367 1192V1320C1367 1323.87 1363.87 1327 1360 1327H776C772.134 1327 769 1323.87 769 1320V1192C769 1188.13 772.134 1185 776 1185Z" fill="white"/>
+<path d="M776 1185H1360C1363.87 1185 1367 1188.13 1367 1192V1320C1367 1323.87 1363.87 1327 1360 1327H776C772.134 1327 769 1323.87 769 1320V1192C769 1188.13 772.134 1185 776 1185Z" stroke="#142D43" stroke-width="2"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="794" y="1231.27">V&#xe9;rification n&#xe9;cessaire</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="794" y="1271.82">Nous n&#x2019;avons pas pu confirmer le r&#xe9;sultat. V&#xe9;rifiez le statut de </tspan><tspan x="794" y="1295.82">votre devis avant de r&#xe9;pondre &#xe0; nouveau.</tspan></text>
+<mask id="path-56-inside-3_69_600" fill="white">
+<path d="M768 1360C768 1355.58 771.582 1352 776 1352H1040C1044.42 1352 1048 1355.58 1048 1360V1392C1048 1396.42 1044.42 1400 1040 1400H776C771.582 1400 768 1396.42 768 1392V1360Z"/>
+</mask>
+<path d="M768 1360C768 1355.58 771.582 1352 776 1352H1040C1044.42 1352 1048 1355.58 1048 1360V1392C1048 1396.42 1044.42 1400 1040 1400H776C771.582 1400 768 1396.42 768 1392V1360Z" fill="white"/>
+<path d="M776 1352V1353H1040V1352V1351H776V1352ZM1048 1360H1047V1392H1048H1049V1360H1048ZM1040 1400V1399H776V1400V1401H1040V1400ZM768 1392H769V1360H768H767V1392H768ZM776 1400V1399C772.134 1399 769 1395.87 769 1392H768H767C767 1396.97 771.029 1401 776 1401V1400ZM1048 1392H1047C1047 1395.87 1043.87 1399 1040 1399V1400V1401C1044.97 1401 1049 1396.97 1049 1392H1048ZM1040 1352V1353C1043.87 1353 1047 1356.13 1047 1360H1048H1049C1049 1355.03 1044.97 1351 1040 1351V1352ZM776 1352V1351C771.029 1351 767 1355.03 767 1360H768H769C769 1356.13 772.134 1353 776 1353V1352Z" fill="#526574" mask="url(#path-56-inside-3_69_600)"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="845.5" y="1381.82">V&#xe9;rifier le statut</tspan></text>
+</g>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="48" y="1465.82">R&#xe8;gles &#xe0; d&#xe9;velopper : une seule r&#xe9;ponse par version ; contr&#xf4;le des droits et de l&#x2019;&#xe9;tat courant ; pas de nouvelle d&#xe9;cision automatique apr&#xe8;s une coupure r&#xe9;seau. Une notification </tspan><tspan x="48" y="1489.82">par courriel en &#xe9;chec ne doit pas annuler une acceptation d&#xe9;j&#xe0; enregistr&#xe9;e.</tspan></text>
+<defs>
+<clipPath id="clip0_69_600">
+<rect width="1344" height="500" fill="white" transform="translate(48 164)"/>
+</clipPath>
+<clipPath id="clip1_69_600">
+<rect width="1344" height="356" fill="white" transform="translate(48 688)"/>
+</clipPath>
+<clipPath id="clip2_69_600">
+<rect width="1344" height="356" fill="white" transform="translate(48 1068)"/>
+</clipPath>
+</defs>
+</svg>
