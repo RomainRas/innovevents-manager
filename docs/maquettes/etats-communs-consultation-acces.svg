@@ -1,0 +1,98 @@
+<svg width="1440" height="1400" viewBox="0 0 1440 1400" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="1440" height="1400" fill="#F4F7FA"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="36" font-weight="bold" letter-spacing="0em"><tspan x="48" y="83.0909">Consultation et acc&#xe8;s &#x2014; &#xc9;tats communs</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="48" y="133.818">Mod&#xe8;les r&#xe9;utilisables &#xb7; Exemples illustr&#xe9;s avec les &#xe9;v&#xe9;nements. &#xc0; adapter au contexte et aux droits.</tspan></text>
+<g clip-path="url(#clip0_77_733)">
+<path d="M48 172C48 167.582 51.5817 164 56 164H688C692.418 164 696 167.582 696 172V512C696 516.418 692.418 520 688 520H56C51.5817 520 48 516.418 48 512V172Z" fill="white"/>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="72" y="203.091">01 &#x2014; CHARGEMENT</tspan></text>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="72" y="249.818">&#xc9;v&#xe9;nements</tspan></text>
+<path d="M80 281H664C667.866 281 671 284.134 671 288V416C671 419.866 667.866 423 664 423H80C76.134 423 73 419.866 73 416V288C73 284.134 76.134 281 80 281Z" fill="white"/>
+<path d="M80 281H664C667.866 281 671 284.134 671 288V416C671 419.866 667.866 423 664 423H80C76.134 423 73 419.866 73 416V288C73 284.134 76.134 281 80 281Z" stroke="#142D43" stroke-width="2"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="98" y="327.273">Chargement des &#xe9;v&#xe9;nements&#x2026;</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="98" y="367.818">Nous r&#xe9;cup&#xe9;rons les &#xe9;v&#xe9;nements accessibles &#xe0; votre compte. Patientez </tspan><tspan x="98" y="391.818">quelques instants.</tspan></text>
+<path d="M80 448.5H344C348.142 448.5 351.5 451.858 351.5 456V488C351.5 492.142 348.142 495.5 344 495.5H80C75.8579 495.5 72.5 492.142 72.5 488V456L72.5098 455.614C72.7105 451.651 75.9872 448.5 80 448.5Z" fill="#D9D9D9"/>
+<path d="M80 448.5H344C348.142 448.5 351.5 451.858 351.5 456V488C351.5 492.142 348.142 495.5 344 495.5H80C75.8579 495.5 72.5 492.142 72.5 488V456L72.5098 455.614C72.7105 451.651 75.9872 448.5 80 448.5Z" stroke="#B3B3B3" stroke-linecap="round"/>
+<text fill="#B3B3B3" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="157.5" y="477.818">Chargement&#x2026;</tspan></text>
+<path d="M744 172C744 167.582 747.582 164 752 164H1384C1388.42 164 1392 167.582 1392 172V512C1392 516.418 1388.42 520 1384 520H752C747.582 520 744 516.418 744 512V172Z" fill="white"/>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="768" y="203.091">02 &#x2014; LISTE VIDE</tspan></text>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="768" y="249.818">&#xc9;v&#xe9;nements</tspan></text>
+<path d="M776 281H1360C1363.87 281 1367 284.134 1367 288V416C1367 419.866 1363.87 423 1360 423H776C772.134 423 769 419.866 769 416V288C769 284.134 772.134 281 776 281Z" fill="white"/>
+<path d="M776 281H1360C1363.87 281 1367 284.134 1367 288V416C1367 419.866 1363.87 423 1360 423H776C772.134 423 769 419.866 769 416V288C769 284.134 772.134 281 776 281Z" stroke="#142D43" stroke-width="2"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="794" y="327.273">Aucun &#xe9;v&#xe9;nement &#xe0; venir</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="794" y="367.818">Vous n&#x2019;avez aucun &#xe9;v&#xe9;nement &#xe0; venir pour le moment. Les &#xe9;v&#xe9;nements </tspan><tspan x="794" y="391.818">appara&#xee;tront ici d&#xe8;s qu&#x2019;ils seront disponibles.</tspan></text>
+<mask id="path-17-inside-1_77_733" fill="white">
+<path d="M768 456C768 451.582 771.582 448 776 448H1040C1044.42 448 1048 451.582 1048 456V488C1048 492.418 1044.42 496 1040 496H776C771.582 496 768 492.418 768 488V456Z"/>
+</mask>
+<path d="M768 456C768 451.582 771.582 448 776 448H1040C1044.42 448 1048 451.582 1048 456V488C1048 492.418 1044.42 496 1040 496H776C771.582 496 768 492.418 768 488V456Z" fill="white"/>
+<path d="M776 448V449H1040V448V447H776V448ZM1048 456H1047V488H1048H1049V456H1048ZM1040 496V495H776V496V497H1040V496ZM768 488H769V456H768H767V488H768ZM776 496V495C772.134 495 769 491.866 769 488H768H767C767 492.971 771.029 497 776 497V496ZM1048 488H1047C1047 491.866 1043.87 495 1040 495V496V497C1044.97 497 1049 492.971 1049 488H1048ZM1040 448V449C1043.87 449 1047 452.134 1047 456H1048H1049C1049 451.029 1044.97 447 1040 447V448ZM776 448V447C771.029 447 767 451.029 767 456H768H769C769 452.134 772.134 449 776 449V448Z" fill="#526574" mask="url(#path-17-inside-1_77_733)"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="868.5" y="477.818">Actualiser</tspan></text>
+</g>
+<g clip-path="url(#clip1_77_733)">
+<path d="M48 552C48 547.582 51.5817 544 56 544H688C692.418 544 696 547.582 696 552V892C696 896.418 692.418 900 688 900H56C51.5817 900 48 896.418 48 892V552Z" fill="white"/>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="72" y="583.091">03 &#x2014; AUCUN R&#xc9;SULTAT</tspan></text>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="72" y="629.818">&#xc9;v&#xe9;nements</tspan></text>
+<path d="M80 661H664C667.866 661 671 664.134 671 668V796C671 799.866 667.866 803 664 803H80C76.134 803 73 799.866 73 796V668C73 664.134 76.134 661 80 661Z" fill="white"/>
+<path d="M80 661H664C667.866 661 671 664.134 671 668V796C671 799.866 667.866 803 664 803H80C76.134 803 73 799.866 73 796V668C73 664.134 76.134 661 80 661Z" stroke="#142D43" stroke-width="2"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="98" y="707.273">Aucun &#xe9;v&#xe9;nement ne correspond</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="98" y="747.818">Aucun r&#xe9;sultat pour les filtres s&#xe9;lectionn&#xe9;s. Modifiez vos crit&#xe8;res ou </tspan><tspan x="98" y="771.818">r&#xe9;initialisez les filtres.</tspan></text>
+<mask id="path-26-inside-2_77_733" fill="white">
+<path d="M72 836C72 831.582 75.5817 828 80 828H344C348.418 828 352 831.582 352 836V868C352 872.418 348.418 876 344 876H80C75.5817 876 72 872.418 72 868V836Z"/>
+</mask>
+<path d="M72 836C72 831.582 75.5817 828 80 828H344C348.418 828 352 831.582 352 836V868C352 872.418 348.418 876 344 876H80C75.5817 876 72 872.418 72 868V836Z" fill="white"/>
+<path d="M80 828V829H344V828V827H80V828ZM352 836H351V868H352H353V836H352ZM344 876V875H80V876V877H344V876ZM72 868H73V836H72H71V868H72ZM80 876V875C76.134 875 73 871.866 73 868H72H71C71 872.971 75.0294 877 80 877V876ZM352 868H351C351 871.866 347.866 875 344 875V876V877C348.971 877 353 872.971 353 868H352ZM344 828V829C347.866 829 351 832.134 351 836H352H353C353 831.029 348.971 827 344 827V828ZM80 828V827C75.0294 827 71 831.029 71 836H72H73C73 832.134 76.134 829 80 829V828Z" fill="#526574" mask="url(#path-26-inside-2_77_733)"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="129" y="857.818">R&#xe9;initialiser les filtres</tspan></text>
+<path d="M744 552C744 547.582 747.582 544 752 544H1384C1388.42 544 1392 547.582 1392 552V892C1392 896.418 1388.42 900 1384 900H752C747.582 900 744 896.418 744 892V552Z" fill="white"/>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="768" y="583.091">04 &#x2014; ERREUR DE LECTURE</tspan></text>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="768" y="629.818">&#xc9;v&#xe9;nements</tspan></text>
+<path d="M776 661H1360C1363.87 661 1367 664.134 1367 668V796C1367 799.866 1363.87 803 1360 803H776C772.134 803 769 799.866 769 796V668C769 664.134 772.134 661 776 661Z" fill="white"/>
+<path d="M776 661H1360C1363.87 661 1367 664.134 1367 668V796C1367 799.866 1363.87 803 1360 803H776C772.134 803 769 799.866 769 796V668C769 664.134 772.134 661 776 661Z" stroke="#B42318" stroke-width="2"/>
+<text fill="#B42318" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="794" y="707.273">Impossible de charger les &#xe9;v&#xe9;nements</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="794" y="747.818">Les informations ne sont pas disponibles pour le moment. R&#xe9;essayez </tspan><tspan x="794" y="771.818">dans quelques instants.</tspan></text>
+<mask id="path-35-inside-3_77_733" fill="white">
+<path d="M768 836C768 831.582 771.582 828 776 828H1040C1044.42 828 1048 831.582 1048 836V868C1048 872.418 1044.42 876 1040 876H776C771.582 876 768 872.418 768 868V836Z"/>
+</mask>
+<path d="M768 836C768 831.582 771.582 828 776 828H1040C1044.42 828 1048 831.582 1048 836V868C1048 872.418 1044.42 876 1040 876H776C771.582 876 768 872.418 768 868V836Z" fill="white"/>
+<path d="M776 828V829H1040V828V827H776V828ZM1048 836H1047V868H1048H1049V836H1048ZM1040 876V875H776V876V877H1040V876ZM768 868H769V836H768H767V868H768ZM776 876V875C772.134 875 769 871.866 769 868H768H767C767 872.971 771.029 877 776 877V876ZM1048 868H1047C1047 871.866 1043.87 875 1040 875V876V877C1044.97 877 1049 872.971 1049 868H1048ZM1040 828V829C1043.87 829 1047 832.134 1047 836H1048H1049C1049 831.029 1044.97 827 1040 827V828ZM776 828V827C771.029 827 767 831.029 767 836H768H769C769 832.134 772.134 829 776 829V828Z" fill="#526574" mask="url(#path-35-inside-3_77_733)"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="867.5" y="857.818">R&#xe9;essayer</tspan></text>
+</g>
+<g clip-path="url(#clip2_77_733)">
+<path d="M48 932C48 927.582 51.5817 924 56 924H688C692.418 924 696 927.582 696 932V1272C696 1276.42 692.418 1280 688 1280H56C51.5817 1280 48 1276.42 48 1272V932Z" fill="white"/>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="72" y="963.091">05 &#x2014; SESSION EXPIR&#xc9;E</tspan></text>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="72" y="1009.82">Espace connect&#xe9;</tspan></text>
+<path d="M80 1041H664C667.866 1041 671 1044.13 671 1048V1176C671 1179.87 667.866 1183 664 1183H80C76.134 1183 73 1179.87 73 1176V1048C73 1044.13 76.134 1041 80 1041Z" fill="white"/>
+<path d="M80 1041H664C667.866 1041 671 1044.13 671 1048V1176C671 1179.87 667.866 1183 664 1183H80C76.134 1183 73 1179.87 73 1176V1048C73 1044.13 76.134 1041 80 1041Z" stroke="#142D43" stroke-width="2"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="98" y="1087.27">Reconnectez-vous pour continuer</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="98" y="1127.82">Votre session a expir&#xe9;. Connectez-vous &#xe0; nouveau pour reprendre la </tspan><tspan x="98" y="1151.82">consultation de cette page.</tspan></text>
+<mask id="path-44-inside-4_77_733" fill="white">
+<path d="M72 1216C72 1211.58 75.5817 1208 80 1208H344C348.418 1208 352 1211.58 352 1216V1248C352 1252.42 348.418 1256 344 1256H80C75.5817 1256 72 1252.42 72 1248V1216Z"/>
+</mask>
+<path d="M72 1216C72 1211.58 75.5817 1208 80 1208H344C348.418 1208 352 1211.58 352 1216V1248C352 1252.42 348.418 1256 344 1256H80C75.5817 1256 72 1252.42 72 1248V1216Z" fill="white"/>
+<path d="M80 1208V1209H344V1208V1207H80V1208ZM352 1216H351V1248H352H353V1216H352ZM344 1256V1255H80V1256V1257H344V1256ZM72 1248H73V1216H72H71V1248H72ZM80 1256V1255C76.134 1255 73 1251.87 73 1248H72H71C71 1252.97 75.0294 1257 80 1257V1256ZM352 1248H351C351 1251.87 347.866 1255 344 1255V1256V1257C348.971 1257 353 1252.97 353 1248H352ZM344 1208V1209C347.866 1209 351 1212.13 351 1216H352H353C353 1211.03 348.971 1207 344 1207V1208ZM80 1208V1207C75.0294 1207 71 1211.03 71 1216H72H73C73 1212.13 76.134 1209 80 1209V1208Z" fill="#526574" mask="url(#path-44-inside-4_77_733)"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="152.5" y="1237.82">Se reconnecter</tspan></text>
+<path d="M744 932C744 927.582 747.582 924 752 924H1384C1388.42 924 1392 927.582 1392 932V1272C1392 1276.42 1388.42 1280 1384 1280H752C747.582 1280 744 1276.42 744 1272V932Z" fill="white"/>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="768" y="963.091">06 &#x2014; ACC&#xc8;S REFUS&#xc9;</tspan></text>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="768" y="1009.82">Espace connect&#xe9;</tspan></text>
+<path d="M776 1041H1360C1363.87 1041 1367 1044.13 1367 1048V1176C1367 1179.87 1363.87 1183 1360 1183H776C772.134 1183 769 1179.87 769 1176V1048C769 1044.13 772.134 1041 776 1041Z" fill="white"/>
+<path d="M776 1041H1360C1363.87 1041 1367 1044.13 1367 1048V1176C1367 1179.87 1363.87 1183 1360 1183H776C772.134 1183 769 1179.87 769 1176V1048C769 1044.13 772.134 1041 776 1041Z" stroke="#B42318" stroke-width="2"/>
+<text fill="#B42318" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="794" y="1087.27">Cette page n&#x2019;est pas accessible</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="794" y="1127.82">Votre compte ne dispose pas des droits n&#xe9;cessaires pour consulter </tspan><tspan x="794" y="1151.82">cette page. Retournez dans votre espace.</tspan></text>
+<mask id="path-53-inside-5_77_733" fill="white">
+<path d="M768 1216C768 1211.58 771.582 1208 776 1208H1040C1044.42 1208 1048 1211.58 1048 1216V1248C1048 1252.42 1044.42 1256 1040 1256H776C771.582 1256 768 1252.42 768 1248V1216Z"/>
+</mask>
+<path d="M768 1216C768 1211.58 771.582 1208 776 1208H1040C1044.42 1208 1048 1211.58 1048 1216V1248C1048 1252.42 1044.42 1256 1040 1256H776C771.582 1256 768 1252.42 768 1248V1216Z" fill="white"/>
+<path d="M776 1208V1209H1040V1208V1207H776V1208ZM1048 1216H1047V1248H1048H1049V1216H1048ZM1040 1256V1255H776V1256V1257H1040V1256ZM768 1248H769V1216H768H767V1248H768ZM776 1256V1255C772.134 1255 769 1251.87 769 1248H768H767C767 1252.97 771.029 1257 776 1257V1256ZM1048 1248H1047C1047 1251.87 1043.87 1255 1040 1255V1256V1257C1044.97 1257 1049 1252.97 1049 1248H1048ZM1040 1208V1209C1043.87 1209 1047 1212.13 1047 1216H1048H1049C1049 1211.03 1044.97 1207 1040 1207V1208ZM776 1208V1207C771.029 1207 767 1211.03 767 1216H768H769C769 1212.13 772.134 1209 776 1209V1208Z" fill="#526574" mask="url(#path-53-inside-5_77_733)"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="826.5" y="1237.82">Retour &#xe0; mon espace</tspan></text>
+</g>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="48" y="1321.82">Une liste vide suppose une lecture r&#xe9;ussie. Une erreur ne doit jamais &#xea;tre pr&#xe9;sent&#xe9;e comme une absence de donn&#xe9;es. Le retour apr&#xe8;s reconnexion reste soumis aux droits du </tspan><tspan x="48" y="1345.82">compte.</tspan></text>
+<defs>
+<clipPath id="clip0_77_733">
+<rect width="1344" height="356" fill="white" transform="translate(48 164)"/>
+</clipPath>
+<clipPath id="clip1_77_733">
+<rect width="1344" height="356" fill="white" transform="translate(48 544)"/>
+</clipPath>
+<clipPath id="clip2_77_733">
+<rect width="1344" height="356" fill="white" transform="translate(48 924)"/>
+</clipPath>
+</defs>
+</svg>
