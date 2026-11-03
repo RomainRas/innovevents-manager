@@ -1,6 +1,6 @@
 # Maquette mobile 03 - Fiche client
 
-Version du 31 octobre 2026. Tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5).
+Version du 31 octobre 2026, actualisée le 3 novembre 2026. Tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5).
 
 ## Travail réalisé et fichiers
 
@@ -36,7 +36,7 @@ La présentation reprend l’en-tête bleu nuit, les cartes blanches sur fond cl
 
 La maquette est statique : elle ne lance ni appel, ni courriel, ni itinéraire. Les futures actions ouvriront l’application appropriée, sans appeler ou envoyer automatiquement. Leur comportement, les droits et le retour à l’application devront être vérifiés sur appareil.
 
-Les coordonnées manquantes ou invalides, les applications indisponibles et les erreurs réseau restent décrites dans le wireframe ; leurs variantes visuelles restent à compléter. Les noms, e-mails et adresses longs devront pouvoir revenir à la ligne dans l’interface développée, sans couper les informations. Aucun fonctionnement hors connexion n’est promis.
+Les [six états de contact mobile](etats-contact-mobile.md) représentent désormais les coordonnées absentes et les ouvertures impossibles. Les valeurs invalides, les retours de copie et les limites de détection sont documentés ; ils restent à développer et tester. Les noms, e-mails et adresses longs devront pouvoir revenir à la ligne dans l’interface développée, sans couper les informations. Aucun fonctionnement hors connexion n’est promis.
 
 ## Sauvegarde et utilisation pour le rendu
 
@@ -44,4 +44,4 @@ Figma conserve la source modifiable. Le SVG et cette explication sont sauvegard�
 
 Les six maquettes principales existent désormais en première version : trois web et trois mobile. L’écran de saisie de note reste un état complémentaire, non compté parmi les six. Les six wireframes principaux sont également disponibles.
 
-La tâche #5 reste ouverte : enchaînement des écrans, états complémentaires, relecture et validation d’ensemble, puis exports de rendu et bilan de clôture restent à terminer. La prochaine étape est le schéma d’enchaînement, avec les changements de rôle clairement indiqués.
+La tâche #5 reste ouverte. Les enchaînements, états communs et états de contact sont maintenant réalisés en première version. Restent notamment les derniers états des formulaires, l’adaptation web, le focus, la validation d’ensemble et les exports ; voir le [bilan de couverture](bilan-couverture-ecrans.md).
