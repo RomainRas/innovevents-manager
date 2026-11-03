@@ -1,0 +1,104 @@
+<svg width="1440" height="1544" viewBox="0 0 1440 1544" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="1440" height="1544" fill="#F4F7FA"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="36" font-weight="bold" letter-spacing="0em"><tspan x="48" y="83.0909">Pr&#xe9;parer et g&#xe9;n&#xe9;rer le devis</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="48" y="133.818">WEB02 &#xb7; Extraits compl&#xe9;mentaires au formulaire complet. Chlo&#xe9; &#xb7; Espace administrateur.</tspan></text>
+<g clip-path="url(#clip0_75_661)">
+<path d="M48 172C48 167.582 51.5817 164 56 164H688C692.418 164 696 167.582 696 172V560C696 564.418 692.418 568 688 568H56C51.5817 568 48 564.418 48 560V172Z" fill="white"/>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="72" y="203.091">01 &#x2014; DEVIS COMPLET</tspan></text>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="72" y="249.818">Devis [r&#xe9;f&#xe9;rence] &#x2014; version [n]</tspan></text>
+<path d="M80 281H664C667.866 281 671 284.134 671 288V464C671 467.866 667.866 471 664 471H80C76.134 471 73 467.866 73 464V288C73 284.134 76.134 281 80 281Z" fill="white"/>
+<path d="M80 281H664C667.866 281 671 284.134 671 288V464C671 467.866 667.866 471 664 471H80C76.134 471 73 467.866 73 464V288C73 284.134 76.134 281 80 281Z" stroke="#142D43" stroke-width="2"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="98" y="327.273">Pr&#xea;t &#xe0; g&#xe9;n&#xe9;rer</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="98" y="367.818">Client : [nom] &#xb7; &#xc9;v&#xe9;nement : [nom]&#10;</tspan><tspan x="98" y="391.818">Prestations et image renseign&#xe9;es.&#10;</tspan><tspan x="98" y="415.818">Total HT : [montant] &#xb7; TVA : [montant]&#10;</tspan><tspan x="98" y="439.818">Total TTC : [montant et devise]</tspan></text>
+<mask id="path-9-inside-1_75_661" fill="white">
+<path d="M72 504C72 499.582 75.5817 496 80 496H344C348.418 496 352 499.582 352 504V536C352 540.418 348.418 544 344 544H80C75.5817 544 72 540.418 72 536V504Z"/>
+</mask>
+<path d="M72 504C72 499.582 75.5817 496 80 496H344C348.418 496 352 499.582 352 504V536C352 540.418 348.418 544 344 544H80C75.5817 544 72 540.418 72 536V504Z" fill="white"/>
+<path d="M80 496V497H344V496V495H80V496ZM352 504H351V536H352H353V504H352ZM344 544V543H80V544V545H344V544ZM72 536H73V504H72H71V536H72ZM80 544V543C76.134 543 73 539.866 73 536H72H71C71 540.971 75.0294 545 80 545V544ZM352 536H351C351 539.866 347.866 543 344 543V544V545C348.971 545 353 540.971 353 536H352ZM344 496V497C347.866 497 351 500.134 351 504H352H353C353 499.029 348.971 495 344 495V496ZM80 496V495C75.0294 495 71 499.029 71 504H72H73C73 500.134 76.134 497 80 497V496Z" fill="#526574" mask="url(#path-9-inside-1_75_661)"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="119.5" y="525.818">G&#xe9;n&#xe9;rer le devis en PDF</tspan></text>
+<path d="M744 172C744 167.582 747.582 164 752 164H1384C1388.42 164 1392 167.582 1392 172V536C1392 540.418 1388.42 544 1384 544H752C747.582 544 744 540.418 744 536V172Z" fill="white"/>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="768" y="203.091">02 &#x2014; DONN&#xc9;ES &#xc0; CORRIGER</tspan></text>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="768" y="249.818">Devis [r&#xe9;f&#xe9;rence] &#x2014; version [n]</tspan></text>
+<path d="M776 281H1360C1363.87 281 1367 284.134 1367 288V440C1367 443.866 1363.87 447 1360 447H776C772.134 447 769 443.866 769 440V288C769 284.134 772.134 281 776 281Z" fill="white"/>
+<path d="M776 281H1360C1363.87 281 1367 284.134 1367 288V440C1367 443.866 1363.87 447 1360 447H776C772.134 447 769 443.866 769 440V288C769 284.134 772.134 281 776 281Z" stroke="#B42318" stroke-width="2"/>
+<text fill="#B42318" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="794" y="327.273">V&#xe9;rifiez les informations</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="794" y="367.818">La fin de l&#x2019;&#xe9;v&#xe9;nement pr&#xe9;c&#xe8;de le d&#xe9;but.&#10;</tspan><tspan x="794" y="391.818">Prestation 2 : renseignez un libell&#xe9; et un montant HT valide.&#10;</tspan><tspan x="794" y="415.818">Corrigez les champs signal&#xe9;s avant de g&#xe9;n&#xe9;rer le PDF.</tspan></text>
+<mask id="path-18-inside-2_75_661" fill="white">
+<path d="M768 480C768 475.582 771.582 472 776 472H1040C1044.42 472 1048 475.582 1048 480V512C1048 516.418 1044.42 520 1040 520H776C771.582 520 768 516.418 768 512V480Z"/>
+</mask>
+<path d="M768 480C768 475.582 771.582 472 776 472H1040C1044.42 472 1048 475.582 1048 480V512C1048 516.418 1044.42 520 1040 520H776C771.582 520 768 516.418 768 512V480Z" fill="white"/>
+<path d="M776 472V473H1040V472V471H776V472ZM1048 480H1047V512H1048H1049V480H1048ZM1040 520V519H776V520V521H1040V520ZM768 512H769V480H768H767V512H768ZM776 520V519C772.134 519 769 515.866 769 512H768H767C767 516.971 771.029 521 776 521V520ZM1048 512H1047C1047 515.866 1043.87 519 1040 519V520V521C1044.97 521 1049 516.971 1049 512H1048ZM1040 472V473C1043.87 473 1047 476.134 1047 480H1048H1049C1049 475.029 1044.97 471 1040 471V472ZM776 472V471C771.029 471 767 475.029 767 480H768H769C769 476.134 772.134 473 776 473V472Z" fill="#526574" mask="url(#path-18-inside-2_75_661)"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="830" y="501.818">Revenir aux champs</tspan></text>
+</g>
+<g clip-path="url(#clip1_75_661)">
+<path d="M48 600C48 595.582 51.5817 592 56 592H688C692.418 592 696 595.582 696 600V940C696 944.418 692.418 948 688 948H56C51.5817 948 48 944.418 48 940V600Z" fill="white"/>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="72" y="631.091">03 &#x2014; G&#xc9;N&#xc9;RATION EN COURS</tspan></text>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="72" y="677.818">Devis [r&#xe9;f&#xe9;rence] &#x2014; version [n]</tspan></text>
+<path d="M80 709H664C667.866 709 671 712.134 671 716V844C671 847.866 667.866 851 664 851H80C76.134 851 73 847.866 73 844V716C73 712.134 76.134 709 80 709Z" fill="white"/>
+<path d="M80 709H664C667.866 709 671 712.134 671 716V844C671 847.866 667.866 851 664 851H80C76.134 851 73 847.866 73 844V716C73 712.134 76.134 709 80 709Z" stroke="#142D43" stroke-width="2"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="98" y="755.273">Pr&#xe9;paration du PDF&#x2026;</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="98" y="795.818">Votre devis est conserv&#xe9;. Patientez pendant la cr&#xe9;ation du document ; </tspan><tspan x="98" y="819.818">la g&#xe9;n&#xe9;ration ne doit pas &#xea;tre relanc&#xe9;e.</tspan></text>
+<path d="M80 876.5H344C348.142 876.5 351.5 879.858 351.5 884V916C351.5 920.142 348.142 923.5 344 923.5H80C75.8579 923.5 72.5 920.142 72.5 916V884L72.5098 883.614C72.7105 879.651 75.9872 876.5 80 876.5Z" fill="#D9D9D9"/>
+<path d="M80 876.5H344C348.142 876.5 351.5 879.858 351.5 884V916C351.5 920.142 348.142 923.5 344 923.5H80C75.8579 923.5 72.5 920.142 72.5 916V884L72.5098 883.614C72.7105 879.651 75.9872 876.5 80 876.5Z" stroke="#B3B3B3" stroke-linecap="round"/>
+<text fill="#B3B3B3" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="127" y="905.818">G&#xe9;n&#xe9;ration en cours&#x2026;</tspan></text>
+<path d="M744 600C744 595.582 747.582 592 752 592H1384C1388.42 592 1392 595.582 1392 600V940C1392 944.418 1388.42 948 1384 948H752C747.582 948 744 944.418 744 940V600Z" fill="white"/>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="768" y="631.091">04 &#x2014; &#xc9;CHEC DE G&#xc9;N&#xc9;RATION</tspan></text>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="768" y="677.818">Devis [r&#xe9;f&#xe9;rence] &#x2014; version [n]</tspan></text>
+<path d="M776 709H1360C1363.87 709 1367 712.134 1367 716V844C1367 847.866 1363.87 851 1360 851H776C772.134 851 769 847.866 769 844V716C769 712.134 772.134 709 776 709Z" fill="white"/>
+<path d="M776 709H1360C1363.87 709 1367 712.134 1367 716V844C1367 847.866 1363.87 851 1360 851H776C772.134 851 769 847.866 769 844V716C769 712.134 772.134 709 776 709Z" stroke="#B42318" stroke-width="2"/>
+<text fill="#B42318" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="794" y="755.273">Le PDF n&#x2019;a pas pu &#xea;tre cr&#xe9;&#xe9;</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="794" y="795.818">Les informations du devis sont conserv&#xe9;es. Vous pouvez r&#xe9;essayer de </tspan><tspan x="794" y="819.818">g&#xe9;n&#xe9;rer cette version du document.</tspan></text>
+<mask id="path-35-inside-3_75_661" fill="white">
+<path d="M768 884C768 879.582 771.582 876 776 876H1040C1044.42 876 1048 879.582 1048 884V916C1048 920.418 1044.42 924 1040 924H776C771.582 924 768 920.418 768 916V884Z"/>
+</mask>
+<path d="M768 884C768 879.582 771.582 876 776 876H1040C1044.42 876 1048 879.582 1048 884V916C1048 920.418 1044.42 924 1040 924H776C771.582 924 768 920.418 768 916V884Z" fill="white"/>
+<path d="M776 876V877H1040V876V875H776V876ZM1048 884H1047V916H1048H1049V884H1048ZM1040 924V923H776V924V925H1040V924ZM768 916H769V884H768H767V916H768ZM776 924V923C772.134 923 769 919.866 769 916H768H767C767 920.971 771.029 925 776 925V924ZM1048 916H1047C1047 919.866 1043.87 923 1040 923V924V925C1044.97 925 1049 920.971 1049 916H1048ZM1040 876V877C1043.87 877 1047 880.134 1047 884H1048H1049C1049 879.029 1044.97 875 1040 875V876ZM776 876V875C771.029 875 767 879.029 767 884H768H769C769 880.134 772.134 877 776 877V876Z" fill="#526574" mask="url(#path-35-inside-3_75_661)"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="815" y="905.818">R&#xe9;essayer la g&#xe9;n&#xe9;ration</tspan></text>
+</g>
+<g clip-path="url(#clip2_75_661)">
+<path d="M48 980C48 975.582 51.5817 972 56 972H688C692.418 972 696 975.582 696 980V1416C696 1420.42 692.418 1424 688 1424H56C51.5817 1424 48 1420.42 48 1416V980Z" fill="white"/>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="72" y="1011.09">05 &#x2014; DOCUMENT DISPONIBLE</tspan></text>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="72" y="1057.82">Devis [r&#xe9;f&#xe9;rence] &#x2014; version [n]</tspan></text>
+<path d="M80 1089H664C667.866 1089 671 1092.13 671 1096V1248C671 1251.87 667.866 1255 664 1255H80C76.134 1255 73 1251.87 73 1248V1096C73 1092.13 76.134 1089 80 1089Z" fill="white"/>
+<path d="M80 1089H664C667.866 1089 671 1092.13 671 1096V1248C671 1251.87 667.866 1255 664 1255H80C76.134 1255 73 1251.87 73 1248V1096C73 1092.13 76.134 1089 80 1089Z" stroke="#216E4E" stroke-width="2"/>
+<text fill="#216E4E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="98" y="1135.27">Le PDF est pr&#xea;t</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="98" y="1175.82">Devis [r&#xe9;f&#xe9;rence] &#xb7; Version [n]&#10;</tspan><tspan x="98" y="1199.82">T&#xe9;l&#xe9;chargez ce document pour l&#x2019;envoyer vous-m&#xea;me, ou transmettez-le </tspan><tspan x="98" y="1223.82">depuis la plateforme.</tspan></text>
+<mask id="path-44-inside-4_75_661" fill="white">
+<path d="M72 1288C72 1283.58 75.5817 1280 80 1280H344C348.418 1280 352 1283.58 352 1288V1320C352 1324.42 348.418 1328 344 1328H80C75.5817 1328 72 1324.42 72 1320V1288Z"/>
+</mask>
+<path d="M72 1288C72 1283.58 75.5817 1280 80 1280H344C348.418 1280 352 1283.58 352 1288V1320C352 1324.42 348.418 1328 344 1328H80C75.5817 1328 72 1324.42 72 1320V1288Z" fill="white"/>
+<path d="M80 1280V1281H344V1280V1279H80V1280ZM352 1288H351V1320H352H353V1288H352ZM344 1328V1327H80V1328V1329H344V1328ZM72 1320H73V1288H72H71V1320H72ZM80 1328V1327C76.134 1327 73 1323.87 73 1320H72H71C71 1324.97 75.0294 1329 80 1329V1328ZM352 1320H351C351 1323.87 347.866 1327 344 1327V1328V1329C348.971 1329 353 1324.97 353 1320H352ZM344 1280V1281C347.866 1281 351 1284.13 351 1288H352H353C353 1283.03 348.971 1279 344 1279V1280ZM80 1280V1279C75.0294 1279 71 1283.03 71 1288H72H73C73 1284.13 76.134 1281 80 1281V1280Z" fill="#526574" mask="url(#path-44-inside-4_75_661)"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="139" y="1309.82">T&#xe9;l&#xe9;charger le PDF</tspan></text>
+<mask id="path-47-inside-5_75_661" fill="white">
+<path d="M72 1360C72 1355.58 75.5817 1352 80 1352H344C348.418 1352 352 1355.58 352 1360V1392C352 1396.42 348.418 1400 344 1400H80C75.5817 1400 72 1396.42 72 1392V1360Z"/>
+</mask>
+<path d="M72 1360C72 1355.58 75.5817 1352 80 1352H344C348.418 1352 352 1355.58 352 1360V1392C352 1396.42 348.418 1400 344 1400H80C75.5817 1400 72 1396.42 72 1392V1360Z" fill="white"/>
+<path d="M80 1352V1353H344V1352V1351H80V1352ZM352 1360H351V1392H352H353V1360H352ZM344 1400V1399H80V1400V1401H344V1400ZM72 1392H73V1360H72H71V1392H72ZM80 1400V1399C76.134 1399 73 1395.87 73 1392H72H71C71 1396.97 75.0294 1401 80 1401V1400ZM352 1392H351C351 1395.87 347.866 1399 344 1399V1400V1401C348.971 1401 353 1396.97 353 1392H352ZM344 1352V1353C347.866 1353 351 1356.13 351 1360H352H353C353 1355.03 348.971 1351 344 1351V1352ZM80 1352V1351C75.0294 1351 71 1355.03 71 1360H72H73C73 1356.13 76.134 1353 80 1353V1352Z" fill="#526574" mask="url(#path-47-inside-5_75_661)"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="145.5" y="1381.82">Envoyer au client</tspan></text>
+<path d="M744 980C744 975.582 747.582 972 752 972H1384C1388.42 972 1392 975.582 1392 980V1320C1392 1324.42 1388.42 1328 1384 1328H752C747.582 1328 744 1324.42 744 1320V980Z" fill="white"/>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="768" y="1011.09">06 &#x2014; DOCUMENT &#xc0; ACTUALISER</tspan></text>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="768" y="1057.82">Devis [r&#xe9;f&#xe9;rence] &#x2014; version [n]</tspan></text>
+<path d="M776 1089H1360C1363.87 1089 1367 1092.13 1367 1096V1224C1367 1227.87 1363.87 1231 1360 1231H776C772.134 1231 769 1227.87 769 1224V1096C769 1092.13 772.134 1089 776 1089Z" fill="white"/>
+<path d="M776 1089H1360C1363.87 1089 1367 1092.13 1367 1096V1224C1367 1227.87 1363.87 1231 1360 1231H776C772.134 1231 769 1227.87 769 1224V1096C769 1092.13 772.134 1089 776 1089Z" stroke="#142D43" stroke-width="2"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="794" y="1135.27">Le devis a &#xe9;t&#xe9; modifi&#xe9;</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="794" y="1175.82">Le PDF pr&#xe9;c&#xe9;dent ne correspond plus aux informations enregistr&#xe9;es. </tspan><tspan x="794" y="1199.82">G&#xe9;n&#xe9;rez un nouveau document avant toute transmission.</tspan></text>
+<mask id="path-56-inside-6_75_661" fill="white">
+<path d="M768 1264C768 1259.58 771.582 1256 776 1256H1040C1044.42 1256 1048 1259.58 1048 1264V1296C1048 1300.42 1044.42 1304 1040 1304H776C771.582 1304 768 1300.42 768 1296V1264Z"/>
+</mask>
+<path d="M768 1264C768 1259.58 771.582 1256 776 1256H1040C1044.42 1256 1048 1259.58 1048 1264V1296C1048 1300.42 1044.42 1304 1040 1304H776C771.582 1304 768 1300.42 768 1296V1264Z" fill="white"/>
+<path d="M776 1256V1257H1040V1256V1255H776V1256ZM1048 1264H1047V1296H1048H1049V1264H1048ZM1040 1304V1303H776V1304V1305H1040V1304ZM768 1296H769V1264H768H767V1296H768ZM776 1304V1303C772.134 1303 769 1299.87 769 1296H768H767C767 1300.97 771.029 1305 776 1305V1304ZM1048 1296H1047C1047 1299.87 1043.87 1303 1040 1303V1304V1305C1044.97 1305 1049 1300.97 1049 1296H1048ZM1040 1256V1257C1043.87 1257 1047 1260.13 1047 1264H1048H1049C1049 1259.03 1044.97 1255 1040 1255V1256ZM776 1256V1255C771.029 1255 767 1259.03 767 1264H768H769C769 1260.13 772.134 1257 776 1257V1256Z" fill="#526574" mask="url(#path-56-inside-6_75_661)"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="815" y="1285.82">G&#xe9;n&#xe9;rer le nouveau PDF</tspan></text>
+</g>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="48" y="1465.82">Les valeurs entre crochets proviennent du devis enregistr&#xe9;. Aucun taux de TVA ni r&#xe8;gle d&#x2019;arrondi n&#x2019;est impos&#xe9; par ces maquettes. G&#xe9;n&#xe9;rer ou t&#xe9;l&#xe9;charger un PDF ne transmet pas </tspan><tspan x="48" y="1489.82">le devis.</tspan></text>
+<defs>
+<clipPath id="clip0_75_661">
+<rect width="1344" height="404" fill="white" transform="translate(48 164)"/>
+</clipPath>
+<clipPath id="clip1_75_661">
+<rect width="1344" height="356" fill="white" transform="translate(48 592)"/>
+</clipPath>
+<clipPath id="clip2_75_661">
+<rect width="1344" height="452" fill="white" transform="translate(48 972)"/>
+</clipPath>
+</defs>
+</svg>
