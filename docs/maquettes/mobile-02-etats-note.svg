@@ -1,0 +1,82 @@
+<svg width="1362" height="1100" viewBox="0 0 1362 1100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="1362" height="1100" fill="#F4F7FA"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="36" font-weight="bold" letter-spacing="0em"><tspan x="48" y="83.0909">Note mobile &#x2014; Validation et sauvegarde</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="48" y="133.818">MOB02-N &#xb7; Extraits &#xe0; largeur mobile. Les &#xe9;tats compl&#xe8;tent la saisie et la fiche &#xe9;v&#xe9;nement existantes.</tspan></text>
+<g clip-path="url(#clip0_72_349)">
+<path d="M48 172C48 167.582 51.5817 164 56 164H430C434.418 164 438 167.582 438 172V492C438 496.418 434.418 500 430 500H56C51.5817 500 48 496.418 48 492V172Z" fill="white"/>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="72" y="203.091">01 &#x2014; Note vide</tspan></text>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="72" y="253.273">[Nom de l&#x2019;&#xe9;v&#xe9;nement]</tspan></text>
+<path d="M80 285H406C409.866 285 413 288.134 413 292V396C413 399.866 409.866 403 406 403H80C76.134 403 73 399.866 73 396V292C73 288.134 76.134 285 80 285Z" fill="white"/>
+<path d="M80 285H406C409.866 285 413 288.134 413 292V396C413 399.866 409.866 403 406 403H80C76.134 403 73 399.866 73 396V292C73 288.134 76.134 285 80 285Z" stroke="#B42318" stroke-width="2"/>
+<text fill="#B42318" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="98" y="331.273">Saisissez une note</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="98" y="371.818">Saisissez une note avant d&#x2019;enregistrer.</tspan></text>
+<path d="M72 436C72 431.582 75.5817 428 80 428H406C410.418 428 414 431.582 414 436V468C414 472.418 410.418 476 406 476H80C75.5817 476 72 472.418 72 468V436Z" fill="#087F8C"/>
+<text fill="white" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="174" y="457.818">Revenir &#xe0; la saisie</tspan></text>
+<path d="M486 172C486 167.582 489.582 164 494 164H868C872.418 164 876 167.582 876 172V516C876 520.418 872.418 524 868 524H494C489.582 524 486 520.418 486 516V172Z" fill="white"/>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="510" y="203.091">02 &#x2014; Enregistrement</tspan></text>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="510" y="253.273">[Nom de l&#x2019;&#xe9;v&#xe9;nement]</tspan></text>
+<path d="M518 285H844C847.866 285 851 288.134 851 292V420C851 423.866 847.866 427 844 427H518C514.134 427 511 423.866 511 420V292C511 288.134 514.134 285 518 285Z" fill="white"/>
+<path d="M518 285H844C847.866 285 851 288.134 851 292V420C851 423.866 847.866 427 844 427H518C514.134 427 511 423.866 511 420V292C511 288.134 514.134 285 518 285Z" stroke="#142D43" stroke-width="2"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="536" y="331.273">Enregistrement en cours&#x2026;</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="536" y="371.818">Votre note est en cours </tspan><tspan x="536" y="395.818">d&#x2019;enregistrement. Merci de patienter.</tspan></text>
+<path d="M510 460C510 455.582 513.582 452 518 452H844C848.418 452 852 455.582 852 460V492C852 496.418 848.418 500 844 500H518C513.582 500 510 496.418 510 492V460Z" fill="#F4F7FA"/>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="615" y="481.818">Enregistrement&#x2026;</tspan></text>
+<path d="M924 172C924 167.582 927.582 164 932 164H1306C1310.42 164 1314 167.582 1314 172V516C1314 520.418 1310.42 524 1306 524H932C927.582 524 924 520.418 924 516V172Z" fill="white"/>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="948" y="203.091">03 &#x2014; Retour &#xe0; la fiche</tspan></text>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="948" y="253.273">[Nom de l&#x2019;&#xe9;v&#xe9;nement]</tspan></text>
+<path d="M956 285H1282C1285.87 285 1289 288.134 1289 292V420C1289 423.866 1285.87 427 1282 427H956C952.134 427 949 423.866 949 420V292C949 288.134 952.134 285 956 285Z" fill="white"/>
+<path d="M956 285H1282C1285.87 285 1289 288.134 1289 292V420C1289 423.866 1285.87 427 1282 427H956C952.134 427 949 423.866 949 420V292C949 288.134 952.134 285 956 285Z" stroke="#216E4E" stroke-width="2"/>
+<text fill="#216E4E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="974" y="331.273">Note enregistr&#xe9;e.</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="974" y="371.818">Votre note a &#xe9;t&#xe9; ajout&#xe9;e &#xe0; cet </tspan><tspan x="974" y="395.818">&#xe9;v&#xe9;nement.</tspan></text>
+<path d="M948 460C948 455.582 951.582 452 956 452H1282C1286.42 452 1290 455.582 1290 460V492C1290 496.418 1286.42 500 1282 500H956C951.582 500 948 496.418 948 492V460Z" fill="#087F8C"/>
+<text fill="white" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="1027.5" y="481.818">Retour aux &#xe9;v&#xe9;nements</tspan></text>
+</g>
+<g clip-path="url(#clip1_72_349)">
+<path d="M48 556C48 551.582 51.5817 548 56 548H430C434.418 548 438 551.582 438 556V900C438 904.418 434.418 908 430 908H56C51.5817 908 48 904.418 48 900V556Z" fill="white"/>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="72" y="587.091">04 &#x2014; &#xc9;chec confirm&#xe9;</tspan></text>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="72" y="637.273">[Nom de l&#x2019;&#xe9;v&#xe9;nement]</tspan></text>
+<path d="M80 669H406C409.866 669 413 672.134 413 676V804C413 807.866 409.866 811 406 811H80C76.134 811 73 807.866 73 804V676C73 672.134 76.134 669 80 669Z" fill="white"/>
+<path d="M80 669H406C409.866 669 413 672.134 413 676V804C413 807.866 409.866 811 406 811H80C76.134 811 73 807.866 73 804V676C73 672.134 76.134 669 80 669Z" stroke="#B42318" stroke-width="2"/>
+<text fill="#B42318" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="98" y="715.273">Impossible d&#x2019;enregistrer</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="98" y="755.818">Votre texte est conserv&#xe9; dans la </tspan><tspan x="98" y="779.818">saisie. R&#xe9;essayez.</tspan></text>
+<path d="M72 844C72 839.582 75.5817 836 80 836H406C410.418 836 414 839.582 414 844V876C414 880.418 410.418 884 406 884H80C75.5817 884 72 880.418 72 876V844Z" fill="#087F8C"/>
+<text fill="white" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="202.5" y="865.818">R&#xe9;essayer</tspan></text>
+<path d="M486 556C486 551.582 489.582 548 494 548H868C872.418 548 876 551.582 876 556V924C876 928.418 872.418 932 868 932H494C489.582 932 486 928.418 486 924V556Z" fill="white"/>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="510" y="587.091">05 &#x2014; R&#xe9;sultat incertain</tspan></text>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="510" y="637.273">[Nom de l&#x2019;&#xe9;v&#xe9;nement]</tspan></text>
+<path d="M518 669H844C847.866 669 851 672.134 851 676V828C851 831.866 847.866 835 844 835H518C514.134 835 511 831.866 511 828V676C511 672.134 514.134 669 518 669Z" fill="white"/>
+<path d="M518 669H844C847.866 669 851 672.134 851 676V828C851 831.866 847.866 835 844 835H518C514.134 835 511 831.866 511 828V676C511 672.134 514.134 669 518 669Z" stroke="#142D43" stroke-width="2"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="536" y="715.273">V&#xe9;rification n&#xe9;cessaire</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="536" y="755.818">Nous n&#x2019;avons pas pu confirmer la </tspan><tspan x="536" y="779.818">sauvegarde. V&#xe9;rifiez le r&#xe9;sultat avant </tspan><tspan x="536" y="803.818">de renvoyer la note.</tspan></text>
+<path d="M510 868C510 863.582 513.582 860 518 860H844C848.418 860 852 863.582 852 868V900C852 904.418 848.418 908 844 908H518C513.582 908 510 904.418 510 900V868Z" fill="#087F8C"/>
+<text fill="white" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="596.5" y="889.818">V&#xe9;rifier la sauvegarde</tspan></text>
+<path d="M924 556C924 551.582 927.582 548 932 548H1306C1310.42 548 1314 551.582 1314 556V972C1314 976.418 1310.42 980 1306 980H932C927.582 980 924 976.418 924 972V556Z" fill="white"/>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="948" y="587.091">06 &#x2014; Abandon de saisie</tspan></text>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="948" y="637.273">[Nom de l&#x2019;&#xe9;v&#xe9;nement]</tspan></text>
+<path d="M956 669H1282C1285.87 669 1289 672.134 1289 676V804C1289 807.866 1285.87 811 1282 811H956C952.134 811 949 807.866 949 804V676C949 672.134 952.134 669 956 669Z" fill="white"/>
+<path d="M956 669H1282C1285.87 669 1289 672.134 1289 676V804C1289 807.866 1285.87 811 1282 811H956C952.134 811 949 807.866 949 804V676C949 672.134 952.134 669 956 669Z" stroke="#142D43" stroke-width="2"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="974" y="715.273">Abandonner cette note ?</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="974" y="755.818">Le texte saisi sera perdu si vous </tspan><tspan x="974" y="779.818">quittez sans enregistrer.</tspan></text>
+<mask id="path-49-inside-1_72_349" fill="white">
+<path d="M948 844C948 839.582 951.582 836 956 836H1282C1286.42 836 1290 839.582 1290 844V876C1290 880.418 1286.42 884 1282 884H956C951.582 884 948 880.418 948 876V844Z"/>
+</mask>
+<path d="M948 844C948 839.582 951.582 836 956 836H1282C1286.42 836 1290 839.582 1290 844V876C1290 880.418 1286.42 884 1282 884H956C951.582 884 948 880.418 948 876V844Z" fill="white"/>
+<path d="M956 836V837H1282V836V835H956V836ZM1290 844H1289V876H1290H1291V844H1290ZM1282 884V883H956V884V885H1282V884ZM948 876H949V844H948H947V876H948ZM956 884V883C952.134 883 949 879.866 949 876H948H947C947 880.971 951.029 885 956 885V884ZM1290 876H1289C1289 879.866 1285.87 883 1282 883V884V885C1286.97 885 1291 880.971 1291 876H1290ZM1282 836V837C1285.87 837 1289 840.134 1289 844H1290H1291C1291 839.029 1286.97 835 1282 835V836ZM956 836V835C951.029 835 947 839.029 947 844H948H949C949 840.134 952.134 837 956 837V836Z" fill="#526574" mask="url(#path-49-inside-1_72_349)"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="1047.5" y="865.818">Continuer la saisie</tspan></text>
+<mask id="path-52-inside-2_72_349" fill="white">
+<path d="M948 916C948 911.582 951.582 908 956 908H1282C1286.42 908 1290 911.582 1290 916V948C1290 952.418 1286.42 956 1282 956H956C951.582 956 948 952.418 948 948V916Z"/>
+</mask>
+<path d="M948 916C948 911.582 951.582 908 956 908H1282C1286.42 908 1290 911.582 1290 916V948C1290 952.418 1286.42 956 1282 956H956C951.582 956 948 952.418 948 948V916Z" fill="white"/>
+<path d="M956 908V909H1282V908V907H956V908ZM1290 916H1289V948H1290H1291V916H1290ZM1282 956V955H956V956V957H1282V956ZM948 948H949V916H948H947V948H948ZM956 956V955C952.134 955 949 951.866 949 948H948H947C947 952.971 951.029 957 956 957V956ZM1290 948H1289C1289 951.866 1285.87 955 1282 955V956V957C1286.97 957 1291 952.971 1291 948H1290ZM1282 908V909C1285.87 909 1289 912.134 1289 916H1290H1291C1291 911.029 1286.97 907 1282 907V908ZM956 908V907C951.029 907 947 911.029 947 916H948H949C949 912.134 952.134 909 956 909V908Z" fill="#B42318" mask="url(#path-52-inside-2_72_349)"/>
+<text fill="#B42318" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="1006" y="937.818">Abandonner sans enregistrer</tspan></text>
+</g>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="48" y="1021.82">Apr&#xe8;s succ&#xe8;s, le message appara&#xee;t sur la fiche &#xe9;v&#xe9;nement. Les autres &#xe9;tats restent dans la saisie ou son dialogue. Aucun fonctionnement hors connexion ni </tspan><tspan x="48" y="1045.82">conservation apr&#xe8;s fermeture n&#x2019;est promis. Illustrations statiques, sans sauvegarde r&#xe9;elle.</tspan></text>
+<defs>
+<clipPath id="clip0_72_349">
+<rect width="1266" height="360" fill="white" transform="translate(48 164)"/>
+</clipPath>
+<clipPath id="clip1_72_349">
+<rect width="1266" height="432" fill="white" transform="translate(48 548)"/>
+</clipPath>
+</defs>
+</svg>
