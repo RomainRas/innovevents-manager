@@ -1,6 +1,6 @@
 # Maquette web 02 - Préparation du devis
 
-Version du 18 octobre 2026. Tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5).
+Version du 18 octobre 2026, actualisée le 3 novembre 2026. Tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5).
 
 ## Travail réalisé
 
@@ -41,7 +41,7 @@ Le corail, proposé pour dynamiser les pages publiques, n’est pas ajouté syst
 
 La maquette montre un brouillon incomplet. Les quatre actions PDF et transmission restent désactivées. Le texte explique qu’il faut compléter le devis puis générer le PDF avant l’envoi. La visibilité publique reste indisponible tant que les conditions prévues ne sont pas réunies.
 
-Les erreurs, les reprises après échec et les transitions sont détaillées dans le document du wireframe. Leurs variantes visuelles, ainsi que les états de survol et de focus, restent à compléter. La maquette n’exécute ni calcul, ni téléversement, ni génération de PDF, ni courriel.
+Les erreurs, les reprises après échec et les transitions sont détaillées dans le document du wireframe. Douze extraits de préparation, génération et transmission sont désormais représentés dans les [planches complémentaires](etats-preparation-transmission-devis.md). Le formulaire complet avec erreurs intégrées, le survol et le focus restent à vérifier/compléter. La maquette n’exécute ni calcul, ni téléversement, ni génération de PDF, ni courriel.
 
 ## Vérifications réalisées
 
@@ -57,6 +57,6 @@ Ces contrôles ne constituent pas un test fonctionnel, un audit d’accessibilit
 
 Source modifiable Figma, SVG et explication sur dev. Les exports destinés au dossier seront préparés dans le format accepté au dépôt ; le lien Figma reste un complément.
 
-Avancement : maquettes web 2/3, maquettes mobile 0/3. Les six wireframes principaux sont réalisés en première version. La tâche #5 reste ouverte.
+Avancement actualisé : six wireframes et six maquettes principales en première version, complétés par les états documentés. La tâche #5 reste ouverte.
 
-Prochaine étape : maquette de consultation du devis par le client.
+Prochaine étape : états communs de chargement, liste vide et accès, puis adaptation web et exports. Voir le [bilan de couverture](bilan-couverture-ecrans.md).
