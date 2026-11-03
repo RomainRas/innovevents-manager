@@ -58,3 +58,6 @@ Figma reste la source modifiable. SVG et documentation sont sauvegardés sur dev
 Avancement au 3 novembre : six wireframes, six maquettes principales, les schémas d’enchaînement et les états complémentaires de demande et de décision du devis existent en première version. La tâche #5 reste ouverte pour les autres états, la validation d’ensemble et les exports.
 
 Prochaine étape : états de validation et de sauvegarde de note mobile.
+
+## Adaptation aux petits écrans — 3 novembre 2026
+Une variante à 390 pixels et son menu déplié sont maintenant dessinés, relus et sauvegardés. Voir les [visuels, règles de réorganisation et vérifications](adaptation-web-petits-ecrans.md). Cette étape complète les mentions antérieures de responsive restant à préparer ; les tests sur navigateur et appareil restent à réaliser pendant le développement. La relecture finale et les exports de rendu restent à terminer.
