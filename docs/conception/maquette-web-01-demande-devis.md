@@ -60,3 +60,6 @@ Aucun test fonctionnel, serveur, clavier ou mobile n’a été exécuté. La maq
 Source modifiable dans Figma ; SVG et explication sauvegardés sur dev. Les wireframes d’origine restent distincts. Pour le rendu, préparer un export PDF ou des images lisibles intégrées au dossier, selon le format accepté par la plateforme.
 
 Avancement au 3 novembre : six wireframes, six maquettes principales, les schémas d’enchaînement et cette planche d’états existent en première version. La tâche #5 reste ouverte pour les autres états complémentaires, la validation d’ensemble et les exports finaux.
+
+## Adaptation aux petits écrans — 3 novembre 2026
+Une variante à 390 pixels et son menu déplié sont maintenant dessinés, relus et sauvegardés. Voir les [visuels, règles de réorganisation et vérifications](adaptation-web-petits-ecrans.md). Cette étape complète les mentions antérieures de responsive restant à préparer ; les tests sur navigateur et appareil restent à réaliser pendant le développement. La relecture finale et les exports de rendu restent à terminer.
