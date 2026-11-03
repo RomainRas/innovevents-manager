@@ -60,7 +60,7 @@ Les états d’attente, d’échec, de confirmation et les protections contre le
 
 1. **WEB02 complété par douze extraits le 3 novembre** : voir les [états de préparation et transmission](etats-preparation-transmission-devis.md). Le formulaire avec erreurs intégrées et les montants renseignés reste à vérifier lors de la relecture. Périmètre traité : devis complet prêt à générer, champs incohérents, génération en cours/échec, PDF disponible, envoi en cours/réussi/échoué. Distinguer téléchargement pour envoi manuel et envoi par la plateforme. Ne pas inventer un taux de TVA, une devise ou une règle d’arrondi comme exigence du sujet.
 2. **États communs dessinés le 3 novembre** : [six modèles et règles d’application](etats-communs-consultation-acces.md). Modèles préparés pour listes vides, chargement, échec de lecture, session expirée et accès refusé. Les appliquer aux écrans concernés sans produire une planche identique par page.
-3. **Compléter les cas de contact mobile** : coordonnées absentes ou application externe indisponible. Conserver la distinction entre adresse du client et lieu de l’événement.
+3. **Cas de contact mobile dessinés le 3 novembre** : [six états et comportements associés](etats-contact-mobile.md), couvrant coordonnées absentes ou application externe indisponible. Conserver la distinction entre adresse du client et lieu de l’événement.
 4. **Vérifier les petits écrans web et le focus** : les trois écrans de l’application mobile ne prouvent pas l’adaptation du site web. Prévoir également le résultat réseau incertain du formulaire de demande.
 5. **Relire et préparer les exports** : cohérence des rôles, libellés, champs, transitions, messages, lisibilité et correspondance wireframe/maquette. Corriger puis exporter les versions retenues.
 
@@ -81,4 +81,4 @@ Pour le rendu, utiliser la copie fournie conformément à la notice. Les exports
 
 La tâche #5 reste ouverte jusqu’à la relecture et validation des douze représentations, de la charte et de l’enchaînement, puis la sauvegarde des exports retenus et du bilan de clôture. Les SVG de travail sont déjà disponibles ; les exports finaux restent à préparer. Les autres pages et les diagrammes doivent être suivis explicitement dans la suite du projet, sans prétendre que #5 clôture toute la conception.
 
-**Prochaine action : compléter les cas de contact mobile indisponible, puis les derniers états des formulaires, l’adaptation web et le focus.**
+**Prochaine action : traiter les derniers états des formulaires, l’adaptation web aux petits écrans et le focus.**
