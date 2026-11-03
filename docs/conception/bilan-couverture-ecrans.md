@@ -81,4 +81,7 @@ Pour le rendu, utiliser la copie fournie conformément à la notice. Les exports
 
 La tâche #5 reste ouverte jusqu’à la relecture et validation des douze représentations, de la charte et de l’enchaînement, puis la sauvegarde des exports retenus et du bilan de clôture. Les SVG de travail sont déjà disponibles ; les exports finaux restent à préparer. Les autres pages et les diagrammes doivent être suivis explicitement dans la suite du projet, sans prétendre que #5 clôture toute la conception.
 
-**Prochaine action : adapter les trois écrans web aux petits écrans, puis relire les interactions et le focus avant les exports finaux.**
+**Prochaine action : relecture finale de cohérence, validation avec Romain et préparation des exports de rendu.**
+
+## Mise à jour — Adaptation web du 3 novembre 2026
+Les trois variantes web à 390 pixels et trois menus dépliés sont désormais dessinés, relus et sauvegardés. Voir [adaptation web aux petits écrans](adaptation-web-petits-ecrans.md) pour les SVG, la présence des champs/actions, les contrôles de largeur et les limites. Cette réalisation met à jour le point 4 ci-dessus : la conception à 390 pixels est faite ; le fonctionnement sur navigateur, les autres largeurs et le clavier restent à tester après développement. L’ensemble des autres pages du projet n’est pas pour autant maquetté.
