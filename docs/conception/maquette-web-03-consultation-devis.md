@@ -1,6 +1,6 @@
 # Maquette web 03 - Consultation du devis
 
-Version du 18 octobre 2026. Tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5).
+Maquette initiale du 18 octobre 2026 ; suivi des états mis à jour le 3 novembre 2026. Tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5).
 
 ## Travail réalisé
 
@@ -40,7 +40,7 @@ Les règles documentées dans le wireframe restent applicables : confirmation av
 
 Après succès, le statut et un message doivent remplacer les actions. En cas d’échec d’enregistrement, ne pas annoncer un succès. L’échec du seul courriel ne doit pas effacer une acceptation enregistrée.
 
-Cette maquette montre le devis en étude côté client. Les confirmations, erreurs, états après réponse et interactions ne sont pas encore dessinés comme variantes fonctionnelles. Aucun courriel ni aucune réponse réelle n’a été envoyé.
+Cette maquette montre le devis en étude côté client. Depuis le 3 novembre, [deux planches complémentaires](etats-decisions-devis.md) représentent dix extraits : confirmations, résultats, motif requis, traitement en cours, échec confirmé, version remplacée et résultat réseau incertain. Ils restent statiques ; les interactions et contrôles serveur sont à développer. Aucun courriel ni aucune réponse réelle n’a été envoyé.
 
 ## Vérifications
 
@@ -55,6 +55,6 @@ Aucun test fonctionnel, d’autorisation, d’accessibilité clavier ou de respo
 
 Figma reste la source modifiable. SVG et documentation sont sauvegardés sur dev. Les exports pour le dossier final seront préparés selon le format accepté au dépôt.
 
-Avancement : trois maquettes web sur trois en première version ; zéro maquette mobile sur trois. Les six wireframes principaux sont réalisés en première version. La tâche #5 reste ouverte pour les maquettes mobile, les états complémentaires, l’enchaînement et les exports.
+Avancement au 3 novembre : six wireframes, six maquettes principales, les schémas d’enchaînement et les états complémentaires de demande et de décision du devis existent en première version. La tâche #5 reste ouverte pour les autres états, la validation d’ensemble et les exports.
 
-Prochaine étape : maquette mobile des événements à venir.
+Prochaine étape : états de validation et de sauvegarde de note mobile.
