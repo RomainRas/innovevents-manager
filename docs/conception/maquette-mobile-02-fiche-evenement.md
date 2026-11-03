@@ -1,6 +1,6 @@
 # Maquette mobile 02 - Fiche événement et ajout de note
 
-Version du 31 octobre 2026. Tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5).
+Version du 31 octobre 2026, actualisée le 3 novembre 2026. Tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5).
 
 ## Travail réalisé et fichiers
 
@@ -13,7 +13,7 @@ Deuxième maquette détaillée mobile pour Chloé et José, accompagnée d’un 
 - [Wireframe et règles détaillées](wireframe-mobile-02-fiche-evenement.md).
 - [Charte graphique](charte-graphique.md).
 
-Les dimensions représentent le contenu ; le défilement et l’adaptation au clavier restent à développer. L’état de saisie ne compte pas comme une troisième maquette mobile : celle-ci sera la fiche client.
+Les dimensions représentent le contenu ; le défilement et l’adaptation au clavier restent à développer. L’état de saisie ne compte pas comme une troisième maquette mobile : celle-ci est la fiche client.
 
 ## Correspondance avec le sujet
 
@@ -43,10 +43,10 @@ Le retour à la liste, l’annulation et la présentation des informations en bl
 - Couleurs et styles liés aux fondations existantes ; instances de boutons et de champ conservées.
 - Exports SVG avec texte préparés pour sauvegarde.
 
-Il s’agit de maquettes statiques : aucune navigation ni sauvegarde réelle de note n’est implémentée. Les variantes visuelles d’erreur, de succès et de chargement restent à compléter. Droits, rattachement de la note à l’événement, doubles soumissions, retour système, clavier, notes longues et erreurs réseau devront être testés dans l’application. Aucun fonctionnement hors connexion n’est promis.
+Il s’agit de maquettes statiques : aucune navigation ni sauvegarde réelle de note n’est implémentée. Les [six états complémentaires de note](etats-note-mobile.md) sont maintenant dessinés et sauvegardés : vide, attente, succès, échec confirmé, résultat incertain et abandon. Droits, rattachement de la note à l’événement, doubles soumissions, retour système, clavier, notes longues et erreurs réseau devront être testés dans l’application. Aucun fonctionnement hors connexion n’est promis.
 
 ## Sauvegarde, rendu et clôture
 
 Figma reste la source modifiable ; les deux SVG et cette explication sont enregistrés sur dev. Ils serviront à préparer la partie conception du dossier. Les exports PDF/PNG adaptés au dépôt final restent à préparer après validation des écrans.
 
-Avancement : 3 maquettes web et 2 maquettes mobile, soit 5 premières versions sur 6, plus l’état complémentaire de saisie. La tâche #5 reste ouverte : fiche client, enchaînement, états complémentaires, validation et exports de rendu restent à terminer. Cette étape ne clôture pas la tâche.
+Avancement actualisé : six maquettes principales et deux schémas d’enchaînement réalisés en première version, plus la saisie et les états complémentaires. Voir le [bilan de couverture](bilan-couverture-ecrans.md) pour les compléments prioritaires, les autres pages et les conditions de clôture. La tâche #5 reste ouverte ; validation et exports finaux restent à préparer.
