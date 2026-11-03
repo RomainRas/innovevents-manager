@@ -1,0 +1,30 @@
+<svg width="390" height="821" viewBox="0 0 390 821" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="path-1-inside-1_85_1132" fill="white">
+<path d="M0 0H390V821H0V0Z"/>
+</mask>
+<path d="M0 0H390V821H0V0Z" fill="white"/>
+<path d="M390 821V820H0V821V822H390V821Z" fill="#D9D9D9" mask="url(#path-1-inside-1_85_1132)"/>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="24" font-weight="600" letter-spacing="0em"><tspan x="16" y="40.7273">Innov&#x2019;Events</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="28" y="77.8182">Fermer le menu</tspan></text>
+<g clip-path="url(#clip0_85_1132)">
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="28" y="125.818">Accueil</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="28" y="181.818">&#xc9;v&#xe9;nements</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="28" y="237.818">Avis</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="28" y="293.818">Contact</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="28" y="349.818">Demande de devis</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="28" y="405.818">D&#xe9;connexion</tspan></text>
+</g>
+<rect width="358" height="380" transform="translate(16 424)" fill="#142D43"/>
+<text fill="white" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="32" y="461.273">Administration &#xb7; Chlo&#xe9;</tspan></text>
+<text fill="white" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="44" y="513.818">Tableau de bord</tspan></text>
+<text fill="white" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="44" y="577.818">Prospects</tspan></text>
+<text fill="white" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="44" y="641.818">Clients</tspan></text>
+<text fill="white" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="44" y="705.818">&#xc9;v&#xe9;nements</tspan></text>
+<path d="M32 748C32 743.582 35.5817 740 40 740H350C354.418 740 358 743.582 358 748V780C358 784.418 354.418 788 350 788H40C35.5817 788 32 784.418 32 780V748Z" fill="#087F8C"/>
+<text fill="white" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="44" y="769.818">Devis</tspan></text>
+<defs>
+<clipPath id="clip0_85_1132">
+<rect width="358" height="328" fill="white" transform="translate(16 96)"/>
+</clipPath>
+</defs>
+</svg>
