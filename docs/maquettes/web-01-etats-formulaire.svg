@@ -1,0 +1,59 @@
+<svg width="1440" height="1172" viewBox="0 0 1440 1172" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="1440" height="1172" fill="#F4F7FA"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="36" font-weight="bold" letter-spacing="0em"><tspan x="48" y="83.0909">Demande de devis &#x2014; &#xc9;tats compl&#xe9;mentaires</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="48" y="133.818">WEB01 &#xb7; Extraits de l&#x2019;interface : ces variantes compl&#xe8;tent la maquette principale, sans constituer de nouvelles pages.</tspan></text>
+<g clip-path="url(#clip0_67_569)">
+<path d="M48 172C48 167.582 51.5817 164 56 164H688C692.418 164 696 167.582 696 172V464C696 468.418 692.418 472 688 472H56C51.5817 472 48 468.418 48 464V172Z" fill="white"/>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="72" y="203.091">01 &#x2014; APR&#xc8;S ENREGISTREMENT</tspan></text>
+<path d="M80 233H664C667.866 233 671 236.134 671 240V368C671 371.866 667.866 375 664 375H80C76.134 375 73 371.866 73 368V240C73 236.134 76.134 233 80 233Z" fill="white"/>
+<path d="M80 233H664C667.866 233 671 236.134 671 240V368C671 371.866 667.866 375 664 375H80C76.134 375 73 371.866 73 368V240C73 236.134 76.134 233 80 233Z" stroke="#216E4E" stroke-width="2"/>
+<text fill="#216E4E" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="98" y="279.273">Votre demande a bien &#xe9;t&#xe9; enregistr&#xe9;e</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="98" y="319.818">Merci pour votre demande. Chlo&#xe9; vous recontactera dans les </tspan><tspan x="98" y="343.818">plus brefs d&#xe9;lais pour discuter de votre projet.</tspan></text>
+<path d="M72 408C72 403.582 75.5817 400 80 400H344C348.418 400 352 403.582 352 408V440C352 444.418 348.418 448 344 448H80C75.5817 448 72 444.418 72 440V408Z" fill="#087F8C"/>
+<text fill="white" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="146.5" y="429.818">Retour &#xe0; l&#x2019;accueil</tspan></text>
+<path d="M744 172C744 167.582 747.582 164 752 164H1384C1388.42 164 1392 167.582 1392 172V712C1392 716.418 1388.42 720 1384 720H752C747.582 720 744 716.418 744 712V172Z" fill="white"/>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="768" y="203.091">02 &#x2014; CHAMPS &#xc0; CORRIGER</tspan></text>
+<path d="M776 233H1360C1363.87 233 1367 236.134 1367 240V344C1367 347.866 1363.87 351 1360 351H776C772.134 351 769 347.866 769 344V240C769 236.134 772.134 233 776 233Z" fill="white"/>
+<path d="M776 233H1360C1363.87 233 1367 236.134 1367 240V344C1367 347.866 1363.87 351 1360 351H776C772.134 351 769 347.866 769 344V240C769 236.134 772.134 233 776 233Z" stroke="#B42318" stroke-width="2"/>
+<text fill="#B42318" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="794" y="279.273">Certains champs sont &#xe0; corriger</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="794" y="319.818">V&#xe9;rifiez les champs indiqu&#xe9;s avant d&#x2019;envoyer votre demande.</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="768" y="393.818">Nom de l&#x2019;entreprise *</tspan></text>
+<path d="M768 416C768 411.582 771.582 408 776 408H1360C1364.42 408 1368 411.582 1368 416V448C1368 452.418 1364.42 456 1360 456H776C771.582 456 768 452.418 768 448V416Z" fill="white"/>
+<path d="M768 416C768 411.582 771.582 408 776 408H1360C1364.42 408 1368 411.582 1368 416V448C1368 452.418 1364.42 456 1360 456H776C771.582 456 768 452.418 768 448V416Z" stroke="#B42318" stroke-width="2" stroke-linecap="round"/>
+<text fill="#B42318" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="768" y="481.818">Indiquez le nom de votre entreprise.</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="768" y="529.818">Adresse e-mail *</tspan></text>
+<path d="M768 552C768 547.582 771.582 544 776 544H1360C1364.42 544 1368 547.582 1368 552V584C1368 588.418 1364.42 592 1360 592H776C771.582 592 768 588.418 768 584V552Z" fill="white"/>
+<path d="M768 552C768 547.582 771.582 544 776 544H1360C1364.42 544 1368 547.582 1368 552V584C1368 588.418 1364.42 592 1360 592H776C771.582 592 768 588.418 768 584V552Z" stroke="#B42318" stroke-width="2" stroke-linecap="round"/>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="784" y="573.818">contact@</tspan></text>
+<text fill="#B42318" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="768" y="617.818">Saisissez une adresse e-mail valide.</tspan></text>
+<path d="M768 656C768 651.582 771.582 648 776 648H1040C1044.42 648 1048 651.582 1048 656V688C1048 692.418 1044.42 696 1040 696H776C771.582 696 768 692.418 768 688V656Z" fill="#087F8C"/>
+<text fill="white" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="824.5" y="677.818">Envoyer ma demande</tspan></text>
+</g>
+<g clip-path="url(#clip1_67_569)">
+<path d="M48 752C48 747.582 51.5817 744 56 744H688C692.418 744 696 747.582 696 752V1020C696 1024.42 692.418 1028 688 1028H56C51.5817 1028 48 1024.42 48 1020V752Z" fill="white"/>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="72" y="783.091">03 &#x2014; ENVOI EN COURS</tspan></text>
+<path d="M80 813H664C667.866 813 671 816.134 671 820V924C671 927.866 667.866 931 664 931H80C76.134 931 73 927.866 73 924V820C73 816.134 76.134 813 80 813Z" fill="white"/>
+<path d="M80 813H664C667.866 813 671 816.134 671 820V924C671 927.866 667.866 931 664 931H80C76.134 931 73 927.866 73 924V820C73 816.134 76.134 813 80 813Z" stroke="#142D43" stroke-width="2"/>
+<text fill="#142D43" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="98" y="859.273">Envoi en cours&#x2026;</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="98" y="899.818">Votre demande est en cours d&#x2019;envoi. Merci de patienter.</tspan></text>
+<path d="M72 964C72 959.582 75.5817 956 80 956H344C348.418 956 352 959.582 352 964V996C352 1000.42 348.418 1004 344 1004H80C75.5817 1004 72 1000.42 72 996V964Z" fill="#F4F7FA"/>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="149" y="985.818">Envoi en cours&#x2026;</tspan></text>
+<path d="M744 752C744 747.582 747.582 744 752 744H1384C1388.42 744 1392 747.582 1392 752V1044C1392 1048.42 1388.42 1052 1384 1052H752C747.582 1052 744 1048.42 744 1044V752Z" fill="white"/>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="14" letter-spacing="0em"><tspan x="768" y="783.091">04 &#x2014; ENREGISTREMENT IMPOSSIBLE</tspan></text>
+<path d="M776 813H1360C1363.87 813 1367 816.134 1367 820V948C1367 951.866 1363.87 955 1360 955H776C772.134 955 769 951.866 769 948V820C769 816.134 772.134 813 776 813Z" fill="white"/>
+<path d="M776 813H1360C1363.87 813 1367 816.134 1367 820V948C1367 951.866 1363.87 955 1360 955H776C772.134 955 769 951.866 769 948V820C769 816.134 772.134 813 776 813Z" stroke="#B42318" stroke-width="2"/>
+<text fill="#B42318" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="794" y="859.273">Votre demande n&#x2019;a pas &#xe9;t&#xe9; enregistr&#xe9;e</tspan></text>
+<text fill="#172B3A" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="794" y="899.818">Vos informations sont conserv&#xe9;es dans le formulaire. Vous </tspan><tspan x="794" y="923.818">pouvez r&#xe9;essayer.</tspan></text>
+<path d="M768 988C768 983.582 771.582 980 776 980H1040C1044.42 980 1048 983.582 1048 988V1020C1048 1024.42 1044.42 1028 1040 1028H776C771.582 1028 768 1024.42 768 1020V988Z" fill="#087F8C"/>
+<text fill="white" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" font-weight="600" letter-spacing="0em"><tspan x="867.5" y="1009.82">R&#xe9;essayer</tspan></text>
+</g>
+<text fill="#526574" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="16" letter-spacing="0em"><tspan x="48" y="1093.82">Rep&#xe8;res de conception : la saisie est conserv&#xe9;e en cas d&#x2019;erreur ; les soumissions r&#xe9;p&#xe9;t&#xe9;es sont bloqu&#xe9;es pendant l&#x2019;envoi. La confirmation n&#x2019;appara&#xee;t qu&#x2019;apr&#xe8;s un enregistrement </tspan><tspan x="48" y="1117.82">confirm&#xe9;. Les cas de r&#xe9;ponse r&#xe9;seau incertaine et d&#x2019;&#xe9;chec du seul courriel sont d&#xe9;taill&#xe9;s dans la documentation.</tspan></text>
+<defs>
+<clipPath id="clip0_67_569">
+<rect width="1344" height="556" fill="white" transform="translate(48 164)"/>
+</clipPath>
+<clipPath id="clip1_67_569">
+<rect width="1344" height="308" fill="white" transform="translate(48 744)"/>
+</clipPath>
+</defs>
+</svg>
