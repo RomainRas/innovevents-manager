@@ -79,9 +79,13 @@ Ce bilan est enregistré sur dev et référencé dans #5. Il sert de plan de tra
 
 Pour le rendu, utiliser la copie fournie conformément à la notice. Les exports lisibles seront intégrés au dossier ou joints selon les possibilités de dépôt. La notice prévoit la fusion en un PDF si plusieurs fichiers doivent être remis dans un seul espace. Les formats et tailles réellement acceptés doivent être vérifiés sur la plateforme ; ils ne sont pas établis ici.
 
-La tâche #5 reste ouverte jusqu’à la relecture et validation des douze représentations, de la charte et de l’enchaînement, puis la sauvegarde des exports retenus et du bilan de clôture. Les SVG de travail sont déjà disponibles ; les exports finaux restent à préparer. Les autres pages et les diagrammes doivent être suivis explicitement dans la suite du projet, sans prétendre que #5 clôture toute la conception.
+La tâche #5 reste ouverte jusqu’à la relecture et validation des douze représentations, de la charte et de l’enchaînement, puis la sauvegarde des exports retenus et du bilan de clôture. Les SVG et les deux PDF de relecture sont disponibles ; la validation de Romain reste à enregistrer. Les autres pages et les diagrammes doivent être suivis explicitement dans la suite du projet, sans prétendre que #5 clôture toute la conception.
 
-**Prochaine action : relecture finale de cohérence, validation avec Romain et préparation des exports de rendu.**
+**Prochaine action : validation avec Romain des exports préparés, puis conception des données et des diagrammes.**
 
 ## Mise à jour — Adaptation web du 3 novembre 2026
 Les trois variantes web à 390 pixels et trois menus dépliés sont désormais dessinés, relus et sauvegardés. Voir [adaptation web aux petits écrans](adaptation-web-petits-ecrans.md) pour les SVG, la présence des champs/actions, les contrôles de largeur et les limites. Cette réalisation met à jour le point 4 ci-dessus : la conception à 390 pixels est faite ; le fonctionnement sur navigateur, les autres largeurs et le clavier restent à tester après développement. L’ensemble des autres pages du projet n’est pas pour autant maquetté.
+
+## Mise à jour — Relecture et exports du 7 novembre 2026
+
+Les deux PDF sont préparés et contrôlés : dossier principal de 17 pages et annexe de 18 pages. Voir le [bilan de relecture et les liens de téléchargement](relecture-et-exports.md). Cette étape complète le point 5 ci-dessus. Les interactions restent statiques ; la validation de Romain et le bilan de clôture de #5 restent à enregistrer.
