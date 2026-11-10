@@ -1,0 +1,10 @@
+# Secrets et configuration locale
+.secrets/
+.env
+.env.*
+!.env.example
+# Fichiers temporaires, sauvegardes et dependances
+tmp/
+backups/
+node_modules/
+vendor/
