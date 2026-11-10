@@ -1,0 +1,14 @@
+const fs = require('fs');
+const input = JSON.parse(fs.readFileSync(0,'utf8'));
+if (!/^[0-9a-f]{64}$/.test(input.password)) throw new Error('Secret incorrect');
+db.getSiblingDB('admin').auth('ecf_admin',fs.readFileSync('/run/secrets/mongo_root','utf8').trim());
+const target = db.getSiblingDB('innovevents_demo');
+if (!target.getCollectionInfos({name:'logs'}).length) throw new Error('Démo absente');
+const privileges = [{resource:{db:'innovevents_demo',collection:'logs'},actions:['find']}];
+const role = target.getRole('ecf_logs_read', {showPrivileges:true});
+if (!role) target.createRole({role:'ecf_logs_read',privileges,roles:[]});
+else if (JSON.stringify(role.privileges)!==JSON.stringify(privileges) || role.roles.length) throw new Error('Rôle existant différent, vérifier manuellement');
+const user = target.getUser('ecf_api_read');
+if (!user) target.createUser({user:'ecf_api_read',pwd:input.password,roles:[{role:'ecf_logs_read',db:'innovevents_demo'}]});
+else if (user.roles.length!==1 || user.roles[0].role!=='ecf_logs_read' || user.roles[0].db!=='innovevents_demo') throw new Error('Utilisateur existant différent');
+print('Compte MongoDB de lecture prêt.');
