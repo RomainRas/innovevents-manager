@@ -1,6 +1,6 @@
 # Scripts de bases — première version
 
-Préparés le 9 novembre 2026. Cibles : MySQL 8.4 / InnoDB et MongoDB avec `mongosh`. **Les scripts n'ont pas encore été exécutés sur ces moteurs.** Le poste expose un client MariaDB 10.4.32 via XAMPP et PHP 8.2.12 ; Docker, mongosh et mongod ne sont pas trouvés dans le terminal. Aucune base XAMPP n'a été modifiée.
+Préparés puis exécutés le 9 novembre 2026 sur MySQL 8.4.13 et MongoDB 8.0.34 dans Docker. Les deux services sont opérationnels : 14 tests MySQL et 17 contrôles MongoDB réussis. Aucune base XAMPP modifiée. Voir [l’environnement](../docs/environnement-local.md) et [les preuves et limites](../docs/verification-bases.md).
 
 ## Fichiers
 
@@ -8,9 +8,9 @@ Préparés le 9 novembre 2026. Cibles : MySQL 8.4 / InnoDB et MongoDB avec `mong
 - [mongodb/001_logs.js](mongodb/001_logs.js) : collection logs, validation stricte des huit actions, index unique de trace et trois index de recherche. Aucun TTL ou jeu de données ajouté.
 - [Règles de suppression](../docs/conception/suppression-conservation.md), [MLD](../docs/conception/mld-mysql.md), [modèle MongoDB](../docs/conception/modele-journaux-mongodb.md).
 
-## Exécution future dans l'environnement de test
+## Initialisation manuelle sur une nouvelle base vide
 
-Créer explicitement deux bases isolées nommées `innovevents_test` sur les moteurs prévus. Sélectionner cette base avant toute importation ; ne pas utiliser une base contenant des données personnelles ou d'autres projets. Utiliser des comptes techniques adaptés et des secrets fournis hors dépôt.
+Avec Compose, les scripts sont déjà importés au premier démarrage : ne pas les rejouer sur les bases existantes. Pour une initialisation manuelle distincte, créer explicitement deux bases isolées nommées `innovevents_test` sur les moteurs prévus. Sélectionner cette base avant toute importation ; ne pas utiliser une base contenant des données personnelles ou d'autres projets. Utiliser des comptes techniques adaptés et des secrets fournis hors dépôt.
 
 Dans le client MySQL 8.4 connecté à cette base :
 
@@ -47,4 +47,4 @@ Contrôles exécutés le 9 novembre : lecture croisée avec le MLD ; inventaire 
 
 Le script MongoDB a aussi été exécuté avec un objet de base simulé : une base mal nommée et une collection déjà existante provoquent un arrêt avant toute écriture ; le chemin nominal construit huit contrats d'action et quatre index. Ces contrôles ne prouvent ni l'acceptation du DDL par MySQL ni le fonctionnement du validateur sur le moteur MongoDB.
 
-À réaliser avec #7 : installer l'environnement isolé, importer les scripts, créer un jeu d'essai fictif complet (dont Chloé et José), tester les insertions valides et invalides ainsi que la concurrence, conserver les résultats, puis sauvegarder et restaurer les deux bases. Aucun résultat de restauration ni pourcentage de couverture n'est annoncé.
+Suite des contrôles : environnement installé, imports réussis et jeu fictif transactionnel testé (dont Chloé et José). Restent le jeu de démonstration persistant, les contrôles métier PHP et de concurrence, puis la sauvegarde et la restauration des deux bases. Aucun résultat de restauration ni pourcentage de couverture annoncé.
