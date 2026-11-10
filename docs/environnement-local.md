@@ -67,3 +67,7 @@ Le connecteur GitHub permet les sauvegardes sur dev. La commande Git locale éch
 Voir [le bilan détaillé](verification-bases.md). Depuis la racine : `./scripts/Test-Databases.ps1` (Python 3 nécessaire, chemin personnalisable via `-Python`). Les comptes et journaux du jeu de test sont temporaires ; aucun compte de démonstration utilisable n’est créé.
 
 Sous Windows, MySQL ignore les fichiers de configuration montés avec des droits trop ouverts. Le lanceur `docker/mysql/client.sh` copie le secret dans un fichier temporaire privé, puis le supprime à la sortie. Aucune valeur n’est affichée.
+
+## Mise à jour du 10 novembre 2026
+
+Le jeu permanent existe désormais dans innovevents_demo, distinct de la base de tests. Les sauvegardes et restaurations MySQL/MongoDB ont réussi dans de nouvelles bases, y compris un deuxième essai sans réinitialisation. Voir [le guide et les preuves](demo-sauvegarde-restauration.md). Les mentions précédentes de restauration ou de comptes de démonstration « à préparer » décrivent l’état du 9 novembre ; les scénarios métier complets, les droits applicatifs et la reprise inter-bases restent à développer.
