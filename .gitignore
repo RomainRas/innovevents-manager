@@ -8,3 +8,5 @@ tmp/
 backups/
 node_modules/
 vendor/
+dist/
+__pycache__/
