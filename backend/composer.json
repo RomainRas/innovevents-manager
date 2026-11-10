@@ -1,0 +1,8 @@
+{
+  "name": "innovevents/api",
+  "description": "API PHP native du projet ECF",
+  "type": "project",
+  "require": {"php": "~8.4.0", "ext-pdo": "*", "ext-pdo_mysql": "*", "ext-mongodb": "2.5.7", "mongodb/mongodb": "^2.0"},
+  "autoload": {"psr-4": {"InnovEvents\\": "src/"}},
+  "config": {"sort-packages": true}
+}
