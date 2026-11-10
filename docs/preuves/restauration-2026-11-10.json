@@ -1,0 +1,16 @@
+{
+  "date_utc": "2026-11-10T11:46:10.386960+00:00",
+  "source": "innovevents_demo",
+  "restauration": "innovevents_restore_08a1b196d4c5",
+  "controles": {
+    "mysql_dump_identique": true,
+    "mongo_documents_validateur_index_identiques": true,
+    "source_mysql_inchangee": true,
+    "source_mongo_inchangee": true,
+    "mot_de_passe_verifie_par_php": true
+  },
+  "mysql_sha256": "dc9ef8404efcf51de820af2ad07aa31fea59a1ec51413b2a53455ad874a66c81",
+  "mongodb_archive_sha256": "553d9ea046a5fbf51f20195c514da2c9a7891089b74fb142ea659e54f09f5a1b",
+  "mysql_tables": 16,
+  "mongo_logs": 4
+}
