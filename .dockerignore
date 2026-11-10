@@ -1,0 +1,7 @@
+.git
+.secrets
+backups
+tmp
+**/node_modules
+**/vendor
+output
