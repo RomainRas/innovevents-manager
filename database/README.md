@@ -48,3 +48,7 @@ Contrôles exécutés le 9 novembre : lecture croisée avec le MLD ; inventaire 
 Le script MongoDB a aussi été exécuté avec un objet de base simulé : une base mal nommée et une collection déjà existante provoquent un arrêt avant toute écriture ; le chemin nominal construit huit contrats d'action et quatre index. Ces contrôles ne prouvent ni l'acceptation du DDL par MySQL ni le fonctionnement du validateur sur le moteur MongoDB.
 
 Suite des contrôles : environnement installé, imports réussis et jeu fictif transactionnel testé (dont Chloé et José). Restent le jeu de démonstration persistant, les contrôles métier PHP et de concurrence, puis la sauvegarde et la restauration des deux bases. Aucun résultat de restauration ni pourcentage de couverture annoncé.
+
+## Mise à jour du 10 novembre 2026
+
+Le jeu permanent existe désormais dans innovevents_demo, distinct de la base de tests. Les sauvegardes et restaurations MySQL/MongoDB ont réussi dans de nouvelles bases, y compris un deuxième essai sans réinitialisation. Voir [le guide et les preuves](../docs/demo-sauvegarde-restauration.md). Les mentions précédentes de restauration ou de comptes de démonstration « à préparer » décrivent l’état du 9 novembre ; les scénarios métier complets, les droits applicatifs et la reprise inter-bases restent à développer.
