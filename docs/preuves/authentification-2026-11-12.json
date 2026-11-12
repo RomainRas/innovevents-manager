@@ -1,0 +1,74 @@
+{
+  "date": "2026-11-12",
+  "scope": "Connexion web et premieres lectures protegees ; inscription, recuperation et changement de mot de passe non implementes",
+  "browser": {
+    "desktop": {
+      "redirect": true,
+      "wrongPassword": true,
+      "passwordCleared": true,
+      "login": true,
+      "reloadSession": true,
+      "logout": true,
+      "noOverflow": true,
+      "noPageErrors": true
+    },
+    "mobile": {
+      "redirect": true,
+      "wrongPassword": true,
+      "passwordCleared": true,
+      "login": true,
+      "reloadSession": true,
+      "logout": true,
+      "noOverflow": true,
+      "noPageErrors": true
+    }
+  },
+  "database_permissions": {
+    "mysql_demo_read": true,
+    "mysql_other_database_denied": true,
+    "mysql_write_denied": true,
+    "mongo_logs_read": true,
+    "mongo_admin_denied": true,
+    "mongo_write_denied": true,
+    "audit_read_denied": true,
+    "audit_update_denied": true
+  },
+  "session_expiry": {
+    "idle": true,
+    "absolute": true,
+    "credential_changed": true
+  },
+  "outage": {
+    "audit_failure_denies_login": true,
+    "audit_failure_no_authenticated_session": true
+  },
+  "vue_build": true,
+  "http": {
+    "anonymous_no_user": true,
+    "cookie_protection": true,
+    "anonymous_private_denied": true,
+    "csrf_required": true,
+    "cross_origin_denied": true,
+    "generic_error": true,
+    "login_and_server_role": true,
+    "session_rotation": true,
+    "no_hash_in_response": true,
+    "ownership": true,
+    "client_admin_denied": true,
+    "client_team_denied": true,
+    "suspension_revokes_session": true,
+    "suspended_login_denied": true,
+    "mandatory_change_blocks_access": true,
+    "logout_revokes_session": true,
+    "employee_login": true,
+    "employee_team_allowed": true,
+    "employee_admin_denied": true,
+    "admin_login": true,
+    "admin_inherits_team": true,
+    "admin_logs_allowed": true,
+    "login_audit_success": true,
+    "login_audit_failure": true,
+    "audit_no_credentials": true,
+    "rate_limit_across_sessions": true
+  }
+}
