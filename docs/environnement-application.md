@@ -67,3 +67,7 @@ Le premier essai a corrigé le nom de la table de paramètres dans le contrôle 
 Authentification et sessions, autorisations par rôle, pages et règles métier, écritures avec droits minimaux, tests PHPUnit/Vitest, construction Android et hébergement restent à traiter. La tâche #7 reste ouverte notamment pour Git local et la vérification mobile. Le suivi distingue les résultats réellement obtenus de ces étapes futures.
 
 Sources consultées le 10 novembre : [Vite](https://vite.dev/guide/), [image PHP officielle](https://hub.docker.com/_/php), [pilote MongoDB PHP](https://www.php.net/manual/en/mongodb.installation.php), [version du pilote](https://pecl.php.net/package/mongodb), [actions de privilèges MongoDB](https://www.mongodb.com/docs/manual/reference/privilege-actions/).
+
+## Mise à jour du 12 novembre — Authentification
+
+La connexion web, les sessions, la déconnexion et les premières lectures protégées sont désormais réalisées : [guide et limites](authentification-sessions.md). Un compte MongoDB distinct possède uniquement insert sur logs ; le service PHP reçoit un troisième secret local et utilise le volume auth_state pour les sessions et quotas. Relancer Start-App.ps1 pour provisionner ce compte avant le démarrage. Les résultats ci-dessus datés du 10 novembre restent l’historique du socle initial ; la preuve d’authentification est conservée séparément. Inscription, récupération/changement effectif du mot de passe et mobile restent à réaliser.
