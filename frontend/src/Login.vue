@@ -31,5 +31,7 @@ async function submit() {
       <p id="login-error" role="alert" class="error">{{ error }}</p>
       <button :disabled="busy">{{ busy ? 'Connexion…' : 'Se connecter' }}</button>
     </form>
+    <p><RouterLink to="/mot-de-passe-oublie">Mot de passe oublié ?</RouterLink></p>
+    <p><RouterLink to="/inscription">Créer un compte</RouterLink></p>
   </main>
 </template>
