@@ -29,6 +29,8 @@ final class Connections
 
     public static function accounts(): PDO { return self::accountDatabase('ecf_accounts','mysql_accounts'); }
     public static function mail(): PDO { return self::accountDatabase('ecf_mail','mysql_mail'); }
+    public static function quotes(): PDO { return self::accountDatabase('ecf_quotes','mysql_quotes'); }
+    public static function settings(): PDO { return self::accountDatabase('ecf_settings','mysql_settings'); }
     private static function accountDatabase(string $user,string $secret): PDO
     {
         return new PDO('mysql:host=mysql;dbname=innovevents_demo;charset=utf8mb4',$user,self::secret($secret),[
