@@ -17,6 +17,7 @@ onMounted(async () => {
 <template>
   <main class="panel">
     <h1>Bonjour {{ auth.user?.prenom }}</h1>
+    <p><RouterLink to="/mot-de-passe">Changer mon mot de passe</RouterLink></p>
     <h2>{{ auth.user?.role === 'client' ? 'Vos prochains événements' : 'Notes de l’équipe' }}</h2>
     <p v-if="loading" role="status">Chargement…</p><p v-if="error" role="alert" class="error">{{ error }}</p>
     <ul v-if="!loading && !error"><li v-for="row in rows" :key="row.id">{{ row.nom || row.contenu }}<span v-if="row.debut"> — {{ new Date(row.debut.replace(' ', 'T') + 'Z').toLocaleDateString('fr-FR') }}</span></li></ul>
