@@ -4,7 +4,7 @@ export async function request(path, options = {}) {
   const response = await fetch(path, { credentials: 'same-origin', ...options,
     headers: { ...options.headers }, signal: AbortSignal.timeout(15000) })
   const data = await response.json()
-  if (!response.ok) throw Object.assign(new Error(data.error || 'unavailable'), { status: response.status })
+  if (!response.ok) throw Object.assign(new Error(data.error || 'unavailable'), { status: response.status, fields: data.fields || {} })
   return data
 }
 export async function refresh() {
