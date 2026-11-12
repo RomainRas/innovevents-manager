@@ -1,0 +1,77 @@
+{
+  "date": "2026-11-12",
+  "scope": "Demande de devis locale",
+  "http": {
+    "csrf_required": true,
+    "ten_required_fields": true,
+    "validation_does_not_insert": true,
+    "invalid_email": true,
+    "invalid_date": true,
+    "invalid_count": true,
+    "field_length": true,
+    "anonymous_submission": true,
+    "status_server_controlled": true,
+    "retry_same_response": true,
+    "changed_payload_conflict": true,
+    "parallel_http_no_duplicate": true,
+    "connected_submission": true,
+    "anonymous_settings_denied": true,
+    "client_settings_denied": true,
+    "admin_changes_thanks": true,
+    "blank_thanks_denied": true,
+    "config_updated": true,
+    "retry_keeps_original_confirmation": true,
+    "new_request_uses_new_thanks": true,
+    "agency_mail_received": true
+  },
+  "resilience": {
+    "two_php_processes_succeed": true,
+    "one_prospect_after_concurrency": true,
+    "one_submission_after_concurrency": true,
+    "queue_failure_reported": true,
+    "queue_failure_rolls_back_prospect": true,
+    "queue_failure_rolls_back_key": true,
+    "smtp_outage_keeps_submission": true,
+    "queued_notification_sent_after_restart": true
+  },
+  "sql_permissions": {
+    "prospect_update_denied": true,
+    "status_insert_denied": true,
+    "prospect_read_denied": true,
+    "prospect_delete_denied": true,
+    "settings_update_denied": true,
+    "user_read_denied": true
+  },
+  "browser": {
+    "390": {
+      "tenErrors": true,
+      "errorFocus": true,
+      "keyboardTab": true,
+      "valuesPreserved": true,
+      "lostResponseRetried": true,
+      "plainTextConfirmation": true,
+      "successFocus": true,
+      "noOverflow": true,
+      "noPageErrors": true
+    },
+    "1280": {
+      "tenErrors": true,
+      "errorFocus": true,
+      "keyboardTab": true,
+      "valuesPreserved": true,
+      "lostResponseRetried": true,
+      "plainTextConfirmation": true,
+      "successFocus": true,
+      "noOverflow": true,
+      "noPageErrors": true
+    }
+  },
+  "vue_build": "passed",
+  "mobile_capture": "reviewed",
+  "limits": [
+    "SMTP local",
+    "Concurrence testée par deux processus PHP, pas test de charge",
+    "Persistance de clé limitée au formulaire courant",
+    "Pas audit global accessibilité"
+  ]
+}
