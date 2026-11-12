@@ -9,7 +9,7 @@ Lire le [guide PHP/Vue](docs/environnement-application.md). Prérequis : Docker 
 ./scripts/Start-App.ps1
 ```
 
-Ouvrir http://127.0.0.1:5173/. L’écran provisoire vérifie la connexion Vue → PHP → MySQL/MongoDB ; les fonctionnalités métier et l’authentification restent à développer.
+Ouvrir http://127.0.0.1:5173/connexion. La connexion, les sessions et les premières lectures par rôle sont disponibles ; les autres fonctionnalités métier restent à développer. Voir [les comptes locaux, protections et limites](docs/authentification-sessions.md).
 
 ## Documentation
 
@@ -18,5 +18,6 @@ Ouvrir http://127.0.0.1:5173/. L’écran provisoire vérifie la connexion Vue �
 - [Environnement des bases](docs/environnement-local.md)
 - [Tests de contraintes](docs/verification-bases.md)
 - [Démonstration, sauvegarde et restauration](docs/demo-sauvegarde-restauration.md)
+- [Authentification, sessions et tests](docs/authentification-sessions.md)
 
 Les secrets, dépendances installées et archives locales sont exclus de Git. Le suivi de développement est conservé sur `dev` ; aucune publication de production n’est réalisée à ce stade.
