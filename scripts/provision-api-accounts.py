@@ -21,5 +21,5 @@ mysql,mongo=secret('mysql-api.txt'),secret('mongo-api.txt')
 statement="CREATE USER IF NOT EXISTS 'ecf_api_read'@'%' IDENTIFIED BY '"+mysql+"';\nGRANT SELECT ON innovevents_demo.* TO 'ecf_api_read'@'%';"
 invoke(['exec','-T','mysql','sh','/opt/innovevents/client.sh'],statement.encode())
 invoke(['cp','scripts/provision-api-mongo.js','mongodb:/tmp/provision-api-mongo.js'])
-invoke(['exec','-T','mongodb','mongosh','--quiet','--file','/tmp/provision-api-mongo.js'],json.dumps({'password':mongo}).encode())
+invoke(['exec','-T','mongodb','mongosh','--quiet','--file','/tmp/provision-api-mongo.js'],json.dumps({'password':mongo,'audit_password':secret('mongo-auth.txt')}).encode())
 print('Comptes de lecture préparés. Les comptes existants ne changent pas de mot de passe ; vérifier avec les tests API.')
