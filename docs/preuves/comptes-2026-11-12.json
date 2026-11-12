@@ -1,0 +1,61 @@
+{
+  "date": "2026-11-12",
+  "scope": "Parcours de compte locaux",
+  "http": {
+    "weak_password_rejected": true,
+    "confirmation_required": true,
+    "registration_accepted": true,
+    "server_forces_client": true,
+    "confirmation_mail": true,
+    "duplicate_generic": true,
+    "permanent_login": true,
+    "forgot_unknown_generic": true,
+    "forgot_known_generic": true,
+    "repeat_request_preserves_pending": true,
+    "expired_temporary_rejected": true,
+    "permanent_survives_request": true,
+    "temporary_login_forces_change": true,
+    "temporary_private_blocked": true,
+    "wrong_current_rejected": true,
+    "new_password_confirmation": true,
+    "password_changed": true,
+    "current_session_revoked": true,
+    "other_session_revoked": true,
+    "old_password_rejected": true,
+    "temporary_password_rejected": true,
+    "new_password_works": true,
+    "temporary_erased": true,
+    "suspended_forgot_generic": true,
+    "suspended_no_temporary": true,
+    "mail_payload_erased": true
+  },
+  "permissions": {
+    "delete_denied": true,
+    "mail_read_denied": true,
+    "role_insert_denied": true,
+    "role_update_denied": true
+  },
+  "browser": {
+    "390": {
+      "registrationForm": true,
+      "forgotGeneric": true,
+      "changeForm": true,
+      "noOverflow": true,
+      "noPageErrors": true
+    },
+    "1280": {
+      "registrationForm": true,
+      "forgotGeneric": true,
+      "changeForm": true,
+      "noOverflow": true,
+      "noPageErrors": true
+    }
+  },
+  "vue_build": "passed",
+  "visual_mobile": "reviewed",
+  "limits": [
+    "SMTP local uniquement",
+    "Panne SMTP et concurrence non injectées",
+    "Aucune fusion main"
+  ]
+}
