@@ -15,5 +15,5 @@ async function disconnect() {
       <RouterLink v-else to="/connexion">Connexion</RouterLink>
     </nav>
   </header>
-  <p v-if="error" role="alert" class="error">{{ error }}</p><RouterView />
+  <p v-if="error" role="alert" class="error">{{ error }}</p><RouterView :key="$route.path" />
 </template>
