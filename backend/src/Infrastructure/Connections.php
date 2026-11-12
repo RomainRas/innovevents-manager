@@ -35,4 +35,13 @@ final class Connections
             'connectTimeoutMS' => 1000, 'socketTimeoutMS' => 2000,
         ]);
     }
+
+    public static function audit(): Client
+    {
+        return new Client('mongodb://mongodb:27017', [
+            'username'=>'ecf_auth_log', 'password'=>self::secret('mongo_auth'),
+            'authSource'=>'innovevents_demo','serverSelectionTimeoutMS'=>2000,
+            'connectTimeoutMS'=>1000,'socketTimeoutMS'=>2000,
+        ]);
+    }
 }
