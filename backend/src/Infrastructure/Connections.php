@@ -27,6 +27,14 @@ final class Connections
             ]);
     }
 
+    public static function accounts(): PDO { return self::accountDatabase('ecf_accounts','mysql_accounts'); }
+    public static function mail(): PDO { return self::accountDatabase('ecf_mail','mysql_mail'); }
+    private static function accountDatabase(string $user,string $secret): PDO
+    {
+        return new PDO('mysql:host=mysql;dbname=innovevents_demo;charset=utf8mb4',$user,self::secret($secret),[
+            PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION,PDO::ATTR_EMULATE_PREPARES=>false,PDO::ATTR_DEFAULT_FETCH_MODE=>PDO::FETCH_ASSOC]);
+    }
+
     public static function mongo(): Client
     {
         return new Client('mongodb://mongodb:27017', [
