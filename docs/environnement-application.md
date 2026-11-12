@@ -1,10 +1,10 @@
-# Environnement PHP et Vue — 10 novembre 2026
+# Environnement PHP et Vue — mis à jour le 12 novembre 2026
 
 ## Périmètre
 
-Première liaison Vue → API PHP native → MySQL/MongoDB. L’écran de préparation ne remplace pas les maquettes validées ; il permet de contrôler la connexion avant d’implémenter les pages métier. Aucun écran de connexion ni droit utilisateur n’est encore développé. Les comptes techniques de base sont distincts des comptes Chloé, José et Alice.
+Liaison Vue → API PHP native → MySQL/MongoDB, connexion avec contrôle des rôles, inscription et récupération de compte. L’écran d’accueil reste provisoire. Les comptes techniques de base sont distincts des comptes Chloé, José et Alice.
 
-L’API propose uniquement `GET /api/health`, qui renvoie un état sans donnée métier ni détail de configuration. Les chemins inconnus renvoient 404, les méthodes autres que GET sur cette route renvoient 405. Si une base est indisponible, la réponse est 503 sans message interne.
+La route `GET /api/health` renvoie un état sans donnée métier ni détail de configuration. Les routes d’authentification et les premières lectures privées sont décrites dans [Authentification](authentification-sessions.md) et [Parcours de compte](parcours-comptes.md). Les chemins inconnus renvoient 404, les méthodes non autorisées 405. Une panne interne renvoie 503 sans détail technique.
 
 ## Démarrage local
 
@@ -71,3 +71,7 @@ Sources consultées le 10 novembre : [Vite](https://vite.dev/guide/), [image PHP
 ## Mise à jour du 12 novembre — Authentification
 
 La connexion web, les sessions, la déconnexion et les premières lectures protégées sont désormais réalisées : [guide et limites](authentification-sessions.md). Un compte MongoDB distinct possède uniquement insert sur logs ; le service PHP reçoit un troisième secret local et utilise le volume auth_state pour les sessions et quotas. Relancer Start-App.ps1 pour provisionner ce compte avant le démarrage. Les résultats ci-dessus datés du 10 novembre restent l’historique du socle initial ; la preuve d’authentification est conservée séparément. Inscription, récupération/changement effectif du mot de passe et mobile restent à réaliser.
+## Courriels locaux — complément du 12 novembre
+
+Start-App applique aussi la migration comptes/courriels, démarre Mailpit (127.0.0.1:8025) et le traitement de la file. Aucun envoi externe. Voir [le guide](parcours-comptes.md).
+
