@@ -75,3 +75,7 @@ La connexion web, les sessions, la déconnexion et les premières lectures prot�
 
 Start-App applique aussi la migration comptes/courriels, démarre Mailpit (127.0.0.1:8025) et le traitement de la file. Aucun envoi externe. Voir [le guide](parcours-comptes.md).
 
+## Demandes de devis — ajout du 12 novembre
+
+Start-App exécute désormais aussi `provision-quotes.py` : suivi des soumissions, type de courriel et comptes SQL limités. La base de démonstration contient 18 tables après cette migration. Formulaire public `/demande-devis`, paramètre administrateur `/parametres-demandes`. [Bilan et tests](implementation-demande-devis.md).
+
