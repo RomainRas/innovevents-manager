@@ -11,12 +11,16 @@ final class Authentication
     {
         if (!isset($_SESSION['uid'])) return null;
         $u=(new Users())->find('id',(string)$_SESSION['uid']);
+        $temporary=(bool)($_SESSION['temporary_auth']??false);
+        $credential=$temporary?($u['mdp_temporaire_hash']??''):($u['mot_de_passe_hash']??'');
         if (!$u || $u['statut']!=='actif' || time()-($_SESSION['last']??0)>1800
             || time()-($_SESSION['created']??0)>28800
-            || !hash_equals($_SESSION['credential']??'',hash('sha256',$u['mot_de_passe_hash']))) {
+            || ($temporary&&!$u['temporary_valid'])
+            || !hash_equals($_SESSION['credential']??'',hash('sha256',$credential))) {
             WebSession::reset();return null;
         }
         $_SESSION['last']=time();
+        if ($temporary)$u['changement_mdp_requis']=1;
         return $u;
     }
     public function requireUser(array $roles=[]): array
@@ -29,7 +33,7 @@ final class Authentication
     }
     public function login(array $input): array
     {
-        unset($_SESSION['uid'],$_SESSION['created'],$_SESSION['last'],$_SESSION['credential']);
+        unset($_SESSION['uid'],$_SESSION['created'],$_SESSION['last'],$_SESSION['credential'],$_SESSION['temporary_auth']);
         if (!is_string($input['email']??null)||!is_string($input['password']??null)) throw new HttpError(422,'invalid_input');
         $email=trim($input['email']);$password=$input['password'];
         if (strlen($email)>254 || !filter_var($email,FILTER_VALIDATE_EMAIL) || strlen($password)>72 || $password==='') throw new HttpError(422,'invalid_input');
@@ -43,12 +47,18 @@ final class Authentication
         }
         $hash=$u['mot_de_passe_hash']??'$2y$10$opK.m3XooPgJCZVLxKCezekkj4HyLKmJSE54KM2ZGjbPwGpWkkMaC';
         $valid=password_verify($password,$hash);
+        $temporary=false;
+        if (!$valid&&$u&&$u['temporary_valid']&&$u['mdp_temporaire_hash']) {
+            $temporary=password_verify($password,$u['mdp_temporaire_hash']);$valid=$temporary;
+        }
         $valid=$valid && $u!==null && $u['statut']==='actif';
         (new AuthAudit())->record($valid,$u?(string)$u['id']:null,$email,$ip);
         if (!$valid) throw new HttpError(401,'invalid_credentials');
         WebSession::reset();
         $_SESSION['uid']=(string)$u['id'];$_SESSION['created']=time();$_SESSION['last']=time();
-        $_SESSION['credential']=hash('sha256',$u['mot_de_passe_hash']);
+        $_SESSION['temporary_auth']=$temporary;
+        $_SESSION['credential']=hash('sha256',$temporary?$u['mdp_temporaire_hash']:$u['mot_de_passe_hash']);
+        if ($temporary)$u['changement_mdp_requis']=1;
         return Users::publicData($u);
     }
 }
