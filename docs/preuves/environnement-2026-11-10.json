@@ -1,0 +1,35 @@
+{
+  "browser": {
+    "desktop": true,
+    "mobile": true,
+    "retry": true,
+    "noPageErrors": true
+  },
+  "vue_build": true,
+  "api": {
+    "mysql_demo_read": true,
+    "mysql_other_database_denied": true,
+    "mysql_write_denied": true,
+    "mongo_logs_read": true,
+    "mongo_admin_denied": true,
+    "mongo_write_denied": true,
+    "http_ready": true,
+    "http_method": true,
+    "http_unknown": true,
+    "vue_document_served": true,
+    "http_unavailable_without_details": true,
+    "http_recovered": true
+  },
+  "scope": "Environnement local et ecran provisoire ; aucune authentification ou fonctionnalite metier validee",
+  "date": "2026-11-10",
+  "versions": {
+    "composer": "2.11.1",
+    "mongodb_library": "2.5.1",
+    "vue_router": "4.6.4",
+    "vue": "3.5.45",
+    "php": "8.4.27",
+    "vite": "8.3.7",
+    "mongodb_extension": "2.5.7",
+    "node": "24.22.2"
+  }
+}
