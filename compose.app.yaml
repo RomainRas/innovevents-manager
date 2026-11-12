@@ -10,7 +10,7 @@ services:
     environment:
       APP_ENV: local
       APP_ORIGIN: http://127.0.0.1:5173
-    secrets: [mysql_api, mongo_api, mongo_auth]
+    secrets: [mysql_api, mongo_api, mongo_auth, mysql_accounts, mail_key]
     depends_on:
       mysql: {condition: service_healthy}
       mongodb: {condition: service_healthy}
@@ -19,6 +19,23 @@ services:
       interval: 10s
       timeout: 5s
       retries: 6
+    restart: "no"
+  mailpit:
+    image: axllent/mailpit@sha256:aef2aacc11f075ec0fb6874275ee4a421e688e11a96ebb296134d1735c7761ce
+    ports: ["127.0.0.1:8025:8025"]
+    environment:
+      MP_DATABASE: /data/mailpit.db
+    volumes: ["mailpit_data:/data"]
+    restart: "no"
+  mail_worker:
+    image: innovevents-ecf-db-api
+    working_dir: /app
+    command: ["php", "bin/mail-worker.php"]
+    volumes: ["./backend:/app"]
+    secrets: [mysql_mail, mail_key]
+    depends_on:
+      mysql: {condition: service_healthy}
+      mailpit: {condition: service_started}
     restart: "no"
   web:
     image: node:24-bookworm-slim@sha256:01d566e8d94d8c619591d78652babfccd3c6992a3dffa9ed5ab39e11cf6c70e9
@@ -34,7 +51,11 @@ services:
 volumes:
   web_node_modules:
   auth_state:
+  mailpit_data:
 secrets:
   mysql_api: {file: ./.secrets/mysql-api.txt}
   mongo_api: {file: ./.secrets/mongo-api.txt}
   mongo_auth: {file: ./.secrets/mongo-auth.txt}
+  mysql_accounts: {file: ./.secrets/mysql-accounts.txt}
+  mysql_mail: {file: ./.secrets/mysql-mail.txt}
+  mail_key: {file: ./.secrets/mail-key.txt}
