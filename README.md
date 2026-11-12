@@ -21,3 +21,7 @@ Ouvrir http://127.0.0.1:5173/connexion. La connexion, les sessions et les premi�
 - [Authentification, sessions et tests](docs/authentification-sessions.md)
 
 Les secrets, dépendances installées et archives locales sont exclus de Git. Le suivi de développement est conservé sur `dev` ; aucune publication de production n’est réalisée à ce stade.
+# Parcours de compte — complément du 12 novembre
+
+Inscription et récupération web : [guide et limites](docs/parcours-comptes.md). Courriels de test locaux dans Mailpit sur http://127.0.0.1:8025.
+
