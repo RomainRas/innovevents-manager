@@ -8,6 +8,8 @@ try {
     if ($LASTEXITCODE -ne 0) { throw 'Comptes API non prepares. Verifier la creation de la demonstration.' }
     & $Python -X utf8 scripts/provision-mail.py
     if ($LASTEXITCODE -ne 0) { throw 'Migration courriels non terminee.' }
+    & $Python -X utf8 scripts/provision-quotes.py
+    if ($LASTEXITCODE -ne 0) { throw 'Migration demandes non terminee.' }
     $composeArgs=@('compose','-f','compose.yaml','-f','compose.app.yaml')
     & docker @composeArgs build api
     if ($LASTEXITCODE -ne 0) { throw 'Construction PHP echouee.' }
@@ -17,5 +19,5 @@ try {
     if ($LASTEXITCODE -ne 0) { throw 'Dependances Vue non installees.' }
     & docker @composeArgs up -d --wait --wait-timeout 90
     if ($LASTEXITCODE -ne 0) { throw 'Demarrage non confirme ; consulter les journaux.' }
-    Write-Output 'Application locale : http://127.0.0.1:5173 ; ecran provisoire uniquement.'
+    Write-Output 'Application locale : http://127.0.0.1:5173 ; demandes : /demande-devis ; courriels de test : http://127.0.0.1:8025.'
 } finally { Pop-Location }
