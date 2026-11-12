@@ -14,7 +14,8 @@ final class Kernel
         $path=parse_url($_SERVER['REQUEST_URI']??'/',PHP_URL_PATH);
         $routes=['/api/health'=>'GET','/api/auth/session'=>'GET','/api/auth/login'=>'POST',
             '/api/auth/logout'=>'POST','/api/auth/register'=>'POST','/api/auth/forgot'=>'POST','/api/auth/password'=>'POST',
-            '/api/me/events'=>'GET','/api/team/notes'=>'GET','/api/admin/logs'=>'GET'];
+            '/api/me/events'=>'GET','/api/team/notes'=>'GET','/api/admin/logs'=>'GET',
+            '/api/quote-request/config'=>'GET','/api/quote-requests'=>'POST','/api/admin/quote-thanks'=>'POST'];
         try {
             if (!isset($routes[$path])) throw new HttpError(404,'not_found');
             if (($_SERVER['REQUEST_METHOD']??'')!==$routes[$path]) {
@@ -26,18 +27,25 @@ final class Kernel
                 WebSession::start();$auth=new Authentication();
                 if ($routes[$path]==='POST') WebSession::csrf();
                 switch ($path) {
+                    case '/api/quote-request/config':
+                        $result=(new \InnovEvents\Service\QuoteRequests())->config();break;
                     case '/api/auth/session':
                         $u=$auth->current();$result=['user'=>$u?Users::publicData($u):null,'csrf'=>$_SESSION['csrf']];break;
                     case '/api/auth/login':
                     case '/api/auth/register':
                     case '/api/auth/forgot':
                     case '/api/auth/password':
+                    case '/api/quote-requests':
+                    case '/api/admin/quote-thanks':
                         if (strtolower(trim(explode(';',$_SERVER['CONTENT_TYPE']??'')[0]))!=='application/json') throw new HttpError(415,'json_required');
-                        $raw=file_get_contents('php://input',false,null,0,8193);
-                        if (strlen($raw)>8192) throw new HttpError(413,'payload_too_large');
+                        $limit=$path==='/api/quote-requests'?32768:8192;
+                        $raw=file_get_contents('php://input',false,null,0,$limit+1);
+                        if (strlen($raw)>$limit) throw new HttpError(413,'payload_too_large');
                         try {$data=json_decode($raw,true,16,JSON_THROW_ON_ERROR);} catch (\JsonException) {throw new HttpError(400,'invalid_json');}
                         if (!is_array($data)) throw new HttpError(422,'invalid_input');
-                        if ($path==='/api/auth/login')$result=['user'=>$auth->login($data),'csrf'=>$_SESSION['csrf']];
+                        if ($path==='/api/quote-requests')$result=(new \InnovEvents\Service\QuoteRequests())->submit($data);
+                        elseif ($path==='/api/admin/quote-thanks')$result=(new \InnovEvents\Service\QuoteRequests())->saveThanks($data);
+                        elseif ($path==='/api/auth/login')$result=['user'=>$auth->login($data),'csrf'=>$_SESSION['csrf']];
                         else {
                             $accounts=new \InnovEvents\Service\Accounts();
                             $result=match($path){'/api/auth/register'=>$accounts->register($data),'/api/auth/forgot'=>$accounts->forgot($data),'/api/auth/password'=>$accounts->change($data)};
@@ -60,7 +68,7 @@ final class Kernel
             echo json_encode($result,JSON_THROW_ON_ERROR|JSON_UNESCAPED_UNICODE);
         } catch (HttpError $e) {
             http_response_code($e->status);if ($e->status===429) header('Retry-After: 900');
-            echo json_encode(['error'=>$e->getMessage()]);
+            echo json_encode(['error'=>$e->getMessage()]+($e->fields?['fields'=>$e->fields]:[]));
         } catch (\Throwable $e) {
             error_log('Request failed: '.get_class($e));http_response_code(503);echo json_encode(['status'=>'unavailable']);
         }
