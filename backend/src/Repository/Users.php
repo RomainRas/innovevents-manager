@@ -7,7 +7,7 @@ final class Users
     public function find(string $column, string $value): ?array
     {
         if (!in_array($column, ['id', 'email_normalise'], true)) throw new \InvalidArgumentException();
-        $q=Connections::mysql()->prepare("SELECT id,email,prenom,nom,role,statut,acces_mobile,changement_mdp_requis,mot_de_passe_hash FROM utilisateurs WHERE $column = ?");
+        $q=Connections::mysql()->prepare("SELECT id,email,prenom,nom,role,statut,acces_mobile,changement_mdp_requis,mot_de_passe_hash,mdp_temporaire_hash,mdp_temporaire_expire_le>UTC_TIMESTAMP() AS temporary_valid FROM utilisateurs WHERE $column = ?");
         $q->execute([$value]);
         return $q->fetch() ?: null;
     }
