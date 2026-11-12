@@ -1,0 +1,21 @@
+{
+  "date": "2026-11-12",
+  "scope": "Panne SMTP locale et reprise",
+  "checks": {
+    "queued_during_smtp_outage": true,
+    "payload_not_plaintext": true,
+    "failed_send_kept_for_retry": true,
+    "automatic_retry_sent": true,
+    "single_message_received": true,
+    "expired_erased_without_send": true,
+    "fifth_failure_erases_payload": true
+  },
+  "retry": "Délai réel de 60 secondes, sans modification de son échéance",
+  "terminal_failure": "Compteur initial placé à quatre, cinquième échec réellement exécuté",
+  "cleanup": "Lignes fictives supprimées par identifiants et services redémarrés",
+  "limits": [
+    "Courriels locaux seulement",
+    "Concurrence non testée",
+    "Pas de garantie exactement une fois"
+  ]
+}
