@@ -21,7 +21,7 @@ onMounted(check)
     <button type="button" @click="check">Vérifier la connexion</button>
   </main>
 </template>
-<style>
+<style scoped>
 :root { font-family: system-ui, sans-serif; color: #17212b; background: #f5f6f8; }
 body { margin: 0; } main { max-width: 640px; margin: 10vh auto; padding: 32px; background: white; border-radius: 16px; }
 .brand { font-weight: 700; } h1 { font-size: clamp(1.8rem, 5vw, 2.8rem); }
