@@ -11,6 +11,7 @@ async function disconnect() {
 <template>
   <header><RouterLink class="brand" to="/">Innov’Events</RouterLink>
     <nav aria-label="Navigation principale"><RouterLink to="/">Accueil</RouterLink>
+      <RouterLink to="/demande-devis">Demande de devis</RouterLink>
       <template v-if="auth.user"><RouterLink to="/espace">Mon espace</RouterLink><button @click="disconnect">Se déconnecter</button></template>
       <RouterLink v-else to="/connexion">Connexion</RouterLink>
     </nav>
