@@ -60,6 +60,6 @@ Comptes locaux : `alice@example.invalid`, `jose@example.invalid`, `chloe@example
 
 ## Restant à développer
 
-Inscription et confirmation par courriel ; mot de passe oublié prescrit par le sujet et changement effectif ; autorisations d’écriture, contrôles de propriété sur chaque future action ; mobile Android ; HTTPS/proxy de confiance et mécanisme mobile ; reprise durable des journaux et tests de concurrence. Le drapeau `changement_mdp_requis` bloque déjà l’accès aux données, mais le formulaire de changement n’existe pas encore : ce parcours n’est pas déclaré terminé.
+L’inscription, la confirmation locale et la récupération/changement sont maintenant disponibles : voir [Parcours de compte](parcours-comptes.md). Restent les autorisations d’écriture et contrôles de propriété sur chaque future action, le mobile Android, HTTPS/proxy de confiance, la reprise durable des journaux et les tests de concurrence.
 
 Sources techniques consultées le 12 novembre : [sessions PHP](https://www.php.net/manual/en/session.security.ini.php), [authentification OWASP](https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html), [protection CSRF OWASP](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html).
