@@ -6,6 +6,8 @@ try {
     & ./scripts/Start-Databases.ps1
     & $Python -X utf8 scripts/provision-api-accounts.py
     if ($LASTEXITCODE -ne 0) { throw 'Comptes API non prepares. Verifier la creation de la demonstration.' }
+    & $Python -X utf8 scripts/provision-mail.py
+    if ($LASTEXITCODE -ne 0) { throw 'Migration courriels non terminee.' }
     $composeArgs=@('compose','-f','compose.yaml','-f','compose.app.yaml')
     & docker @composeArgs build api
     if ($LASTEXITCODE -ne 0) { throw 'Construction PHP echouee.' }
