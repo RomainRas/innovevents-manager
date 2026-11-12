@@ -25,3 +25,7 @@ Les secrets, dépendances installées et archives locales sont exclus de Git. Le
 
 Inscription et récupération web : [guide et limites](docs/parcours-comptes.md). Courriels de test locaux dans Mailpit sur http://127.0.0.1:8025.
 
+# Demande de devis
+
+Formulaire local : http://127.0.0.1:5173/demande-devis. [Fonctionnement, essais et limites](docs/implementation-demande-devis.md).
+
