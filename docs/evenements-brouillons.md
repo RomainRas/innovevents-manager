@@ -1,5 +1,7 @@
 # Brouillon d’événement associé au client — 13 novembre 2026
 
+Complément ultérieur : [l’ajout et le remplacement d’image privée](images-evenements.md) sont désormais disponibles. Le bilan ci-dessous conserve le périmètre de la livraison initiale ; consentement, publication, statuts et devis restent à développer.
+
 ## Source et périmètre
 
 L’énoncé p. 9 prévoit d’associer un événement au client après conversion du prospect et d’en modifier les informations. Les pages 12–13 prévoient une trace de création d’événement. Cette étape livre la création et la modification du brouillon : nom, lieu, type, participants et dates/heures. Elle ne termine pas toute la gestion des événements.
