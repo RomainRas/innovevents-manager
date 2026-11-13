@@ -31,5 +31,9 @@ Formulaire local : http://127.0.0.1:5173/demande-devis. [Fonctionnement, essais 
 
 ## Espace prospects
 
-Depuis le compte administratrice : consultation, recherche et qualification négative sur `/prospects`. [Bilan et preuves](docs/qualification-prospects.md). Conversion en client à développer.
+Depuis le compte administratrice : consultation, recherche et qualification négative sur `/prospects`. [Bilan et preuves](docs/qualification-prospects.md). Conversion en client disponible depuis une demande à contacter.
+
+## Conversion en client
+
+Depuis une fiche prospect à contacter, « Convertir en client » reprend les coordonnées et permet de créer la fiche. Journalisation différée vers MongoDB avec reprise : [bilan et preuves](docs/conversion-clients.md).
 
