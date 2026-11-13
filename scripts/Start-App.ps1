@@ -10,6 +10,8 @@ try {
     if ($LASTEXITCODE -ne 0) { throw 'Migration courriels non terminee.' }
     & $Python -X utf8 scripts/provision-quotes.py
     if ($LASTEXITCODE -ne 0) { throw 'Migration demandes non terminee.' }
+    & $Python -X utf8 scripts/provision-prospects.py
+    if ($LASTEXITCODE -ne 0) { throw 'Migration prospects non terminee.' }
     $composeArgs=@('compose','-f','compose.yaml','-f','compose.app.yaml')
     & docker @composeArgs build api
     if ($LASTEXITCODE -ne 0) { throw 'Construction PHP echouee.' }
