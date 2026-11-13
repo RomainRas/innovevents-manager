@@ -13,7 +13,8 @@ final class ClientConversion
         (new Authentication())->requireUser(['administrateur']);
         $q=Connections::conversion()->prepare('SELECT id,entreprise,contact_nom,contact_prenom,email,telephone FROM clients WHERE id=?');$q->execute([$this->id($input['id']??null)]);
         $client=$q->fetch();if (!$client)throw new HttpError(404,'client_not_found');
-        return ['client'=>$client];
+        $q=Connections::conversion()->prepare("SELECT id,type_evenement,date_souhaitee FROM prospects WHERE client_id=? AND statut='converti' ORDER BY id DESC");$q->execute([$client['id']]);
+        return ['client'=>$client,'demandes'=>$q->fetchAll()];
     }
     public function convert(array $input): array {
         $user=(new Authentication())->requireUser(['administrateur']);$id=$this->id($input['id']??null);$data=[];$errors=[];
