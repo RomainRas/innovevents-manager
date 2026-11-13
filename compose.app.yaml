@@ -10,7 +10,7 @@ services:
     environment:
       APP_ENV: local
       APP_ORIGIN: http://127.0.0.1:5173
-    secrets: [mysql_api, mongo_api, mongo_auth, mysql_accounts, mail_key, mysql_quotes, mysql_settings, mysql_prospects_admin]
+    secrets: [mysql_api, mongo_api, mongo_auth, mysql_accounts, mail_key, mysql_quotes, mysql_settings, mysql_prospects_admin, mysql_conversion]
     depends_on:
       mysql: {condition: service_healthy}
       mongodb: {condition: service_healthy}
@@ -37,6 +37,16 @@ services:
       mysql: {condition: service_healthy}
       mailpit: {condition: service_started}
     restart: "no"
+  journal_worker:
+    image: innovevents-ecf-db-api
+    working_dir: /app
+    command: ["php", "bin/journal-worker.php"]
+    volumes: ["./backend:/app"]
+    secrets: [mysql_journal, mongo_auth]
+    depends_on:
+      mysql: {condition: service_healthy}
+      mongodb: {condition: service_healthy}
+    restart: "no"
   web:
     image: node:24-bookworm-slim@sha256:01d566e8d94d8c619591d78652babfccd3c6992a3dffa9ed5ab39e11cf6c70e9
     working_dir: /app
@@ -62,3 +72,5 @@ secrets:
   mysql_quotes: {file: ./.secrets/mysql-quotes.txt}
   mysql_settings: {file: ./.secrets/mysql-settings.txt}
   mysql_prospects_admin: {file: ./.secrets/mysql-prospects-admin.txt}
+  mysql_conversion: {file: ./.secrets/mysql-conversion.txt}
+  mysql_journal: {file: ./.secrets/mysql-journal.txt}
