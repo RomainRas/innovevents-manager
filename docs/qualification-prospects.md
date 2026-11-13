@@ -1,6 +1,6 @@
 # Consultation et qualification négative des prospects
 
-État du 13 novembre 2026 : liste, recherche, détail et classement en échoué développés et testés localement. La conversion en client reste la prochaine étape.
+État du 13 novembre 2026 : liste, recherche, détail et classement en échoué développés et testés localement. La [conversion en client](conversion-clients.md) a ensuite été ajoutée, avec son propre bilan et ses preuves.
 
 ## Consignes et périmètre
 
@@ -42,4 +42,4 @@ Les rapports et captures bruts restent dans `tmp/`. [Preuve synthétique sans se
 
 ## Rendu et suite
 
-Code, migration, documentation et preuve sont conservés sur `dev` pour alimenter le dossier technique. Le reporting personnel est actualisé. Aucun hébergement public, changement direct du tableau Projects ou fusion sur `main` n’est effectué. La prochaine étape est la conversion en client avec reprise des coordonnées, puis l’association d’un événement et la préparation commerciale du devis.
+Code, migration, documentation et preuve sont conservés sur `dev` pour alimenter le dossier technique. Le reporting personnel est actualisé. Aucun hébergement public, changement direct du tableau Projects ou fusion sur `main` n’est effectué. Après la conversion désormais disponible, restent l’association d’un événement et la préparation commerciale du devis.
