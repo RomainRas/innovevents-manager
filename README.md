@@ -37,3 +37,7 @@ Depuis le compte administratrice : consultation, recherche et qualification nég
 
 Depuis une fiche prospect à contacter, « Convertir en client » reprend les coordonnées et permet de créer la fiche. Journalisation différée vers MongoDB avec reprise : [bilan et preuves](docs/conversion-clients.md).
 
+## Brouillon d’événement
+
+Depuis la fiche client, préparer l’événement d’une demande convertie, puis compléter son nom, lieu, type, participants et horaires. Création privée et journalisée, reprise sans doublon et protection contre les modifications périmées : [utilisation, tests et limites](docs/evenements-brouillons.md).
+
