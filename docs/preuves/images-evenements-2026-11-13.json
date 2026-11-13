@@ -1,0 +1,48 @@
+{
+  "date": "2026-11-13",
+  "scope": "Ajout et remplacement des images privées de brouillons",
+  "checks": {
+    "anonymous_upload_denied": true,
+    "client_upload_denied": true,
+    "employee_upload_denied": true,
+    "csrf_required": true,
+    "missing_image_404": true,
+    "alternative_required": true,
+    "fake_png_refused": true,
+    "svg_refused": true,
+    "truncated_png_refused": true,
+    "oversized_dimensions_refused": true,
+    "oversized_file_refused": true,
+    "png_saved": true,
+    "reencoded_and_private_headers": true,
+    "valid_image_output": true,
+    "untrusted_filename_ignored": true,
+    "anonymous_read_denied": true,
+    "client_read_denied": true,
+    "employee_read_denied": true,
+    "identical_retry": true,
+    "stale_changed_image_refused": true,
+    "jpeg_replacement": true,
+    "detail_reflects_image": true,
+    "publication_unchanged": true,
+    "non_draft_upload_refused": true,
+    "browser": true
+  },
+  "sql_permissions_denied": 6,
+  "docker_build": "passed",
+  "vue_build": "passed",
+  "composer_validation": "passed with existing warnings",
+  "browser_widths": [
+    1280,
+    390
+  ],
+  "mobile_capture_reviewed": true,
+  "fixtures_cleaned": true,
+  "loss_simulation": "Browser suppresses confirmation after real successful upload",
+  "limitations": [
+    "Images de test non référencées conservées dans le volume",
+    "Sauvegarde du volume non implémentée",
+    "Publication, consentement et statuts à développer",
+    "Orientation EXIF non corrigée automatiquement"
+  ]
+}
