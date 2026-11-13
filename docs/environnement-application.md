@@ -83,3 +83,7 @@ Start-App exécute désormais aussi `provision-quotes.py` : suivi des soumission
 
 Start-App exécute `provision-prospects.py` après le provisionnement des demandes. La migration 005 étend les types de courriels ; un compte SQL séparé limite la lecture et les modifications des prospects. Le nombre de tables reste inchangé. [Utilisation et vérifications](qualification-prospects.md).
 
+## Conversion et journalisation — ajout du 13 novembre
+
+Start-App exécute `provision-conversion.py` : ajout de l’empreinte de conversion et comptes MySQL limités. `journal_worker` livre les intentions de la table existante vers MongoDB avec reprise et déduplication. Le nombre de tables reste 18. [Fonctionnement, permissions, essais et limites](conversion-clients.md).
+
