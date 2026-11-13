@@ -91,3 +91,7 @@ Start-App exécute `provision-conversion.py` : ajout de l’empreinte de convers
 
 Start-App exécute `provision-events.py` : migration 007 (empreinte et révision), compte SQL limité et secret API. Le nombre de tables reste 18. [Parcours et vérifications](evenements-brouillons.md). La restauration complète après les migrations récentes reste à vérifier.
 
+## Images des brouillons — ajout du 13 novembre
+
+Start-App exécute `provision-event-images.py`, puis reconstruit PHP avec GD (JPEG/PNG). Aucun changement de schéma. Les images privées sont stockées dans le volume `auth_state`, hors du dossier web ; ce volume n’est pas inclus dans les sauvegardes de bases existantes. [Fonctionnement et conservation](images-evenements.md).
+
