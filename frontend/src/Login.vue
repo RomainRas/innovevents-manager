@@ -4,12 +4,13 @@ import { useRoute, useRouter } from 'vue-router'
 import { login, refresh } from './auth'
 const email = ref(''), password = ref(''), error = ref(''), busy = ref(false)
 const route = useRoute(), router = useRouter()
-const destinations = ['/espace', '/journaux']
+const destinations = ['/espace', '/journaux', '/prospects', '/parametres-demandes', '/mot-de-passe']
 async function submit() {
   busy.value = true; error.value = ''
   try {
     await login(email.value, password.value)
-    const target = destinations.includes(route.query.retour) ? route.query.retour : '/espace'
+    const retour = route.query.retour
+    const target = typeof retour === 'string' && (destinations.includes(retour) || /^\/prospects\/[1-9][0-9]{0,17}$/.test(retour)) ? retour : '/espace'
     await router.replace(target)
   } catch (e) {
     error.value = e.status === 429 ? 'Trop de tentatives. Réessayez dans quinze minutes.'
