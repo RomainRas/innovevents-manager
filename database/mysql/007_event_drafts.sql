@@ -1,0 +1,3 @@
+ALTER TABLE evenements
+ ADD COLUMN creation_empreinte CHAR(64) CHARACTER SET ascii COLLATE ascii_bin NULL,
+ ADD COLUMN revision INT UNSIGNED NOT NULL DEFAULT 1;
