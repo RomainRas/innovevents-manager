@@ -79,3 +79,7 @@ Start-App applique aussi la migration comptes/courriels, démarre Mailpit (127.0
 
 Start-App exécute désormais aussi `provision-quotes.py` : suivi des soumissions, type de courriel et comptes SQL limités. La base de démonstration contient 18 tables après cette migration. Formulaire public `/demande-devis`, paramètre administrateur `/parametres-demandes`. [Bilan et tests](implementation-demande-devis.md).
 
+## Qualification des prospects — ajout du 13 novembre
+
+Start-App exécute `provision-prospects.py` après le provisionnement des demandes. La migration 005 étend les types de courriels ; un compte SQL séparé limite la lecture et les modifications des prospects. Le nombre de tables reste inchangé. [Utilisation et vérifications](qualification-prospects.md).
+
