@@ -87,3 +87,7 @@ Start-App exécute `provision-prospects.py` après le provisionnement des demand
 
 Start-App exécute `provision-conversion.py` : ajout de l’empreinte de conversion et comptes MySQL limités. `journal_worker` livre les intentions de la table existante vers MongoDB avec reprise et déduplication. Le nombre de tables reste 18. [Fonctionnement, permissions, essais et limites](conversion-clients.md).
 
+## Brouillons d’événements — ajout du 13 novembre
+
+Start-App exécute `provision-events.py` : migration 007 (empreinte et révision), compte SQL limité et secret API. Le nombre de tables reste 18. [Parcours et vérifications](evenements-brouillons.md). La restauration complète après les migrations récentes reste à vérifier.
+
