@@ -26,6 +26,8 @@ onMounted(load)
  <p v-if="loading" role="status">Chargement…</p><p v-if="error" id="qualification-error" role="alert" tabindex="-1" class="error">{{ error }}</p>
  <template v-if="prospect"><h1>{{ prospect.entreprise }}</h1><p>Statut : <strong>{{ labels[prospect.statut] }}</strong></p>
  <dl><template v-for="(label,key) in fields" :key="key"><dt>{{ label }}</dt><dd>{{ prospect[key] }}</dd></template></dl>
+ <p v-if="prospect.statut === 'a_contacter'"><RouterLink :to="'/prospects/'+prospect.id+'/convertir'">Convertir en client</RouterLink></p>
+ <p v-if="prospect.statut === 'converti'"><RouterLink :to="'/clients/'+prospect.client_id">Consulter la fiche client</RouterLink></p>
  <section v-if="prospect.statut === 'a_contacter'"><h2>Le projet ne peut pas aboutir ?</h2><p>Après votre échange avec le prospect, expliquez pourquoi l’agence ne peut pas donner suite. Ce message lui sera envoyé par courriel.</p>
  <form @submit.prevent="submit" :aria-busy="busy"><label for="failure-message">Message au prospect</label><textarea id="failure-message" v-model="message" maxlength="2000" rows="6" required :disabled="busy || uncertain" />
  <label class="confirmation"><input type="checkbox" v-model="confirmed" required :disabled="busy || uncertain">Je confirme le classement en « échoué » et l’envoi de ce message.</label>
