@@ -41,3 +41,5 @@ Depuis une fiche prospect à contacter, « Convertir en client » reprend les co
 
 Depuis la fiche client, préparer l’événement d’une demande convertie, puis compléter son nom, lieu, type, participants et horaires. Création privée et journalisée, reprise sans doublon et protection contre les modifications périmées : [utilisation, tests et limites](docs/evenements-brouillons.md).
 
+L’administratrice peut ajouter ou remplacer une image JPEG/PNG dans le brouillon, avec aperçu privé et description accessible : [guide des images](docs/images-evenements.md).
+
