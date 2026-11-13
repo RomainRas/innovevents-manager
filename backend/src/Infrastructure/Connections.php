@@ -31,6 +31,8 @@ final class Connections
     public static function mail(): PDO { return self::accountDatabase('ecf_mail','mysql_mail'); }
     public static function quotes(): PDO { return self::accountDatabase('ecf_quotes','mysql_quotes'); }
     public static function prospects(): PDO { return self::accountDatabase('ecf_prospects_admin','mysql_prospects_admin'); }
+    public static function conversion(): PDO { return self::accountDatabase('ecf_conversion','mysql_conversion'); }
+    public static function journal(): PDO { return self::accountDatabase('ecf_journal','mysql_journal'); }
     public static function settings(): PDO { return self::accountDatabase('ecf_settings','mysql_settings'); }
     private static function accountDatabase(string $user,string $secret): PDO
     {
