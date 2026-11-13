@@ -10,6 +10,8 @@ import QuoteRequest from './QuoteRequest.vue'
 import QuoteSettings from './QuoteSettings.vue'
 import Prospects from './Prospects.vue'
 import ProspectDetail from './ProspectDetail.vue'
+import ClientConversion from './ClientConversion.vue'
+import ClientDetail from './ClientDetail.vue'
 import { auth, refresh } from './auth'
 import './style.css'
 const router = createRouter({ history: createWebHistory(), routes: [
@@ -17,6 +19,8 @@ const router = createRouter({ history: createWebHistory(), routes: [
   { path: '/demande-devis', component: QuoteRequest },
   { path: '/prospects', component: Prospects, meta: { private: true } },
   { path: '/prospects/:id', component: ProspectDetail, meta: { private: true } },
+  { path: '/prospects/:id/convertir', component: ClientConversion, meta: { private: true } },
+  { path: '/clients/:id', component: ClientDetail, meta: { private: true } },
   { path: '/parametres-demandes', component: QuoteSettings, meta: { private: true } },
   { path: '/inscription', component: AccountForm, meta: { accountMode: 'register' } },
   { path: '/mot-de-passe-oublie', component: AccountForm, meta: { accountMode: 'forgot' } },
