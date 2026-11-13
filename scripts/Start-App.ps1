@@ -15,7 +15,9 @@ try {
     & $Python -X utf8 scripts/provision-conversion.py
     if ($LASTEXITCODE -ne 0) { throw 'Migration conversion non terminee.' }
     & $Python -X utf8 scripts/provision-events.py
-    if ($LASTEXITCODE -ne 0) { throw 'Migration evenements non terminee.' }
+    if ($LASTEXITCODE -ne 0) { throw 'Provisionnement événements interrompu' }
+    & $Python -X utf8 scripts/provision-event-images.py
+    if ($LASTEXITCODE -ne 0) { throw 'Provisionnement images non termine.' }
     $composeArgs=@('compose','-f','compose.yaml','-f','compose.app.yaml')
     & docker @composeArgs build api
     if ($LASTEXITCODE -ne 0) { throw 'Construction PHP echouee.' }
