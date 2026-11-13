@@ -29,3 +29,7 @@ Inscription et récupération web : [guide et limites](docs/parcours-comptes.md)
 
 Formulaire local : http://127.0.0.1:5173/demande-devis. [Fonctionnement, essais et limites](docs/implementation-demande-devis.md).
 
+## Espace prospects
+
+Depuis le compte administratrice : consultation, recherche et qualification négative sur `/prospects`. [Bilan et preuves](docs/qualification-prospects.md). Conversion en client à développer.
+
