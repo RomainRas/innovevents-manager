@@ -1,0 +1,71 @@
+{
+  "date": "2026-11-13",
+  "scope": "Consultation et qualification négative des prospects",
+  "http_and_browser_summary": {
+    "anonymous_list_denied": true,
+    "client_list_denied": true,
+    "employee_detail_denied": true,
+    "client_failure_denied": true,
+    "employee_failure_denied": true,
+    "filtered_list_paginated": true,
+    "pagination_no_loss_or_duplicate": true,
+    "empty_search": true,
+    "invalid_filter": true,
+    "invalid_id": true,
+    "detail_has_request_fields": true,
+    "missing_detail": true,
+    "csrf_required": true,
+    "blank_message_rejected": true,
+    "long_message_rejected": true,
+    "failure_recorded": true,
+    "state_and_message_saved": true,
+    "retry_same_message": true,
+    "one_mail_for_repeated_action": true,
+    "different_message_conflict": true,
+    "failed_filter": true,
+    "queue_failure_503": true,
+    "queue_failure_rollback": true,
+    "converted_cannot_fail": true,
+    "prospect_mail_received": true,
+    "browser_desktop_mobile": true
+  },
+  "sql_permissions": {
+    "client_link_denied": true,
+    "delete_denied": true,
+    "users_read_denied": true,
+    "mail_read_denied": true,
+    "contact_update_denied": true
+  },
+  "browser": {
+    "390": {
+      "returnAfterLogin": true,
+      "search": true,
+      "detail": true,
+      "confirmation": true,
+      "lostResponseRetried": true,
+      "plainText": true,
+      "resultFocus": true,
+      "noOverflow": true,
+      "noPageErrors": true
+    },
+    "1280": {
+      "returnAfterLogin": true,
+      "search": true,
+      "detail": true,
+      "confirmation": true,
+      "lostResponseRetried": true,
+      "plainText": true,
+      "resultFocus": true,
+      "noOverflow": true,
+      "noPageErrors": true
+    }
+  },
+  "build": "passed",
+  "mobile_capture": "reviewed",
+  "limits": [
+    "Messagerie locale",
+    "Conversion en client non développée",
+    "Concurrence de qualification non injectée",
+    "Pas audit exhaustif accessibilité"
+  ]
+}
