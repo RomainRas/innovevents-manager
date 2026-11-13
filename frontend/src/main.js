@@ -12,6 +12,7 @@ import Prospects from './Prospects.vue'
 import ProspectDetail from './ProspectDetail.vue'
 import ClientConversion from './ClientConversion.vue'
 import ClientDetail from './ClientDetail.vue'
+import EventDraft from './EventDraft.vue'
 import { auth, refresh } from './auth'
 import './style.css'
 const router = createRouter({ history: createWebHistory(), routes: [
@@ -21,6 +22,8 @@ const router = createRouter({ history: createWebHistory(), routes: [
   { path: '/prospects/:id', component: ProspectDetail, meta: { private: true } },
   { path: '/prospects/:id/convertir', component: ClientConversion, meta: { private: true } },
   { path: '/clients/:id', component: ClientDetail, meta: { private: true } },
+  { path: '/prospects/:id/evenement', component: EventDraft, meta: { private: true, eventMode: 'create' } },
+  { path: '/evenements/:id', component: EventDraft, meta: { private: true, eventMode: 'edit' } },
   { path: '/parametres-demandes', component: QuoteSettings, meta: { private: true } },
   { path: '/inscription', component: AccountForm, meta: { accountMode: 'register' } },
   { path: '/mot-de-passe-oublie', component: AccountForm, meta: { accountMode: 'forgot' } },
