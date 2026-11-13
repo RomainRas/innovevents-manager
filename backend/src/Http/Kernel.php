@@ -18,7 +18,8 @@ final class Kernel
             '/api/quote-request/config'=>'GET','/api/quote-requests'=>'POST','/api/admin/quote-thanks'=>'POST',
             '/api/admin/prospects'=>'GET','/api/admin/prospect'=>'GET','/api/admin/prospect-failure'=>'POST',
             '/api/admin/prospect-conversion'=>'POST','/api/admin/client'=>'GET',
-            '/api/admin/event-context'=>'GET','/api/admin/event'=>'GET','/api/admin/event-create'=>'POST','/api/admin/event-save'=>'POST'];
+            '/api/admin/event-context'=>'GET','/api/admin/event'=>'GET','/api/admin/event-create'=>'POST','/api/admin/event-save'=>'POST',
+            '/api/admin/event-image'=>'GET','/api/admin/event-image-upload'=>'POST'];
         try {
             if (!isset($routes[$path])) throw new HttpError(404,'not_found');
             if (($_SERVER['REQUEST_METHOD']??'')!==$routes[$path]) {
@@ -30,6 +31,11 @@ final class Kernel
                 WebSession::start();$auth=new Authentication();
                 if ($routes[$path]==='POST') WebSession::csrf();
                 switch ($path) {
+                    case '/api/admin/event-image':
+                        (new \InnovEvents\Service\EventImages())->show($_GET);return;
+                    case '/api/admin/event-image-upload':
+                        if(!str_starts_with(strtolower($_SERVER['CONTENT_TYPE']??''),'multipart/form-data;'))throw new HttpError(415,'multipart_required');
+                        $result=(new \InnovEvents\Service\EventImages())->upload($_POST,$_FILES);break;
                     case '/api/admin/event-context':
                         $result=(new \InnovEvents\Service\EventDrafts())->context($_GET);break;
                     case '/api/admin/event':
