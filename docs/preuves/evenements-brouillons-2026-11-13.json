@@ -1,0 +1,48 @@
+{
+  "date": "2026-11-13",
+  "scope": "Création et modification de brouillons depuis un prospect converti",
+  "checks": {
+    "anonymous_denied": true,
+    "client_denied": true,
+    "employee_denied": true,
+    "csrf_required": true,
+    "prefill": true,
+    "name_required": true,
+    "participants_positive": true,
+    "dates_rejected": true,
+    "date_order": true,
+    "partial_private_draft": true,
+    "retry_same_event": true,
+    "changed_creation_conflict": true,
+    "single_event": true,
+    "context_existing_event": true,
+    "read_denied": true,
+    "edit_success": true,
+    "summer_utc": true,
+    "local_round_trip": true,
+    "edit_retry": true,
+    "stale_edit_conflict": true,
+    "edit_denied": true,
+    "winter_utc": true,
+    "non_draft_refused": true,
+    "unconverted_refused": true,
+    "single_mongo_creation": true,
+    "journal_failure_reported": true,
+    "journal_failure_rolls_back": true,
+    "browser": true
+  },
+  "sql_permissions_denied": 7,
+  "vue_build": "passed",
+  "browser_widths": [
+    1280,
+    390
+  ],
+  "mobile_capture_reviewed": true,
+  "fixtures_cleaned": true,
+  "sql_grant_restored": true,
+  "limitations": [
+    "Image, publication, statuts et devis non livrés",
+    "Pas de test de charge ou de concurrence multi-processus",
+    "Restauration après migrations récentes à vérifier"
+  ]
+}
