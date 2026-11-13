@@ -1,0 +1,78 @@
+{
+  "date": "2026-11-13",
+  "scope": "Conversion en client et livraison durable du journal",
+  "checks": {
+    "anonymous_denied": true,
+    "client_denied": true,
+    "employee_denied": true,
+    "csrf_required": true,
+    "mandatory_coordinates": true,
+    "invalid_email": true,
+    "conversion_success": true,
+    "prospect_linked": true,
+    "edited_coordinates_saved": true,
+    "no_automatic_account_link": true,
+    "prospect_original_preserved": true,
+    "repeat_returns_same_client": true,
+    "changed_retry_conflicts": true,
+    "single_client_after_retry": true,
+    "client_detail_forbidden": true,
+    "failed_prospect_refused": true,
+    "journal_delivered": true,
+    "mongo_trace_contract": true,
+    "mongo_replay_deduplicated": true,
+    "journal_enqueue_failure_reported": true,
+    "journal_enqueue_rolls_back_conversion": true,
+    "conversion_survives_mongo_outage": true,
+    "journal_waits_durably": true,
+    "journal_recovers_after_outage": true,
+    "browser_desktop_mobile": true
+  },
+  "conversion_permissions": {
+    "client_account_insert_denied": true,
+    "client_delete_denied": true,
+    "client_update_denied": true,
+    "journal_update_denied": true,
+    "users_read_denied": true
+  },
+  "journal_permissions": {
+    "source_update_denied": true,
+    "mongo_delete_denied": true,
+    "journal_delete_denied": true,
+    "client_read_denied": true
+  },
+  "browser": {
+    "390": {
+      "returnAfterLogin": true,
+      "prefilled": true,
+      "confirmation": true,
+      "errorFocus": true,
+      "editedFields": true,
+      "lostResponseRetried": true,
+      "resultFocus": true,
+      "clientDetail": true,
+      "noOverflow": true,
+      "noPageErrors": true
+    },
+    "1280": {
+      "returnAfterLogin": true,
+      "prefilled": true,
+      "confirmation": true,
+      "errorFocus": true,
+      "editedFields": true,
+      "lostResponseRetried": true,
+      "resultFocus": true,
+      "clientDetail": true,
+      "noOverflow": true,
+      "noPageErrors": true
+    }
+  },
+  "build": "passed",
+  "mobile_capture": "reviewed",
+  "limits": [
+    "Concurrence entre administrateurs non injectée",
+    "Cinquième échec du journal non injecté",
+    "Compte utilisateur et événement non créés à cette étape",
+    "Pas audit global accessibilité"
+  ]
+}
