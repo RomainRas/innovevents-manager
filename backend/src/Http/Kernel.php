@@ -16,7 +16,8 @@ final class Kernel
             '/api/auth/logout'=>'POST','/api/auth/register'=>'POST','/api/auth/forgot'=>'POST','/api/auth/password'=>'POST',
             '/api/me/events'=>'GET','/api/team/notes'=>'GET','/api/admin/logs'=>'GET',
             '/api/quote-request/config'=>'GET','/api/quote-requests'=>'POST','/api/admin/quote-thanks'=>'POST',
-            '/api/admin/prospects'=>'GET','/api/admin/prospect'=>'GET','/api/admin/prospect-failure'=>'POST'];
+            '/api/admin/prospects'=>'GET','/api/admin/prospect'=>'GET','/api/admin/prospect-failure'=>'POST',
+            '/api/admin/prospect-conversion'=>'POST','/api/admin/client'=>'GET'];
         try {
             if (!isset($routes[$path])) throw new HttpError(404,'not_found');
             if (($_SERVER['REQUEST_METHOD']??'')!==$routes[$path]) {
@@ -28,6 +29,8 @@ final class Kernel
                 WebSession::start();$auth=new Authentication();
                 if ($routes[$path]==='POST') WebSession::csrf();
                 switch ($path) {
+                    case '/api/admin/client':
+                        $result=(new \InnovEvents\Service\ClientConversion())->detail($_GET);break;
                     case '/api/admin/prospects':
                         $result=(new \InnovEvents\Service\Prospects())->listing($_GET);break;
                     case '/api/admin/prospect':
@@ -43,13 +46,15 @@ final class Kernel
                     case '/api/quote-requests':
                     case '/api/admin/quote-thanks':
                     case '/api/admin/prospect-failure':
+                    case '/api/admin/prospect-conversion':
                         if (strtolower(trim(explode(';',$_SERVER['CONTENT_TYPE']??'')[0]))!=='application/json') throw new HttpError(415,'json_required');
                         $limit=$path==='/api/quote-requests'?32768:8192;
                         $raw=file_get_contents('php://input',false,null,0,$limit+1);
                         if (strlen($raw)>$limit) throw new HttpError(413,'payload_too_large');
                         try {$data=json_decode($raw,true,16,JSON_THROW_ON_ERROR);} catch (\JsonException) {throw new HttpError(400,'invalid_json');}
                         if (!is_array($data)) throw new HttpError(422,'invalid_input');
-                        if ($path==='/api/admin/prospect-failure')$result=(new \InnovEvents\Service\Prospects())->fail($data);
+                        if ($path==='/api/admin/prospect-conversion')$result=(new \InnovEvents\Service\ClientConversion())->convert($data);
+                        elseif ($path==='/api/admin/prospect-failure')$result=(new \InnovEvents\Service\Prospects())->fail($data);
                         elseif ($path==='/api/quote-requests')$result=(new \InnovEvents\Service\QuoteRequests())->submit($data);
                         elseif ($path==='/api/admin/quote-thanks')$result=(new \InnovEvents\Service\QuoteRequests())->saveThanks($data);
                         elseif ($path==='/api/auth/login')$result=['user'=>$auth->login($data),'csrf'=>$_SESSION['csrf']];
