@@ -26,6 +26,7 @@ COPY --from=vendor /app/vendor ./vendor
 COPY backend/src ./src
 COPY backend/public ./public
 COPY backend/bin ./bin
+COPY backend/demo-images ./demo-images
 # Stockage privé (sessions, PDF, images) monté en volume ; propriétaire = utilisateur PHP-FPM.
 RUN mkdir -p /var/lib/innovevents && chown www-data:www-data /var/lib/innovevents && chmod 700 /var/lib/innovevents
 EXPOSE 9000

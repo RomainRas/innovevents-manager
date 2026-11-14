@@ -9,12 +9,28 @@ async function disconnect() {
 }
 </script>
 <template>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
   <header><RouterLink class="brand" to="/">Innov’Events</RouterLink>
-    <nav aria-label="Navigation principale"><RouterLink to="/">Accueil</RouterLink>
+    <nav aria-label="Navigation principale">
+      <RouterLink to="/">Accueil</RouterLink>
+      <RouterLink to="/evenements-publics">Évènements</RouterLink>
+      <RouterLink to="/avis">Avis</RouterLink>
+      <RouterLink to="/contact">Contact</RouterLink>
       <RouterLink to="/demande-devis">Demande de devis</RouterLink>
       <template v-if="auth.user"><RouterLink to="/espace">Mon espace</RouterLink><button @click="disconnect">Se déconnecter</button></template>
-      <RouterLink v-else to="/connexion">Connexion</RouterLink>
+      <RouterLink v-else to="/connexion">Se connecter</RouterLink>
     </nav>
   </header>
-  <p v-if="error" role="alert" class="error">{{ error }}</p><RouterView :key="$route.path" />
+  <p v-if="error" role="alert" class="error">{{ error }}</p>
+  <div id="contenu" tabindex="-1"><RouterView :key="$route.path" /></div>
+  <footer>
+    <nav aria-label="Informations légales">
+      <RouterLink to="/mentions-legales">Mentions légales</RouterLink>
+      <RouterLink to="/cgu">Conditions générales d’utilisation</RouterLink>
+      <RouterLink to="/cgv">Conditions générales de vente</RouterLink>
+      <RouterLink to="/confidentialite">Confidentialité</RouterLink>
+      <RouterLink to="/contact">Contact</RouterLink>
+    </nav>
+    <p>© 2026 Innov’Events — entreprise fictive, projet de formation.</p>
+  </footer>
 </template>

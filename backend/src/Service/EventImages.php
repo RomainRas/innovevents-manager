@@ -50,11 +50,16 @@ final class EventImages
             }catch(\Throwable $e){if($db->inTransaction())$db->rollBack();throw $e;}
         }finally{imagedestroy($source);if(is_file($temporary))unlink($temporary);}
     }
+    /** Chemin d'une image enregistrée, ou d'une illustration de démonstration livrée dans l'image (lecture seule). */
+    public static function path(mixed $reference): ?string {
+        if(!is_string($reference)||!preg_match('/^[a-f0-9]{64}\.(jpg|png)$/',$reference))return null;
+        foreach([self::DIRECTORY,dirname(__DIR__,2).'/demo-images'] as $directory)if(is_file($directory.'/'.$reference))return $directory.'/'.$reference;
+        return null;
+    }
     public function show(array $input): void {
         (new Authentication())->requireUser(['administrateur']);$id=$this->id($input['id']??null);
         $q=Connections::eventImages()->prepare('SELECT image_reference FROM evenements WHERE id=?');$q->execute([$id]);$reference=$q->fetchColumn();
-        if(!is_string($reference)||!preg_match('/^[a-f0-9]{64}\.(jpg|png)$/',$reference))throw new HttpError(404,'image_not_found');
-        $path=self::DIRECTORY.'/'.$reference;if(!is_file($path))throw new HttpError(404,'image_not_found');
+        $path=self::path($reference);if($path===null)throw new HttpError(404,'image_not_found');
         header('Cache-Control: no-store');
         header('Content-Type: '.(str_ends_with($reference,'.png')?'image/png':'image/jpeg'));
         header('Content-Length: '.filesize($path));header('Content-Disposition: inline; filename="event-image'.(str_ends_with($reference,'.png')?'.png':'.jpg').'"');

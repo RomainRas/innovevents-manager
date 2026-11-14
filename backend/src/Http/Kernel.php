@@ -21,7 +21,8 @@ final class Kernel
             '/api/admin/event-context'=>'GET','/api/admin/event'=>'GET','/api/admin/event-create'=>'POST','/api/admin/event-save'=>'POST',
             '/api/admin/quote-pdf-status'=>'GET','/api/admin/quote-pdf'=>'GET','/api/admin/quote-pdf-generate'=>'POST','/api/admin/quote-draft'=>'GET','/api/admin/quote-draft-save'=>'POST','/api/admin/event-image'=>'GET','/api/admin/event-image-upload'=>'POST',
             '/api/admin/quote-transmission'=>'GET','/api/admin/quote-send'=>'POST','/api/me/quotes'=>'GET','/api/me/quote-pdf'=>'GET',
-            '/api/me/quote-decision'=>'POST','/api/admin/quotes'=>'GET','/api/admin/quote-counter-proposal'=>'POST'];
+            '/api/me/quote-decision'=>'POST','/api/admin/quotes'=>'GET','/api/admin/quote-counter-proposal'=>'POST',
+            '/api/public/events'=>'GET','/api/public/event'=>'GET','/api/public/event-image'=>'GET','/api/public/reviews'=>'GET','/api/contact'=>'POST'];
         try {
             if (!isset($routes[$path])) throw new HttpError(404,'not_found');
             if (($_SERVER['REQUEST_METHOD']??'')!==$routes[$path]) {
@@ -30,9 +31,19 @@ final class Kernel
             if ($path==='/api/health') {
                 (new \InnovEvents\Service\Readiness())->check();$result=['status'=>'ready'];
             } else {
-                WebSession::start();$auth=new Authentication();
+                // Lectures publiques sans session : aucun cookie déposé pour un simple visiteur.
+                if (!str_starts_with($path,'/api/public/'))WebSession::start();
+                $auth=new Authentication();
                 if ($routes[$path]==='POST') WebSession::csrf();
                 switch ($path) {
+                    case '/api/public/events':
+                        $result=(new \InnovEvents\Service\PublicSite())->events($_GET);break;
+                    case '/api/public/event':
+                        $result=(new \InnovEvents\Service\PublicSite())->event($_GET);break;
+                    case '/api/public/event-image':
+                        (new \InnovEvents\Service\PublicSite())->image($_GET);return;
+                    case '/api/public/reviews':
+                        $result=(new \InnovEvents\Service\PublicSite())->reviews();break;
                     case '/api/admin/quote-pdf-status':
                         $result=(new \InnovEvents\Service\QuotePdfs())->status($_GET);break;
                     case '/api/admin/quote-pdf':
@@ -81,13 +92,15 @@ final class Kernel
                     case '/api/admin/quote-counter-proposal':
                     case '/api/admin/quote-draft-save':
                     case '/api/admin/event-save':
+                    case '/api/contact':
                         if (strtolower(trim(explode(';',$_SERVER['CONTENT_TYPE']??'')[0]))!=='application/json') throw new HttpError(415,'json_required');
                         $limit=in_array($path,['/api/quote-requests','/api/admin/quote-draft-save'],true)?65536:8192;
                         $raw=file_get_contents('php://input',false,null,0,$limit+1);
                         if (strlen($raw)>$limit) throw new HttpError(413,'payload_too_large');
                         try {$data=json_decode($raw,true,16,JSON_THROW_ON_ERROR);} catch (\JsonException) {throw new HttpError(400,'invalid_json');}
                         if (!is_array($data)) throw new HttpError(422,'invalid_input');
-                        if ($path==='/api/me/quote-decision')$result=(new \InnovEvents\Service\ClientQuotes())->decide($data);
+                        if ($path==='/api/contact'){$result=(new \InnovEvents\Service\PublicSite())->contact($data);http_response_code(202);}
+                        elseif ($path==='/api/me/quote-decision')$result=(new \InnovEvents\Service\ClientQuotes())->decide($data);
                         elseif ($path==='/api/admin/quote-counter-proposal')$result=(new \InnovEvents\Service\QuoteDrafts())->counterProposal($data);
                         elseif ($path==='/api/admin/quote-send')$result=(new \InnovEvents\Service\QuoteTransmissions())->send($data);
                         elseif ($path==='/api/admin/quote-pdf-generate')$result=(new \InnovEvents\Service\QuotePdfs())->generate($data);
