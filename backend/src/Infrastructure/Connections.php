@@ -40,6 +40,7 @@ final class Connections
     public static function settings(): PDO { return self::accountDatabase('ecf_settings','mysql_settings'); }
     public static function quoteSend(): PDO { return self::accountDatabase('ecf_quote_send','mysql_quote_send'); }
     public static function clientQuotes(): PDO { return self::accountDatabase('ecf_client_quotes','mysql_client_quotes'); }
+    public static function quoteDecision(): PDO { return self::accountDatabase('ecf_quote_decision','mysql_quote_decision'); }
     private static function accountDatabase(string $user,string $secret): PDO
     {
         return new PDO('mysql:host=mysql;dbname=innovevents_demo;charset=utf8mb4',$user,self::secret($secret),[

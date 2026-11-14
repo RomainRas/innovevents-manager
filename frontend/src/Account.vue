@@ -20,6 +20,7 @@ onMounted(async () => {
     <h1>Bonjour {{ auth.user?.prenom }}</h1>
     <p><RouterLink to="/mot-de-passe">Changer mon mot de passe</RouterLink></p>
     <p v-if="auth.user?.role === 'administrateur'"><RouterLink to="/prospects">Consulter les demandes reçues</RouterLink></p>
+    <p v-if="auth.user?.role === 'administrateur'"><RouterLink to="/devis">Suivre les devis et les réponses des clients</RouterLink></p>
     <p v-if="auth.user?.role === 'administrateur'"><RouterLink to="/parametres-demandes">Modifier le remerciement des demandes</RouterLink></p>
     <h2>{{ auth.user?.role === 'client' ? 'Vos prochains événements' : 'Notes de l’équipe' }}</h2>
     <p v-if="loading" role="status">Chargement…</p><p v-if="error" role="alert" class="error">{{ error }}</p>

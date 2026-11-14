@@ -1,0 +1,45 @@
+{
+  "date": "2026-11-14",
+  "checks": {
+    "anonymous_denied": true,
+    "staff_denied": true,
+    "csrf_required": true,
+    "invalid_input_refused": true,
+    "other_client_cannot_decide": true,
+    "acceptance_recorded": true,
+    "lost_response_replay": true,
+    "second_answer_refused": true,
+    "event_status_logged": true,
+    "agency_notified_once": true,
+    "frozen_after_acceptance": true,
+    "refusal_recorded": true,
+    "modification_recorded": true,
+    "overview_tracks_status": true,
+    "overview_admin_only": true,
+    "counter_proposal_guarded": true,
+    "counter_proposal_created": true,
+    "client_sees_history_not_draft": true,
+    "old_version_not_decidable": true,
+    "counter_proposal_accepted": true,
+    "sql_permissions": true,
+    "browser": true
+  },
+  "sql_permission_checks": 8,
+  "browser_widths": [
+    1280,
+    390
+  ],
+  "regressions": {
+    "quote-transmission": "29/29",
+    "quote-drafts": "22/22",
+    "quote-pdf": "23/23"
+  },
+  "vue_build": "passed",
+  "fixtures_cleaned": true,
+  "limitations": [
+    "Organisation après acceptation (passage en cours, tâches, notes) non livrée",
+    "Aucun courriel au client ni à l’agence pour un refus ou une demande de modification (non exigé)",
+    "Annulation d’une réponse par le client non prévue",
+    "Traces MongoDB et courriels de test conservés"
+  ]
+}

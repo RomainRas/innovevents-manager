@@ -48,8 +48,25 @@ final class QuoteTransmissions
                 'destinataire'=>$send['email']??$st['client']['email'],'compte_client'=>$st['client']['utilisateur_id']!==null,
                 'document_id'=>$send?(string)$send['document']['id']:null,
                 'en_attente'=>(bool)array_filter($st['history'],static fn($t)=>$t['etat']==='en_attente'),
-                'transmissions'=>$this->publicHistory($st['history'])];
+                'transmissions'=>$this->publicHistory($st['history']),'decisions'=>$this->decisions($db,$id)];
         });
+    }
+    /** Réponses du client sur toutes les versions du devis, la plus récente d'abord. */
+    private function decisions(\PDO $db,string $eventId): array {
+        $q=$db->prepare('SELECT v.numero,x.choix,x.motif,x.decidee_le FROM devis d JOIN versions_devis v ON v.devis_id=d.id JOIN decisions_devis x ON x.version_id=v.id WHERE d.evenement_id=? ORDER BY v.numero DESC');
+        $q->execute([$eventId]);return array_map(static fn($r)=>['version'=>(int)$r['numero'],'choix'=>$r['choix'],'motif'=>$r['motif'],'decidee_le'=>$r['decidee_le']],$q->fetchAll());
+    }
+    /** Suivi administrateur : version courante de chaque devis, filtrable par statut. */
+    public function overview(array $input): array {
+        (new Authentication())->requireUser(['administrateur']);$status=$input['statut']??'';
+        if(!in_array($status,['','brouillon','etude_client','modification','accepte','refuse'],true))throw new HttpError(422,'invalid_status');
+        $q=Connections::quoteSend()->prepare("SELECT d.reference,d.evenement_id,e.nom,e.statut AS evenement_statut,c.entreprise,v.numero,v.statut,v.total_ttc,v.modifie_le,
+            (SELECT x.decidee_le FROM decisions_devis x WHERE x.version_id=v.id) AS decidee_le
+            FROM devis d JOIN versions_devis v ON v.id=d.version_courante_id AND v.devis_id=d.id JOIN evenements e ON e.id=d.evenement_id JOIN clients c ON c.id=e.client_id
+            WHERE (?='' OR v.statut=?) ORDER BY FIELD(v.statut,'modification','accepte','etude_client','brouillon','refuse'),v.modifie_le DESC LIMIT 100");
+        $q->execute([$status,$status]);
+        return ['devis'=>array_map(static fn($r)=>['reference'=>$r['reference'],'evenement_id'=>(string)$r['evenement_id'],'evenement'=>$r['nom'],'evenement_statut'=>$r['evenement_statut'],
+            'client'=>$r['entreprise'],'version'=>(int)$r['numero'],'statut'=>$r['statut'],'total_ttc'=>$r['total_ttc'],'decidee_le'=>$r['decidee_le']],$q->fetchAll())];
     }
     public function send(array $input): array {
         $user=(new Authentication())->requireUser(['administrateur']);$id=$this->id($input['event_id']??null);$docId=$this->id($input['document_id']??null);

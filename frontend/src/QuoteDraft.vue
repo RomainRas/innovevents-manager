@@ -7,7 +7,10 @@ import QuoteTransmission from './QuoteTransmission.vue'
 const pdfLocked=ref(false),sendLocked=ref(false),pdfKey=ref(0)
 const route=useRoute(),loading=ref(true),busy=ref(false),uncertain=ref(false),error=ref(''),errors=ref({}),notice=ref(''),event=ref(null),revision=ref(0),editable=ref(true),reference=ref(''),rate=ref(''),lines=ref([{libelle:'',montant_ht:''}]),totals=ref(null)
 let pending=null
-onMounted(async()=>{try{const d=await request('/api/admin/quote-draft?event_id='+route.params.id);event.value=d.event;if(d.quote){const q=d.quote;revision.value=q.revision;reference.value=q.reference;rate.value=q.taux_tva??'';lines.value=q.prestations.length?q.prestations:[{libelle:'',montant_ht:''}];editable.value=q.editable;totals.value=q.total_ht===null?null:q}editable.value=editable.value&&d.event.statut==='brouillon'}catch{error.value='Impossible de consulter ce devis. Accès réservé à l’administratrice.'}finally{loading.value=false}})
+const counterKey=ref(0)
+async function load(){loading.value=true;error.value='';try{const d=await request('/api/admin/quote-draft?event_id='+route.params.id);event.value=d.event;if(d.quote){const q=d.quote;revision.value=q.revision;reference.value=q.reference;rate.value=q.taux_tva??'';lines.value=q.prestations.length?q.prestations:[{libelle:'',montant_ht:''}];editable.value=q.editable;totals.value=q.total_ht===null?null:q}editable.value=editable.value&&d.event.statut==='brouillon'}catch{error.value='Impossible de consulter ce devis. Accès réservé à l’administratrice.'}finally{loading.value=false}}
+onMounted(load)
+async function counterCreated(){editable.value=true;await load();counterKey.value++;notice.value='Nouvelle version créée à partir de la précédente : modifiez les prestations, enregistrez, générez le PDF puis transmettez-la.';await nextTick();document.getElementById('quote-result')?.focus()}
 function changed(){totals.value=null;notice.value=''}
 async function save(){busy.value=true;error.value='';errors.value={};notice.value=''
  try{
@@ -32,5 +35,5 @@ async function save(){busy.value=true;error.value='';errors.value={};notice.valu
 <p><button :disabled="busy||pdfLocked||sendLocked||!editable">{{ busy?'Enregistrement…':uncertain?'Vérifier et réessayer':'Calculer et enregistrer' }}</button></p></form>
 <section v-if="totals" aria-labelledby="totals-title"><h2 id="totals-title">Totaux enregistrés</h2><dl><dt>Total HT</dt><dd>{{ totals.total_ht }} €</dd><dt>TVA</dt><dd>{{ totals.total_tva }} €</dd><dt>Total TTC</dt><dd>{{ totals.total_ttc }} €</dd></dl></section><p v-else>Les totaux seront affichés après validation et enregistrement.</p>
 <QuotePdf v-if="totals && revision>0 && editable" :key="revision" :event-id="String(route.params.id)" :revision="revision" :disabled="busy||uncertain||sendLocked||!editable" @locked="pdfLocked=$event" @generated="pdfKey++" />
-<QuoteTransmission v-if="totals && revision>0" :key="revision+'-'+pdfKey" :event-id="String(route.params.id)" :disabled="busy||uncertain||pdfLocked" @locked="sendLocked=$event" @sent="editable=false" /></template></main></template>
+<QuoteTransmission v-if="totals && revision>0" :key="revision+'-'+pdfKey+'-'+counterKey" :event-id="String(route.params.id)" :disabled="busy||uncertain||pdfLocked" @locked="sendLocked=$event" @sent="editable=false" @counter="counterCreated" /></template></main></template>
 <style scoped>fieldset{border:1px solid #CBD5E1;padding:16px;min-width:0}.line{border-bottom:1px solid #CBD5E1;padding-bottom:16px;margin-bottom:16px}dt{font-weight:700}dd{margin:4px 0 16px}[aria-invalid=true]{border:2px solid #B42318}</style>
