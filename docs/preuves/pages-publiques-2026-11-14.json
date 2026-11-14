@@ -1,0 +1,15 @@
+{
+  "date": "2026-11-14",
+  "environnement": "local Docker (Vite 5173, PHP 8.4, MySQL 8.4)",
+  "tests": {
+    "tests/app/public-pages.py": "31/31",
+    "tests/app/public-pages-browser.cjs": "29/29 (1280 px et 390 px)",
+    "non_regression": {"event-images": "réussi", "quote-pdf": "réussi", "quote-requests": "réussi", "authentication": "réussi"}
+  },
+  "corrections_pendant_les_tests": [
+    "Accents de la démonstration enregistrés en double encodage : client MySQL en latin1, ajout de SET NAMES utf8mb4 à la migration 011.",
+    "Focus impossible sur un champ en erreur du formulaire de contact pendant que le formulaire était désactivé.",
+    "Lectures publiques sans session pour ne déposer aucun cookie et permettre la mise en cache des images."
+  ],
+  "non_verifie": "Construction locale des images de production interrompue (disque C: plein) ; vérifiée par l'intégration continue GitHub."
+}

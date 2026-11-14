@@ -60,3 +60,5 @@ Le client accepte, refuse ou demande une modification motivée depuis « Mon esp
 ## Mise en ligne
 
 Application en ligne : https://innovevents.rascleromain.fr (VPS Ubuntu, Docker Compose, Caddy en HTTPS, PHP-FPM). [Architecture, sécurité, procédure et vérifications](docs/deploiement.md).
+
+Pages publiques : accueil, événements publiés avec filtres, avis validés, contact, mentions légales, CGU, CGV et confidentialité. [Sécurité, accessibilité, tests et limites](docs/pages-publiques.md). Après une mise à jour : `py -3 -X utf8 scripts/provision-public-pages.py`.

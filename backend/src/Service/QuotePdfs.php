@@ -43,7 +43,7 @@ final class QuotePdfs
             $s=$this->source($db,$id);$v=$s['quote'];if((int)$v['revision_contenu']!==$revision)throw new HttpError(409,'quote_revision_conflict');$hash=$this->hash($s);
             $q=$db->prepare("SELECT * FROM documents_devis WHERE version_id=? AND revision_contenu=? AND source_empreinte=? AND etat='disponible' ORDER BY id DESC LIMIT 1");$q->execute([$v['id'],$revision,$hash]);$old=$q->fetch();if($old&&$this->bytes($old)!==null)return ['document_id'=>(string)$old['id']];
             $image=$s['event']['image_reference'];if(!preg_match('/^[a-f0-9]{64}\.(png|jpg)$/D',$image))throw new HttpError(422,'event_image_unavailable');
-            $path='/var/lib/innovevents/event-images/'.$image;$imageBytes=is_file($path)?file_get_contents($path):false;if(!is_string($imageBytes)||!hash_equals(substr($image,0,64),hash('sha256',$imageBytes)))throw new HttpError(422,'event_image_unavailable');
+            $path=EventImages::path($image);$imageBytes=$path!==null?file_get_contents($path):false;if(!is_string($imageBytes)||!hash_equals(substr($image,0,64),hash('sha256',$imageBytes)))throw new HttpError(422,'event_image_unavailable');
             $bytes=QuotePdfRenderer::render($s,$imageBytes);if(!str_starts_with($bytes,'%PDF-'))throw new \RuntimeException('PDF rendering');
             if(!is_dir(self::DIRECTORY)&&!mkdir(self::DIRECTORY,0700,true)&&!is_dir(self::DIRECTORY))throw new \RuntimeException('PDF storage');
             $digest=hash('sha256',$bytes);$file=$digest.'.pdf';$temp=tempnam(self::DIRECTORY,'pending-');if($temp===false)throw new \RuntimeException('PDF storage');
