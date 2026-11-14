@@ -9,6 +9,7 @@
     "ext-pdo": "*",
     "ext-pdo_mysql": "*",
     "ext-sodium": "*",
+    "dompdf/dompdf": "^3.1",
     "mongodb/mongodb": "^2.0",
     "phpmailer/phpmailer": "^7.2"
   },
