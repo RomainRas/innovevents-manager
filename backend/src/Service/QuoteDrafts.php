@@ -17,6 +17,31 @@ final class QuoteDrafts
         $v=$this->current($db,$id);
         return ['event'=>$event,'quote'=>$v?['reference'=>$v['reference'],'revision'=>(int)$v['revision_contenu'],'statut'=>$v['statut'],'editable'=>$v['statut']==='brouillon'&&$v['figee_le']===null,'prestations'=>$v['prestations'],'taux_tva'=>$v['taux_tva'],'total_ht'=>$v['total_ht'],'total_tva'=>$v['total_tva'],'total_ttc'=>$v['total_ttc']]:null];
     }
+    /**
+     * Contre-proposition après une demande de modification : nouvelle version brouillon,
+     * reprise des prestations et du taux de la version transmise, qui reste conservée.
+     */
+    public function counterProposal(array $input): array {
+        (new Authentication())->requireUser(['administrateur']);$id=$this->id($input['event_id']??null);
+        $from=$input['version']??null;if(!is_int($from)||$from<1||$from>100000)throw new HttpError(422,'invalid_version');
+        $db=Connections::quoteDrafts();$lock='innovevents.quote.'.$id;
+        $q=$db->prepare('SELECT GET_LOCK(?,5)');$q->execute([$lock]);if((int)$q->fetchColumn()!==1)throw new HttpError(503,'quote_busy');
+        try{
+            $db->beginTransaction();
+            $q=$db->prepare('SELECT statut FROM evenements WHERE id=? FOR SHARE');$q->execute([$id]);$status=$q->fetchColumn();
+            if($status===false)throw new HttpError(404,'event_not_found');if($status!=='brouillon')throw new HttpError(409,'event_not_draft');
+            $v=$this->current($db,$id);if(!$v)throw new HttpError(409,'quote_required');
+            // Répétition après réponse perdue : la nouvelle version existe déjà.
+            if((int)$v['numero']===$from+1&&$v['statut']==='brouillon'){$db->commit();return ['version'=>(int)$v['numero'],'revision'=>(int)$v['revision_contenu'],'repetition'=>true];}
+            if((int)$v['numero']!==$from||$v['statut']!=='modification')throw new HttpError(409,'counter_proposal_not_allowed');
+            $q=$db->prepare('INSERT INTO versions_devis(devis_id,numero) VALUES(?,?)');$q->execute([$v['devis_id'],$from+1]);$newId=$db->lastInsertId();
+            $q=$db->prepare('UPDATE versions_devis SET revision_contenu=1,devise=?,taux_tva=?,regle_calcul=?,total_ht=?,total_tva=?,total_ttc=? WHERE id=?');
+            $q->execute([$v['devise'],$v['taux_tva'],$v['regle_calcul'],$v['total_ht'],$v['total_tva'],$v['total_ttc'],$newId]);
+            $q=$db->prepare('INSERT INTO prestations_devis(version_id,ordre,libelle,montant_ht) VALUES(?,?,?,?)');foreach($v['prestations'] as $i=>$line)$q->execute([$newId,$i+1,$line['libelle'],$line['montant_ht']]);
+            $q=$db->prepare('UPDATE devis SET version_courante_id=? WHERE id=?');$q->execute([$newId,$v['devis_id']]);
+            $db->commit();return ['version'=>$from+1,'revision'=>1,'repetition'=>false];
+        }catch(\Throwable $e){if($db->inTransaction())$db->rollBack();throw $e;}finally{$q=$db->prepare('SELECT RELEASE_LOCK(?)');$q->execute([$lock]);}
+    }
     public function save(array $input): array {
         (new Authentication())->requireUser(['administrateur']);$id=$this->id($input['event_id']??null);
         $revision=$input['revision']??null;if(!is_int($revision)||$revision<0||$revision>2147483646)throw new HttpError(422,'invalid_revision');

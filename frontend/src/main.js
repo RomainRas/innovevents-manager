@@ -14,6 +14,7 @@ import ClientConversion from './ClientConversion.vue'
 import ClientDetail from './ClientDetail.vue'
 import EventDraft from './EventDraft.vue'
 import QuoteDraft from './QuoteDraft.vue'
+import QuotesOverview from './QuotesOverview.vue'
 import { auth, refresh } from './auth'
 import './style.css'
 const router = createRouter({ history: createWebHistory(), routes: [
@@ -25,6 +26,7 @@ const router = createRouter({ history: createWebHistory(), routes: [
   { path: '/clients/:id', component: ClientDetail, meta: { private: true } },
   { path: '/prospects/:id/evenement', component: EventDraft, meta: { private: true, eventMode: 'create' } },
   { path: '/evenements/:id/devis', component: QuoteDraft, meta: { private: true } },
+  { path: '/devis', component: QuotesOverview, meta: { private: true } },
   { path: '/evenements/:id', component: EventDraft, meta: { private: true, eventMode: 'edit' } },
   { path: '/parametres-demandes', component: QuoteSettings, meta: { private: true } },
   { path: '/inscription', component: AccountForm, meta: { accountMode: 'register' } },
