@@ -1,0 +1,47 @@
+{
+  "http_data_checks": 22,
+  "visual_review": "Court, planche des neuf pages et dernière page corrigée",
+  "long_pdf_lines": 100,
+  "sql_permission_checks": 6,
+  "vue_build": "passed",
+  "long_pdf_pages": 9,
+  "limitations": [
+    "Transmission et accès client non livrés",
+    "Sauvegarde des PDF et nettoyage à développer",
+    "Document de démonstration : coordonnées juridiques non fournies"
+  ],
+  "sql_permission_restored": true,
+  "docker_build": "passed",
+  "date": "2026-11-14",
+  "checks": {
+    "anonymous_denied": true,
+    "client_denied": true,
+    "employee_denied": true,
+    "csrf_required": true,
+    "missing_quote_refused": true,
+    "missing_image_refused": true,
+    "generation_success": true,
+    "idempotent_generation": true,
+    "status_ready": true,
+    "private_download": true,
+    "pdf_content": true,
+    "download_roles": true,
+    "one_document": true,
+    "mongo_generation_trace": true,
+    "changed_client_invalidates": true,
+    "regenerated_after_client_change": true,
+    "changed_event_invalidates": true,
+    "journal_failure_reported": true,
+    "journal_failure_no_document": true,
+    "commercial_edit_obsoletes": true,
+    "stale_revision_refused": true,
+    "long_pdf_complete": true,
+    "browser": true
+  },
+  "browser_widths": [
+    1280,
+    390
+  ],
+  "fixtures_cleaned": true,
+  "short_pdf_pages": 1
+}
