@@ -1,0 +1,42 @@
+{
+  "mobile_capture_reviewed": true,
+  "sql_denials": 6,
+  "sql_permission_restored": true,
+  "http_checks": 21,
+  "browser_widths": [
+    1280,
+    390
+  ],
+  "date": "2026-11-14",
+  "fixtures_cleaned": true,
+  "limits": [
+    "PDF et transmission à développer",
+    "Concurrence multi-processus et couverture non mesurées"
+  ],
+  "vue_build": "passed",
+  "checks": {
+    "anonymous_denied": true,
+    "client_denied": true,
+    "employee_denied": true,
+    "csrf_required": true,
+    "missing_rate": true,
+    "rate_out_of_range": true,
+    "empty_lines": true,
+    "invalid_line": true,
+    "exact_server_totals": true,
+    "replay_same_result": true,
+    "creation_unique": true,
+    "stale_conflict": true,
+    "read_saved": true,
+    "read_denied": true,
+    "replace_lines": true,
+    "retry_edit": true,
+    "old_lines_removed": true,
+    "failure_reported": true,
+    "transaction_rolls_back": true,
+    "frozen_quote_refused": true,
+    "cancelled_event_refused": true,
+    "browser": true
+  },
+  "unit_checks": 16
+}
