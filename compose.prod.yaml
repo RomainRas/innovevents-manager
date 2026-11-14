@@ -1,0 +1,101 @@
+# Production : docker compose -f compose.yaml -f compose.prod.yaml (variable COMPOSE_FILE sur le serveur).
+# Seul Caddy publie des ports (80/443). MySQL, MongoDB, PHP-FPM et les traitements restent sur le réseau interne.
+services:
+  mysql:
+    restart: unless-stopped
+  mongodb:
+    restart: unless-stopped
+  api:
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile.prod
+    image: innovevents-api:prod
+    volumes:
+      - app_state:/var/lib/innovevents
+    environment: &app_env
+      APP_ENV: production
+      APP_ORIGIN: https://${SITE_DOMAIN:?SITE_DOMAIN requis}
+      AGENCY_EMAIL: ${AGENCY_EMAIL:?AGENCY_EMAIL requis}
+    secrets: [mysql_api, mongo_api, mongo_auth, mysql_accounts, mail_key, mysql_quotes, mysql_settings, mysql_prospects_admin, mysql_conversion, mysql_events, mysql_event_images, mysql_quote_drafts, mysql_quote_pdf, mysql_quote_send, mysql_client_quotes, mysql_quote_decision]
+    depends_on:
+      mysql: {condition: service_healthy}
+      mongodb: {condition: service_healthy}
+    healthcheck:
+      test: ["CMD-SHELL", "php -r 'exit(0);' && kill -0 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    restart: unless-stopped
+  mail_worker:
+    image: innovevents-api:prod
+    command: ["php", "bin/mail-worker.php"]
+    volumes: ["app_state:/var/lib/innovevents:ro"]
+    environment:
+      SMTP_HOST: ${SMTP_HOST:-mailpit}
+      SMTP_PORT: ${SMTP_PORT:-1025}
+      SMTP_SECURE: ${SMTP_SECURE:-}
+      SMTP_USER: ${SMTP_USER:-}
+      MAIL_FROM: ${MAIL_FROM:-contact@innovevents.example}
+    secrets: [mysql_mail, mail_key, smtp_password]
+    depends_on:
+      mysql: {condition: service_healthy}
+      api: {condition: service_started}
+    restart: unless-stopped
+  journal_worker:
+    image: innovevents-api:prod
+    command: ["php", "bin/journal-worker.php"]
+    secrets: [mysql_journal, mongo_auth]
+    depends_on:
+      mysql: {condition: service_healthy}
+      mongodb: {condition: service_healthy}
+      api: {condition: service_started}
+    restart: unless-stopped
+  # Boîte de réception de secours tant que le SMTP réel n'est pas configuré : interface uniquement
+  # sur la boucle locale du serveur (tunnel SSH), aucun courriel ne sort.
+  mailpit:
+    image: axllent/mailpit@sha256:aef2aacc11f075ec0fb6874275ee4a421e688e11a96ebb296134d1735c7761ce
+    ports: ["127.0.0.1:8025:8025"]
+    environment:
+      MP_DATABASE: /data/mailpit.db
+      MP_MAX_MESSAGES: 1000
+    volumes: ["mailpit_data:/data"]
+    restart: unless-stopped
+  caddy:
+    build:
+      context: .
+      dockerfile: docker/caddy/Dockerfile
+    image: innovevents-caddy:prod
+    ports: ["80:80", "443:443", "443:443/udp"]
+    environment:
+      SITE_DOMAIN: ${SITE_DOMAIN}
+    volumes:
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      api: {condition: service_started}
+    restart: unless-stopped
+volumes:
+  app_state:
+  mailpit_data:
+  caddy_data:
+  caddy_config:
+secrets:
+  mysql_api: {file: ./.secrets/mysql-api.txt}
+  mongo_api: {file: ./.secrets/mongo-api.txt}
+  mongo_auth: {file: ./.secrets/mongo-auth.txt}
+  mysql_accounts: {file: ./.secrets/mysql-accounts.txt}
+  mysql_mail: {file: ./.secrets/mysql-mail.txt}
+  mail_key: {file: ./.secrets/mail-key.txt}
+  mysql_quotes: {file: ./.secrets/mysql-quotes.txt}
+  mysql_settings: {file: ./.secrets/mysql-settings.txt}
+  mysql_prospects_admin: {file: ./.secrets/mysql-prospects-admin.txt}
+  mysql_conversion: {file: ./.secrets/mysql-conversion.txt}
+  mysql_journal: {file: ./.secrets/mysql-journal.txt}
+  mysql_events: {file: ./.secrets/mysql-events.txt}
+  mysql_event_images: {file: ./.secrets/mysql-event-images.txt}
+  mysql_quote_drafts: {file: ./.secrets/mysql-quote-drafts.txt}
+  mysql_quote_pdf: {file: ./.secrets/mysql-quote-pdf.txt}
+  mysql_quote_send: {file: ./.secrets/mysql-quote-send.txt}
+  mysql_client_quotes: {file: ./.secrets/mysql-client-quotes.txt}
+  mysql_quote_decision: {file: ./.secrets/mysql-quote-decision.txt}
+  smtp_password: {file: ./.secrets/smtp-password.txt}

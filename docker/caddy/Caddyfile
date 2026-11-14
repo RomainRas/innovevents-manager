@@ -1,0 +1,45 @@
+# Serveur web de production : HTTPS automatique (Let's Encrypt), fichiers Vue compilés et API PHP-FPM.
+# Certificat Let's Encrypt obtenu automatiquement, sans adresse e-mail transmise.
+{$SITE_DOMAIN} {
+	encode zstd gzip
+
+	header {
+		Strict-Transport-Security "max-age=31536000"
+		X-Content-Type-Options "nosniff"
+		X-Frame-Options "DENY"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		Permissions-Policy "camera=(), microphone=(), geolocation=()"
+		Content-Security-Policy "default-src 'self'; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
+		-Server
+	}
+
+	# API : toutes les routes /api passent par le contrôleur unique public/index.php.
+	handle /api/* {
+		request_body {
+			max_size 6MB
+		}
+		# Le code PHP est dans le conteneur api, pas dans celui de Caddy : réécriture explicite
+		# vers le contrôleur unique (REQUEST_URI conserve l'adresse d'origine).
+		rewrite * /index.php?{query}
+		reverse_proxy api:9000 {
+			transport fastcgi {
+				root /app/public
+				split .php
+			}
+		}
+	}
+
+	# Application Vue : fichiers statiques, puis index.html pour les routes du navigateur.
+	handle {
+		root * /srv
+		@assets path /assets/*
+		header @assets Cache-Control "public, max-age=31536000, immutable"
+		try_files {path} /index.html
+		file_server
+	}
+
+	log {
+		output stdout
+		format console
+	}
+}

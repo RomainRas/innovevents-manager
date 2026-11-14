@@ -1,0 +1,77 @@
+# Intégration continue (dev, main, pull requests) et déploiement automatique à chaque push sur main.
+name: CI et déploiement
+
+on:
+  push:
+    branches: [dev, main]
+  pull_request:
+    branches: [dev, main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  checks:
+    name: Contrôles
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Syntaxe PHP (image de production)
+        run: |
+          docker build -f docker/php/Dockerfile.prod -t innovevents-api:ci .
+          docker run --rm innovevents-api:ci sh -c 'for f in $(find src public bin -name "*.php"); do php -l "$f" >/dev/null || exit 1; done; echo "PHP : syntaxe valide"'
+
+      - name: Calcul des devis (tests unitaires sans base)
+        run: docker run --rm -v "$PWD/backend/tests:/app/tests:ro" innovevents-api:ci php tests/quote-amounts.php
+
+      - name: Compilation Vue et serveur web
+        run: docker build -f docker/caddy/Dockerfile -t innovevents-caddy:ci .
+
+      - name: Configuration Docker Compose de production
+        run: |
+          touch .env
+          SITE_DOMAIN=ci.invalid AGENCY_EMAIL=ci@example.invalid docker compose -f compose.yaml -f compose.prod.yaml config --quiet --no-interpolate
+
+      - name: Scripts shell
+        run: shellcheck -S warning scripts/server/*.sh scripts/server/php docker/mysql/*.sh
+
+  deploy:
+    name: Déploiement en production
+    needs: checks
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Clé SSH de déploiement
+        env:
+          DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          DEPLOY_KNOWN_HOSTS: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
+        run: |
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$DEPLOY_SSH_KEY" > ~/.ssh/deploy_key && chmod 600 ~/.ssh/deploy_key
+          printf '%s\n' "$DEPLOY_KNOWN_HOSTS" > ~/.ssh/known_hosts
+
+      - name: Envoi du code et déploiement
+        env:
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+        run: |
+          git archive --format=tar HEAD | gzip | ssh -i ~/.ssh/deploy_key -o BatchMode=yes "deploy@$DEPLOY_HOST" \
+            'mkdir -p /opt/innovevents/app && tar -xzf - -C /opt/innovevents/app && cd /opt/innovevents/app && sh scripts/server/deploy.sh'
+
+      - name: Vérification du site
+        env:
+          SITE_URL: ${{ vars.SITE_URL }}
+        run: |
+          for i in 1 2 3 4 5 6; do
+            if curl -fsS "$SITE_URL/api/health" | grep -q '"ready"'; then echo "Site en ligne : $SITE_URL"; exit 0; fi
+            sleep 10
+          done
+          echo "Le site ne répond pas après le déploiement" >&2; exit 1

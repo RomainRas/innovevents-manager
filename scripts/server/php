@@ -1,0 +1,4 @@
+#!/bin/sh
+# PHP CLI fourni par l'image de production (le serveur n'installe pas PHP).
+# Utilisé par prepare_demo_backup.py via PHP_BIN pour générer et vérifier les empreintes bcrypt.
+exec docker run --rm -i --network none innovevents-api:prod php "$@"
