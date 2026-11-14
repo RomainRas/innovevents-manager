@@ -19,7 +19,7 @@ final class Kernel
             '/api/admin/prospects'=>'GET','/api/admin/prospect'=>'GET','/api/admin/prospect-failure'=>'POST',
             '/api/admin/prospect-conversion'=>'POST','/api/admin/client'=>'GET',
             '/api/admin/event-context'=>'GET','/api/admin/event'=>'GET','/api/admin/event-create'=>'POST','/api/admin/event-save'=>'POST',
-            '/api/admin/event-image'=>'GET','/api/admin/event-image-upload'=>'POST'];
+            '/api/admin/quote-draft'=>'GET','/api/admin/quote-draft-save'=>'POST','/api/admin/event-image'=>'GET','/api/admin/event-image-upload'=>'POST'];
         try {
             if (!isset($routes[$path])) throw new HttpError(404,'not_found');
             if (($_SERVER['REQUEST_METHOD']??'')!==$routes[$path]) {
@@ -31,6 +31,8 @@ final class Kernel
                 WebSession::start();$auth=new Authentication();
                 if ($routes[$path]==='POST') WebSession::csrf();
                 switch ($path) {
+                    case '/api/admin/quote-draft':
+                        $result=(new \InnovEvents\Service\QuoteDrafts())->read($_GET);break;
                     case '/api/admin/event-image':
                         (new \InnovEvents\Service\EventImages())->show($_GET);return;
                     case '/api/admin/event-image-upload':
@@ -59,14 +61,16 @@ final class Kernel
                     case '/api/admin/prospect-failure':
                     case '/api/admin/prospect-conversion':
                     case '/api/admin/event-create':
+                    case '/api/admin/quote-draft-save':
                     case '/api/admin/event-save':
                         if (strtolower(trim(explode(';',$_SERVER['CONTENT_TYPE']??'')[0]))!=='application/json') throw new HttpError(415,'json_required');
-                        $limit=$path==='/api/quote-requests'?32768:8192;
+                        $limit=in_array($path,['/api/quote-requests','/api/admin/quote-draft-save'],true)?65536:8192;
                         $raw=file_get_contents('php://input',false,null,0,$limit+1);
                         if (strlen($raw)>$limit) throw new HttpError(413,'payload_too_large');
                         try {$data=json_decode($raw,true,16,JSON_THROW_ON_ERROR);} catch (\JsonException) {throw new HttpError(400,'invalid_json');}
                         if (!is_array($data)) throw new HttpError(422,'invalid_input');
-                        if ($path==='/api/admin/event-create')$result=(new \InnovEvents\Service\EventDrafts())->create($data);
+                        if ($path==='/api/admin/quote-draft-save')$result=(new \InnovEvents\Service\QuoteDrafts())->save($data);
+                        elseif ($path==='/api/admin/event-create')$result=(new \InnovEvents\Service\EventDrafts())->create($data);
                         elseif ($path==='/api/admin/event-save')$result=(new \InnovEvents\Service\EventDrafts())->save($data);
                         elseif ($path==='/api/admin/prospect-conversion')$result=(new \InnovEvents\Service\ClientConversion())->convert($data);
                         elseif ($path==='/api/admin/prospect-failure')$result=(new \InnovEvents\Service\Prospects())->fail($data);
