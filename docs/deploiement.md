@@ -12,7 +12,9 @@
 | `api` | PHP 8.4-FPM, code et dépendances inclus dans l'image (`docker/php/Dockerfile.prod`) | Réseau interne |
 | `mail_worker`, `journal_worker` | Envoi des courriels et livraison des journaux vers MongoDB | Réseau interne |
 | `mysql`, `mongodb` | Bases MySQL 8.4 et MongoDB 8.0, volumes persistants | Réseau interne, aucun port publié |
-| `mailpit` | Boîte de secours tant que le SMTP réel n'est pas configuré : aucun courriel ne sort | Interface sur `127.0.0.1` du serveur uniquement (tunnel SSH) |
+| `mailpit` | Boîte de secours si le SMTP réel est désactivé (paramètres `SMTP_*` vides) : aucun courriel ne sort | Interface sur `127.0.0.1` du serveur uniquement (tunnel SSH) |
+
+**Courriels réels :** `mail_worker` envoie par le serveur SMTP de Hostinger (`smtp.hostinger.com`, port 465, SSL implicite, authentification) depuis `contact@rascleromain.fr`, qui reçoit aussi les notifications de l'agence (`AGENCY_EMAIL`).
 
 Le serveur intégré de PHP reste réservé au développement local ; la production utilise PHP-FPM avec OPcache, erreurs non affichées et variables d'environnement transmises (`clear_env = no`).
 
@@ -32,7 +34,8 @@ Côté application : HTTPS forcé avec HSTS, cookie de session `Secure`/`HttpOnl
 
 - `.env` (non versionné, modèle `scripts/server/env.example`) : domaine, adresse de l'agence, expéditeur, paramètres SMTP.
 - `.secrets/` (non versionné, dossier `700`) : tous les mots de passe des bases et la clé de chiffrement de la file de courriels sont **générés sur le serveur** par `deploy.sh` (`openssl rand -hex 32`). Aucun n'est transmis ni affiché.
-- Le mot de passe SMTP éventuel se place uniquement dans `.secrets/smtp-password.txt` sur le serveur.
+- Le mot de passe de la boîte d'envoi est saisi directement sur le serveur, en saisie masquée par SSH, dans `.secrets/smtp-password.txt` ; il ne transite ni par Git, ni par GitHub, ni par l'assistant. La connexion SMTP est testée (authentification seule) avant d'activer l'envoi.
+- Clé SSH de déploiement dédiée à GitHub Actions (ed25519, sans autre usage) : autorisée sur le compte `deploy` avec l'option `restrict` (ni terminal interactif, ni redirection de ports). Empreinte du serveur fixée dans `DEPLOY_KNOWN_HOSTS` pour éviter une interception.
 
 ## Déploiement
 
@@ -49,7 +52,7 @@ Côté application : HTTPS forcé avec HSTS, cookie de session `Secure`/`HttpOnl
 
 ## Limites connues
 
-- Les courriels restent dans la boîte de secours Mailpit tant que le SMTP réel n'est pas configuré.
+- Les courriels partent d'une boîte personnelle (`contact@rascleromain.fr`) et non d'un domaine propre à l'agence ; adresses de démonstration en `example.invalid`, qui ne reçoivent rien.
 - Un seul serveur, sans redondance ; la sauvegarde automatique des bases et des fichiers (PDF, images) vers un stockage externe reste à planifier.
 - L'image PHP de base n'est pas épinglée par empreinte (`php:8.4-fpm-bookworm`) ; les mises à jour de sécurité de l'image sont prises à chaque construction (`--pull`).
 
@@ -61,5 +64,7 @@ Côté application : HTTPS forcé avec HSTS, cookie de session `Secure`/`HttpOnl
 - API en ligne : `/api/health` prêt (MySQL et MongoDB joignables), jeton CSRF, cookie de session `Secure; HttpOnly; SameSite=Lax`.
 - Essais en ligne : connexions de Chloé, José et Alice ; suivi des devis, prospects et journaux MongoDB pour l'administratrice ; espace client ; refus d'accès administrateur pour la cliente ; notes pour l'employé ; mauvais mot de passe refusé.
 - Correction faite pendant la mise en ligne : la directive `php_fastcgi` de Caddy cherchait `index.php` dans son propre conteneur ; remplacée par une réécriture explicite vers PHP-FPM.
+- Courriels réels : authentification SMTP Hostinger réussie, courriel de test accepté par le serveur SMTP pour `contact@rascleromain.fr`. Un premier mot de passe erroné a été détecté par le test d'authentification : retour immédiat sur Mailpit, aucun courriel de la file perdu.
+- Intégration continue : contrôles réussis sur `dev` ; `dev` fusionnée dans `main` (avance rapide), ce qui a déclenché le premier déploiement automatique par GitHub Actions.
 
 Comptes de démonstration en ligne : `chloe@example.invalid` (administratrice), `jose@example.invalid` (employé), `alice@example.invalid` (cliente). Le mot de passe commun est généré sur le serveur (`.secrets/demo-password.txt`) et n'est pas versionné ; il sera communiqué au correcteur dans la copie à rendre.
