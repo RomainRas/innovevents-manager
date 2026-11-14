@@ -34,6 +34,7 @@ final class Connections
     public static function conversion(): PDO { return self::accountDatabase('ecf_conversion','mysql_conversion'); }
     public static function journal(): PDO { return self::accountDatabase('ecf_journal','mysql_journal'); }
     public static function events(): PDO { return self::accountDatabase('ecf_events','mysql_events'); }
+    public static function quotePdf(): PDO { return self::accountDatabase('ecf_quote_pdf','mysql_quote_pdf'); }
     public static function quoteDrafts(): PDO { return self::accountDatabase('ecf_quote_drafts','mysql_quote_drafts'); }
     public static function eventImages(): PDO { return self::accountDatabase('ecf_event_images','mysql_event_images'); }
     public static function settings(): PDO { return self::accountDatabase('ecf_settings','mysql_settings'); }
