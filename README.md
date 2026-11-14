@@ -43,3 +43,7 @@ Depuis la fiche client, préparer l’événement d’une demande convertie, pui
 
 L’administratrice peut ajouter ou remplacer une image JPEG/PNG dans le brouillon, avec aperçu privé et description accessible : [guide des images](docs/images-evenements.md).
 
+## Prestations du devis
+
+Depuis l’événement, ouvrir « Préparer les prestations et le devis » : lignes HT, taux explicite, calcul exact TVA/TTC et sauvegarde du brouillon. [Résultats et limites](docs/prestations-devis.md). PDF et transmission restent à développer. [Priorités pour le rendu du 19 novembre](docs/plan-livraison-19-novembre.md).
+
