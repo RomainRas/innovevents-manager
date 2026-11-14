@@ -18,6 +18,8 @@ try {
     if ($LASTEXITCODE -ne 0) { throw 'Provisionnement événements interrompu' }
     & $Python -X utf8 scripts/provision-event-images.py
     if ($LASTEXITCODE -ne 0) { throw 'Provisionnement images non termine.' }
+    & $Python -X utf8 scripts/provision-quote-drafts.py
+    if ($LASTEXITCODE -ne 0) { throw 'Provisionnement devis interrompu' }
     $composeArgs=@('compose','-f','compose.yaml','-f','compose.app.yaml')
     & docker @composeArgs build api
     if ($LASTEXITCODE -ne 0) { throw 'Construction PHP echouee.' }
