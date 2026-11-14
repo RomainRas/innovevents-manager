@@ -10,7 +10,7 @@ services:
     environment:
       APP_ENV: local
       APP_ORIGIN: http://127.0.0.1:5173
-    secrets: [mysql_api, mongo_api, mongo_auth, mysql_accounts, mail_key, mysql_quotes, mysql_settings, mysql_prospects_admin, mysql_conversion, mysql_events, mysql_event_images]
+    secrets: [mysql_api, mongo_api, mongo_auth, mysql_accounts, mail_key, mysql_quotes, mysql_settings, mysql_prospects_admin, mysql_conversion, mysql_events, mysql_event_images, mysql_quote_drafts]
     depends_on:
       mysql: {condition: service_healthy}
       mongodb: {condition: service_healthy}
@@ -76,3 +76,5 @@ secrets:
   mysql_journal: {file: ./.secrets/mysql-journal.txt}
   mysql_events: {file: ./.secrets/mysql-events.txt}
   mysql_event_images: {file: ./.secrets/mysql-event-images.txt}
+
+  mysql_quote_drafts: {file: ./.secrets/mysql-quote-drafts.txt}
