@@ -19,9 +19,18 @@ do {
         } else {
             try {
                 $data=MailQueue::decode($row['contenu_chiffre']);
-                $mail=new PHPMailer(true);$mail->isSMTP();$mail->Host='mailpit';$mail->Port=1025;$mail->SMTPAutoTLS=false;$mail->Timeout=5;
-                $mail->CharSet='UTF-8';$mail->setFrom('contact@innovevents.example','Innov’Events');$mail->addAddress($data['email']);
-                $mail->Subject=$data['subject'];$mail->Body=$data['text'];$mail->MessageID='<'.$row['id'].'@innovevents.example>';
+                // Local : Mailpit sans authentification. Production : SMTP réel (SMTP_* et secret smtp_password).
+                $mail=new PHPMailer(true);$mail->isSMTP();$mail->Host=getenv('SMTP_HOST')?:'mailpit';$mail->Port=(int)(getenv('SMTP_PORT')?:1025);$mail->Timeout=10;
+                $secure=getenv('SMTP_SECURE')?:'';
+                if ($secure==='ssl') $mail->SMTPSecure=PHPMailer::ENCRYPTION_SMTPS; elseif ($secure==='tls') $mail->SMTPSecure=PHPMailer::ENCRYPTION_STARTTLS; else $mail->SMTPAutoTLS=false;
+                $smtpUser=getenv('SMTP_USER')?:'';
+                if ($smtpUser!=='') {
+                    $password=trim((string)@file_get_contents('/run/secrets/smtp_password'));
+                    if ($password==='') throw new \RuntimeException('SMTP password missing');
+                    $mail->SMTPAuth=true;$mail->Username=$smtpUser;$mail->Password=$password;
+                }
+                $mail->CharSet='UTF-8';$mail->setFrom(getenv('MAIL_FROM')?:'contact@innovevents.example','Innov’Events');$mail->addAddress($data['email']);
+                $mail->Subject=$data['subject'];$mail->Body=$data['text'];$mail->MessageID='<'.$row['id'].'@'.(explode('@',getenv('MAIL_FROM')?:'contact@innovevents.example')[1]??'innovevents.example').'>';
                 if (isset($data['attachment'])) {
                     // Seul un PDF interne nommé par son empreinte est joint, après contrôle d'intégrité.
                     $a=$data['attachment'];$ref=$a['reference']??'';

@@ -56,3 +56,7 @@ Depuis le devis, « Envoyer par la plateforme » (courriel avec PDF joint) ou «
 ## Réponse du client et contre-proposition
 
 Le client accepte, refuse ou demande une modification motivée depuis « Mon espace ». L’acceptation fait passer l’événement à « accepté », est journalisée et notifiée à l’agence. Chloé consulte le motif, prépare une contre-proposition (nouvelle version) et suit les devis sur `/devis`. [Règles, tests et limites](docs/decisions-devis.md).
+
+## Mise en ligne
+
+Application en ligne : https://innovevents.rascleromain.fr (VPS Ubuntu, Docker Compose, Caddy en HTTPS, PHP-FPM). [Architecture, sécurité, procédure et vérifications](docs/deploiement.md).

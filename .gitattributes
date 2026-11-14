@@ -1,0 +1,5 @@
+# Fichiers exécutés sous Linux (serveur, conteneurs) : fins de ligne LF obligatoires.
+*.sh text eol=lf
+scripts/server/* text eol=lf
+docker/** text eol=lf
+compose.prod.yaml text eol=lf
