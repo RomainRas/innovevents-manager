@@ -10,10 +10,12 @@ final class MailQueue
         if ($key===false||strlen($key)!==SODIUM_CRYPTO_SECRETBOX_KEYBYTES) throw new \RuntimeException('Mail key');
         return $key;
     }
-    public static function enqueue(PDO $db,string $type,string $email,string $subject,string $text,int $minutes): string
+    /** @param array{reference:string,sha256:string,name:string}|null $attachment PDF interne vérifié par le traitement d’envoi. */
+    public static function enqueue(PDO $db,string $type,string $email,string $subject,string $text,int $minutes,?array $attachment=null): string
     {
         $nonce=random_bytes(SODIUM_CRYPTO_SECRETBOX_NONCEBYTES);
-        $payload=base64_encode($nonce.sodium_crypto_secretbox(json_encode(compact('email','subject','text'),JSON_THROW_ON_ERROR),$nonce,self::key()));
+        $data=compact('email','subject','text');if($attachment!==null)$data['attachment']=$attachment;
+        $payload=base64_encode($nonce.sodium_crypto_secretbox(json_encode($data,JSON_THROW_ON_ERROR),$nonce,self::key()));
         $id=(string)$db->query('SELECT UUID()')->fetchColumn();
         $q=$db->prepare('INSERT INTO courriels_a_envoyer(id,type,contenu_chiffre,expire_le) VALUES(?,?,?,DATE_ADD(UTC_TIMESTAMP(),INTERVAL ? MINUTE))');
         $q->execute([$id,$type,$payload,$minutes]);

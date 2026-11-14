@@ -47,5 +47,8 @@ L’administratrice peut ajouter ou remplacer une image JPEG/PNG dans le brouill
 
 Depuis l’événement, ouvrir « Préparer les prestations et le devis » : lignes HT, taux explicite, calcul exact TVA/TTC et sauvegarde du brouillon. [Résultats et limites](docs/prestations-devis.md). La transmission reste à développer. [Priorités pour le rendu du 19 novembre](docs/plan-livraison-19-novembre.md).
 
-Complément : génération et téléchargement administrateur du PDF désormais disponibles, avec contrôle de validité et journalisation MongoDB. [Guide PDF](docs/devis-pdf.md). La transmission et la réponse client restent à développer.
+Complément : génération et téléchargement administrateur du PDF désormais disponibles, avec contrôle de validité et journalisation MongoDB. [Guide PDF](docs/devis-pdf.md). La transmission est livrée (voir ci-dessous) ; la réponse du client reste à développer.
 
+## Transmission du devis et espace client
+
+Depuis le devis, « Envoyer par la plateforme » (courriel avec PDF joint) ou « Déclarer un envoi manuel ». Le devis passe en étude côté client et devient non modifiable ; le compte client est créé s’il n’existe pas, avec un mot de passe à changer à la première connexion. Le client consulte et télécharge ses devis dans « Mon espace ». [Fonctionnement, tests et limites](docs/transmission-devis.md).

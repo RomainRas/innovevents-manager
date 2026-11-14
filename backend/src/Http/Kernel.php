@@ -19,7 +19,8 @@ final class Kernel
             '/api/admin/prospects'=>'GET','/api/admin/prospect'=>'GET','/api/admin/prospect-failure'=>'POST',
             '/api/admin/prospect-conversion'=>'POST','/api/admin/client'=>'GET',
             '/api/admin/event-context'=>'GET','/api/admin/event'=>'GET','/api/admin/event-create'=>'POST','/api/admin/event-save'=>'POST',
-            '/api/admin/quote-pdf-status'=>'GET','/api/admin/quote-pdf'=>'GET','/api/admin/quote-pdf-generate'=>'POST','/api/admin/quote-draft'=>'GET','/api/admin/quote-draft-save'=>'POST','/api/admin/event-image'=>'GET','/api/admin/event-image-upload'=>'POST'];
+            '/api/admin/quote-pdf-status'=>'GET','/api/admin/quote-pdf'=>'GET','/api/admin/quote-pdf-generate'=>'POST','/api/admin/quote-draft'=>'GET','/api/admin/quote-draft-save'=>'POST','/api/admin/event-image'=>'GET','/api/admin/event-image-upload'=>'POST',
+            '/api/admin/quote-transmission'=>'GET','/api/admin/quote-send'=>'POST','/api/me/quotes'=>'GET','/api/me/quote-pdf'=>'GET'];
         try {
             if (!isset($routes[$path])) throw new HttpError(404,'not_found');
             if (($_SERVER['REQUEST_METHOD']??'')!==$routes[$path]) {
@@ -35,6 +36,12 @@ final class Kernel
                         $result=(new \InnovEvents\Service\QuotePdfs())->status($_GET);break;
                     case '/api/admin/quote-pdf':
                         (new \InnovEvents\Service\QuotePdfs())->download($_GET);return;
+                    case '/api/admin/quote-transmission':
+                        $result=(new \InnovEvents\Service\QuoteTransmissions())->status($_GET);break;
+                    case '/api/me/quotes':
+                        $result=(new \InnovEvents\Service\ClientQuotes())->listing();break;
+                    case '/api/me/quote-pdf':
+                        (new \InnovEvents\Service\ClientQuotes())->download($_GET);return;
                     case '/api/admin/quote-draft':
                         $result=(new \InnovEvents\Service\QuoteDrafts())->read($_GET);break;
                     case '/api/admin/event-image':
@@ -66,6 +73,7 @@ final class Kernel
                     case '/api/admin/prospect-conversion':
                     case '/api/admin/event-create':
                     case '/api/admin/quote-pdf-generate':
+                    case '/api/admin/quote-send':
                     case '/api/admin/quote-draft-save':
                     case '/api/admin/event-save':
                         if (strtolower(trim(explode(';',$_SERVER['CONTENT_TYPE']??'')[0]))!=='application/json') throw new HttpError(415,'json_required');
@@ -74,7 +82,8 @@ final class Kernel
                         if (strlen($raw)>$limit) throw new HttpError(413,'payload_too_large');
                         try {$data=json_decode($raw,true,16,JSON_THROW_ON_ERROR);} catch (\JsonException) {throw new HttpError(400,'invalid_json');}
                         if (!is_array($data)) throw new HttpError(422,'invalid_input');
-                        if ($path==='/api/admin/quote-pdf-generate')$result=(new \InnovEvents\Service\QuotePdfs())->generate($data);
+                        if ($path==='/api/admin/quote-send')$result=(new \InnovEvents\Service\QuoteTransmissions())->send($data);
+                        elseif ($path==='/api/admin/quote-pdf-generate')$result=(new \InnovEvents\Service\QuotePdfs())->generate($data);
                         elseif ($path==='/api/admin/quote-draft-save')$result=(new \InnovEvents\Service\QuoteDrafts())->save($data);
                         elseif ($path==='/api/admin/event-create')$result=(new \InnovEvents\Service\EventDrafts())->create($data);
                         elseif ($path==='/api/admin/event-save')$result=(new \InnovEvents\Service\EventDrafts())->save($data);
