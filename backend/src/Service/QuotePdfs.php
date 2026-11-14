@@ -7,7 +7,7 @@ final class QuotePdfs
 {
     private const DIRECTORY='/var/lib/innovevents/quote-pdfs';
     private function id(mixed $v): string {if(!(is_int($v)||is_string($v))||!preg_match('/^[1-9][0-9]{0,17}$/D',(string)$v))throw new HttpError(422,'invalid_id');return (string)$v;}
-    private function source(\PDO $db,string $id): array {
+    public function source(\PDO $db,string $id): array {
         $q=$db->prepare('SELECT id,client_id,nom,debut,fin,fuseau,lieu,statut,image_reference,image_alternative,revision FROM evenements WHERE id=? FOR SHARE');$q->execute([$id]);$event=$q->fetch();if(!$event)throw new HttpError(404,'event_not_found');
         $q=$db->prepare('SELECT id,entreprise,contact_nom,contact_prenom,email,telephone FROM clients WHERE id=? FOR SHARE');$q->execute([$event['client_id']]);$client=$q->fetch();
         $q=$db->prepare('SELECT v.id,v.numero,v.revision_contenu,v.statut,v.figee_le,v.taux_tva,v.total_ht,v.total_tva,v.total_ttc,v.devise,v.regle_calcul,d.reference FROM devis d JOIN versions_devis v ON v.id=d.version_courante_id AND v.devis_id=d.id WHERE d.evenement_id=? FOR SHARE');$q->execute([$id]);$quote=$q->fetch();if(!$quote)throw new HttpError(422,'quote_required');
@@ -20,8 +20,8 @@ final class QuotePdfs
         foreach(['total_ht','total_tva','total_ttc','devise','regle_calcul'] as $key)if($quote[$key]!==$computed[$key])throw new HttpError(409,'quote_totals_changed');
         return ['event'=>$event,'client'=>$client,'quote'=>$quote,'prestations'=>$lines];
     }
-    private function hash(array $source): string {return hash('sha256',json_encode($source,JSON_THROW_ON_ERROR));}
-    private function bytes(array $document): ?string {
+    public function hash(array $source): string {return hash('sha256',json_encode($source,JSON_THROW_ON_ERROR));}
+    public function bytes(array $document): ?string {
         $ref=$document['fichier_reference'];if(!is_string($ref)||!preg_match('/^[a-f0-9]{64}\.pdf$/D',$ref))return null;
         $path=self::DIRECTORY.'/'.$ref;if(!is_file($path))return null;$bytes=file_get_contents($path);
         return is_string($bytes)&&hash_equals($document['empreinte_sha256'],hash('sha256',$bytes))?$bytes:null;

@@ -22,6 +22,8 @@ try {
     if ($LASTEXITCODE -ne 0) { throw 'Provisionnement devis interrompu' }
     & $Python -X utf8 scripts/provision-quote-pdf.py
     if ($LASTEXITCODE -ne 0) { throw 'Provisionnement PDF interrompu' }
+    & $Python -X utf8 scripts/provision-quote-send.py
+    if ($LASTEXITCODE -ne 0) { throw 'Provisionnement transmission interrompu' }
     $composeArgs=@('compose','-f','compose.yaml','-f','compose.app.yaml')
     & docker @composeArgs build api
     if ($LASTEXITCODE -ne 0) { throw 'Construction PHP echouee.' }

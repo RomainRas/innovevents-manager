@@ -2,6 +2,7 @@
 import { onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { auth, request, refresh } from './auth'
+import ClientQuotes from './ClientQuotes.vue'
 const rows = ref([]), error = ref(''), loading = ref(true)
 const router = useRouter()
 onMounted(async () => {
@@ -24,6 +25,7 @@ onMounted(async () => {
     <p v-if="loading" role="status">Chargement…</p><p v-if="error" role="alert" class="error">{{ error }}</p>
     <ul v-if="!loading && !error"><li v-for="row in rows" :key="row.id">{{ row.nom || row.contenu }}<span v-if="row.debut"> — {{ new Date(row.debut.replace(' ', 'T') + 'Z').toLocaleDateString('fr-FR') }}</span></li></ul>
     <p v-if="!loading && !error && !rows.length">Aucune information à afficher pour le moment.</p>
+    <ClientQuotes v-if="auth.user?.role === 'client'" />
     <RouterLink v-if="auth.user?.role === 'administrateur'" to="/journaux">Consulter les journaux</RouterLink>
   </main>
 </template>

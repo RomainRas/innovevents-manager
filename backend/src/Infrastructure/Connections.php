@@ -38,6 +38,8 @@ final class Connections
     public static function quoteDrafts(): PDO { return self::accountDatabase('ecf_quote_drafts','mysql_quote_drafts'); }
     public static function eventImages(): PDO { return self::accountDatabase('ecf_event_images','mysql_event_images'); }
     public static function settings(): PDO { return self::accountDatabase('ecf_settings','mysql_settings'); }
+    public static function quoteSend(): PDO { return self::accountDatabase('ecf_quote_send','mysql_quote_send'); }
+    public static function clientQuotes(): PDO { return self::accountDatabase('ecf_client_quotes','mysql_client_quotes'); }
     private static function accountDatabase(string $user,string $secret): PDO
     {
         return new PDO('mysql:host=mysql;dbname=innovevents_demo;charset=utf8mb4',$user,self::secret($secret),[

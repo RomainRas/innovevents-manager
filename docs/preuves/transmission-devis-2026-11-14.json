@@ -1,0 +1,54 @@
+{
+  "date": "2026-11-14",
+  "checks": {
+    "anonymous_denied": true,
+    "client_denied": true,
+    "employee_denied": true,
+    "csrf_required": true,
+    "invalid_input_refused": true,
+    "other_document_refused": true,
+    "status_before": true,
+    "automatic_send_recorded": true,
+    "lost_response_replay": true,
+    "replay_no_duplicate": true,
+    "key_reuse_conflict": true,
+    "pending_blocks_new_send": true,
+    "version_frozen": true,
+    "frozen_quote_not_editable": true,
+    "worker_confirms_transmission": true,
+    "email_with_pdf_attachment": true,
+    "account_email_sent": true,
+    "first_login_requires_change": true,
+    "password_changed": true,
+    "client_sees_transmitted_only": true,
+    "client_downloads_pdf": true,
+    "other_client_isolated": true,
+    "draft_document_hidden": true,
+    "client_routes_roles": true,
+    "manual_requires_confirmation": true,
+    "manual_declaration": true,
+    "existing_account_not_linked": true,
+    "sql_permissions": true,
+    "browser": true
+  },
+  "http_data_checks": 27,
+  "sql_permission_checks": 10,
+  "browser_widths": [
+    1280,
+    390
+  ],
+  "regressions": {
+    "quote-pdf": "23/23",
+    "quote-drafts": "22/22",
+    "mail-recovery": "7/7"
+  },
+  "vue_build": "passed",
+  "fixtures_cleaned": true,
+  "limitations": [
+    "Réponse du client (acceptation, modification, refus) non livrée",
+    "Compte existant de même adresse non rattaché automatiquement",
+    "Transmission non journalisée dans MongoDB : action absente de la liste de l’énoncé",
+    "Téléchargement administrateur du PDF déjà transmis non proposé",
+    "Sauvegarde du volume des PDF toujours à développer"
+  ]
+}
