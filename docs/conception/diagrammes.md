@@ -1,6 +1,6 @@
 # Diagrammes : cas d’utilisation, séquence et architecture
 
-Version du 15 novembre 2026, établie à partir de l’application réalisée. Compléments : [MCD](mcd-relationnel.md), [MLD MySQL](mld-mysql.md), [modèle des journaux MongoDB](modele-journaux-mongodb.md), [enchaînement des écrans](enchainement-ecrans.md), [déploiement](../deploiement.md).
+Établie à partir de l’application réalisée. Compléments : [MCD](mcd-relationnel.md), [MLD MySQL](mld-mysql.md), [modèle des journaux MongoDB](modele-journaux-mongodb.md), [enchaînement des écrans](enchainement-ecrans.md), [déploiement](../deploiement.md).
 
 Les schémas sont écrits en Mermaid : GitHub les affiche directement.
 

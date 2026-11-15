@@ -1,6 +1,6 @@
 # Modèle des journaux MongoDB — v1
 
-Date : 9 novembre 2026. Conception de la collection `logs`, distincte des données métier MySQL. Source : [énoncé](../enonce/enonce-ecf-cda.pdf), p. 12–13 ; [dictionnaire](dictionnaire-donnees.md) et [MCD relationnel](mcd-relationnel.md).
+Conception de la collection `logs`, distincte des données métier MySQL. Source : [énoncé](../enonce/enonce-ecf-cda.pdf), p. 12–13 ; [dictionnaire](dictionnaire-donnees.md) et [MCD relationnel](mcd-relationnel.md).
 
 ## Structure proposée
 

@@ -1,6 +1,6 @@
 # Analyse des exigences Innov’Events Manager
 
-Document de préparation établi à partir de l’énoncé ECF fourni (20 pages), de la notice des évaluations (3 pages) et de la copie à rendre. Relecture de contrôle des deux PDF effectuée le 17 octobre 2026. Les éléments ci-dessous sont attendus ; leur présence dans cette liste ne signifie pas qu’ils sont réalisés. La matrice donne une vue synthétique ; les précisions qui suivent en font partie.
+Document de préparation établi à partir de l’énoncé ECF fourni (20 pages), de la notice des évaluations (3 pages) et de la copie à rendre. Relecture de contrôle des deux PDF effectuée. Les éléments ci-dessous sont attendus ; leur présence dans cette liste ne signifie pas qu’ils sont réalisés. La matrice donne une vue synthétique ; les précisions qui suivent en font partie.
 
 ## Contexte et objectif
 
@@ -137,7 +137,7 @@ La matrice décrit le périmètre attendu, pas l’avancement de chaque réalisa
 - Conservation des journaux, traitement d’une suppression de compte et sécurisation des courriels/mots de passe : mécanismes à concevoir dans le respect des exigences, pas fonctionnalités à inventer comme déjà réalisées.
 - Accès du correcteur au dépôt/tableau privés et modalités de transmission des identifiants de démonstration : organisation pratique de la remise à vérifier.
 
-## Bilan de la relecture du 17 octobre 2026
+## Bilan de la relecture
 
 Les vingt pages de l’énoncé et les trois pages de la notice ont été relues. La page 9 a également été vérifiée visuellement pour le passage TVA/TTC. La première matrice couvrait les grands ensembles mais omettait des précisions utiles : champs, statuts, compte client automatique, widgets, détails des logs et consignes de remise. Ces éléments ont été ajoutés. La liste des questions a été corrigée pour séparer informations absentes, règles déjà données et décisions de conception. Aucune application ni aucun test n’est déclaré réalisé par cette relecture.
 

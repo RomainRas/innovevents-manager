@@ -1,6 +1,6 @@
 # États complémentaires - Décisions du client sur un devis
 
-Version du 3 novembre 2026. Tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5), conservée ouverte.
+Tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5).
 
 ## Travail réalisé et fichiers
 
@@ -73,4 +73,4 @@ Les boutons, confirmations et résultats sont représentés dans des maquettes s
 
 Figma conserve les sources modifiables. Les deux SVG, ce bilan et le lien depuis la documentation principale sont sauvegardés sur dev pour alimenter la conception du dossier. Les planches pourront être jointes en complément des six maquettes principales.
 
-La tâche #5 reste ouverte. Prochaine étape : confirmation, validation et échecs de la note mobile. Les autres états, la validation d’ensemble, le responsive et les exports finaux restent à terminer.
+Les autres états, la validation d’ensemble, le responsive et les exports finaux restent à terminer.

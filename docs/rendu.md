@@ -1,6 +1,6 @@
 # Rendu ECF — Innov’Events Manager
 
-Romain Rascle — titre professionnel Concepteur Développeur d’Applications — rendu du 19 novembre 2026.
+Romain Rascle — titre professionnel Concepteur Développeur d’Applications.
 
 ## Liens
 
@@ -50,6 +50,6 @@ Pour l’application mobile : ouvrir le lien sur un téléphone (ou avec l’ém
 - **Sécurité** : un compte MySQL limité par fonctionnalité, jeton CSRF et contrôle d’origine, CSP stricte, mots de passe bcrypt, courriels en attente chiffrés, journal écrit dans la même transaction que l’action puis livré dans MongoDB.
 - **Suppressions** : un compte supprimé est anonymisé et un événement avec devis s’annule au lieu d’être effacé, pour conserver l’historique commercial sans donnée personnelle.
 
-## Résultats de tests (15 novembre 2026)
+## Résultats de tests
 
 30 suites sur 30 réussies (48 tests unitaires, 20 suites fonctionnelles, tests de bout en bout dont application mobile sur téléphone émulé). Couverture du code PHP : 98,3 % des lignes, 92,1 % des méthodes. Détail et interprétation : [plan de tests](plan-de-tests.md).

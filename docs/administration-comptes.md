@@ -1,6 +1,6 @@
 # Espace administrateur : tableau de bord et comptes
 
-Version du 15 novembre 2026. Exigences couvertes : tableau de bord de Chloé (prochains événements, notes récentes, indicateurs clés) et « créer / suspendre / supprimer des comptes employés et clients ». Elle traite aussi les demandes de suppression envoyées par les clients (voir [espace-client-avis.md](espace-client-avis.md)).
+Exigences couvertes : tableau de bord de Chloé (prochains événements, notes récentes, indicateurs clés) et « créer / suspendre / supprimer des comptes employés et clients ». Elle traite aussi les demandes de suppression envoyées par les clients (voir [espace-client-avis.md](espace-client-avis.md)).
 
 ## Tableau de bord (`/espace`, administratrice uniquement)
 
@@ -35,7 +35,7 @@ Choix de l’anonymisation plutôt que l’effacement de la ligne : les devis, d
 
 ## Tests
 
-| Fichier | Contrôles | Résultat du 15 novembre 2026 |
+| Fichier | Contrôles | Résultat |
 | --- | --- | --- |
 | `tests/app/admin-accounts.py` | Droits, CSRF, tableau de bord exact, création (validation, doublon, courriel, changement de mot de passe), recherche et filtres, suspension (session coupée, connexion refusée, accès mobile retiré), réactivation, administrateur intouchable, compte client rattaché, suppression complète, adresse réutilisable, absence de lecture des mots de passe | 39/39 |
 | `tests/app/admin-accounts-browser.cjs` | Tableau de bord à 1280 px, création avec erreur puis succès, suspension, réactivation, suppression avec confirmation et annulation à 390 px, focus et absence de débordement | 13/13, trois exécutions successives |
@@ -45,5 +45,5 @@ Les essais retirent les comptes et fiches créés ; la base de démonstration a 
 
 ## Limites
 
-- La gestion des fiches clients et des événements (dont `SUPPRESSION_CLIENT` et les changements de statut) est décrite dans [gestion-fiches.md](gestion-fiches.md) ; les notes collaboratives, qui alimentent le widget « Notes récentes », dans [espace-employe.md](espace-employe.md) (réalisées le 15 novembre 2026).
+- La gestion des fiches clients et des événements (dont `SUPPRESSION_CLIENT` et les changements de statut) est décrite dans [gestion-fiches.md](gestion-fiches.md) ; les notes collaboratives, qui alimentent le widget « Notes récentes », dans [espace-employe.md](espace-employe.md).
 - La modification de l’identité d’un employé après création n’est pas proposée (le supprimer puis le recréer).

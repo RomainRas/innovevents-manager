@@ -1,5 +1,5 @@
 # Formulaires : reprise, erreurs et focus
-Version du 3 novembre 2026 — tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5), ouverte.
+Tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5).
 
 ## Livrable et périmètre
 - [Planche Figma](https://www.figma.com/design/eAJJZyMSjoOff7mA1pNpCU?node-id=80-763), 1440 × 1532.
@@ -52,4 +52,4 @@ La planche complète a été relue visuellement. Le contour de la date de début
 ## Sauvegarde, rendu et suivi
 Source modifiable dans Figma, SVG et explication sur dev. Cette planche justifie la conception des formulaires et pourra être intégrée aux annexes retenues ; elle n’est pas un livrable supplémentaire imposé par le sujet.
 
-La tâche #5 reste ouverte. Suite prioritaire : adaptation des trois écrans web aux petits écrans, cohérence des interactions/focus, relecture d’ensemble et exports finaux. Les montants et paramètres de calcul réels restent à définir avant développement ; les tests fonctionnels appartiendront à cette phase.
+Suite prioritaire : adaptation des trois écrans web aux petits écrans, cohérence des interactions/focus, relecture d’ensemble et exports finaux. Les montants et paramètres de calcul réels restent à définir avant développement ; les tests fonctionnels appartiendront à cette phase.

@@ -1,6 +1,6 @@
 # Suppression et conservation — règles de conception
 
-9 novembre 2026. Le sujet prévoit une demande de suppression des informations et du compte (p. 10), la gestion des suppressions par Chloé (p. 12) et une journalisation comportant des données personnelles (p. 12–13). Cette procédure décrit ce qu'il faudra implémenter et tester ; aucune suppression n'est exécutée.
+Le sujet prévoit une demande de suppression des informations et du compte (p. 10), la gestion des suppressions par Chloé (p. 12) et une journalisation comportant des données personnelles (p. 12–13). Cette procédure décrit ce qu'il faudra implémenter et tester ; aucune suppression n'est exécutée.
 
 ## Périmètre retenu
 

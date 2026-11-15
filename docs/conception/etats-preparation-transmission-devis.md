@@ -1,5 +1,5 @@
 # États de préparation et de transmission du devis
-Version du 3 novembre 2026 — complément de WEB02, tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5).
+Complément de WEB02, tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5).
 
 ## Travail réalisé
 Deux planches de six extraits complètent la [maquette principale](maquette-web-02-preparation-devis.md). Elles réutilisent les messages et boutons existants, les styles Inter et les fondations de la charte. Elles ne remplacent pas le formulaire et ne comptent pas comme de nouvelles maquettes principales.
@@ -48,4 +48,4 @@ Les SVG conservent le texte éditable. Aucun devis, PDF métier ou courriel rée
 ## Sauvegarde, rendu et clôture
 Les deux SVG et cette documentation sont sauvegardés sur dev. Figma reste la source modifiable. Ces compléments justifient les décisions de conception et pourront accompagner les six maquettes principales dans le dossier ; ils ne sont pas douze livrables supplémentaires imposés par le sujet.
 
-La tâche #5 reste ouverte : états communs, adaptation du site aux petits écrans, focus, validation d’ensemble et exports finaux restent à préparer. Voir le [bilan de couverture](bilan-couverture-ecrans.md).
+Voir le [bilan de couverture](bilan-couverture-ecrans.md).

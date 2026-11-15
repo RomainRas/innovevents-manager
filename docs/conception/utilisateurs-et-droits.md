@@ -119,4 +119,4 @@ Ces scénarios sont préparés pour les étapes de développement et de tests ; 
 
 Fichier de référence : `docs/conception/utilisateurs-et-droits.md`, suivi sur `dev` dans Git. Il alimente le dossier de conception, le futur diagramme de cas d’utilisation et la justification des mesures de sécurité de la copie à rendre. Aucun format de matrice particulier n’est imposé par l’énoncé.
 
-Travail réalisé le 17 octobre 2026 : identification des acteurs, séparation des profils métier et des comptes, matrice des permissions, décisions explicites sur les points non détaillés et préparation de scénarios de vérification. La tâche de conception est terminée lorsque ce document est relu contre l’énoncé et enregistré sur `dev` ; cela ne signifie pas que les autorisations sont déjà implémentées.
+Travail réalisé : identification des acteurs, séparation des profils métier et des comptes, matrice des permissions, décisions explicites sur les points non détaillés et préparation de scénarios de vérification. La tâche de conception est terminée lorsque ce document est relu contre l’énoncé et enregistré sur `dev` ; cela ne signifie pas que les autorisations sont déjà implémentées.

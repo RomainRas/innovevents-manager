@@ -1,6 +1,6 @@
 # Inscription, récupération et changement de mot de passe
 
-État au 12 novembre 2026 : parcours web locaux fonctionnels. Branche `dev`, sans fusion sur `main`.
+Parcours web locaux fonctionnels. Branche `dev`, sans fusion sur `main`.
 
 ## Consignes et choix
 
@@ -34,14 +34,14 @@ Un verrou de ligne évite de prendre simultanément le même message. SMTP n’e
 - `tests/app/accounts.py` : 26 contrôles HTTP et données, dont politique, rôle client imposé, confirmation, doublon, récupération générique, expiration, accès temporaire limité, invalidation des sessions et effacement des secrets. Comptes fictifs supprimés après essai ; traces de connexion conservées.
 - `backend/tests/account-permissions.php` : quatre refus vérifiés (écriture du rôle, insertion du rôle, suppression, lecture de la file par le compte applicatif).
 - `tests/app/accounts-browser.cjs` : formulaires et navigation à 1280/390 px, réponse générique de récupération, absence de débordement et d’erreur JavaScript.
-- Compilation Vue réussie. Synthèse dans `docs/preuves/comptes-2026-11-12.json`.
+- Compilation Vue réussie. Synthèse dans `docs/preuves/comptes.json`.
 
 La panne SMTP a désormais été injectée avec succès : voir le bilan ci-dessous. La concurrence de plusieurs processus reste à vérifier. Restent le fournisseur de courriels de production, HTTPS, les tests mobiles et la journalisation durable. Ces écrans fonctionnels ne constituent pas une validation visuelle des maquettes Figma ni une clôture de l’ensemble de l’authentification.
 
-## Panne et reprise vérifiées — 12 novembre 2026
+## Panne et reprise vérifiées
 
 `tests/app/mail-recovery.py` arrête Mailpit avec des messages fictifs propres à l’essai, puis remet les services en marche. Sept contrôles réussis : mise en file pendant la panne, absence de contenu en clair dans la file, conservation après échec, reprise automatique après le délai réel d’une minute, réception d’un seul message dans cet essai, expiration sans envoi et effacement après le cinquième échec. Pour ce dernier cas, le compteur initial est placé à quatre : cinq échecs espacés d’une minute n’ont pas été attendus.
 
 Le test refuse de commencer si la file contient des envois en attente. Les lignes créées sont supprimées par identifiants précis ; les autres données sont conservées. Le courriel fictif reçu reste dans Mailpit. Le nettoyage et le redémarrage sont prévus dans `finally`. L’arrêt brutal du processus de test ou de Docker lui-même n’est pas couvert par cette garantie.
 
-Le service de mise en file retourne maintenant l’identifiant du message, permettant de suivre exactement celui-ci dans les tests et les futurs parcours. Les appels d’inscription et de récupération restent compatibles. Preuve : [résultats de reprise](preuves/reprise-courriels-2026-11-12.json). La réception unique observée ne prouve pas l’absence de doublons dans tous les scénarios de panne SMTP/MySQL.
+Le service de mise en file retourne maintenant l’identifiant du message, permettant de suivre exactement celui-ci dans les tests et les futurs parcours. Les appels d’inscription et de récupération restent compatibles. Preuve : [résultats de reprise](preuves/reprise-courriels.json). La réception unique observée ne prouve pas l’absence de doublons dans tous les scénarios de panne SMTP/MySQL.

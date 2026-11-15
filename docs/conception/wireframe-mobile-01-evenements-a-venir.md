@@ -1,6 +1,6 @@
 # Wireframe mobile 01 - Événements à venir
 
-Version du 18 octobre 2026. Tâche GitHub : [#5](https://github.com/RomainRas/innovevents-manager/issues/5).
+Tâche GitHub : [#5](https://github.com/RomainRas/innovevents-manager/issues/5).
 
 ## Travail réalisé
 
@@ -62,7 +62,7 @@ Aucun test sur appareil, d’authentification, de récupération des événement
 
 Figma reste la source modifiable. Les deux SVG et cette explication sont sauvegardés sur dev. Ils alimentent le dossier de conception ; des exports PDF/PNG pour le rendu final seront préparés après validation.
 
-Les notes ne comptent pas comme un second écran. La tâche #5 reste ouverte.
+Les notes ne comptent pas comme un second écran.
 
 ## Avancement
 
@@ -71,4 +71,3 @@ Les notes ne comptent pas comme un second écran. La tâche #5 reste ouverte.
 - Maquettes web et mobile : 0 sur 6.
 - Charte graphique et enchaînement des écrans : à réaliser.
 
-Prochaine étape : fiche événement mobile avec ses informations clés, l’accès au client et le bouton Ajouter une note.

@@ -1,6 +1,6 @@
-# Environnement local des bases — préparation du 9 novembre 2026
+# Environnement local des bases
 
-> **Note du 15 novembre 2026 :** ce document décrit l’état du projet à sa date de rédaction. Les éléments qu’il signale comme « à développer » ont pour la plupart été réalisés depuis ; l’état final, avec les limites encore valables, est dans le [bilan des fonctionnalités](bilan-fonctionnalites.md).
+> **Note :** ce document retrace l’étape où cette fonctionnalité a été développée. Les éléments qu’il signale comme « à développer » ont pour la plupart été réalisés depuis ; l’état final, avec les limites encore valables, est dans le [bilan des fonctionnalités](bilan-fonctionnalites.md).
 
 Cette étape prépare la tâche #7. Elle installe les bases de test, pas encore le serveur PHP, Vue ou la construction mobile. Le [guide des scripts](../database/README.md) décrit les contraintes et les limites des vérifications.
 
@@ -70,6 +70,6 @@ Voir [le bilan détaillé](verification-bases.md). Depuis la racine : `./scripts
 
 Sous Windows, MySQL ignore les fichiers de configuration montés avec des droits trop ouverts. Le lanceur `docker/mysql/client.sh` copie le secret dans un fichier temporaire privé, puis le supprime à la sortie. Aucune valeur n’est affichée.
 
-## Mise à jour du 10 novembre 2026
+## Mise à jour
 
-Le jeu permanent existe désormais dans innovevents_demo, distinct de la base de tests. Les sauvegardes et restaurations MySQL/MongoDB ont réussi dans de nouvelles bases, y compris un deuxième essai sans réinitialisation. Voir [le guide et les preuves](demo-sauvegarde-restauration.md). Les mentions précédentes de restauration ou de comptes de démonstration « à préparer » décrivent l’état du 9 novembre ; les scénarios métier complets, les droits applicatifs et la reprise inter-bases restent à développer.
+Le jeu permanent existe désormais dans innovevents_demo, distinct de la base de tests. Les sauvegardes et restaurations MySQL/MongoDB ont réussi dans de nouvelles bases, y compris un deuxième essai sans réinitialisation. Voir [le guide et les preuves](demo-sauvegarde-restauration.md). Les mentions précédentes de restauration ou de comptes de démonstration « à préparer » décrivent l’état ; les scénarios métier complets, les droits applicatifs et la reprise inter-bases restent à développer.

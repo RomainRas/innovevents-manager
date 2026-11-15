@@ -1,8 +1,8 @@
-# Relecture et exports de conception — 7 novembre 2026
+# Relecture et exports de conception
 
 ## Résultat et état de la tâche
 
-Les six wireframes, les six maquettes principales, la charte et les deux enchaînements sont regroupés dans un dossier PDF de relecture. Une annexe rassemble les états complémentaires et les variantes web à 390 pixels. La tâche #5 reste ouverte : validation de Romain et bilan de clôture restent à enregistrer. Ces documents ne constituent pas le dossier ECF complet.
+Les six wireframes, les six maquettes principales, la charte et les deux enchaînements sont regroupés dans un dossier PDF de relecture. Une annexe rassemble les états complémentaires et les variantes web à 390 pixels. Ces documents ne constituent pas le dossier ECF complet.
 
 ## Fichiers et utilisation
 
@@ -38,6 +38,6 @@ Sources : [énoncé](../enonce/enonce-ecf-cda.pdf), [notice](../enonce/notice-ev
 
 ## Rendu et suite
 
-Après validation de Romain, intégrer les visuels à la partie conception de la copie fournie ou les joindre selon les possibilités de dépôt. Vérifier les formats et tailles acceptés sur la plateforme ; si un seul emplacement est prévu, organiser le PDF final conformément à la notice. Aucun dépôt d'évaluation n'a été effectué.
+Ces deux PDF accompagnent le dossier de rendu ; le [document de rendu](../rendu.md) indique où les trouver.
 
-Les autres pages restent recensées dans le [bilan de couverture](bilan-couverture-ecrans.md). Prochaine étape de conception : modèle de données et diagrammes, notamment cas d'utilisation et séquences, en coordination avec #6. Environnement, développement, tests et hébergement restent à réaliser.
+Les autres pages restent recensées dans le [bilan de couverture](bilan-couverture-ecrans.md). Le modèle de données et les diagrammes sont dans [diagrammes.md](diagrammes.md).

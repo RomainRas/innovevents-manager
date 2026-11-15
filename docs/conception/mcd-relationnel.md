@@ -1,6 +1,6 @@
 # Modèle conceptuel des données relationnelles — v1
 
-Date : 9 novembre 2026. Proposition issue du [dictionnaire](dictionnaire-donnees.md), du [parcours commercial](parcours-prospect-devis-evenement.md) et de la [matrice des droits](utilisateurs-et-droits.md). Référence : [énoncé](../enonce/enonce-ecf-cda.pdf), p. 17.
+Proposition issue du [dictionnaire](dictionnaire-donnees.md), du [parcours commercial](parcours-prospect-devis-evenement.md) et de la [matrice des droits](utilisateurs-et-droits.md). Référence : [énoncé](../enonce/enonce-ecf-cda.pdf), p. 17.
 
 ## Lecture et limites
 

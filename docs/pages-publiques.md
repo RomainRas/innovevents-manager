@@ -1,4 +1,4 @@
-# Pages publiques — 14 novembre 2026
+# Pages publiques
 
 ## Contenu
 
@@ -38,5 +38,5 @@ Lien d'évitement « Aller au contenu », titre de page propre à chaque écran,
 ## Limites
 
 - Mentions légales : l'éditeur est l'entreprise fictive de l'énoncé. Le téléphone de l'hébergeur provient du registre RIPE et doit être confirmé auprès de Hostinger. Une mise en ligne réelle exigerait l'identité de l'éditeur réel.
-- Le dépôt d'un avis par le client et sa validation par un employé sont réalisés depuis le 15 novembre 2026 : voir [espace-client-avis.md](espace-client-avis.md).
+- Le dépôt d'un avis par le client et sa validation par un employé sont réalisés : voir [espace-client-avis.md](espace-client-avis.md).
 - Durée de conservation des journaux de connexion (adresses IP) à fixer et à automatiser.

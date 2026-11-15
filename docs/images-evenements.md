@@ -1,6 +1,6 @@
 # Images des brouillons d’événements
 
-> **Note du 15 novembre 2026 :** ce document décrit l’état du projet à sa date de rédaction. Les éléments qu’il signale comme « à développer » ont pour la plupart été réalisés depuis ; l’état final, avec les limites encore valables, est dans le [bilan des fonctionnalités](bilan-fonctionnalites.md).
+> **Note :** ce document retrace l’étape où cette fonctionnalité a été développée. Les éléments qu’il signale comme « à développer » ont pour la plupart été réalisés depuis ; l’état final, avec les limites encore valables, est dans le [bilan des fonctionnalités](bilan-fonctionnalites.md).
 
 ## Source et périmètre
 
@@ -44,7 +44,7 @@ Les sauvegardes MySQL/MongoDB existantes ne sauvegardent pas ce volume d’image
 
 Les résultats exécutés sont conservés séparément dans le fichier de preuve. Les captures et données temporaires sont dans `tmp/`. Pas de test de charge, d’audit complet d’accessibilité ou de publication publique revendiqué.
 
-### Résultats du 13 novembre 2026
+### Résultats
 
 - 24 contrôles serveur/données réussis : rôles, CSRF, description, faux PNG, SVG, image tronquée, dimensions et poids, réencodage, en-têtes privés, nom de fichier non utilisé comme chemin, lecture protégée, reprise identique, conflit, remplacement JPEG, révision partagée, publication inchangée et refus hors brouillon.
 - Six refus de permissions SQL vérifiés.
@@ -53,4 +53,4 @@ Les résultats exécutés sont conservés séparément dans le fichier de preuve
 - Compilation Vue et construction Docker réussies ; Composer valide le manifeste et le verrouillage. Ses avertissements préexistants concernent la licence non renseignée et le verrouillage exact du pilote MongoDB.
 - Fiches fictives nettoyées. Les petites images de test restent dans le volume ; aucune suppression de fichier partagé n’a été lancée.
 
-[Preuve sans secrets](preuves/images-evenements-2026-11-13.json).
+[Preuve sans secrets](preuves/images-evenements.json).

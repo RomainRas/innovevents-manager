@@ -1,6 +1,6 @@
-# Transmission du devis et espace client — 14 novembre 2026
+# Transmission du devis et espace client
 
-> **Note du 15 novembre 2026 :** ce document décrit l’état du projet à sa date de rédaction. Les éléments qu’il signale comme « à développer » ont pour la plupart été réalisés depuis ; l’état final, avec les limites encore valables, est dans le [bilan des fonctionnalités](bilan-fonctionnalites.md).
+> **Note :** ce document retrace l’étape où cette fonctionnalité a été développée. Les éléments qu’il signale comme « à développer » ont pour la plupart été réalisés depuis ; l’état final, avec les limites encore valables, est dans le [bilan des fonctionnalités](bilan-fonctionnalites.md).
 
 ## Périmètre et utilisation
 
@@ -37,7 +37,7 @@ Dans « Mon espace », la section « Vos devis » liste uniquement les devis tra
 - `ecf_mail` : mise à jour de l’état des transmissions liées à ses courriels.
 - Migration additive `009` (types de courriel, lien transmission/courriel) appliquée par `scripts/provision-quote-send.py`, intégré à `Start-App.ps1`. Le traitement d’envoi accède au volume des PDF en lecture seule.
 
-## Tests exécutés le 14 novembre
+## Tests exécutés
 
 `tests/app/quote-transmission.py` (avec `quote-transmission-browser.cjs` et `backend/tests/quote-send-permissions.php`) : **29 contrôles réussis.**
 
@@ -51,7 +51,7 @@ Dans « Mon espace », la section « Vos devis » liste uniquement les devis tra
 - Dix refus SQL des comptes limités.
 - Chromium 1280 px (envoi plateforme avec réponse perdue simulée) et 390 px (envoi manuel avec focus sur la déclaration), puis espace client et téléchargement aux deux largeurs ; pas de débordement horizontal.
 
-Non-régression : `quote-pdf.py` 23/23, `quote-drafts.py` 22/22, `mail-recovery.py` 7/7 ; compilation Vue réussie. [Preuve sans secrets](preuves/transmission-devis-2026-11-14.json).
+Non-régression : `quote-pdf.py` 23/23, `quote-drafts.py` 22/22, `mail-recovery.py` 7/7 ; compilation Vue réussie. [Preuve sans secrets](preuves/transmission-devis.json).
 
 ## Limites
 

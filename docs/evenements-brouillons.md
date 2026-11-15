@@ -1,6 +1,6 @@
-# Brouillon d’événement associé au client — 13 novembre 2026
+# Brouillon d’événement associé au client
 
-> **Note du 15 novembre 2026 :** ce document décrit l’état du projet à sa date de rédaction. Les éléments qu’il signale comme « à développer » ont pour la plupart été réalisés depuis ; l’état final, avec les limites encore valables, est dans le [bilan des fonctionnalités](bilan-fonctionnalites.md).
+> **Note :** ce document retrace l’étape où cette fonctionnalité a été développée. Les éléments qu’il signale comme « à développer » ont pour la plupart été réalisés depuis ; l’état final, avec les limites encore valables, est dans le [bilan des fonctionnalités](bilan-fonctionnalites.md).
 
 Complément ultérieur : [l’ajout et le remplacement d’image privée](images-evenements.md) sont désormais disponibles. Le bilan ci-dessous conserve le périmètre de la livraison initiale ; consentement, publication, statuts et devis restent à développer.
 
@@ -41,6 +41,6 @@ Le compte `ecf_events` ne peut pas changer le statut, publier, renseigner le con
 - Chromium à 1280 et 390 px : retour après connexion, préremplissage, erreur et focus, perte de réponse après création puis reprise, modification des horaires, persistance après rechargement, absence de débordement et d’erreur JavaScript. Capture mobile relue.
 - Compilation Vue réussie. Le droit temporairement retiré pour simuler la panne a été rétabli ; les fiches fictives ont été nettoyées. Leurs traces restent conservées comme historique de test.
 
-Tests : `tests/app/events.py`, `events-browser.cjs` et `backend/tests/events-permissions.php`. Ils doivent être exécutés sur la démonstration locale hors autre travail concurrent : ils retirent brièvement un droit SQL. `finally` restaure les droits et nettoie les fixtures, sauf arrêt brutal du processus. Résultats et captures locaux dans `tmp/`, synthèse versionnée dans [la preuve](preuves/evenements-brouillons-2026-11-13.json).
+Tests : `tests/app/events.py`, `events-browser.cjs` et `backend/tests/events-permissions.php`. Ils doivent être exécutés sur la démonstration locale hors autre travail concurrent : ils retirent brièvement un droit SQL. `finally` restaure les droits et nettoie les fixtures, sauf arrêt brutal du processus. Résultats et captures locaux dans `tmp/`, synthèse versionnée dans [la preuve](preuves/evenements-brouillons.json).
 
 Le conflit a été simulé par une révision périmée ; aucune épreuve de charge ou création simultanée entre plusieurs processus n’est revendiquée. Aucun audit complet d’accessibilité, déploiement public ou validation Figma supplémentaire n’est revendiqué.

@@ -1,6 +1,6 @@
 # Espace client : informations, suppression du compte et avis
 
-Version du 15 novembre 2026. Exigences couvertes : CLI-02 (profil modifiable, demande de suppression totale, suivi, évaluation après événement) et la modération des avis d’EMP-01.
+Exigences couvertes : CLI-02 (profil modifiable, demande de suppression totale, suivi, évaluation après événement) et la modération des avis d’EMP-01.
 
 ## Parcours
 
@@ -29,7 +29,7 @@ Un événement est « terminé » s’il a le statut `termine`, ou si sa date de
 
 ## Tests
 
-| Fichier | Contrôles | Résultat du 15 novembre 2026 |
+| Fichier | Contrôles | Résultat |
 | --- | --- | --- |
 | `tests/app/client-space.py` | Droits d’accès, jeton CSRF, validation, journal, cloisonnement entre clients, avis unique, modération, publication, refus, demande de suppression et courriel | 32/32 |
 | `tests/app/client-space-browser.cjs` | Profil et avis du client à 390 px, modération par José à 1280 px, publication sur `/avis`, demande de suppression à 390 px, focus et absence de débordement | 15/15 |

@@ -1,6 +1,6 @@
 # États complémentaires - Demande de devis
 
-Version du 3 novembre 2026. Tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5), conservée ouverte.
+Tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5).
 
 ## Travail réalisé et fichiers
 
@@ -62,4 +62,4 @@ Il s’agit de conception statique : aucune soumission, validation serveur, noti
 
 Figma reste la source modifiable. SVG et documentation sont enregistrés sur dev pour la partie conception du dossier. La planche pourra être jointe en complément des six maquettes principales lors de la préparation des exports adaptés au dépôt.
 
-La tâche #5 reste ouverte. Prochaine étape : décisions et confirmations du devis côté client, puis erreurs et confirmation de sauvegarde de note mobile. Les états réseau incertain, focus, autres erreurs, validation d’ensemble et exports finaux restent à compléter.
+Les états réseau incertain, focus, autres erreurs, validation d’ensemble et exports finaux restent à compléter.

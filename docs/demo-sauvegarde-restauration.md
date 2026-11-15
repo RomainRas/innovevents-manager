@@ -1,6 +1,6 @@
-# Démonstration et restauration — 10 novembre 2026
+# Démonstration et restauration
 
-> **Note du 15 novembre 2026 :** ce document décrit l’état du projet à sa date de rédaction. Les éléments qu’il signale comme « à développer » ont pour la plupart été réalisés depuis ; l’état final, avec les limites encore valables, est dans le [bilan des fonctionnalités](bilan-fonctionnalites.md).
+> **Note :** ce document retrace l’étape où cette fonctionnalité a été développée. Les éléments qu’il signale comme « à développer » ont pour la plupart été réalisés depuis ; l’état final, avec les limites encore valables, est dans le [bilan des fonctionnalités](bilan-fonctionnalites.md).
 
 ## Résultat obtenu
 
@@ -46,7 +46,7 @@ Le lanceur crée un dossier local `backups/innovevents_restore_<identifiant>/` c
 
 Chaque restauration utilise une **nouvelle base** dans chaque moteur. Aucun remplacement de la source, aucune suppression automatique de base. Le SQL de l’archive peut temporairement désactiver ses contrôles de références pour importer les dépendances cycliques : cela reste limité à la nouvelle base de restauration. Ce n’est pas une modification du script SQL manuscrit.
 
-Contrôles réussis le 10 novembre :
+Contrôles réussis :
 
 - export SQL après restauration strictement identique à l’export de départ : schéma et données des seize tables ;
 - quatre documents MongoDB identiques, avec leurs types BSON, ainsi que validateur et index ;
@@ -59,11 +59,11 @@ Un premier essai a créé `innovevents_restore_e6372452deb5`. Un deuxième essai
 
 - [Jeu SQL écrit à la main](../database/mysql/002_demo.sql).
 - [Lanceur Python](../scripts/prepare_demo_backup.py), [outil MongoDB](../scripts/mongo-demo-backup.js), [export MySQL](../docker/mysql/dump.sh).
-- [Preuve sans mots de passe](preuves/restauration-2026-11-10.json) et ce compte rendu.
+- [Preuve sans mots de passe](preuves/restauration.json) et ce compte rendu.
 
 Cette preuve complète les [tests de contraintes](verification-bases.md). Restent les droits applicatifs restreints, les règles PHP, la concurrence, la reprise inter-bases, les fichiers PDF et une vraie sauvegarde hors poste. Une copie située sur le même ordinateur ne protège pas d’une perte du poste. Les tâches #6 et #7 restent ouvertes pour leurs autres livrables.
 
-## Mise à jour du 15 novembre 2026 — base complète et fichiers
+## Mise à jour — base complète et fichiers
 
 La base de démonstration contient désormais toutes les migrations (`003` à `015`). Nouvel essai `--backup-only`, restauration dans `innovevents_restore_1319c9ef91e3` :
 

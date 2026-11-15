@@ -1,4 +1,4 @@
-# Développement de la demande de devis — bilan du 12 novembre 2026
+# Développement de la demande de devis
 
 État : formulaire, enregistrement, notification locale, reprise sans doublon et remerciement configurable développés et testés. Le plan initial ci-dessous est conservé pour expliquer l’ordre suivi ; le bilan final précise les contrôles effectivement exécutés.
 
@@ -62,7 +62,7 @@ Protection : CSRF et origine, JSON limité à 32 Kio pour la soumission, requêt
 - Chromium à 1280 et 390 pixels : dix erreurs, focus sur la première erreur, Tab vers le champ suivant, saisie conservée, réponse réellement perdue après l’écriture puis reprise réussie, confirmation affichée comme texte, focus de succès, absence de débordement et d’erreur JavaScript. L’essai HTML injecte une réponse de test dans le navigateur ; ce n’est pas un audit XSS exhaustif.
 - Compilation Vue réussie. Capture mobile relue. Pas de conformité globale d’accessibilité ni de test de charge revendiqué.
 
-Les prospects et clés fictifs sont nettoyés précisément ; le remerciement original est rétabli. Les courriels de test et métadonnées de file restent dans l’environnement local. Rapports et captures bruts dans `tmp/`, preuve synthétique dans [demandes-devis-2026-11-12.json](preuves/demandes-devis-2026-11-12.json). Les tests de panne modifient temporairement le service de courriels et un droit SQL : les lancer hors autres opérations locales. La garantie de nettoyage ne couvre pas un arrêt brutal du processus ou de Docker.
+Les prospects et clés fictifs sont nettoyés précisément ; le remerciement original est rétabli. Les courriels de test et métadonnées de file restent dans l’environnement local. Rapports et captures bruts dans `tmp/`, preuve synthétique dans [demandes-devis.json](preuves/demandes-devis.json). Les tests de panne modifient temporairement le service de courriels et un droit SQL : les lancer hors autres opérations locales. La garantie de nettoyage ne couvre pas un arrêt brutal du processus ou de Docker.
 
 Le service PHP local traite les requêtes HTTP séquentiellement ; la concurrence des transactions a donc également été vérifiée par deux processus PHP séparés. Le test ne garantit pas tous les entrelacements possibles. La notification conserve les limites SMTP déjà documentées : doublon encore possible après envoi réussi puis échec de validation SQL.
 

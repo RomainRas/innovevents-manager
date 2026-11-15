@@ -1,12 +1,12 @@
 # Application mobile (PWA)
 
-Version du 15 novembre 2026. Partie « 2. Application mobile » du sujet : consultation et contact en mobilité pour Chloé et José.
+Partie « 2. Application mobile » du sujet : consultation et contact en mobilité pour Chloé et José.
 
 ## Choix technique : application web installable (PWA)
 
 Le sujet n’impose ni Android ni iOS ; il demande que l’application soit **« packagée avec docker »** et liste des fonctions qui reposent sur les applications du téléphone (appel, messagerie, cartographie). Une PWA répond aux deux :
 
-- elle s’installe sur l’écran d’accueil (icône, ouverture plein écran sans barre d’adresse) depuis Chrome sur Android ou Safari sur iOS (« Ajouter à l’écran d’accueil ») ;
+- elle s’installe sur l’écran d’accueil (icône, ouverture plein écran sans barre d’adresse) depuis Chrome sur Android ou Safari sur iOS (« Ajouter à l’écran d’accueil »), **sans passer par un magasin d’applications**. Une application native aurait demandé, sur iPhone, un compte Apple Developer payant, un Mac avec Xcode et la validation d’Apple, et sur Android un compte Google Play avec période de test ou l’installation d’un APK de source inconnue : ni l’équipe ni le correcteur n’auraient pu l’installer simplement (détails dans les [choix technologiques](conception/choix-technologiques.md)) ;
 - elle a son **propre conteneur Docker** (`docker/mobile/Dockerfile`), distinct du site ;
 - les liens `tel:`, `mailto:` et Google Maps ouvrent les applications natives du téléphone ;
 - les dernières données consultées restent lisibles hors ligne (service worker) ;
@@ -49,7 +49,7 @@ Adresse : `/mobile/` (en local http://127.0.0.1:5173/mobile/, en ligne https://i
 
 ## Tests
 
-| Fichier | Contrôles | Résultat du 15 novembre 2026 |
+| Fichier | Contrôles | Résultat |
 | --- | --- | --- |
 | `tests/app/mobile.py` | Connexion requise, client refusé, CSRF, tableau de bord complet et trié sans événements passés ou annulés, fiche événement, fiche contact actionnable sans champ superflu, note rapide (vide, partagée avec l’équipe), retrait de l’accès mobile, manifeste, icônes, service worker | 22/22 |
 | `tests/app/mobile-browser.cjs` | Téléphone émulé (Pixel 7, tactile) : erreur de connexion, service worker actif, tableau de bord, bouton de note visible sans défiler, note avec erreur puis enregistrée, liens appel / courriel / itinéraire, consultation **hors ligne** (liste et fiche), ajout désactivé hors ligne, déconnexion effaçant les données, client refusé, aucun débordement | 21/21, trois exécutions successives |

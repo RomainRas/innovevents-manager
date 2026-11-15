@@ -1,6 +1,6 @@
 # Enchaînement des écrans web et mobile
 
-Version du 31 octobre 2026. Tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5).
+Tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5).
 
 ## Livrables et périmètre
 
@@ -71,6 +71,6 @@ Ces contrôles portent sur la conception statique. Aucun test de navigation, de 
 
 Les schémas Figma restent modifiables ; les deux SVG et ce bilan sont sauvegardés sur dev. Ils alimenteront le dossier de conception et les exports finaux adaptés aux modalités du dépôt.
 
-La tâche #5 reste ouverte : états complémentaires, validation d’ensemble des wireframes et maquettes, exports du rendu et bilan final restent à terminer. Les diagrammes de cas d’utilisation et de séquence constituent d’autres livrables ; ces schémas d’enchaînement ne les remplacent pas.
+Les diagrammes de cas d’utilisation et de séquence constituent d’autres livrables ; ces schémas d’enchaînement ne les remplacent pas.
 
 Avant développement, compléter également la couverture des autres pages exigées : accueil, compte, connexion, mot de passe oublié, contact, événements publics, avis, mentions légales, espaces utilisateur/employé/administrateur et journalisation. Les six écrans sélectionnés ne réduisent pas le périmètre fonctionnel du projet.

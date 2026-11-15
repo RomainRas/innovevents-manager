@@ -1,6 +1,6 @@
 # Consultation et qualification négative des prospects
 
-État du 13 novembre 2026 : liste, recherche, détail et classement en échoué développés et testés localement. La [conversion en client](conversion-clients.md) a ensuite été ajoutée, avec son propre bilan et ses preuves.
+Liste, recherche, détail et classement en échoué développés et testés localement. La [conversion en client](conversion-clients.md) a ensuite été ajoutée, avec son propre bilan et ses preuves.
 
 ## Consignes et périmètre
 
@@ -38,7 +38,7 @@ Le retrait temporaire du droit d’insertion dans la file provoque un échec ré
 
 `backend/tests/prospect-permissions.php` vérifie cinq refus SQL. `tests/app/prospects-browser.cjs`, lancé par le test Python avec ses fiches fictives, contrôle Chromium à 1280 et 390 px : retour après connexion, recherche, fiche, confirmation obligatoire, réponse perdue après enregistrement puis reprise, affichage en texte, focus sur le résultat, absence de débordement et d’erreur JavaScript. Capture mobile relue et compilation Vue réussie.
 
-Les rapports et captures bruts restent dans `tmp/`. [Preuve synthétique sans secret](preuves/qualification-prospects-2026-11-13.json). Aucun audit exhaustif d’accessibilité, test de charge ou essai de concurrence de qualification par deux administrateurs n’est revendiqué. La réception unique après nouvelle tentative n’annule pas les limites SMTP documentées : un arrêt après envoi et avant validation SQL peut encore produire un doublon.
+Les rapports et captures bruts restent dans `tmp/`. [Preuve synthétique sans secret](preuves/qualification-prospects.json). Aucun audit exhaustif d’accessibilité, test de charge ou essai de concurrence de qualification par deux administrateurs n’est revendiqué. La réception unique après nouvelle tentative n’annule pas les limites SMTP documentées : un arrêt après envoi et avant validation SQL peut encore produire un doublon.
 
 ## Rendu et suite
 

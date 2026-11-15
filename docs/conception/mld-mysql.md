@@ -1,6 +1,6 @@
 # Modèle logique et préparation physique MySQL — v1
 
-9 novembre 2026. Proposition de conception, sans script exécuté ni base installée. Ce document traduit le [MCD](mcd-relationnel.md) et le [dictionnaire](dictionnaire-donnees.md). Le sujet demande un MCD, un script SQL écrit à la main, un jeu d'essai et une restauration (énoncé p. 17) : ce document prépare ces travaux, il ne les remplace pas.
+Proposition de conception, sans script exécuté ni base installée. Ce document traduit le [MCD](mcd-relationnel.md) et le [dictionnaire](dictionnaire-donnees.md). Le sujet demande un MCD, un script SQL écrit à la main, un jeu d'essai et une restauration (énoncé p. 17) : ce document prépare ces travaux, il ne les remplace pas.
 
 ## Conventions retenues
 

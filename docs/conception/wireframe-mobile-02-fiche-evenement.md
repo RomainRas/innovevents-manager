@@ -1,6 +1,6 @@
 # Wireframe mobile 02 - Fiche événement et ajout de note
 
-Version du 18 octobre 2026. Tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5).
+Tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5).
 
 ## Travail réalisé et fichiers
 
@@ -81,4 +81,3 @@ Les notes et l’état complémentaire ne sont pas comptés comme des wireframes
 - Maquettes : 0 sur 6.
 - Charte graphique et enchaînement : à réaliser.
 
-La tâche #5 reste ouverte. Prochaine étape : fiche client mobile avec appel, courriel et itinéraire.

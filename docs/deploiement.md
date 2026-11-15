@@ -1,4 +1,4 @@
-# Déploiement en production — 14 novembre 2026
+# Déploiement en production
 
 ## Architecture en ligne
 
@@ -9,7 +9,7 @@
 | Service | Rôle | Exposition |
 | --- | --- | --- |
 | `caddy` | Serveur web : HTTPS automatique Let's Encrypt, fichiers Vue compilés, en-têtes de sécurité, transmission de `/api` à PHP-FPM et de `/mobile/` au conteneur `mobile` | Ports 80 et 443, seuls ports publics |
-| `mobile` | Application mobile (PWA) compilée, servie par un Caddy interne (`docker/mobile/Dockerfile`), ajoutée le 15 novembre 2026 | Réseau interne (port 8080) |
+| `mobile` | Application mobile (PWA) compilée, servie par un Caddy interne (`docker/mobile/Dockerfile`), ajoutée | Réseau interne (port 8080) |
 | `api` | PHP 8.4-FPM, code et dépendances inclus dans l'image (`docker/php/Dockerfile.prod`) | Réseau interne |
 | `mail_worker`, `journal_worker` | Envoi des courriels et livraison des journaux vers MongoDB | Réseau interne |
 | `mysql`, `mongodb` | Bases MySQL 8.4 et MongoDB 8.0, volumes persistants | Réseau interne, aucun port publié |
@@ -35,7 +35,7 @@ Côté application : HTTPS forcé avec HSTS, cookie de session `Secure`/`HttpOnl
 
 - `.env` (non versionné, modèle `scripts/server/env.example`) : domaine, adresse de l'agence, expéditeur, paramètres SMTP.
 - `.secrets/` (non versionné, dossier `700`) : tous les mots de passe des bases et la clé de chiffrement de la file de courriels sont **générés sur le serveur** par `deploy.sh` (`openssl rand -hex 32`). Aucun n'est transmis ni affiché.
-- Le mot de passe de la boîte d'envoi est saisi directement sur le serveur, en saisie masquée par SSH, dans `.secrets/smtp-password.txt` ; il ne transite ni par Git, ni par GitHub, ni par l'assistant. La connexion SMTP est testée (authentification seule) avant d'activer l'envoi.
+- Le mot de passe de la boîte d'envoi est saisi directement sur le serveur, en saisie masquée par SSH, dans `.secrets/smtp-password.txt` ; il ne transite ni par Git ni par GitHub. La connexion SMTP est testée (authentification seule) avant d'activer l'envoi.
 - Clé SSH de déploiement dédiée à GitHub Actions (ed25519, sans autre usage) : autorisée sur le compte `deploy` avec l'option `restrict` (ni terminal interactif, ni redirection de ports). Empreinte du serveur fixée dans `DEPLOY_KNOWN_HOSTS` pour éviter une interception.
 
 ## Déploiement
@@ -70,10 +70,10 @@ Redéploiement manuel (sans GitHub) : depuis le dossier du dépôt, `git archive
 - Un seul serveur, sans redondance ; la sauvegarde automatique des bases et des fichiers (PDF, images) vers un stockage externe reste à planifier.
 - L'image PHP de base n'est pas épinglée par empreinte (`php:8.4-fpm-bookworm`) ; les mises à jour de sécurité de l'image sont prises à chaque construction (`--pull`).
 
-## Vérifications du 14 novembre 2026
+## Vérifications
 
 - Premier déploiement complet par `deploy.sh` : images construites sur le serveur, jeu de démonstration créé avec sauvegarde et restauration vérifiées, onze scripts de migration et de droits exécutés, tous les conteneurs déclarés sains.
-- HTTP redirigé vers HTTPS (308) ; certificat Let's Encrypt valide jusqu'au 12 février 2027, renouvelé automatiquement par Caddy.
+- HTTP redirigé vers HTTPS (308) ; certificat Let's Encrypt valide, renouvelé automatiquement par Caddy.
 - En-têtes présents : HSTS, CSP, `X-Frame-Options: DENY`, `nosniff`, `Referrer-Policy`, `Permissions-Policy`.
 - API en ligne : `/api/health` prêt (MySQL et MongoDB joignables), jeton CSRF, cookie de session `Secure; HttpOnly; SameSite=Lax`.
 - Essais en ligne : connexions de Chloé, José et Alice ; suivi des devis, prospects et journaux MongoDB pour l'administratrice ; espace client ; refus d'accès administrateur pour la cliente ; notes pour l'employé ; mauvais mot de passe refusé.

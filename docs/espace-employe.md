@@ -1,6 +1,6 @@
 # Espace employé : clients, événements, notes et tâches
 
-Version du 15 novembre 2026. Exigence couverte : EMP-01 (consultation des clients et événements, notes collaboratives, statut des tâches assignées ; la modération des avis est décrite dans [espace-client-avis.md](espace-client-avis.md)). L’administratrice hérite de toutes ces fonctions.
+Exigence couverte : EMP-01 (consultation des clients et événements, notes collaboratives, statut des tâches assignées ; la modération des avis est décrite dans [espace-client-avis.md](espace-client-avis.md)). L’administratrice hérite de toutes ces fonctions.
 
 ## Écrans
 
@@ -23,7 +23,7 @@ Les liens se trouvent dans « Mon espace » pour les employés et l’administra
 
 ## Tests
 
-| Fichier | Contrôles | Résultat du 15 novembre 2026 |
+| Fichier | Contrôles | Résultat |
 | --- | --- | --- |
 | `tests/app/team-space.py` | Droits (client refusé, CSRF), liste et recherche des clients (injection inoffensive), fiche et historique, liste et filtre des événements, fiche projet, notes (vide, longue accentuée, auteur, collègue refusé, administratrice, tableau de bord), tâches (étapes, conflit, non assignée, autre personne), absence d’écriture SQL sur clients et événements | 36/36 |
 | `tests/app/team-space-browser.cjs` | José à 390 px : recherche, fiche client, fiche événement, tâche, note avec erreur, ajout et modification ; Chloé à 1280 px : filtre, note d’un collègue, suppression annulée puis confirmée ; focus et absence de débordement | 18/18, trois exécutions successives |

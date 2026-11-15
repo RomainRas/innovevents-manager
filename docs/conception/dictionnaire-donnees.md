@@ -1,6 +1,6 @@
 # Dictionnaire des données — première version
 
-Date : 9 novembre 2026. Travail de conception pour la tâche #6, sans création ni installation de base. Ce document prépare le MCD ; les noms de tables, cardinalités et règles supplémentaires sont des choix de projet, sauf mention explicite du sujet.
+Travail de conception pour la tâche #6, sans création ni installation de base. Ce document prépare le MCD ; les noms de tables, cardinalités et règles supplémentaires sont des choix de projet, sauf mention explicite du sujet.
 
 ## Sources et périmètre
 

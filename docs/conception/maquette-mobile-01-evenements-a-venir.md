@@ -1,6 +1,6 @@
 # Maquette mobile 01 - Événements à venir
 
-Version du 29 octobre 2026. Tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5).
+Tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5).
 
 ## Travail réalisé
 
@@ -39,4 +39,4 @@ Aucun fonctionnement hors connexion, accès effectif aux données ou test sur ap
 
 Figma reste la source modifiable. SVG et explication sauvegardés sur dev ; exports de rendu à préparer selon les modalités du dépôt.
 
-Avancement : maquettes web 3/3, maquettes mobile 1/3, toutes en première version. La tâche #5 reste ouverte. Prochaine étape : maquette mobile de la fiche événement avec ajout de note.
+Avancement : maquettes web 3/3, maquettes mobile 1/3, toutes en première version.

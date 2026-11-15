@@ -1,6 +1,6 @@
 # Maquette mobile 02 - Fiche événement et ajout de note
 
-Version du 31 octobre 2026, actualisée le 3 novembre 2026. Tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5).
+Tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5).
 
 ## Travail réalisé et fichiers
 
@@ -49,4 +49,4 @@ Il s’agit de maquettes statiques : aucune navigation ni sauvegarde réelle de 
 
 Figma reste la source modifiable ; les deux SVG et cette explication sont enregistrés sur dev. Ils serviront à préparer la partie conception du dossier. Les exports PDF/PNG adaptés au dépôt final restent à préparer après validation des écrans.
 
-Avancement actualisé : six maquettes principales et deux schémas d’enchaînement réalisés en première version, plus la saisie et les états complémentaires. Voir le [bilan de couverture](bilan-couverture-ecrans.md) pour les compléments prioritaires, les autres pages et les conditions de clôture. La tâche #5 reste ouverte ; validation et exports finaux restent à préparer.
+Avancement actualisé : six maquettes principales et deux schémas d’enchaînement réalisés en première version, plus la saisie et les états complémentaires. Voir le [bilan de couverture](bilan-couverture-ecrans.md) pour les compléments prioritaires, les autres pages et les conditions de clôture.

@@ -1,5 +1,5 @@
 # États de la note mobile
-Version du 3 novembre 2026. Tâche #5 ouverte.
+Tâche #5.
 
 [Planche Figma](https://www.figma.com/design/eAJJZyMSjoOff7mA1pNpCU?node-id=72-349) — 1362 × 1100 pixels.
 [Export SVG](../maquettes/mobile-02-etats-note.svg).
@@ -30,4 +30,4 @@ Planche complète relue après correction des retours à la ligne : aucun chevau
 Aucune note réelle enregistrée et aucun test fonctionnel exécuté : il s’agit d’une conception statique.
 
 ## Sauvegarde et rendu
-Figma conserve la source modifiable ; SVG et bilan sauvegardés sur dev pour compléter le dossier de conception. La tâche #5 reste ouverte pour la relecture globale, les variantes transversales et les exports finaux. Prochaine étape : faire le bilan de couverture des écrans et états pour identifier précisément ce qu’il reste à finaliser.
+Figma conserve la source modifiable ; SVG et bilan sauvegardés sur dev pour compléter le dossier de conception.

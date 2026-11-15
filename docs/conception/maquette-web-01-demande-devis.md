@@ -1,6 +1,6 @@
 # Maquette web 01 - Demande de devis
 
-Maquette initiale du 18 octobre 2026 ; suivi des états mis à jour le 3 novembre 2026. Tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5).
+Tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5).
 
 ## Travail réalisé
 
@@ -43,7 +43,7 @@ Les règles décrites dans le document du wireframe restent applicables :
 - Conserver la demande si seul le courriel de notification échoue.
 - Prévoir un focus visible, une navigation clavier cohérente et des erreurs compréhensibles.
 
-La maquette principale montre l’état initial. Depuis le 3 novembre, une [planche complémentaire](etats-demande-devis.md) représente la confirmation, les erreurs de saisie, l’envoi en cours et l’échec d’enregistrement confirmé. Le focus et le résultat réseau incertain restent à dessiner. Ces variantes sont statiques ; les règles documentées ne sont pas des fonctions déjà développées.
+La maquette principale montre l’état initial. une [planche complémentaire](etats-demande-devis.md) représente la confirmation, les erreurs de saisie, l’envoi en cours et l’échec d’enregistrement confirmé. Le focus et le résultat réseau incertain restent à dessiner. Ces variantes sont statiques ; les règles documentées ne sont pas des fonctions déjà développées.
 
 ## Vérifications
 
@@ -59,7 +59,7 @@ Aucun test fonctionnel, serveur, clavier ou mobile n’a été exécuté. La maq
 
 Source modifiable dans Figma ; SVG et explication sauvegardés sur dev. Les wireframes d’origine restent distincts. Pour le rendu, préparer un export PDF ou des images lisibles intégrées au dossier, selon le format accepté par la plateforme.
 
-Avancement au 3 novembre : six wireframes, six maquettes principales, les schémas d’enchaînement et cette planche d’états existent en première version. La tâche #5 reste ouverte pour les autres états complémentaires, la validation d’ensemble et les exports finaux.
+Avancement : six wireframes, six maquettes principales, les schémas d’enchaînement et cette planche d’états existent en première version.
 
-## Adaptation aux petits écrans — 3 novembre 2026
+## Adaptation aux petits écrans
 Une variante à 390 pixels et son menu déplié sont maintenant dessinés, relus et sauvegardés. Voir les [visuels, règles de réorganisation et vérifications](adaptation-web-petits-ecrans.md). Cette étape complète les mentions antérieures de responsive restant à préparer ; les tests sur navigateur et appareil restent à réaliser pendant le développement. La relecture finale et les exports de rendu restent à terminer.

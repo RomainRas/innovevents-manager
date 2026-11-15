@@ -1,6 +1,6 @@
-# Connexion web, sessions et premiers droits — 12 novembre 2026
+# Connexion web, sessions et premiers droits
 
-> **Note du 15 novembre 2026 :** ce document décrit l’état du projet à sa date de rédaction. Les éléments qu’il signale comme « à développer » ont pour la plupart été réalisés depuis ; l’état final, avec les limites encore valables, est dans le [bilan des fonctionnalités](bilan-fonctionnalites.md).
+> **Note :** ce document retrace l’étape où cette fonctionnalité a été développée. Les éléments qu’il signale comme « à développer » ont pour la plupart été réalisés depuis ; l’état final, avec les limites encore valables, est dans le [bilan des fonctionnalités](bilan-fonctionnalites.md).
 
 ## Ce qui fonctionne
 
@@ -35,7 +35,7 @@ Les traces issues des tests sont conservées, y compris les identifiants de comp
 
 ## Vérifications exécutées
 
-[Preuve détaillée sans secret](preuves/authentification-2026-11-12.json).
+[Preuve détaillée sans secret](preuves/authentification.json).
 
 - 26 contrôles HTTP : anonymat, cookie, CSRF, origine, erreur générique, rôle imposé côté serveur, rotation, absence de hash, séparation des événements de deux clients, accès interdits, suspension, changement de mot de passe requis, déconnexion, héritage administrateur, journaux et limite entre sessions.
 - 2 contrôles de panne MongoDB : connexion refusée et absence de session authentifiée ; MongoDB relancé dans un bloc de nettoyage garanti.
@@ -64,4 +64,4 @@ Comptes locaux : `alice@example.invalid`, `jose@example.invalid`, `chloe@example
 
 L’inscription, la confirmation locale et la récupération/changement sont maintenant disponibles : voir [Parcours de compte](parcours-comptes.md). Restent les autorisations d’écriture et contrôles de propriété sur chaque future action, le mobile Android, HTTPS/proxy de confiance, la reprise durable des journaux et les tests de concurrence.
 
-Sources techniques consultées le 12 novembre : [sessions PHP](https://www.php.net/manual/en/session.security.ini.php), [authentification OWASP](https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html), [protection CSRF OWASP](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html).
+Sources techniques consultées : [sessions PHP](https://www.php.net/manual/en/session.security.ini.php), [authentification OWASP](https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html), [protection CSRF OWASP](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html).

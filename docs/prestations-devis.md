@@ -1,6 +1,6 @@
-# Prestations et calculs du devis — 14 novembre 2026
+# Prestations et calculs du devis
 
-> **Note du 15 novembre 2026 :** ce document décrit l’état du projet à sa date de rédaction. Les éléments qu’il signale comme « à développer » ont pour la plupart été réalisés depuis ; l’état final, avec les limites encore valables, est dans le [bilan des fonctionnalités](bilan-fonctionnalites.md).
+> **Note :** ce document retrace l’étape où cette fonctionnalité a été développée. Les éléments qu’il signale comme « à développer » ont pour la plupart été réalisés depuis ; l’état final, avec les limites encore valables, est dans le [bilan des fonctionnalités](bilan-fonctionnalites.md).
 
 Depuis la fiche événement, « Préparer les prestations et le devis » ouvre le formulaire administrateur : ajout/suppression de lignes (libellé et montant HT), taux de TVA, calcul et enregistrement. Les totaux deviennent visibles après validation serveur ; une modification de la saisie masque les anciens totaux jusqu’au prochain enregistrement.
 
@@ -26,6 +26,6 @@ Le compte SQL dédié lit les données nécessaires, crée le dossier/version, r
 - Chromium 1280/390 px : retour après connexion, erreurs et focus, deux lignes, reprise après perte de confirmation simulée côté navigateur après écriture réelle, suppression d’une ligne, disparition des totaux périmés, persistance et absence de débordement/erreur JavaScript. Capture mobile relue.
 - Compilation Vue réussie ; droit SQL rétabli et fiches fictives nettoyées.
 
-Tests dans `backend/tests/quote-amounts.php`, `quote-drafts-permissions.php`, `tests/app/quote-drafts.py` et `quote-drafts-browser.cjs`. L’essai HTTP retire brièvement un droit SQL : exécution locale hors autre travail concurrent. Le nettoyage/restauration est dans `finally`, sauf arrêt brutal. [Preuve](preuves/prestations-devis-2026-11-14.json).
+Tests dans `backend/tests/quote-amounts.php`, `quote-drafts-permissions.php`, `tests/app/quote-drafts.py` et `quote-drafts-browser.cjs`. L’essai HTTP retire brièvement un droit SQL : exécution locale hors autre travail concurrent. Le nettoyage/restauration est dans `finally`, sauf arrêt brutal. [Preuve](preuves/prestations-devis.json).
 
 La génération PDF, son journal MongoDB, le téléchargement, l’envoi, le compte client, les décisions et les nouvelles versions après demande de modification restent à réaliser. Pas de couverture de code, de test de charge ou de déploiement revendiqué pour cette étape.

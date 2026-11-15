@@ -1,6 +1,6 @@
 # Gestion des fiches clients et des événements (administratrice)
 
-Version du 15 novembre 2026. Exigences couvertes : Chloé gère tous les événements (création, modification, suppression, statut « accepté », « en cours », « terminé » ou « annulé ») et les clients (création, modification, suppression), avec la journalisation demandée.
+Exigences couvertes : Chloé gère tous les événements (création, modification, suppression, statut « accepté », « en cours », « terminé » ou « annulé ») et les clients (création, modification, suppression), avec la journalisation demandée.
 
 ## Où
 
@@ -39,7 +39,7 @@ Compte MySQL dédié `ecf_records` (`scripts/provision-records.py`, aucune migra
 
 ## Tests
 
-| Fichier | Contrôles | Résultat du 15 novembre 2026 |
+| Fichier | Contrôles | Résultat |
 | --- | --- | --- |
 | `tests/app/admin-records.py` | Réservé à l’administratrice, CSRF, création / modification / suppression de client et journal, création d’événement sans demande, dates vérifiées, révision, statuts (invalide, inchangé, dates requises, annulation définitive) et journal, tâches (responsable vérifié, non assignée, suppression), suppressions protégées (devis, compte, événements), suppression en cascade des notes, **livraison du journal dans MongoDB**, aucun droit d’écriture sur les devis | 36/36 |
 | `tests/app/admin-records-browser.cjs` | Parcours de Chloé à 1280 px puis 390 px : fiche client (erreur, création, modification), événement créé pour ce client, statut, tâche ajoutée puis supprimée, modification, événement avec devis protégé, suppressions ; focus et absence de débordement | 20/20, trois exécutions successives |

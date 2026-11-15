@@ -1,6 +1,6 @@
 # Installation et exécution en local
 
-Version du 15 novembre 2026, vérifiée sur Windows 11 avec Docker Desktop. L’historique détaillé de la mise en place est dans [environnement-local.md](environnement-local.md) et [environnement-application.md](environnement-application.md).
+Vérifiée sur Windows 11 avec Docker Desktop. L’historique détaillé de la mise en place est dans [environnement-local.md](environnement-local.md) et [environnement-application.md](environnement-application.md).
 
 ## Prérequis
 

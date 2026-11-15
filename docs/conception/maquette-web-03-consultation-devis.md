@@ -1,6 +1,6 @@
 # Maquette web 03 - Consultation du devis
 
-Maquette initiale du 18 octobre 2026 ; suivi des états mis à jour le 3 novembre 2026. Tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5).
+Tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5).
 
 ## Travail réalisé
 
@@ -40,7 +40,7 @@ Les règles documentées dans le wireframe restent applicables : confirmation av
 
 Après succès, le statut et un message doivent remplacer les actions. En cas d’échec d’enregistrement, ne pas annoncer un succès. L’échec du seul courriel ne doit pas effacer une acceptation enregistrée.
 
-Cette maquette montre le devis en étude côté client. Depuis le 3 novembre, [deux planches complémentaires](etats-decisions-devis.md) représentent dix extraits : confirmations, résultats, motif requis, traitement en cours, échec confirmé, version remplacée et résultat réseau incertain. Ils restent statiques ; les interactions et contrôles serveur sont à développer. Aucun courriel ni aucune réponse réelle n’a été envoyé.
+Cette maquette montre le devis en étude côté client. [deux planches complémentaires](etats-decisions-devis.md) représentent dix extraits : confirmations, résultats, motif requis, traitement en cours, échec confirmé, version remplacée et résultat réseau incertain. Ils restent statiques ; les interactions et contrôles serveur sont à développer. Aucun courriel ni aucune réponse réelle n’a été envoyé.
 
 ## Vérifications
 
@@ -55,9 +55,7 @@ Aucun test fonctionnel, d’autorisation, d’accessibilité clavier ou de respo
 
 Figma reste la source modifiable. SVG et documentation sont sauvegardés sur dev. Les exports pour le dossier final seront préparés selon le format accepté au dépôt.
 
-Avancement au 3 novembre : six wireframes, six maquettes principales, les schémas d’enchaînement et les états complémentaires de demande et de décision du devis existent en première version. La tâche #5 reste ouverte pour les autres états, la validation d’ensemble et les exports.
+Avancement : six wireframes, six maquettes principales, les schémas d’enchaînement et les états complémentaires de demande et de décision du devis existent en première version.
 
-Prochaine étape : états de validation et de sauvegarde de note mobile.
-
-## Adaptation aux petits écrans — 3 novembre 2026
+## Adaptation aux petits écrans
 Une variante à 390 pixels et son menu déplié sont maintenant dessinés, relus et sauvegardés. Voir les [visuels, règles de réorganisation et vérifications](adaptation-web-petits-ecrans.md). Cette étape complète les mentions antérieures de responsive restant à préparer ; les tests sur navigateur et appareil restent à réaliser pendant le développement. La relecture finale et les exports de rendu restent à terminer.

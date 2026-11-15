@@ -1,6 +1,6 @@
-# Bilan des fonctionnalités — rendu du 19 novembre 2026
+# Bilan des fonctionnalités
 
-État au 15 novembre 2026. « Réalisé » signifie développé, testé automatiquement et déployé en ligne. Les limites sont celles constatées, pas des intentions.
+« Réalisé » signifie développé, testé automatiquement et déployé en ligne. Les limites sont celles constatées, pas des intentions.
 
 ## 1. Application web
 

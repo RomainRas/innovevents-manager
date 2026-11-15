@@ -1,6 +1,6 @@
-# Génération et téléchargement du devis PDF — 14 novembre 2026
+# Génération et téléchargement du devis PDF
 
-> **Note du 15 novembre 2026 :** ce document décrit l’état du projet à sa date de rédaction. Les éléments qu’il signale comme « à développer » ont pour la plupart été réalisés depuis ; l’état final, avec les limites encore valables, est dans le [bilan des fonctionnalités](bilan-fonctionnalites.md).
+> **Note :** ce document retrace l’étape où cette fonctionnalité a été développée. Les éléments qu’il signale comme « à développer » ont pour la plupart été réalisés depuis ; l’état final, avec les limites encore valables, est dans le [bilan des fonctionnalités](bilan-fonctionnalites.md).
 
 ## Périmètre et utilisation
 
@@ -43,7 +43,7 @@ Tests : `tests/app/quote-pdf.py`, `quote-pdf-browser.cjs` et `backend/tests/quot
 
 Les exemples locaux sont dans `tmp/quote-pdf`, hors Git. Les preuves exécutées sont conservées séparément. Pas de garantie de transaction distribuée entre fichier, MySQL et MongoDB ; aucune mesure de couverture, charge, concurrence multi-processus ou conformité PDF accessible complète revendiquée.
 
-## Résultats exécutés le 14 novembre
+## Résultats exécutés
 
 - 22 contrôles serveur/données et six refus SQL réussis ; génération, reprises, invalidation, confidentialité, trace MongoDB et annulation si le journal échoue.
 - Chromium 1280/390 px : génération, reprise après confirmation perdue simulée, focus, blocage du formulaire concurrent, téléchargement réel, rechargement et masquage du PDF après saisie non enregistrée.
@@ -51,4 +51,4 @@ Les exemples locaux sont dans `tmp/quote-pdf`, hors Git. Les preuves exécutées
 - Compilation Vue et construction Docker réussies ; Dompdf 3.1.6 verrouillé, cinq nouveaux paquets au total, sans modification des paquets existants.
 - Droit SQL rétabli et fiches fictives nettoyées. Traces et fichiers fictifs conservés.
 
-[Preuve sans secrets](preuves/devis-pdf-2026-11-14.json). Aucun envoi ni accès client au PDF réalisé à ce stade.
+[Preuve sans secrets](preuves/devis-pdf.json). Aucun envoi ni accès client au PDF réalisé à ce stade.

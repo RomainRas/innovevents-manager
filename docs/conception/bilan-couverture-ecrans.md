@@ -1,7 +1,7 @@
 # Bilan de couverture des écrans
 
-> **Note du 15 novembre 2026 :** ce document décrit l’état du projet à sa date de rédaction. L’état final des fonctionnalités, avec les limites encore valables, est dans le [bilan des fonctionnalités](../bilan-fonctionnalites.md).
-Version du 3 novembre 2026 — tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5), toujours ouverte.
+> **Note :** ce document retrace l’étape de conception des écrans. L’état final des fonctionnalités, avec les limites encore valables, est dans le [bilan des fonctionnalités](../bilan-fonctionnalites.md).
+Tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5).
 
 ## Objet et sources
 Comparer les représentations sauvegardées aux besoins de l’application, puis fixer la suite du travail.
@@ -60,9 +60,9 @@ Figma conserve les sources modifiables ; les SVG sont sauvegardés dans docs/maq
 ## Compléments prioritaires sur les écrans sélectionnés
 Les états d’attente, d’échec, de confirmation et les protections contre les doubles actions sont des choix de conception pour rendre les parcours utilisables. Le sujet ne prescrit pas un nombre de planches d’états.
 
-1. **WEB02 complété par douze extraits le 3 novembre** : voir les [états de préparation et transmission](etats-preparation-transmission-devis.md). Le formulaire avec erreurs intégrées et les montants renseignés reste à vérifier lors de la relecture. Périmètre traité : devis complet prêt à générer, champs incohérents, génération en cours/échec, PDF disponible, envoi en cours/réussi/échoué. Distinguer téléchargement pour envoi manuel et envoi par la plateforme. Ne pas inventer un taux de TVA, une devise ou une règle d’arrondi comme exigence du sujet.
-2. **États communs dessinés le 3 novembre** : [six modèles et règles d’application](etats-communs-consultation-acces.md). Modèles préparés pour listes vides, chargement, échec de lecture, session expirée et accès refusé. Les appliquer aux écrans concernés sans produire une planche identique par page.
-3. **Cas de contact mobile dessinés le 3 novembre** : [six états et comportements associés](etats-contact-mobile.md), couvrant coordonnées absentes ou application externe indisponible. Conserver la distinction entre adresse du client et lieu de l’événement.
+1. **WEB02 complété par douze extraits** : voir les [états de préparation et transmission](etats-preparation-transmission-devis.md). Le formulaire avec erreurs intégrées et les montants renseignés reste à vérifier lors de la relecture. Périmètre traité : devis complet prêt à générer, champs incohérents, génération en cours/échec, PDF disponible, envoi en cours/réussi/échoué. Distinguer téléchargement pour envoi manuel et envoi par la plateforme. Ne pas inventer un taux de TVA, une devise ou une règle d’arrondi comme exigence du sujet.
+2. **États communs dessinés** : [six modèles et règles d’application](etats-communs-consultation-acces.md). Modèles préparés pour listes vides, chargement, échec de lecture, session expirée et accès refusé. Les appliquer aux écrans concernés sans produire une planche identique par page.
+3. **Cas de contact mobile dessinés** : [six états et comportements associés](etats-contact-mobile.md), couvrant coordonnées absentes ou application externe indisponible. Conserver la distinction entre adresse du client et lieu de l’événement.
 4. **Vérifier les petits écrans web et le focus** : les [compléments formulaires](formulaires-reprise-erreurs-focus.md) illustrent désormais le résultat incertain de WEB01, les erreurs près des champs de WEB02 et un exemple de focus. les trois écrans de l’application mobile ne prouvent pas l’adaptation du site web. Vérifier ensuite ces comportements dans l’application.
 5. **Relire et préparer les exports** : cohérence des rôles, libellés, champs, transitions, messages, lisibilité et correspondance wireframe/maquette. Corriger puis exporter les versions retenues.
 
@@ -81,13 +81,12 @@ Ce bilan est enregistré sur dev et référencé dans #5. Il sert de plan de tra
 
 Pour le rendu, utiliser la copie fournie conformément à la notice. Les exports lisibles seront intégrés au dossier ou joints selon les possibilités de dépôt. La notice prévoit la fusion en un PDF si plusieurs fichiers doivent être remis dans un seul espace. Les formats et tailles réellement acceptés doivent être vérifiés sur la plateforme ; ils ne sont pas établis ici.
 
-La tâche #5 reste ouverte jusqu’à la relecture et validation des douze représentations, de la charte et de l’enchaînement, puis la sauvegarde des exports retenus et du bilan de clôture. Les SVG et les deux PDF de relecture sont disponibles ; la validation de Romain reste à enregistrer. Les autres pages et les diagrammes doivent être suivis explicitement dans la suite du projet, sans prétendre que #5 clôture toute la conception.
+Les SVG et les deux PDF de relecture sont disponibles. Les diagrammes sont regroupés dans [diagrammes.md](diagrammes.md).
 
-**Prochaine action : validation avec Romain des exports préparés, puis conception des données et des diagrammes.**
 
-## Mise à jour — Adaptation web du 3 novembre 2026
+## Mise à jour — Adaptation web
 Les trois variantes web à 390 pixels et trois menus dépliés sont désormais dessinés, relus et sauvegardés. Voir [adaptation web aux petits écrans](adaptation-web-petits-ecrans.md) pour les SVG, la présence des champs/actions, les contrôles de largeur et les limites. Cette réalisation met à jour le point 4 ci-dessus : la conception à 390 pixels est faite ; le fonctionnement sur navigateur, les autres largeurs et le clavier restent à tester après développement. L’ensemble des autres pages du projet n’est pas pour autant maquetté.
 
-## Mise à jour — Relecture et exports du 7 novembre 2026
+## Mise à jour — Relecture et exports
 
-Les deux PDF sont préparés et contrôlés : dossier principal de 17 pages et annexe de 18 pages. Voir le [bilan de relecture et les liens de téléchargement](relecture-et-exports.md). Cette étape complète le point 5 ci-dessus. Les interactions restent statiques ; la validation de Romain et le bilan de clôture de #5 restent à enregistrer.
+Les deux PDF sont préparés et contrôlés : dossier principal de 17 pages et annexe de 18 pages. Voir le [bilan de relecture et les liens de téléchargement](relecture-et-exports.md). Cette étape complète le point 5 ci-dessus. Les maquettes sont statiques ; les interactions ont ensuite été développées dans l’application.

@@ -1,5 +1,5 @@
 # Adaptation des écrans web aux petits écrans
-Version du 3 novembre 2026 — tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5), ouverte.
+Tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5).
 
 ## Travail réalisé
 Trois variantes à 390 pixels de large adaptent les maquettes web existantes. Elles représentent le site web consulté sur téléphone ; elles sont distinctes des trois écrans de l’application mobile destinée à Chloé et José.
@@ -75,4 +75,4 @@ L’application n’est pas encore implémentée. Aucun envoi, calcul, contrôle
 ## Rendu et suivi
 Figma reste la source modifiable ; les six SVG et ce document sont sauvegardés sur dev pour préparer la partie conception du dossier. Les vues très longues devront être présentées en pages lisibles ou extraits ordonnés dans les exports finaux, sans réduction rendant les textes illisibles.
 
-La tâche #5 reste ouverte. Suite : relecture finale de cohérence entre les écrans, les droits et les parcours, sélection des visuels à remettre, validation avec Romain et préparation des exports de rendu. Le [bilan de couverture](bilan-couverture-ecrans.md) continue de distinguer ces écrans représentatifs des autres pages à concevoir pour l’application.
+Le [bilan de couverture](bilan-couverture-ecrans.md) distingue ces écrans représentatifs des autres pages de l’application.

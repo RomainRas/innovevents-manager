@@ -1,5 +1,5 @@
 # États communs de consultation et d’accès
-Version du 3 novembre 2026 — tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5), ouverte.
+Tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5).
 
 ## Travail réalisé et sauvegardes
 Une planche de six extraits réutilisables complète les écrans principaux :

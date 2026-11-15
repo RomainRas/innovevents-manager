@@ -1,6 +1,6 @@
 # Maquette mobile 03 - Fiche client
 
-Version du 31 octobre 2026, actualisée le 3 novembre 2026. Tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5).
+Tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5).
 
 ## Travail réalisé et fichiers
 
@@ -44,4 +44,4 @@ Figma conserve la source modifiable. Le SVG et cette explication sont sauvegard�
 
 Les six maquettes principales existent désormais en première version : trois web et trois mobile. L’écran de saisie de note reste un état complémentaire, non compté parmi les six. Les six wireframes principaux sont également disponibles.
 
-La tâche #5 reste ouverte. Les enchaînements, états communs et états de contact sont maintenant réalisés en première version. Restent notamment les derniers états des formulaires, l’adaptation web, le focus, la validation d’ensemble et les exports ; voir le [bilan de couverture](bilan-couverture-ecrans.md).
+Les enchaînements, états communs et états de contact sont maintenant réalisés en première version. Restent notamment les derniers états des formulaires, l’adaptation web, le focus, la validation d’ensemble et les exports ; voir le [bilan de couverture](bilan-couverture-ecrans.md).

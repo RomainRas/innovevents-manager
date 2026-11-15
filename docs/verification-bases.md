@@ -1,6 +1,6 @@
-# Vérification réelle des bases — 9 novembre 2026
+# Vérification réelle des bases
 
-> **Note du 15 novembre 2026 :** ce document décrit l’état du projet à sa date de rédaction. Les éléments qu’il signale comme « à développer » ont pour la plupart été réalisés depuis ; l’état final, avec les limites encore valables, est dans le [bilan des fonctionnalités](bilan-fonctionnalites.md).
+> **Note :** ce document retrace l’étape où cette fonctionnalité a été développée. Les éléments qu’il signale comme « à développer » ont pour la plupart été réalisés depuis ; l’état final, avec les limites encore valables, est dans le [bilan des fonctionnalités](bilan-fonctionnalites.md).
 
 ## Environnement et résultat
 
@@ -58,6 +58,6 @@ Ces résultats vérifient des contraintes de stockage, pas l’application compl
 
 Le client MySQL refusait le fichier secret monté depuis Windows parce qu’il apparaissait accessible en écriture à tous. [Le lanceur client](../docker/mysql/client.sh) crée une copie temporaire privée avec un masque 077 et la retire à la sortie ; le contrôle de santé et les tests passent par ce lanceur. Les secrets restent locaux, exclus de Git et du rendu.
 
-## Mise à jour du 10 novembre 2026
+## Mise à jour
 
-Le jeu permanent existe désormais dans innovevents_demo, distinct de la base de tests. Les sauvegardes et restaurations MySQL/MongoDB ont réussi dans de nouvelles bases, y compris un deuxième essai sans réinitialisation. Voir [le guide et les preuves](demo-sauvegarde-restauration.md). Les mentions précédentes de restauration ou de comptes de démonstration « à préparer » décrivent l’état du 9 novembre ; les scénarios métier complets, les droits applicatifs et la reprise inter-bases restent à développer.
+Le jeu permanent existe désormais dans innovevents_demo, distinct de la base de tests. Les sauvegardes et restaurations MySQL/MongoDB ont réussi dans de nouvelles bases, y compris un deuxième essai sans réinitialisation. Voir [le guide et les preuves](demo-sauvegarde-restauration.md). Les mentions précédentes de restauration ou de comptes de démonstration « à préparer » décrivent l’état ; les scénarios métier complets, les droits applicatifs et la reprise inter-bases restent à développer.

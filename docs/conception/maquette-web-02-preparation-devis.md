@@ -1,6 +1,6 @@
 # Maquette web 02 - Préparation du devis
 
-Version du 18 octobre 2026, actualisée le 3 novembre 2026. Tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5).
+Tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5).
 
 ## Travail réalisé
 
@@ -57,9 +57,9 @@ Ces contrôles ne constituent pas un test fonctionnel, un audit d’accessibilit
 
 Source modifiable Figma, SVG et explication sur dev. Les exports destinés au dossier seront préparés dans le format accepté au dépôt ; le lien Figma reste un complément.
 
-Avancement actualisé : six wireframes et six maquettes principales en première version, complétés par les états documentés. La tâche #5 reste ouverte.
+Avancement actualisé : six wireframes et six maquettes principales en première version, complétés par les états documentés.
 
-Les états communs et les compléments de formulaires sont maintenant préparés. Prochaine étape : adaptation web, relecture et exports. Voir le [bilan de couverture](bilan-couverture-ecrans.md).
+Les états communs et les compléments de formulaires sont maintenant préparés. Voir le [bilan de couverture](bilan-couverture-ecrans.md).
 
-## Adaptation aux petits écrans — 3 novembre 2026
+## Adaptation aux petits écrans
 Une variante à 390 pixels et son menu déplié sont maintenant dessinés, relus et sauvegardés. Voir les [visuels, règles de réorganisation et vérifications](adaptation-web-petits-ecrans.md). Cette étape complète les mentions antérieures de responsive restant à préparer ; les tests sur navigateur et appareil restent à réaliser pendant le développement. La relecture finale et les exports de rendu restent à terminer.

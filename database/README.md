@@ -1,6 +1,6 @@
 # Scripts de bases — première version
 
-Préparés puis exécutés le 9 novembre 2026 sur MySQL 8.4.13 et MongoDB 8.0.34 dans Docker. Les deux services sont opérationnels : 14 tests MySQL et 17 contrôles MongoDB réussis. Aucune base XAMPP modifiée. Voir [l’environnement](../docs/environnement-local.md) et [les preuves et limites](../docs/verification-bases.md).
+Préparés puis exécutés sur MySQL 8.4.13 et MongoDB 8.0.34 dans Docker. Les deux services sont opérationnels : 14 tests MySQL et 17 contrôles MongoDB réussis. Aucune base XAMPP modifiée. Voir [l’environnement](../docs/environnement-local.md) et [les preuves et limites](../docs/verification-bases.md).
 
 ## Fichiers
 
@@ -43,12 +43,12 @@ Le validateur MongoDB interdit les champs supplémentaires, y compris dans les d
 
 ## Vérifications et suite
 
-Contrôles exécutés le 9 novembre : lecture croisée avec le MLD ; inventaire de 16 tables, 21 références internes et une clé composée ajoutée par ALTER ; présence des colonnes référencées ; unicité des noms de contraintes ; liens documentaires locaux valides. La syntaxe JavaScript a été vérifiée par `node --check`.
+Contrôles exécutés : lecture croisée avec le MLD ; inventaire de 16 tables, 21 références internes et une clé composée ajoutée par ALTER ; présence des colonnes référencées ; unicité des noms de contraintes ; liens documentaires locaux valides. La syntaxe JavaScript a été vérifiée par `node --check`.
 
 Le script MongoDB a aussi été exécuté avec un objet de base simulé : une base mal nommée et une collection déjà existante provoquent un arrêt avant toute écriture ; le chemin nominal construit huit contrats d'action et quatre index. Ces contrôles ne prouvent ni l'acceptation du DDL par MySQL ni le fonctionnement du validateur sur le moteur MongoDB.
 
 Suite des contrôles : environnement installé, imports réussis et jeu fictif transactionnel testé (dont Chloé et José). Restent le jeu de démonstration persistant, les contrôles métier PHP et de concurrence, puis la sauvegarde et la restauration des deux bases. Aucun résultat de restauration ni pourcentage de couverture annoncé.
 
-## Mise à jour du 10 novembre 2026
+## Mise à jour
 
-Le jeu permanent existe désormais dans innovevents_demo, distinct de la base de tests. Les sauvegardes et restaurations MySQL/MongoDB ont réussi dans de nouvelles bases, y compris un deuxième essai sans réinitialisation. Voir [le guide et les preuves](../docs/demo-sauvegarde-restauration.md). Les mentions précédentes de restauration ou de comptes de démonstration « à préparer » décrivent l’état du 9 novembre ; les scénarios métier complets, les droits applicatifs et la reprise inter-bases restent à développer.
+Le jeu permanent existe désormais dans innovevents_demo, distinct de la base de tests. Les sauvegardes et restaurations MySQL/MongoDB ont réussi dans de nouvelles bases, y compris un deuxième essai sans réinitialisation. Voir [le guide et les preuves](../docs/demo-sauvegarde-restauration.md). Les mentions précédentes de restauration ou de comptes de démonstration « à préparer » décrivent l’état ; les scénarios métier complets, les droits applicatifs et la reprise inter-bases restent à développer.

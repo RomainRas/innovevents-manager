@@ -1,6 +1,6 @@
 # Wireframe mobile 03 - Fiche client
 
-Version du 18 octobre 2026. Tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5).
+Tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5).
 
 ## Travail réalisé
 
@@ -70,6 +70,5 @@ Figma conserve la source modifiable. Les deux SVG et ce document sont sauvegard�
 - Wireframes mobile : 3 premières versions sur 3.
 - État complémentaire : saisie rapide d’une note, non comptée comme écran principal supplémentaire.
 - Maquettes : 0 sur 6.
-- Validation avec Romain, charte graphique et enchaînement : à réaliser.
+- Charte graphique et enchaînement : réalisés ensuite ([charte](charte-graphique.md), [enchaînement](enchainement-ecrans.md)).
 
-La tâche #5 reste ouverte : les six wireframes ne constituent pas l’ensemble de ses livrables. Prochaine étape proposée : relecture d’ensemble, puis charte graphique et maquettes.

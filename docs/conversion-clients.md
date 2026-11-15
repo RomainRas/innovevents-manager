@@ -1,4 +1,4 @@
-# Conversion d’un prospect en client — 13 novembre 2026
+# Conversion d’un prospect en client
 
 ## Périmètre et sources
 
@@ -51,11 +51,11 @@ Les tests sont dans `tests/app/conversion.py`, `conversion-browser.cjs` et `back
 
 Les rapports et captures restent dans `tmp/` ; la synthèse des résultats exécutés figure dans le fichier de preuve associé. Ce travail alimente le dossier technique, les tests et l’explication des deux types de bases. Il ne constitue pas un déploiement public ni une validation supplémentaire des maquettes Figma.
 
-### Résultats exécutés le 13 novembre
+### Résultats exécutés
 
 - 24 contrôles HTTP/données et reprise : droits, CSRF, champs, coordonnées corrigées, conservation de la demande originale, absence de rattachement automatique à un compte, reprise identique, conflit, refus d’une demande échouée, contenu du journal, déduplication MongoDB, annulation de la conversion si la mise en file échoue, conversion pendant panne MongoDB et livraison différée après le délai réel de reprise.
 - Neuf refus de permissions vérifiés : cinq pour le compte de conversion, quatre pour le traitement du journal.
 - Chromium à 1280/390 px : retour à la conversion après connexion, préremplissage, confirmation, focus sur erreur, modification des coordonnées, perte de réponse après création puis reprise, focus sur résultat, fiche client, absence de débordement et d’erreur JavaScript.
 - Compilation Vue réussie ; capture mobile relue. MongoDB redémarré et droit SQL rétabli. Les fiches fictives ont été nettoyées ; les journaux fictifs restent conservés.
 
-[Preuve sans secrets](preuves/conversion-clients-2026-11-13.json). Le test de reprise MongoDB replace une trace déjà livrée en attente pour simuler l’accusé SQL perdu. La panne MongoDB est réelle ; les cinq échecs définitifs et la concurrence de conversion entre plusieurs administrateurs n’ont pas été injectés. Aucun test de charge ou audit complet d’accessibilité revendiqué.
+[Preuve sans secrets](preuves/conversion-clients.json). Le test de reprise MongoDB replace une trace déjà livrée en attente pour simuler l’accusé SQL perdu. La panne MongoDB est réelle ; les cinq échecs définitifs et la concurrence de conversion entre plusieurs administrateurs n’ont pas été injectés. Aucun test de charge ou audit complet d’accessibilité revendiqué.

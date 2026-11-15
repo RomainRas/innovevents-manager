@@ -1,5 +1,5 @@
 # États de contact mobile
-Version du 3 novembre 2026 — complément de MOB03 ; tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5), ouverte.
+Complément de MOB03 ; tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5).
 
 ## Réalisation et fichiers
 - [Planche Figma](https://www.figma.com/design/eAJJZyMSjoOff7mA1pNpCU?node-id=78-382), 1362 × 1128, avec six extraits de 390 pixels de large.
@@ -42,4 +42,4 @@ Planche complète relue visuellement : aucune coupure ou superposition constaté
 Aucun appel, courriel, itinéraire ou copie dans le presse-papiers n’a été exécuté. La détection des applications, la navigation de retour, la sélection des textes, les annonces accessibles et les longues coordonnées devront être testées sur appareil. Aucun fonctionnement hors connexion n’est promis.
 
 ## Rendu et suivi
-La source modifiable reste dans Figma ; le SVG et cette explication sont sauvegardés sur dev pour le dossier de conception. Les exports finaux seront préparés après validation d’ensemble. La tâche #5 reste ouverte : derniers états des formulaires, adaptation web, focus clavier, relecture, validation et exports restent à traiter.
+La source modifiable reste dans Figma ; le SVG et cette explication sont sauvegardés sur dev pour le dossier de conception. Les exports finaux seront préparés après validation d’ensemble.

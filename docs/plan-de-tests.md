@@ -1,6 +1,6 @@
 # Plan de tests et résultats
 
-Version du 15 novembre 2026. Exigence : environnement de test complet, une fonctionnalité vérifiée en intégralité par des tests **unitaires, fonctionnels et de bout en bout**, couverture du code et tableau de tous les tests par fonctionnalité.
+Exigence : environnement de test complet, une fonctionnalité vérifiée en intégralité par des tests **unitaires, fonctionnels et de bout en bout**, couverture du code et tableau de tous les tests par fonctionnalité.
 
 ## Environnement de test
 
@@ -51,7 +51,7 @@ Chaque suite fonctionnelle contrôle aussi la sécurité de sa fonctionnalité :
 
 ## Résultats
 
-Exécution complète du 15 novembre 2026 (`scripts/run-tests.py --coverage`, environ 60 minutes) : **30 suites sur 30 réussies**.
+Exécution complète (`scripts/run-tests.py --coverage`, environ 60 minutes) : **30 suites sur 30 réussies**.
 
 | Niveau | Suites | Résultat |
 | --- | --- | --- |
@@ -67,7 +67,7 @@ Exécution complète du 15 novembre 2026 (`scripts/run-tests.py --coverage`, env
 | Méthodes | **92,07 %** (151 / 164) |
 | Classes entièrement couvertes | 70,97 % (22 / 31) |
 
-Preuve : `docs/preuves/tests-2026-11-15.json` ; rapport détaillé régénérable par `scripts/run-tests.py --coverage`.
+Preuve : `docs/preuves/tests.json` ; rapport détaillé régénérable par `scripts/run-tests.py --coverage`.
 
 ## Lecture de la couverture
 

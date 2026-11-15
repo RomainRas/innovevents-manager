@@ -1,6 +1,6 @@
-# Réponse du client au devis et contre-proposition — 14 novembre 2026
+# Réponse du client au devis et contre-proposition
 
-> **Note du 15 novembre 2026 :** ce document décrit l’état du projet à sa date de rédaction. Les éléments qu’il signale comme « à développer » ont pour la plupart été réalisés depuis ; l’état final, avec les limites encore valables, est dans le [bilan des fonctionnalités](bilan-fonctionnalites.md).
+> **Note :** ce document retrace l’étape où cette fonctionnalité a été développée. Les éléments qu’il signale comme « à développer » ont pour la plupart été réalisés depuis ; l’état final, avec les limites encore valables, est dans le [bilan des fonctionnalités](bilan-fonctionnalites.md).
 
 ## Périmètre et utilisation
 
@@ -26,7 +26,7 @@ L’énoncé, page 10, prévoit trois réponses du client : **acceptation** (sta
 - La contre-proposition utilise le compte existant `ecf_quote_drafts`. Les comptes de transmission, de consultation client et de brouillons lisent les décisions.
 - Migration additive `010` (type de courriel `devis_accepte`, identifiant d’opération des décisions), appliquée par `scripts/provision-quote-decisions.py`, intégré à `Start-App.ps1`.
 
-## Tests exécutés le 14 novembre
+## Tests exécutés
 
 `tests/app/quote-decisions.py` (avec `quote-decisions-browser.cjs` et `backend/tests/quote-decision-permissions.php`) : **22 contrôles réussis.**
 
@@ -38,7 +38,7 @@ L’énoncé, page 10, prévoit trois réponses du client : **acceptation** (sta
 - Huit refus SQL du compte des réponses.
 - Chromium 1280 px : motif obligatoire avec focus, réponse perdue simulée puis vérification, contre-proposition et suivi par Chloé. 390 px : annulation avec retour du focus, acceptation et focus sur le résultat. Pas de débordement horizontal.
 
-Non-régression : `quote-transmission.py` 29/29, `quote-drafts.py` 22/22, `quote-pdf.py` 23/23 ; compilation Vue réussie. [Preuve sans secrets](preuves/decisions-devis-2026-11-14.json).
+Non-régression : `quote-transmission.py` 29/29, `quote-drafts.py` 22/22, `quote-pdf.py` 23/23 ; compilation Vue réussie. [Preuve sans secrets](preuves/decisions-devis.json).
 
 ## Limites
 

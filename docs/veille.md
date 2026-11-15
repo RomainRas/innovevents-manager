@@ -1,6 +1,6 @@
 # Veille technologique et sécurité
 
-Version du 15 novembre 2026. Objectif : suivre les évolutions et les failles des briques utilisées (PHP, Vue, MySQL, MongoDB, Caddy, Docker, GitHub Actions) et les intégrer sans casser la production.
+Objectif : suivre les évolutions et les failles des briques utilisées (PHP, Vue, MySQL, MongoDB, Caddy, Docker, GitHub Actions) et les intégrer sans casser la production.
 
 ## Ce qui est automatisé
 

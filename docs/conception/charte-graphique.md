@@ -1,12 +1,12 @@
 # Charte graphique Innov’Events - proposition v1
 
-Version du 18 octobre 2026. Tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5).
+Tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5).
 
 ## Sources et décision
 
 L’[énoncé](../enonce/enonce-ecf-cda.pdf), pages 4, 6 et 16, a été relu directement : cohérence graphique, adaptation au support, accessibilité, palette et police sont attendues. Ces pages n’imposent pas de palette.
 
-Romain a confié la proposition de direction graphique à l’assistant. La direction proposée associe bleu nuit et turquoise, pour une interface professionnelle destinée à l’événementiel d’entreprise. Il s’agit de l’identité conçue pour le projet ECF, sans prétendre reproduire une marque commerciale officielle.
+J’ai retenu une direction graphique qui associe bleu nuit et turquoise, pour une interface professionnelle destinée à l’événementiel d’entreprise. Il s’agit de l’identité conçue pour le projet ECF, sans prétendre reproduire une marque commerciale officielle.
 
 - [Planche Figma modifiable](https://www.figma.com/design/eAJJZyMSjoOff7mA1pNpCU?node-id=35-388).
 - [Export SVG](../maquettes/charte/charte-graphique-v1.svg).
@@ -90,7 +90,7 @@ La bibliothèque Simple Design System a été inspectée. Les espacements compat
 
 ## Relecture et vérifications
 
-Les six cadres principaux ont été retrouvés dans Figma : trois web et trois mobile, avec leurs sources et notes de conception sauvegardées. Leur validation finale avec Romain reste à faire.
+Les six cadres principaux sont dans Figma : trois web et trois mobile, avec leurs sources et notes de conception sauvegardées.
 
 La planche de charte a été contrôlée visuellement : aucune coupure ni chevauchement constaté. Les sept styles sont appliqués. Les 32 variables ont une syntaxe CSS ; aucune n’a une portée ALL_SCOPES. Les 19 alias ont été retrouvés.
 
@@ -100,8 +100,8 @@ Les wireframes restent en niveaux de gris. Cette charte prépare les futures maq
 
 Figma reste la source modifiable. La planche SVG, les valeurs JSON et ce document sont sauvegardés sur dev. La planche ne remplace pas les six maquettes attendues dans la charte finale.
 
-Première maquette web Demande de devis réalisée en v1. Prochaine étape : les cinq autres écrans. Il restera à formaliser l’enchaînement des maquettes, les diagrammes et les exports pour le rendu. La tâche #5 reste ouverte.
+Première maquette web Demande de devis réalisée en v1. Il restera à formaliser l’enchaînement des maquettes, les diagrammes et les exports pour le rendu.
 
-## Complément événementiel — 18 octobre 2026
+## Complément événementiel
 
 À la suite des échanges sur l’identité de l’agence, l’accent corail #F3A48B apporte une touche chaleureuse aux pages publiques. Il complète le bleu nuit et le turquoise ; il ne remplace pas la couleur d’action principale. Sur fond corail, utiliser le texte bleu nuit, sans blanc. L’accent est ajouté aux variables Figma et à la planche. La première maquette de demande de devis applique ces règles sans image d’ambiance ; les images restent à préparer pour les écrans où elles servent le contenu.

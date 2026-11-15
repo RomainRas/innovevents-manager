@@ -1,6 +1,6 @@
 # Wireframe web 01 - Demande de devis
 
-Version du 18 octobre 2026. Tâche GitHub : [#5](https://github.com/RomainRas/innovevents-manager/issues/5).
+Tâche GitHub : [#5](https://github.com/RomainRas/innovevents-manager/issues/5).
 
 ## Ce qui est réalisé
 
@@ -82,13 +82,12 @@ Ces contrôles portent sur la conception. Aucun test fonctionnel de formulaire, 
 
 Figma reste la source modifiable. Les deux exports SVG et cette explication sont sauvegardés sur la branche dev. Ils permettent de conserver une trace du travail et de préparer la partie conception du dossier.
 
-Après les retours de Romain, les wireframes serviront de base aux maquettes. Des exports PDF ou PNG adaptés au rendu final seront préparés lorsque les écrans seront validés. Un lien Figma seul ne remplace pas les livrables à déposer.
+Ces wireframes ont servi de base aux maquettes ; leurs exports PDF sont dans `output/pdf/`.
 
 ## Avancement de la tâche
 
-- Wireframes web : 1 version réalisée sur 3, à relire avec Romain.
+- Wireframes web : 1 version réalisée sur 3.
 - Wireframes mobile : 0 sur 3.
 - Maquettes web et mobile : 0 sur 6.
 - Charte graphique et enchaînement des écrans : à réaliser.
 
-La tâche #5 reste ouverte. Prochaine étape proposée : le wireframe de préparation du devis par Chloé.

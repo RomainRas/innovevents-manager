@@ -1,6 +1,6 @@
-# Environnement PHP et Vue — mis à jour le 12 novembre 2026
+# Environnement PHP et Vue
 
-> **Note du 15 novembre 2026 :** ce document décrit l’état du projet à sa date de rédaction. Les éléments qu’il signale comme « à développer » ont pour la plupart été réalisés depuis ; l’état final, avec les limites encore valables, est dans le [bilan des fonctionnalités](bilan-fonctionnalites.md).
+> **Note :** ce document retrace l’étape où cette fonctionnalité a été développée. Les éléments qu’il signale comme « à développer » ont pour la plupart été réalisés depuis ; l’état final, avec les limites encore valables, est dans le [bilan des fonctionnalités](bilan-fonctionnalites.md).
 
 ## Périmètre
 
@@ -56,11 +56,11 @@ Le premier script vérifie les accès autorisés et refusés, les réponses HTTP
 
 `tests/app/browser.cjs` contrôle l’affichage et le bouton dans Chromium en 1280 et 390 pixels, avec absence de débordement horizontal et d’erreur JavaScript. Il nécessite Playwright installé sur le poste ; `PLAYWRIGHT_MODULE` et `CHROMIUM_PATH` permettent de fournir les chemins. Captures et résultat dans `tmp/app-browser/`. Il ne valide pas l’application mobile Android.
 
-## Résultats du 10 novembre
+## Résultats
 
 PHP 8.4.27, Composer 2.11.1, extension MongoDB 2.5.7 et bibliothèque 2.5.1 ; Node 24.22.2, Vue 3.5.45, Vue Router 4.6.4, Vite 8.3.7 et plugin Vue 6.0.10 réellement installés. La compilation Vue réussit. Composer valide le manifeste avec des avertissements sur l’absence de licence déclarée et le choix volontaire d’une version exacte du pilote.
 
-Les douze contrôles du lanceur passent : deux lectures, quatre refus d’accès/écriture, disponibilité HTTP, 405, 404, document Vue, 503 pendant la panne et retour à 200. Chromium valide les deux largeurs, le bouton de relance et l’absence d’erreur JavaScript ; la capture mobile a été relue visuellement. [Preuve conservée](preuves/environnement-2026-11-10.json).
+Les douze contrôles du lanceur passent : deux lectures, quatre refus d’accès/écriture, disponibilité HTTP, 405, 404, document Vue, 503 pendant la panne et retour à 200. Chromium valide les deux largeurs, le bouton de relance et l’absence d’erreur JavaScript ; la capture mobile a été relue visuellement. [Preuve conservée](preuves/environnement.json).
 
 Le premier essai a corrigé le nom de la table de paramètres dans le contrôle de disponibilité et l’option de lecture des privilèges MongoDB lors d’un reprovisionnement. Pendant l’arrêt d’un conteneur, la résolution réseau peut prendre plus de temps que le délai de sélection du pilote : le contrôle HTTP attend jusqu’à 30 secondes ; l’interface affiche son échec au bout de 5 secondes et permet de réessayer. Aucun objectif de performance n’est déclaré atteint.
 
@@ -68,32 +68,32 @@ Le premier essai a corrigé le nom de la table de paramètres dans le contrôle 
 
 Authentification et sessions, autorisations par rôle, pages et règles métier, écritures avec droits minimaux, tests PHPUnit/Vitest, construction Android et hébergement restent à traiter. La tâche #7 reste ouverte notamment pour Git local et la vérification mobile. Le suivi distingue les résultats réellement obtenus de ces étapes futures.
 
-Sources consultées le 10 novembre : [Vite](https://vite.dev/guide/), [image PHP officielle](https://hub.docker.com/_/php), [pilote MongoDB PHP](https://www.php.net/manual/en/mongodb.installation.php), [version du pilote](https://pecl.php.net/package/mongodb), [actions de privilèges MongoDB](https://www.mongodb.com/docs/manual/reference/privilege-actions/).
+Sources consultées : [Vite](https://vite.dev/guide/), [image PHP officielle](https://hub.docker.com/_/php), [pilote MongoDB PHP](https://www.php.net/manual/en/mongodb.installation.php), [version du pilote](https://pecl.php.net/package/mongodb), [actions de privilèges MongoDB](https://www.mongodb.com/docs/manual/reference/privilege-actions/).
 
-## Mise à jour du 12 novembre — Authentification
+## Mise à jour — Authentification
 
-La connexion web, les sessions, la déconnexion et les premières lectures protégées sont désormais réalisées : [guide et limites](authentification-sessions.md). Un compte MongoDB distinct possède uniquement insert sur logs ; le service PHP reçoit un troisième secret local et utilise le volume auth_state pour les sessions et quotas. Relancer Start-App.ps1 pour provisionner ce compte avant le démarrage. Les résultats ci-dessus datés du 10 novembre restent l’historique du socle initial ; la preuve d’authentification est conservée séparément. Inscription, récupération/changement effectif du mot de passe et mobile restent à réaliser.
-## Courriels locaux — complément du 12 novembre
+La connexion web, les sessions, la déconnexion et les premières lectures protégées sont désormais réalisées : [guide et limites](authentification-sessions.md). Un compte MongoDB distinct possède uniquement insert sur logs ; le service PHP reçoit un troisième secret local et utilise le volume auth_state pour les sessions et quotas. Relancer Start-App.ps1 pour provisionner ce compte avant le démarrage. Les résultats ci-dessus datés restent l’historique du socle initial ; la preuve d’authentification est conservée séparément. Inscription, récupération/changement effectif du mot de passe et mobile restent à réaliser.
+## Courriels locaux
 
 Start-App applique aussi la migration comptes/courriels, démarre Mailpit (127.0.0.1:8025) et le traitement de la file. Aucun envoi externe. Voir [le guide](parcours-comptes.md).
 
-## Demandes de devis — ajout du 12 novembre
+## Demandes de devis
 
 Start-App exécute désormais aussi `provision-quotes.py` : suivi des soumissions, type de courriel et comptes SQL limités. La base de démonstration contient 18 tables après cette migration. Formulaire public `/demande-devis`, paramètre administrateur `/parametres-demandes`. [Bilan et tests](implementation-demande-devis.md).
 
-## Qualification des prospects — ajout du 13 novembre
+## Qualification des prospects
 
 Start-App exécute `provision-prospects.py` après le provisionnement des demandes. La migration 005 étend les types de courriels ; un compte SQL séparé limite la lecture et les modifications des prospects. Le nombre de tables reste inchangé. [Utilisation et vérifications](qualification-prospects.md).
 
-## Conversion et journalisation — ajout du 13 novembre
+## Conversion et journalisation
 
 Start-App exécute `provision-conversion.py` : ajout de l’empreinte de conversion et comptes MySQL limités. `journal_worker` livre les intentions de la table existante vers MongoDB avec reprise et déduplication. Le nombre de tables reste 18. [Fonctionnement, permissions, essais et limites](conversion-clients.md).
 
-## Brouillons d’événements — ajout du 13 novembre
+## Brouillons d’événements
 
 Start-App exécute `provision-events.py` : migration 007 (empreinte et révision), compte SQL limité et secret API. Le nombre de tables reste 18. [Parcours et vérifications](evenements-brouillons.md). La restauration complète après les migrations récentes reste à vérifier.
 
-## Images des brouillons — ajout du 13 novembre
+## Images des brouillons
 
 Start-App exécute `provision-event-images.py`, puis reconstruit PHP avec GD (JPEG/PNG). Aucun changement de schéma. Les images privées sont stockées dans le volume `auth_state`, hors du dossier web ; ce volume n’est pas inclus dans les sauvegardes de bases existantes. [Fonctionnement et conservation](images-evenements.md).
 

@@ -1,6 +1,6 @@
 # Wireframe web 03 - Consultation du devis
 
-Version du 18 octobre 2026. Tâche GitHub : [#5](https://github.com/RomainRas/innovevents-manager/issues/5).
+Tâche GitHub : [#5](https://github.com/RomainRas/innovevents-manager/issues/5).
 
 ## Travail réalisé
 
@@ -80,9 +80,8 @@ Les exports PDF/PNG adaptés au rendu seront préparés après validation des é
 
 ## Avancement
 
-- Wireframes web : 3 premières versions sur 3, relues visuellement et à valider avec Romain.
+- Wireframes web : 3 versions sur 3, relues.
 - Wireframes mobile : 0 sur 3.
 - Maquettes web et mobile : 0 sur 6.
 - Charte graphique et enchaînement des écrans : à réaliser.
 
-La tâche #5 reste ouverte. Prochaine étape : premier wireframe mobile, consacré aux événements à venir pour Chloé et José.
