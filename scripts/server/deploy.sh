@@ -15,7 +15,7 @@ umask 022
 # Tous les secrets aléatoires (64 caractères hexadécimaux) : les scripts de provisionnement les réutilisent.
 for name in mysql-root mongo-root mysql-api mongo-api mongo-auth mysql-accounts mysql-mail mail-key mysql-quotes mysql-settings \
   mysql-prospects-admin mysql-conversion mysql-journal mysql-events mysql-event-images mysql-quote-drafts mysql-quote-pdf \
-  mysql-quote-send mysql-client-quotes mysql-quote-decision mysql-client-space mysql-reviews; do
+  mysql-quote-send mysql-client-quotes mysql-quote-decision mysql-client-space mysql-reviews mysql-admin; do
   [ -s ".secrets/$name.txt" ] || openssl rand -hex 32 > ".secrets/$name.txt"
 done
 [ -f .secrets/mysql-client.cnf ] || printf '[client]\nuser=root\npassword=%s\nhost=127.0.0.1\nprotocol=TCP\n' "$(cat .secrets/mysql-root.txt)" > .secrets/mysql-client.cnf
@@ -33,7 +33,7 @@ if [ "$(docker compose exec -T mysql sh /opt/innovevents/client.sh --batch --ski
 fi
 
 echo "4/5 Migrations et comptes limités"
-for script in provision-api-accounts provision-mail provision-quotes provision-prospects provision-conversion provision-events provision-event-images provision-quote-drafts provision-quote-pdf provision-quote-send provision-quote-decisions provision-public-pages provision-client-space; do
+for script in provision-api-accounts provision-mail provision-quotes provision-prospects provision-conversion provision-events provision-event-images provision-quote-drafts provision-quote-pdf provision-quote-send provision-quote-decisions provision-public-pages provision-client-space provision-admin-accounts; do
   python3 -X utf8 "scripts/$script.py"
 done
 

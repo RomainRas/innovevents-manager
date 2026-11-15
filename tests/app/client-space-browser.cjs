@@ -44,6 +44,8 @@ try{
  await page.getByRole('link',{name:'Modérer les avis des clients'}).click();await page.getByRole('heading',{name:'Modération des avis'}).waitFor();
  const card=page.getByRole('listitem').filter({hasText:text});await card.waitFor();
  await card.getByRole('button',{name:'Valider et publier'}).click();await page.getByText('validé : il est publié',{exact:false}).waitFor();
+ // La liste est rechargée avant que le focus ne soit placé sur le message.
+ await page.getByRole('listitem').filter({hasText:text}).waitFor({state:'detached'});await page.waitForFunction(()=>document.activeElement?.id==='moderation-notice',null,{timeout:5000}).catch(()=>{});
  results.moderation_notice_focus=await focused(page)==='moderation-notice';
  results.moderation_queue_updated=await page.getByRole('listitem').filter({hasText:text}).count()===0;
  await page.getByRole('button',{name:'Publiés'}).click();await page.getByRole('listitem').filter({hasText:text}).waitFor();results.published_tab=(await page.getByRole('button',{name:'Valider et publier'}).count())===0;

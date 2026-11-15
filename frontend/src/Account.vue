@@ -4,6 +4,7 @@ import { useRouter } from 'vue-router'
 import { auth, request, refresh } from './auth'
 import ClientQuotes from './ClientQuotes.vue'
 import ClientReviews from './ClientReviews.vue'
+import AdminDashboard from './AdminDashboard.vue'
 const rows = ref([]), error = ref(''), loading = ref(true)
 const router = useRouter()
 onMounted(async () => {
@@ -22,6 +23,8 @@ onMounted(async () => {
     <p v-if="auth.user?.role === 'client'"><RouterLink to="/espace/informations">Modifier mes informations ou supprimer mon compte</RouterLink></p>
     <p><RouterLink to="/mot-de-passe">Changer mon mot de passe</RouterLink></p>
     <p v-if="auth.user?.role !== 'client'"><RouterLink to="/moderation-avis">Modérer les avis des clients</RouterLink></p>
+    <AdminDashboard v-if="auth.user?.role === 'administrateur'" />
+    <p v-if="auth.user?.role === 'administrateur'"><RouterLink to="/comptes">Gérer les comptes employés et clients</RouterLink></p>
     <p v-if="auth.user?.role === 'administrateur'"><RouterLink to="/prospects">Consulter les demandes reçues</RouterLink></p>
     <p v-if="auth.user?.role === 'administrateur'"><RouterLink to="/devis">Suivre les devis et les réponses des clients</RouterLink></p>
     <p v-if="auth.user?.role === 'administrateur'"><RouterLink to="/parametres-demandes">Modifier le remerciement des demandes</RouterLink></p>

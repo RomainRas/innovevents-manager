@@ -24,7 +24,8 @@ final class Kernel
             '/api/me/quote-decision'=>'POST','/api/admin/quotes'=>'GET','/api/admin/quote-counter-proposal'=>'POST',
             '/api/public/events'=>'GET','/api/public/event'=>'GET','/api/public/event-image'=>'GET','/api/public/reviews'=>'GET','/api/contact'=>'POST',
             '/api/me/profile'=>'GET','/api/me/profile-save'=>'POST','/api/me/deletion-request'=>'POST','/api/me/reviews'=>'GET','/api/me/review'=>'POST',
-            '/api/team/reviews'=>'GET','/api/team/review-moderation'=>'POST'];
+            '/api/team/reviews'=>'GET','/api/team/review-moderation'=>'POST',
+            '/api/admin/dashboard'=>'GET','/api/admin/accounts'=>'GET','/api/admin/account-create'=>'POST','/api/admin/account-status'=>'POST','/api/admin/account-delete'=>'POST'];
         try {
             if (!isset($routes[$path])) throw new HttpError(404,'not_found');
             if (($_SERVER['REQUEST_METHOD']??'')!==$routes[$path]) {
@@ -44,6 +45,10 @@ final class Kernel
                         $result=(new \InnovEvents\Service\PublicSite())->event($_GET);break;
                     case '/api/public/event-image':
                         (new \InnovEvents\Service\PublicSite())->image($_GET);return;
+                    case '/api/admin/dashboard':
+                        $result=(new \InnovEvents\Service\AdminAccounts())->dashboard();break;
+                    case '/api/admin/accounts':
+                        $result=(new \InnovEvents\Service\AdminAccounts())->listing($_GET);break;
                     case '/api/me/profile':
                         $result=(new \InnovEvents\Service\ClientSpace())->profile();break;
                     case '/api/me/reviews':
@@ -100,6 +105,9 @@ final class Kernel
                     case '/api/admin/quote-counter-proposal':
                     case '/api/admin/quote-draft-save':
                     case '/api/admin/event-save':
+                    case '/api/admin/account-create':
+                    case '/api/admin/account-status':
+                    case '/api/admin/account-delete':
                     case '/api/me/profile-save':
                     case '/api/me/deletion-request':
                     case '/api/me/review':
@@ -112,6 +120,9 @@ final class Kernel
                         try {$data=json_decode($raw,true,16,JSON_THROW_ON_ERROR);} catch (\JsonException) {throw new HttpError(400,'invalid_json');}
                         if (!is_array($data)) throw new HttpError(422,'invalid_input');
                         if ($path==='/api/contact'){$result=(new \InnovEvents\Service\PublicSite())->contact($data);http_response_code(202);}
+                        elseif ($path==='/api/admin/account-create'){$result=(new \InnovEvents\Service\AdminAccounts())->create($data);http_response_code(201);}
+                        elseif ($path==='/api/admin/account-status')$result=(new \InnovEvents\Service\AdminAccounts())->setStatus($data);
+                        elseif ($path==='/api/admin/account-delete')$result=(new \InnovEvents\Service\AdminAccounts())->delete($data);
                         elseif ($path==='/api/me/profile-save')$result=(new \InnovEvents\Service\ClientSpace())->saveProfile($data);
                         elseif ($path==='/api/me/deletion-request'){$result=(new \InnovEvents\Service\ClientSpace())->requestDeletion($data);http_response_code(202);}
                         elseif ($path==='/api/me/review')$result=(new \InnovEvents\Service\ClientSpace())->submitReview($data);

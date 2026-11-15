@@ -16,7 +16,7 @@ services:
       APP_ENV: production
       APP_ORIGIN: https://${SITE_DOMAIN:?SITE_DOMAIN requis}
       AGENCY_EMAIL: ${AGENCY_EMAIL:?AGENCY_EMAIL requis}
-    secrets: [mysql_api, mongo_api, mongo_auth, mysql_accounts, mail_key, mysql_quotes, mysql_settings, mysql_prospects_admin, mysql_conversion, mysql_events, mysql_event_images, mysql_quote_drafts, mysql_quote_pdf, mysql_quote_send, mysql_client_quotes, mysql_quote_decision, mysql_client_space, mysql_reviews]
+    secrets: [mysql_api, mongo_api, mongo_auth, mysql_accounts, mail_key, mysql_quotes, mysql_settings, mysql_prospects_admin, mysql_conversion, mysql_events, mysql_event_images, mysql_quote_drafts, mysql_quote_pdf, mysql_quote_send, mysql_client_quotes, mysql_quote_decision, mysql_client_space, mysql_reviews, mysql_admin]
     depends_on:
       mysql: {condition: service_healthy}
       mongodb: {condition: service_healthy}
@@ -100,4 +100,5 @@ secrets:
   mysql_quote_decision: {file: ./.secrets/mysql-quote-decision.txt}
   mysql_client_space: {file: ./.secrets/mysql-client-space.txt}
   mysql_reviews: {file: ./.secrets/mysql-reviews.txt}
+  mysql_admin: {file: ./.secrets/mysql-admin.txt}
   smtp_password: {file: ./.secrets/smtp-password.txt}
