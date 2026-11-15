@@ -43,6 +43,7 @@ final class Connections
     public static function quoteDecision(): PDO { return self::accountDatabase('ecf_quote_decision','mysql_quote_decision'); }
     public static function clientSpace(): PDO { return self::accountDatabase('ecf_client_space','mysql_client_space'); }
     public static function reviews(): PDO { return self::accountDatabase('ecf_reviews','mysql_reviews'); }
+    public static function admin(): PDO { return self::accountDatabase('ecf_admin','mysql_admin'); }
     private static function accountDatabase(string $user,string $secret): PDO
     {
         return new PDO('mysql:host=mysql;dbname=innovevents_demo;charset=utf8mb4',$user,self::secret($secret),[

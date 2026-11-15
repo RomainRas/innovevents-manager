@@ -1,0 +1,16 @@
+{
+  "date": "2026-11-15",
+  "environnement": "local Docker (Vite 5173, PHP 8.4, MySQL 8.4)",
+  "tests": {
+    "tests/app/admin-accounts.py": "39/39",
+    "tests/app/admin-accounts-browser.cjs": "13/13, trois exécutions successives (390 px et 1280 px)",
+    "non_regression": {"client-space.py": "32/32", "client-space-browser.cjs": "15/15, trois exécutions", "public-pages.py": "31/31", "authentication.py": "réussi", "accounts.py": "réussi", "quote-decisions.py": "réussi", "conversion.py": "réussi"},
+    "build_production_vue": "réussi"
+  },
+  "corrections_pendant_les_tests": [
+    "Tests navigateur : attente du rechargement de la liste avant de vérifier le focus (instabilité constatée sur client-space-browser.cjs).",
+    "Test HTTP : nouvelle connexion après changement de mot de passe, qui ferme la session par conception."
+  ],
+  "verification_base": "Aucun compte, fiche, demande ou avis d'essai restant après exécution.",
+  "non_verifie": "Gestion des fiches clients et des événements, notes collaboratives : non développées."
+}
