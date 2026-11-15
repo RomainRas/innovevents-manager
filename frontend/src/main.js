@@ -20,6 +20,8 @@ import PublicEvent from './PublicEvent.vue'
 import Reviews from './Reviews.vue'
 import Contact from './Contact.vue'
 import Legal from './Legal.vue'
+import Profile from './Profile.vue'
+import ReviewModeration from './ReviewModeration.vue'
 import { auth, refresh } from './auth'
 import './style.css'
 const router = createRouter({ history: createWebHistory(), routes: [
@@ -46,6 +48,8 @@ const router = createRouter({ history: createWebHistory(), routes: [
   { path: '/mot-de-passe-oublie', component: AccountForm, meta: { accountMode: 'forgot' } },
   { path: '/mot-de-passe', component: AccountForm, meta: { private: true, accountMode: 'password' } },
   { path: '/espace', component: Account, meta: { private: true } },
+  { path: '/espace/informations', component: Profile, meta: { private: true, title: 'Mes informations' } },
+  { path: '/moderation-avis', component: ReviewModeration, meta: { private: true, title: 'Modération des avis' } },
   { path: '/journaux', component: Logs, meta: { private: true } },
 ] })
 router.beforeEach(async to => {

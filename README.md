@@ -62,3 +62,5 @@ Le client accepte, refuse ou demande une modification motivée depuis « Mon esp
 Application en ligne : https://innovevents.rascleromain.fr (VPS Ubuntu, Docker Compose, Caddy en HTTPS, PHP-FPM). [Architecture, sécurité, procédure et vérifications](docs/deploiement.md).
 
 Pages publiques : accueil, événements publiés avec filtres, avis validés, contact, mentions légales, CGU, CGV et confidentialité. [Sécurité, accessibilité, tests et limites](docs/pages-publiques.md). Après une mise à jour : `py -3 -X utf8 scripts/provision-public-pages.py`.
+
+Espace client et avis : modification des informations, demande de suppression du compte, avis après un événement terminé et modération par l’équipe. [Règles, tests et limites](docs/espace-client-avis.md).

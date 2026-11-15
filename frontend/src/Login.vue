@@ -4,7 +4,7 @@ import { useRoute, useRouter } from 'vue-router'
 import { login, refresh } from './auth'
 const email = ref(''), password = ref(''), error = ref(''), busy = ref(false)
 const route = useRoute(), router = useRouter()
-const destinations = ['/espace', '/journaux', '/prospects', '/parametres-demandes', '/mot-de-passe']
+const destinations = ['/espace', '/journaux', '/prospects', '/parametres-demandes', '/mot-de-passe', '/devis', '/espace/informations', '/moderation-avis']
 async function submit() {
   busy.value = true; error.value = ''
   try {
