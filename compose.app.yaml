@@ -58,8 +58,19 @@ services:
     depends_on:
       api: {condition: service_healthy}
     restart: "no"
+  mobile:
+    image: node:24-bookworm-slim@sha256:01d566e8d94d8c619591d78652babfccd3c6992a3dffa9ed5ab39e11cf6c70e9
+    working_dir: /app
+    volumes:
+      - ./mobile:/app
+      - mobile_node_modules:/app/node_modules
+    command: ["npm", "run", "dev"]
+    depends_on:
+      api: {condition: service_healthy}
+    restart: "no"
 volumes:
   web_node_modules:
+  mobile_node_modules:
   auth_state:
   mailpit_data:
 secrets:

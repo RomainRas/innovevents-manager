@@ -22,7 +22,7 @@ class Browser:
     def login(self,address,password=None):return self.call('/api/auth/login',{'email':address,'password':password or (ROOT/'.secrets/demo-password.txt').read_text().strip()})
 alice_id=sql("SELECT id FROM utilisateurs WHERE email_normalise='alice@example.invalid';")
 client_id=sql(f"SELECT id FROM clients WHERE utilisateur_id={alice_id};")
-original=sql(f"SELECT u.prenom,u.nom,c.entreprise,c.telephone,IFNULL(c.ville,''),'fin' FROM utilisateurs u JOIN clients c ON c.utilisateur_id=u.id WHERE u.id={alice_id};").split('\t')
+original=sql(f"SELECT u.prenom,u.nom,c.entreprise,c.telephone,IFNULL(c.ville,''),IFNULL(c.adresse_ligne1,''),IFNULL(c.adresse_ligne2,''),IFNULL(c.code_postal,''),'fin' FROM utilisateurs u JOIN clients c ON c.utilisateur_id=u.id WHERE u.id={alice_id};").split('\t')
 target=sql(f"SELECT id FROM evenements WHERE nom='Afterwork de rentrée Horizon' AND client_id={client_id};")
 future=sql(f"SELECT id FROM evenements WHERE client_id={client_id} AND statut<>'termine' AND fin>UTC_TIMESTAMP() LIMIT 1;")
 other_email=f'autre-{secrets.token_hex(4)}@example.invalid';other_password='Autre!'+secrets.token_hex(6)+'A1';other_id=None
@@ -47,7 +47,7 @@ try:
     code,data=other.call('/api/me/profile')
     results['profile_without_client_record']=code==200 and data['profil']['fiche_client'] is False and 'entreprise' not in data['profil']
 
-    base={'prenom':original[0],'nom':original[1],'entreprise':original[2],'telephone':original[3],'adresse_ligne1':'','adresse_ligne2':'','code_postal':'69002','ville':'Lyon'}
+    base={'prenom':original[0],'nom':original[1],'entreprise':original[2],'telephone':original[3],'adresse_ligne1':original[5],'adresse_ligne2':original[6],'code_postal':'69002','ville':'Lyon'}
     code,data=alice.call('/api/me/profile-save',{**base,'prenom':' ','telephone':'abc','code_postal':'<b>'})
     results['profile_validation']=code==422 and set(data['fields'])=={'prenom','telephone','code_postal'}
     results['profile_control_chars']=alice.call('/api/me/profile-save',{**base,'nom':'A\u0000B'})[0]==422
@@ -100,8 +100,9 @@ try:
 finally:
     sql(f"DELETE FROM avis WHERE evenement_id={target} AND auteur_id={alice_id};" if target else 'SELECT 1;')
     sql(f"DELETE FROM demandes_suppression WHERE utilisateur_id={alice_id};")
-    ville='NULL' if original[4]=='' else "'"+original[4].replace("'","''")+"'"
-    sql(f"UPDATE clients SET code_postal=NULL,ville={ville} WHERE id={client_id};")
+    # Adresse d'origine restaurée à l'identique (valeur vide = NULL).
+    q=lambda v:'NULL' if v=='' else "'"+v.replace("'","''")+"'"
+    sql(f"UPDATE clients SET ville={q(original[4])},adresse_ligne1={q(original[5])},adresse_ligne2={q(original[6])},code_postal={q(original[7])} WHERE id={client_id};")
     if other_id:sql(f"DELETE FROM utilisateurs WHERE id={other_id};")
 for k,v in results.items():print(('OK  ' if v else 'ÉCHEC ')+k)
 print(f"{sum(results.values())}/{len(results)} contrôles réussis")

@@ -41,7 +41,9 @@ try {
     if ($LASTEXITCODE -ne 0) { throw 'Dependances PHP non installees.' }
     & docker @composeArgs run --rm --no-deps web npm ci
     if ($LASTEXITCODE -ne 0) { throw 'Dependances Vue non installees.' }
+    & docker @composeArgs run --rm --no-deps mobile npm ci
+    if ($LASTEXITCODE -ne 0) { throw 'Dependances application mobile non installees.' }
     & docker @composeArgs up -d --wait --wait-timeout 90
     if ($LASTEXITCODE -ne 0) { throw 'Demarrage non confirme ; consulter les journaux.' }
-    Write-Output 'Application locale : http://127.0.0.1:5173 ; demandes : /demande-devis ; courriels de test : http://127.0.0.1:8025.'
+    Write-Output 'Application locale : http://127.0.0.1:5173 ; demandes : /demande-devis ; application mobile : /mobile/ ; courriels de test : http://127.0.0.1:8025.'
 } finally { Pop-Location }

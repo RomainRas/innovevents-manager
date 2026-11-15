@@ -1,0 +1,18 @@
+{
+  "date": "2026-11-15",
+  "environnement": "local Docker (Vite 5173 et 5174, PHP 8.4, MySQL 8.4) ; image de production docker/mobile/Dockerfile",
+  "tests": {
+    "tests/app/mobile.py": "22/22",
+    "tests/app/mobile-browser.cjs": "21/21, trois exécutions successives (Pixel 7 émulé, tactile)",
+    "image_production_mobile": "construite ; page, manifeste, service worker (no-cache), icônes et redirection vérifiés",
+    "non_regression": {"client-space.py": "32/32", "team-space.py": "36/36", "admin-accounts.py": "39/39", "public-pages.py": "31/31", "authentication.py": "réussi", "accounts.py": "réussi", "quote-decisions.py": "réussi", "conversion.py": "réussi", "events.py": "réussi", "navigateur": "client-space, admin-accounts, team-space, public-pages réussis"},
+    "build_production_vue": "réussi"
+  },
+  "corrections_pendant_les_tests": [
+    "Liens du manifeste et des icônes : chemins du dossier public sans la base, Vite l'ajoute (/mobile/mobile/ évité).",
+    "Ouverture hors ligne : reprise du dernier utilisateur (prénom et rôle) quand la session ne peut pas être vérifiée.",
+    "Vite en Docker sous Windows : scrutation des fichiers activée pour l'application mobile.",
+    "Tests de l'espace client : l'adresse du client de démonstration est restaurée à l'identique au lieu d'être vidée."
+  ],
+  "non_verifie": "Installation sur un téléphone physique ; envoi automatique d'une note saisie hors ligne (non prévu)."
+}

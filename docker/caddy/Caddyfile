@@ -29,6 +29,12 @@
 		}
 	}
 
+	# Application mobile (PWA) : conteneur dédié « mobile », même origine que l'API.
+	redir /mobile /mobile/ 308
+	handle /mobile/* {
+		reverse_proxy mobile:8080
+	}
+
 	# Application Vue : fichiers statiques, puis index.html pour les routes du navigateur.
 	handle {
 		root * /srv
