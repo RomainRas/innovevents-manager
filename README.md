@@ -66,3 +66,5 @@ Pages publiques : accueil, événements publiés avec filtres, avis validés, co
 Espace client et avis : modification des informations, demande de suppression du compte, avis après un événement terminé et modération par l’équipe. [Règles, tests et limites](docs/espace-client-avis.md).
 
 Espace administrateur : tableau de bord (prochains événements, notes récentes, indicateurs) et gestion des comptes employés et clients (création, suspension, suppression). [Règles, tests et limites](docs/administration-comptes.md).
+
+Espace employé : tous les clients et événements en consultation, notes collaboratives et statut des tâches assignées. [Règles, tests et limites](docs/espace-employe.md).

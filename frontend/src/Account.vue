@@ -22,7 +22,11 @@ onMounted(async () => {
     <h1>Bonjour {{ auth.user?.prenom }}</h1>
     <p v-if="auth.user?.role === 'client'"><RouterLink to="/espace/informations">Modifier mes informations ou supprimer mon compte</RouterLink></p>
     <p><RouterLink to="/mot-de-passe">Changer mon mot de passe</RouterLink></p>
-    <p v-if="auth.user?.role !== 'client'"><RouterLink to="/moderation-avis">Modérer les avis des clients</RouterLink></p>
+    <nav v-if="auth.user?.role !== 'client'" aria-label="Espace équipe" class="team-links">
+      <RouterLink to="/equipe/evenements">Tous les événements, notes et tâches</RouterLink>
+      <RouterLink to="/equipe/clients">Tous les clients</RouterLink>
+      <RouterLink to="/moderation-avis">Modérer les avis des clients</RouterLink>
+    </nav>
     <AdminDashboard v-if="auth.user?.role === 'administrateur'" />
     <p v-if="auth.user?.role === 'administrateur'"><RouterLink to="/comptes">Gérer les comptes employés et clients</RouterLink></p>
     <p v-if="auth.user?.role === 'administrateur'"><RouterLink to="/prospects">Consulter les demandes reçues</RouterLink></p>
@@ -37,3 +41,6 @@ onMounted(async () => {
     <RouterLink v-if="auth.user?.role === 'administrateur'" to="/journaux">Consulter les journaux</RouterLink>
   </main>
 </template>
+<style scoped>
+.team-links { display: flex; flex-direction: column; gap: 12px; margin: 16px 0 }
+</style>

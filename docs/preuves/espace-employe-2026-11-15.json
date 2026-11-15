@@ -1,0 +1,16 @@
+{
+  "date": "2026-11-15",
+  "environnement": "local Docker (Vite 5173, PHP 8.4, MySQL 8.4)",
+  "tests": {
+    "tests/app/team-space.py": "36/36",
+    "tests/app/team-space-browser.cjs": "18/18, trois exécutions successives (390 px et 1280 px)",
+    "non_regression": {"admin-accounts.py": "39/39", "client-space.py": "32/32", "public-pages.py": "31/31", "authentication.py": "réussi", "accounts.py": "réussi", "quote-decisions.py": "réussi", "conversion.py": "réussi", "events.py": "réussi", "client-space-browser.cjs": "réussi", "admin-accounts-browser.cjs": "réussi"},
+    "build_production_vue": "réussi"
+  },
+  "corrections_pendant_les_tests": [
+    "Limite de taille des requêtes portée à 64 Ko pour les notes (5 000 caractères accentués dépassent 8 Ko).",
+    "Test navigateur : en modification, le texte de la note est dans le champ ; ciblage du champ."
+  ],
+  "verification_base": "Aucune note, compte ou statut de tâche d'essai restant après exécution.",
+  "non_verifie": "Création et assignation de tâches : non développées."
+}

@@ -23,6 +23,10 @@ import Legal from './Legal.vue'
 import Profile from './Profile.vue'
 import ReviewModeration from './ReviewModeration.vue'
 import Accounts from './Accounts.vue'
+import TeamClients from './TeamClients.vue'
+import TeamClient from './TeamClient.vue'
+import TeamEvents from './TeamEvents.vue'
+import TeamEvent from './TeamEvent.vue'
 import { auth, refresh } from './auth'
 import './style.css'
 const router = createRouter({ history: createWebHistory(), routes: [
@@ -52,6 +56,10 @@ const router = createRouter({ history: createWebHistory(), routes: [
   { path: '/espace/informations', component: Profile, meta: { private: true, title: 'Mes informations' } },
   { path: '/moderation-avis', component: ReviewModeration, meta: { private: true, title: 'Modération des avis' } },
   { path: '/comptes', component: Accounts, meta: { private: true, title: 'Comptes' } },
+  { path: '/equipe/clients', component: TeamClients, meta: { private: true, title: 'Clients' } },
+  { path: '/equipe/clients/:id', component: TeamClient, meta: { private: true, title: 'Fiche client' } },
+  { path: '/equipe/evenements', component: TeamEvents, meta: { private: true, title: 'Événements' } },
+  { path: '/equipe/evenements/:id', component: TeamEvent, meta: { private: true, title: 'Fiche événement' } },
   { path: '/journaux', component: Logs, meta: { private: true } },
 ] })
 router.beforeEach(async to => {
