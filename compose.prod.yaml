@@ -60,6 +60,13 @@ services:
       MP_MAX_MESSAGES: 1000
     volumes: ["mailpit_data:/data"]
     restart: unless-stopped
+  # Application mobile (PWA) : fichiers statiques servis en interne, relayés par Caddy sous /mobile/.
+  mobile:
+    build:
+      context: .
+      dockerfile: docker/mobile/Dockerfile
+    image: innovevents-mobile:prod
+    restart: unless-stopped
   caddy:
     build:
       context: .
@@ -73,6 +80,7 @@ services:
       - caddy_config:/config
     depends_on:
       api: {condition: service_started}
+      mobile: {condition: service_started}
     restart: unless-stopped
 volumes:
   app_state:

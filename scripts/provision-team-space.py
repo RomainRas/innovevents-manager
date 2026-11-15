@@ -13,6 +13,8 @@ password=p.read_text(encoding='utf-8').strip()
 if len(password)!=64 or any(c not in '0123456789abcdef' for c in password):raise SystemExit('Secret invalide')
 # Démonstration idempotente : chaque tâche n'est insérée que si elle n'existe pas encore.
 sql((ROOT/'database/mysql/014_team_space.sql').read_text(encoding='utf-8'))
+# Adresse fictive du client de démonstration (action « Itinéraire » de l'application mobile), sans écraser une adresse existante.
+sql((ROOT/'database/mysql/015_mobile_demo.sql').read_text(encoding='utf-8'))
 D='innovevents_demo';U="'ecf_team'@'%'"
 q=f"CREATE USER IF NOT EXISTS {U} IDENTIFIED BY '{password}';"
 # Consultation : aucune écriture sur les clients ni les événements (« sans modifier les éléments structurels »).

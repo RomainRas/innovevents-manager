@@ -1,7 +1,9 @@
 const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright'),fs=require('fs'),{execFileSync}=require('child_process');
 // Restauration de la démonstration : avis, demande de suppression et ville modifiés par le parcours.
 const sql=q=>execFileSync(process.env.DOCKER_BIN||'docker',['compose','-f','compose.yaml','-f','compose.app.yaml','exec','-T','mysql','sh','/opt/innovevents/client.sh','--batch','innovevents_demo'],{input:'SET NAMES utf8mb4;'+q,encoding:'utf8'});
-function restore(){sql("SET @u=(SELECT id FROM utilisateurs WHERE email_normalise='alice@example.invalid'); DELETE a FROM avis a JOIN evenements e ON e.id=a.evenement_id WHERE e.nom='Afterwork de rentrée Horizon' AND a.auteur_id=@u; DELETE FROM demandes_suppression WHERE utilisateur_id=@u; UPDATE clients SET ville=NULL WHERE utilisateur_id=@u;")}
+// Ville d'origine lue avant le parcours (le profil la remplace par « Lyon »), restaurée telle quelle.
+const originalCity=(v=>v==='NULL'?'NULL':"'"+v.replace(/'/g,"''")+"'")(sql("SELECT IFNULL(c.ville,'NULL') FROM clients c JOIN utilisateurs u ON u.id=c.utilisateur_id WHERE u.email_normalise='alice@example.invalid';").trim().split('\n').pop().trim());
+function restore(){sql(`SET @u=(SELECT id FROM utilisateurs WHERE email_normalise='alice@example.invalid'); DELETE a FROM avis a JOIN evenements e ON e.id=a.evenement_id WHERE e.nom='Afterwork de rentrée Horizon' AND a.auteur_id=@u; DELETE FROM demandes_suppression WHERE utilisateur_id=@u; UPDATE clients SET ville=${originalCity} WHERE utilisateur_id=@u;`)}
 // Parcours navigateur : profil et avis du client (390 px), modération par José (1280 px), publication, demande de suppression (390 px).
 // Les données modifiées sont restaurées par tests/app/client-space.py (exécuté avant et après) ; ce script ne fait que naviguer.
 (async()=>{const password=fs.readFileSync('.secrets/demo-password.txt','utf8').trim(),results={};

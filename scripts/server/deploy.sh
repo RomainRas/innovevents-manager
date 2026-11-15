@@ -22,7 +22,7 @@ done
 [ -f .secrets/smtp-password.txt ] || : > .secrets/smtp-password.txt
 
 echo "1/5 Construction des images"
-docker compose build --pull api caddy
+docker compose build --pull api mobile caddy
 
 echo "2/5 Démarrage des bases"
 docker compose up -d --wait --wait-timeout 300 mysql mongodb
@@ -38,6 +38,6 @@ for script in provision-api-accounts provision-mail provision-quotes provision-p
 done
 
 echo "5/5 Démarrage de l'application"
-docker compose up -d --wait --wait-timeout 180 --remove-orphans api mail_worker journal_worker mailpit caddy
+docker compose up -d --wait --wait-timeout 180 --remove-orphans api mail_worker journal_worker mailpit mobile caddy
 docker image prune -f >/dev/null
 echo "Application démarrée : https://$SITE_DOMAIN"

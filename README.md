@@ -68,3 +68,5 @@ Espace client et avis : modification des informations, demande de suppression du
 Espace administrateur : tableau de bord (prochains événements, notes récentes, indicateurs) et gestion des comptes employés et clients (création, suspension, suppression). [Règles, tests et limites](docs/administration-comptes.md).
 
 Espace employé : tous les clients et événements en consultation, notes collaboratives et statut des tâches assignées. [Règles, tests et limites](docs/espace-employe.md).
+
+Application mobile (PWA installable, conteneur Docker dédié) : https://innovevents.rascleromain.fr/mobile/ — événements à venir, fiche contact (appel, courriel, itinéraire), notes rapides, consultation hors ligne. [Choix, sécurité, tests et limites](docs/application-mobile.md).

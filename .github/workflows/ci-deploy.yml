@@ -33,6 +33,9 @@ jobs:
       - name: Compilation Vue et serveur web
         run: docker build -f docker/caddy/Dockerfile -t innovevents-caddy:ci .
 
+      - name: Compilation de l'application mobile (PWA)
+        run: docker build -f docker/mobile/Dockerfile -t innovevents-mobile:ci .
+
       - name: Configuration Docker Compose de production
         run: |
           touch .env

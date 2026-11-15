@@ -27,7 +27,8 @@ final class Kernel
             '/api/team/reviews'=>'GET','/api/team/review-moderation'=>'POST',
             '/api/admin/dashboard'=>'GET','/api/admin/accounts'=>'GET','/api/admin/account-create'=>'POST','/api/admin/account-status'=>'POST','/api/admin/account-delete'=>'POST',
             '/api/team/clients'=>'GET','/api/team/client'=>'GET','/api/team/events'=>'GET','/api/team/event'=>'GET',
-            '/api/team/note-save'=>'POST','/api/team/note-delete'=>'POST','/api/team/task-status'=>'POST'];
+            '/api/team/note-save'=>'POST','/api/team/note-delete'=>'POST','/api/team/task-status'=>'POST',
+            '/api/mobile/events'=>'GET','/api/mobile/event'=>'GET','/api/mobile/client'=>'GET','/api/mobile/note'=>'POST'];
         try {
             if (!isset($routes[$path])) throw new HttpError(404,'not_found');
             if (($_SERVER['REQUEST_METHOD']??'')!==$routes[$path]) {
@@ -47,6 +48,12 @@ final class Kernel
                         $result=(new \InnovEvents\Service\PublicSite())->event($_GET);break;
                     case '/api/public/event-image':
                         (new \InnovEvents\Service\PublicSite())->image($_GET);return;
+                    case '/api/mobile/events':
+                        $result=(new \InnovEvents\Service\MobileApp())->events();break;
+                    case '/api/mobile/event':
+                        $result=(new \InnovEvents\Service\MobileApp())->event($_GET);break;
+                    case '/api/mobile/client':
+                        $result=(new \InnovEvents\Service\MobileApp())->client($_GET);break;
                     case '/api/team/clients':
                         $result=(new \InnovEvents\Service\TeamSpace())->clients($_GET);break;
                     case '/api/team/client':
@@ -115,6 +122,7 @@ final class Kernel
                     case '/api/admin/quote-counter-proposal':
                     case '/api/admin/quote-draft-save':
                     case '/api/admin/event-save':
+                    case '/api/mobile/note':
                     case '/api/team/note-save':
                     case '/api/team/note-delete':
                     case '/api/team/task-status':
@@ -127,12 +135,13 @@ final class Kernel
                     case '/api/team/review-moderation':
                     case '/api/contact':
                         if (strtolower(trim(explode(';',$_SERVER['CONTENT_TYPE']??'')[0]))!=='application/json') throw new HttpError(415,'json_required');
-                        $limit=in_array($path,['/api/quote-requests','/api/admin/quote-draft-save','/api/team/note-save'],true)?65536:8192;
+                        $limit=in_array($path,['/api/quote-requests','/api/admin/quote-draft-save','/api/team/note-save','/api/mobile/note'],true)?65536:8192;
                         $raw=file_get_contents('php://input',false,null,0,$limit+1);
                         if (strlen($raw)>$limit) throw new HttpError(413,'payload_too_large');
                         try {$data=json_decode($raw,true,16,JSON_THROW_ON_ERROR);} catch (\JsonException) {throw new HttpError(400,'invalid_json');}
                         if (!is_array($data)) throw new HttpError(422,'invalid_input');
                         if ($path==='/api/contact'){$result=(new \InnovEvents\Service\PublicSite())->contact($data);http_response_code(202);}
+                        elseif ($path==='/api/mobile/note')$result=(new \InnovEvents\Service\MobileApp())->addNote($data);
                         elseif ($path==='/api/team/note-save')$result=(new \InnovEvents\Service\TeamSpace())->saveNote($data);
                         elseif ($path==='/api/team/note-delete')$result=(new \InnovEvents\Service\TeamSpace())->deleteNote($data);
                         elseif ($path==='/api/team/task-status')$result=(new \InnovEvents\Service\TeamSpace())->taskStatus($data);
