@@ -1,23 +1,36 @@
 <script setup>
+// Cadre commun à toutes les pages : en-tête, navigation selon la connexion, pied de page avec les pages légales.
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { auth, logout } from './auth'
-const router = useRouter(), error = ref('')
+
+const router = useRouter(),
+  error = ref('')
+
+// Déconnexion depuis l'en-tête, puis retour à l'écran de connexion.
 async function disconnect() {
-  try { await logout(); error.value = ''; await router.push('/connexion') }
-  catch { error.value = 'Déconnexion impossible. Réessayez.' }
+  try {
+    await logout()
+    error.value = ''
+    await router.push('/connexion')
+  } catch {
+    error.value = 'Déconnexion impossible. Réessayez.'
+  }
 }
 </script>
 <template>
   <a class="skip-link" href="#contenu">Aller au contenu</a>
-  <header><RouterLink class="brand" to="/">Innov’Events</RouterLink>
+  <header>
+    <RouterLink class="brand" to="/">Innov’Events</RouterLink>
     <nav aria-label="Navigation principale">
       <RouterLink to="/">Accueil</RouterLink>
       <RouterLink to="/evenements-publics">Évènements</RouterLink>
       <RouterLink to="/avis">Avis</RouterLink>
       <RouterLink to="/contact">Contact</RouterLink>
       <RouterLink to="/demande-devis">Demande de devis</RouterLink>
-      <template v-if="auth.user"><RouterLink to="/espace">Mon espace</RouterLink><button @click="disconnect">Se déconnecter</button></template>
+      <template v-if="auth.user"
+        ><RouterLink to="/espace">Mon espace</RouterLink><button @click="disconnect">Se déconnecter</button></template
+      >
       <RouterLink v-else to="/connexion">Se connecter</RouterLink>
     </nav>
   </header>

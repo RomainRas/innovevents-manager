@@ -1,29 +1,100 @@
 <script setup>
+// Écran de préparation du devis d'un événement (administratrice) : prestations, taux de TVA et totaux,
+// puis génération du PDF (QuotePdf) et transmission au client (QuoteTransmission).
 import { ref, onMounted, nextTick } from 'vue'
 import { useRoute } from 'vue-router'
 import { request, auth } from './auth'
 import QuotePdf from './QuotePdf.vue'
 import QuoteTransmission from './QuoteTransmission.vue'
-const pdfLocked=ref(false),sendLocked=ref(false),pdfKey=ref(0)
-const route=useRoute(),loading=ref(true),busy=ref(false),uncertain=ref(false),error=ref(''),errors=ref({}),notice=ref(''),event=ref(null),revision=ref(0),editable=ref(true),reference=ref(''),rate=ref(''),lines=ref([{libelle:'',montant_ht:''}]),totals=ref(null)
-let pending=null
-const counterKey=ref(0)
-async function load(){loading.value=true;error.value='';try{const d=await request('/api/admin/quote-draft?event_id='+route.params.id);event.value=d.event;if(d.quote){const q=d.quote;revision.value=q.revision;reference.value=q.reference;rate.value=q.taux_tva??'';lines.value=q.prestations.length?q.prestations:[{libelle:'',montant_ht:''}];editable.value=q.editable;totals.value=q.total_ht===null?null:q}editable.value=editable.value&&d.event.statut==='brouillon'}catch{error.value='Impossible de consulter ce devis. Accès réservé à l’administratrice.'}finally{loading.value=false}}
+
+// Verrous posés par les blocs PDF et transmission pendant leurs opérations (le formulaire est alors bloqué).
+const pdfLocked = ref(false), sendLocked = ref(false), pdfKey = ref(0)
+const route = useRoute(), loading = ref(true), busy = ref(false), uncertain = ref(false)
+const error = ref(''), errors = ref({}), notice = ref('')
+const event = ref(null), revision = ref(0), editable = ref(true), reference = ref(''), rate = ref('')
+const lines = ref([{ libelle: '', montant_ht: '' }]), totals = ref(null)
+
+// Enregistrement en cours, gardé à l'identique tant que son résultat est inconnu.
+let pending = null
+// Change de valeur pour recréer le bloc de transmission après une contre-proposition.
+const counterKey = ref(0)
+
+/** Charge l'événement et le devis courant ; le formulaire n'est modifiable que pour un devis et un événement brouillons. */
+async function load() {
+  loading.value = true; error.value = ''
+  try {
+    const d = await request('/api/admin/quote-draft?event_id=' + route.params.id)
+    event.value = d.event
+    if (d.quote) {
+      const q = d.quote
+      revision.value = q.revision
+      reference.value = q.reference
+      rate.value = q.taux_tva ?? ''
+      lines.value = q.prestations.length ? q.prestations : [{ libelle: '', montant_ht: '' }]
+      editable.value = q.editable
+      totals.value = q.total_ht === null ? null : q
+    }
+    editable.value = editable.value && d.event.statut === 'brouillon'
+  } catch {
+    error.value = 'Impossible de consulter ce devis. Accès réservé à l’administratrice.'
+  } finally {
+    loading.value = false
+  }
+}
 onMounted(load)
-async function counterCreated(){editable.value=true;await load();counterKey.value++;notice.value='Nouvelle version créée à partir de la précédente : modifiez les prestations, enregistrez, générez le PDF puis transmettez-la.';await nextTick();document.getElementById('quote-result')?.focus()}
-function changed(){totals.value=null;notice.value=''}
-async function save(){busy.value=true;error.value='';errors.value={};notice.value=''
- try{
-  pending??=JSON.stringify({event_id:route.params.id,revision:revision.value,taux_tva:rate.value,prestations:lines.value})
-  const d=await request('/api/admin/quote-draft-save',{method:'POST',headers:{'Content-Type':'application/json','X-CSRF-Token':auth.csrf},body:pending})
-  revision.value=d.revision;reference.value=d.reference;totals.value=d;lines.value=d.prestations;rate.value=d.taux_tva;pending=null;uncertain.value=false;notice.value='Prestations et totaux enregistrés.';await nextTick();document.getElementById('quote-result')?.focus()
- }catch(e){errors.value=e.fields||{}
-  if(e.status===422){error.value='Vérifiez les champs signalés.';pending=null;uncertain.value=false}
-  else if(e.status===409){error.value='Le devis ou l’événement a changé. Rechargez la page avant de continuer.';pending=null;uncertain.value=false}
-  else if(e.status===401||e.status===403){error.value='Votre session ou vos droits ne permettent plus cette action.';pending=null;uncertain.value=false}
-  else{error.value='Enregistrement non confirmé. Réessayez avec les mêmes prestations.';uncertain.value=true}
-  busy.value=false;await nextTick();(document.getElementById(Object.keys(errors.value)[0])||document.getElementById('quote-error'))?.focus()
- }finally{busy.value=false}
+
+/** Nouvelle version créée par une contre-proposition : rechargement et message d'aide. */
+async function counterCreated() {
+  editable.value = true
+  await load()
+  counterKey.value++
+  notice.value = 'Nouvelle version créée à partir de la précédente : modifiez les prestations, enregistrez, générez le PDF puis transmettez-la.'
+  await nextTick(); document.getElementById('quote-result')?.focus()
+}
+
+/** Une saisie a changé : les totaux affichés ne sont plus à jour tant qu'on n'a pas enregistré. */
+function changed() {
+  totals.value = null
+  notice.value = ''
+}
+
+/** Enregistre les prestations ; le serveur recalcule les totaux (ils ne sont jamais calculés dans le navigateur). */
+async function save() {
+  busy.value = true; error.value = ''; errors.value = {}; notice.value = ''
+  try {
+    pending ??= JSON.stringify({ event_id: route.params.id, revision: revision.value, taux_tva: rate.value, prestations: lines.value })
+    const d = await request('/api/admin/quote-draft-save', { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-CSRF-Token': auth.csrf }, body: pending })
+    revision.value = d.revision
+    reference.value = d.reference
+    totals.value = d
+    lines.value = d.prestations
+    rate.value = d.taux_tva
+    pending = null; uncertain.value = false
+    notice.value = 'Prestations et totaux enregistrés.'
+    await nextTick(); document.getElementById('quote-result')?.focus()
+  } catch (e) {
+    errors.value = e.fields || {}
+    if (e.status === 422) {
+      error.value = 'Vérifiez les champs signalés.'
+      pending = null; uncertain.value = false
+    } else if (e.status === 409) {
+      error.value = 'Le devis ou l’événement a changé. Rechargez la page avant de continuer.'
+      pending = null; uncertain.value = false
+    } else if (e.status === 401 || e.status === 403) {
+      error.value = 'Votre session ou vos droits ne permettent plus cette action.'
+      pending = null; uncertain.value = false
+    } else {
+      // Réponse perdue : le même enregistrement sera renvoyé, sans risque de doublon.
+      error.value = 'Enregistrement non confirmé. Réessayez avec les mêmes prestations.'
+      uncertain.value = true
+    }
+    // Réactiver le formulaire avant d'y placer le focus (premier champ en erreur, sinon le message).
+    busy.value = false
+    await nextTick()
+    ;(document.getElementById(Object.keys(errors.value)[0]) || document.getElementById('quote-error'))?.focus()
+  } finally {
+    busy.value = false
+  }
 }
 </script>
 <template><main class="panel"><RouterLink :to="'/evenements/'+route.params.id">Retour à l’événement</RouterLink><h1>Préparer le devis</h1><p v-if="loading" role="status">Chargement…</p><p v-if="error" id="quote-error" role="alert" tabindex="-1" class="error">{{ error }}</p><p v-if="notice" id="quote-result" role="status" tabindex="-1">{{ notice }}</p>

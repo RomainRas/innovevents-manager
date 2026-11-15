@@ -1,31 +1,97 @@
 <script setup>
+// Brouillon d'événement (administratrice) : création depuis une demande convertie (/prospects/:id/evenement)
+// ou modification d'un brouillon existant (/evenements/:id), avec l'image de l'événement (EventImage).
 import { computed, nextTick, onMounted, reactive, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { auth, request, refresh } from './auth'
 import EventImage from './EventImage.vue'
-const imageLocked=ref(false),hasImage=ref(false),imageAlt=ref('')
-const route=useRoute(),router=useRouter(),creating=computed(()=>route.meta.eventMode==='create')
-const form=reactive({nom:'',lieu:'',type_evenement:'',participants_estimes:'',debut:'',fin:''})
-const fields=[['nom','Nom de l’événement','text',200],['lieu','Lieu','text',255],['type_evenement','Type d’événement','text',100],['participants_estimes','Participants estimés','number',10],['debut','Date et heure de début','datetime-local',30],['fin','Date et heure de fin','datetime-local',30]]
-const loading=ref(true),busy=ref(false),error=ref(''),errors=ref({}),notice=ref(''),uncertain=ref(false),revision=ref(1),client=ref(null),status=ref('brouillon'),requested=ref('')
-onMounted(async()=>{try{
- if(creating.value){const d=await request('/api/admin/event-context?'+new URLSearchParams({prospect_id:route.params.id}));client.value=d.client_id;if(d.event_id){await router.replace('/evenements/'+d.event_id);return}const s=d.suggested;Object.assign(form,{nom:s.nom,lieu:s.lieu,type_evenement:s.type_evenement,participants_estimes:s.participants_estimes});requested.value=s.date_souhaitee}
- else{const e=(await request('/api/admin/event?'+new URLSearchParams({id:route.params.id}))).event;client.value=e.client_id;revision.value=e.revision;status.value=e.statut;hasImage.value=e.has_image;imageAlt.value=e.image_alternative||'';for(const [k] of fields)form[k]=e[k]??''}
-}catch(e){error.value=e.status===403?'Accès réservé à l’administratrice.':'Impossible de charger cet événement ou cette demande.'}finally{loading.value=false}})
-async function submit(){busy.value=true;error.value='';errors.value={};notice.value=''
- try{
-  const payload=creating.value?{prospect_id:route.params.id,...form}:{id:route.params.id,revision:revision.value,...form}
-  const d=await request(creating.value?'/api/admin/event-create':'/api/admin/event-save',{method:'POST',headers:{'Content-Type':'application/json','X-CSRF-Token':auth.csrf},body:JSON.stringify(payload)})
-  uncertain.value=false
-  if(creating.value){await router.replace({path:'/evenements/'+d.event_id,query:{cree:'1'}});return}
-  revision.value=d.revision;notice.value='Brouillon enregistré.';await nextTick();document.getElementById('event-result')?.focus()
- }catch(e){errors.value=e.fields||{}
-  if(e.status===422)error.value='Vérifiez les champs signalés.'
-  else if(e.status===409)error.value='Cet événement existe déjà ou a changé depuis votre ouverture. Rechargez sa fiche avant de continuer ; vos saisies actuelles seront alors remplacées.'
-  else if(e.status===401||e.status===403){error.value='Votre session ou vos droits ne permettent plus cette action.';try{await refresh()}catch{/* Garder la saisie. */}}
-  else{uncertain.value=true;error.value='Nous n’avons pas pu confirmer l’enregistrement. Réessayez avec les mêmes informations.'}
-  busy.value=false;await nextTick();(document.getElementById(Object.keys(errors.value)[0])||document.getElementById('event-error'))?.focus()
- }finally{busy.value=false}
+
+const imageLocked = ref(false), hasImage = ref(false), imageAlt = ref('')
+const route = useRoute(), router = useRouter()
+const creating = computed(() => route.meta.eventMode === 'create')
+
+const form = reactive({ nom: '', lieu: '', type_evenement: '', participants_estimes: '', debut: '', fin: '' })
+// Champs du formulaire : [clé, libellé, type de champ, longueur maximale].
+const fields = [
+  ['nom', 'Nom de l’événement', 'text', 200],
+  ['lieu', 'Lieu', 'text', 255],
+  ['type_evenement', 'Type d’événement', 'text', 100],
+  ['participants_estimes', 'Participants estimés', 'number', 10],
+  ['debut', 'Date et heure de début', 'datetime-local', 30],
+  ['fin', 'Date et heure de fin', 'datetime-local', 30],
+]
+
+const loading = ref(true), busy = ref(false), error = ref(''), errors = ref({}), notice = ref(''), uncertain = ref(false)
+const revision = ref(1), client = ref(null), status = ref('brouillon'), requested = ref('')
+
+onMounted(async () => {
+  try {
+    if (creating.value) {
+      // Création : on propose les informations de la demande ; si l'événement existe déjà, on l'ouvre.
+      const d = await request('/api/admin/event-context?' + new URLSearchParams({ prospect_id: route.params.id }))
+      client.value = d.client_id
+      if (d.event_id) {
+        await router.replace('/evenements/' + d.event_id)
+        return
+      }
+      const s = d.suggested
+      Object.assign(form, { nom: s.nom, lieu: s.lieu, type_evenement: s.type_evenement, participants_estimes: s.participants_estimes })
+      requested.value = s.date_souhaitee
+    } else {
+      const e = (await request('/api/admin/event?' + new URLSearchParams({ id: route.params.id }))).event
+      client.value = e.client_id
+      revision.value = e.revision
+      status.value = e.statut
+      hasImage.value = e.has_image
+      imageAlt.value = e.image_alternative || ''
+      for (const [key] of fields) form[key] = e[key] ?? ''
+    }
+  } catch (e) {
+    error.value = e.status === 403 ? 'Accès réservé à l’administratrice.' : 'Impossible de charger cet événement ou cette demande.'
+  } finally {
+    loading.value = false
+  }
+})
+
+/** Crée l'événement (puis ouvre sa fiche) ou enregistre le brouillon avec son numéro de révision. */
+async function submit() {
+  busy.value = true; error.value = ''; errors.value = {}; notice.value = ''
+  try {
+    const payload = creating.value
+      ? { prospect_id: route.params.id, ...form }
+      : { id: route.params.id, revision: revision.value, ...form }
+    const d = await request(creating.value ? '/api/admin/event-create' : '/api/admin/event-save', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-CSRF-Token': auth.csrf },
+      body: JSON.stringify(payload),
+    })
+    uncertain.value = false
+    if (creating.value) {
+      await router.replace({ path: '/evenements/' + d.event_id, query: { cree: '1' } })
+      return
+    }
+    revision.value = d.revision
+    notice.value = 'Brouillon enregistré.'
+    await nextTick(); document.getElementById('event-result')?.focus()
+  } catch (e) {
+    errors.value = e.fields || {}
+    if (e.status === 422) {
+      error.value = 'Vérifiez les champs signalés.'
+    } else if (e.status === 409) {
+      error.value = 'Cet événement existe déjà ou a changé depuis votre ouverture. Rechargez sa fiche avant de continuer ; vos saisies actuelles seront alors remplacées.'
+    } else if (e.status === 401 || e.status === 403) {
+      error.value = 'Votre session ou vos droits ne permettent plus cette action.'
+      try { await refresh() } catch { /* Garder la saisie. */ }
+    } else {
+      uncertain.value = true
+      error.value = 'Nous n’avons pas pu confirmer l’enregistrement. Réessayez avec les mêmes informations.'
+    }
+    busy.value = false
+    await nextTick()
+    ;(document.getElementById(Object.keys(errors.value)[0]) || document.getElementById('event-error'))?.focus()
+  } finally {
+    busy.value = false
+  }
 }
 </script>
 <template><main class="panel"><RouterLink v-if="client" :to="'/clients/'+client">Retour au client</RouterLink><h1>{{ creating?'Préparer l’événement':'Événement — '+(form.nom||'fiche') }}</h1>

@@ -1,39 +1,122 @@
 <script setup>
+// Bloc « Vos devis » de l'espace client : consultation des devis transmis, téléchargement du PDF
+// et réponse (accepter, refuser ou demander une modification avec un motif).
 import { ref, onMounted, nextTick } from 'vue'
 import { auth, request } from './auth'
-const quotes=ref([]),loading=ref(true),error=ref(''),notice=ref(''),busy=ref(''),dialog=ref(null),reason=ref(''),reasonError=ref(''),uncertain=ref(false)
-let pending=null,origin=null
-const labels={etude_client:'À étudier',modification:'Modification demandée',accepte:'Accepté',refuse:'Refusé'}
-const titles={accepte:'Accepter ce devis',refuse:'Refuser ce devis',modification:'Demander une modification'}
-const confirms={accepte:'Confirmer l’acceptation',refuse:'Confirmer le refus',modification:'Envoyer la demande'}
-const results={accepte:'Devis accepté. Innov’Events est informée et prépare l’organisation de votre événement.',refuse:'Refus enregistré. Votre devis reste consultable dans votre espace.',modification:'Demande de modification enregistrée. Innov’Events vous proposera une nouvelle version.'}
-const money=v=>Number(v).toLocaleString('fr-FR',{style:'currency',currency:'EUR'})
-const local=v=>{const m=/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})$/.exec(v||'');return m?`${m[3]}/${m[2]}/${m[1]} à ${m[4]} h ${m[5]}`:''}
-const day=v=>v?new Date(v.replace(' ','T').slice(0,19)+'Z').toLocaleDateString('fr-FR',{timeZone:'Europe/Paris'}):''
-async function load(){try{quotes.value=(await request('/api/me/quotes')).devis}catch{error.value='Vos devis sont indisponibles pour le moment.'}finally{loading.value=false}}
+
+const quotes = ref([]), loading = ref(true), error = ref(''), notice = ref(''), busy = ref('')
+const dialog = ref(null), reason = ref(''), reasonError = ref(''), uncertain = ref(false)
+
+// Réponse en cours (gardée tant que son résultat est inconnu) et bouton qui a ouvert la confirmation (retour du focus).
+let pending = null, origin = null
+
+// Libellés affichés selon le statut ou le choix.
+const labels = { etude_client: 'À étudier', modification: 'Modification demandée', accepte: 'Accepté', refuse: 'Refusé' }
+const titles = { accepte: 'Accepter ce devis', refuse: 'Refuser ce devis', modification: 'Demander une modification' }
+const confirms = { accepte: 'Confirmer l’acceptation', refuse: 'Confirmer le refus', modification: 'Envoyer la demande' }
+const results = {
+  accepte: 'Devis accepté. Innov’Events est informée et prépare l’organisation de votre événement.',
+  refuse: 'Refus enregistré. Votre devis reste consultable dans votre espace.',
+  modification: 'Demande de modification enregistrée. Innov’Events vous proposera une nouvelle version.',
+}
+
+/** Montant en euros, format français (1 234,56 €). */
+const money = v => Number(v).toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' })
+/** Date locale « AAAA-MM-JJTHH:MM » → « JJ/MM/AAAA à HH h MM ». */
+const local = v => {
+  const m = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})$/.exec(v || '')
+  return m ? `${m[3]}/${m[2]}/${m[1]} à ${m[4]} h ${m[5]}` : ''
+}
+/** Horodatage UTC de la base → date de Paris. */
+const day = v => v ? new Date(v.replace(' ', 'T').slice(0, 19) + 'Z').toLocaleDateString('fr-FR', { timeZone: 'Europe/Paris' }) : ''
+
+async function load() {
+  try { quotes.value = (await request('/api/me/quotes')).devis }
+  catch { error.value = 'Vos devis sont indisponibles pour le moment.' }
+  finally { loading.value = false }
+}
 onMounted(load)
-async function open(q,choice,event){origin=event.currentTarget;dialog.value={q,choice};reason.value='';reasonError.value='';error.value='';notice.value='';await nextTick();document.getElementById(choice==='modification'?'decision-reason':'decision-dialog')?.focus()}
-function cancel(){dialog.value=null;origin?.focus()}
-async function decide(){
- const {q,choice}=pending&&uncertain.value?pending:dialog.value
- if(choice==='modification'&&!uncertain.value&&!reason.value.trim()){reasonError.value='Indiquez le motif de votre demande de modification.';await nextTick();document.getElementById('decision-reason')?.focus();return}
- // Même identifiant d'opération tant que le résultat est inconnu : aucune double réponse.
- if(!pending)pending={q,choice,body:JSON.stringify({version_id:q.version_id,choix:choice,motif:choice==='modification'?reason.value:undefined,cle:crypto.randomUUID()})}
- busy.value=q.version_id;error.value='';reasonError.value=''
- try{await request('/api/me/quote-decision',{method:'POST',headers:{'Content-Type':'application/json','X-CSRF-Token':auth.csrf},body:pending.body})
-  const done=results[pending.choice];pending=null;uncertain.value=false;dialog.value=null;await load();notice.value=done;await nextTick();document.getElementById('quotes-result')?.focus()}
- catch(e){
-  if(e.status===422){reasonError.value=e.fields?.motif||'';error.value=e.fields?.motif?'':'Réponse incomplète.';pending=null;uncertain.value=false}
-  else if(e.status===409||e.status===404){error.value=e.message==='quote_version_replaced'?'Une nouvelle version de ce devis vous a été proposée. Consultez-la avant de répondre.':'Ce devis a déjà reçu une réponse ou n’est plus disponible.';pending=null;uncertain.value=false;dialog.value=null;await load()}
-  else if(e.status===401||e.status===403){error.value='Votre session a expiré. Reconnectez-vous pour répondre.';pending=null;uncertain.value=false}
-  else{error.value='Résultat inconnu : votre réponse a peut-être été enregistrée. Vérifiez avant de répondre à nouveau.';uncertain.value=true}
-  await nextTick();(reasonError.value?document.getElementById('decision-reason'):document.getElementById('quotes-error'))?.focus()}
- finally{busy.value=''}}
-async function download(q){busy.value='pdf-'+q.document_id;error.value=''
- try{const r=await fetch('/api/me/quote-pdf?id='+q.document_id,{credentials:'same-origin',signal:AbortSignal.timeout(15000)});if(!r.ok)throw Error()
-  const url=URL.createObjectURL(await r.blob()),a=document.createElement('a');a.href=url;a.download=`devis-${q.reference}-v${q.version}.pdf`;a.click();setTimeout(()=>URL.revokeObjectURL(url),60000)}
- catch{error.value='Téléchargement indisponible. Vérifiez votre connexion et réessayez.';await nextTick();document.getElementById('quotes-error')?.focus()}
- finally{busy.value=''}}
+
+/** Ouvre la confirmation d'une réponse ; le focus va au motif (modification) ou au panneau. */
+async function open(q, choice, event) {
+  origin = event.currentTarget
+  dialog.value = { q, choice }
+  reason.value = ''; reasonError.value = ''; error.value = ''; notice.value = ''
+  await nextTick()
+  document.getElementById(choice === 'modification' ? 'decision-reason' : 'decision-dialog')?.focus()
+}
+function cancel() {
+  dialog.value = null
+  origin?.focus()
+}
+
+/** Envoie la réponse confirmée (ou la renvoie à l'identique si le résultat précédent est inconnu). */
+async function decide() {
+  const { q, choice } = pending && uncertain.value ? pending : dialog.value
+  if (choice === 'modification' && !uncertain.value && !reason.value.trim()) {
+    reasonError.value = 'Indiquez le motif de votre demande de modification.'
+    await nextTick(); document.getElementById('decision-reason')?.focus()
+    return
+  }
+
+  // Même identifiant d'opération tant que le résultat est inconnu : aucune double réponse.
+  if (!pending) {
+    pending = { q, choice, body: JSON.stringify({ version_id: q.version_id, choix: choice, motif: choice === 'modification' ? reason.value : undefined, cle: crypto.randomUUID() }) }
+  }
+  busy.value = q.version_id; error.value = ''; reasonError.value = ''
+
+  try {
+    await request('/api/me/quote-decision', { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-CSRF-Token': auth.csrf }, body: pending.body })
+    const done = results[pending.choice]
+    pending = null; uncertain.value = false; dialog.value = null
+    await load()
+    notice.value = done
+    await nextTick(); document.getElementById('quotes-result')?.focus()
+  } catch (e) {
+    if (e.status === 422) {
+      // Motif manquant ou trop long : affiché sous le champ.
+      reasonError.value = e.fields?.motif || ''
+      error.value = e.fields?.motif ? '' : 'Réponse incomplète.'
+      pending = null; uncertain.value = false
+    } else if (e.status === 409 || e.status === 404) {
+      error.value = e.message === 'quote_version_replaced'
+        ? 'Une nouvelle version de ce devis vous a été proposée. Consultez-la avant de répondre.'
+        : 'Ce devis a déjà reçu une réponse ou n’est plus disponible.'
+      pending = null; uncertain.value = false; dialog.value = null
+      await load()
+    } else if (e.status === 401 || e.status === 403) {
+      error.value = 'Votre session a expiré. Reconnectez-vous pour répondre.'
+      pending = null; uncertain.value = false
+    } else {
+      // Réponse perdue : on garde l'opération pour la revérifier sans risque de double réponse.
+      error.value = 'Résultat inconnu : votre réponse a peut-être été enregistrée. Vérifiez avant de répondre à nouveau.'
+      uncertain.value = true
+    }
+    await nextTick()
+    ;(reasonError.value ? document.getElementById('decision-reason') : document.getElementById('quotes-error'))?.focus()
+  } finally {
+    busy.value = ''
+  }
+}
+
+/** Télécharge le PDF du devis (fichier créé dans le navigateur à partir de la réponse). */
+async function download(q) {
+  busy.value = 'pdf-' + q.document_id; error.value = ''
+  try {
+    const r = await fetch('/api/me/quote-pdf?id=' + q.document_id, { credentials: 'same-origin', signal: AbortSignal.timeout(15000) })
+    if (!r.ok) throw Error()
+    const url = URL.createObjectURL(await r.blob()), a = document.createElement('a')
+    a.href = url
+    a.download = `devis-${q.reference}-v${q.version}.pdf`
+    a.click()
+    setTimeout(() => URL.revokeObjectURL(url), 60000)
+  } catch {
+    error.value = 'Téléchargement indisponible. Vérifiez votre connexion et réessayez.'
+    await nextTick(); document.getElementById('quotes-error')?.focus()
+  } finally {
+    busy.value = ''
+  }
+}
 </script>
 <template><section aria-labelledby="quotes-title"><h2 id="quotes-title">Vos devis</h2>
 <p v-if="loading" role="status">Chargement…</p><p v-if="error" id="quotes-error" tabindex="-1" role="alert" class="error">{{ error }}</p>
