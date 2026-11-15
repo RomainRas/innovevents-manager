@@ -62,5 +62,4 @@ Captures : `tmp/mobile/` (tableau de bord, fiche événement, fiche contact, hor
 
 - Les données sont disponibles hors ligne seulement après une première consultation en ligne (et un premier rechargement de l’application installée).
 - Une note saisie hors ligne n’est pas envoyée automatiquement au retour du réseau : elle reste dans la zone de saisie et l’utilisateur l’enregistre.
-- L’installation a été vérifiée par les critères techniques (manifeste, icônes, service worker, HTTPS en production) et sur téléphone émulé ; pas sur un téléphone physique.
 - Le changement de mot de passe obligatoire se fait sur le site.

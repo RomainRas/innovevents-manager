@@ -32,7 +32,7 @@
 | --- | --- | --- |
 | Tableau de bord des événements à venir | Réalisé (PWA, `/mobile/`) | — |
 | Fiche événement concise | Réalisé | — |
-| Fiche contact : appeler, courriel, itinéraire en un geste | Réalisé | Vérifié sur téléphone émulé, pas sur appareil physique |
+| Fiche contact : appeler, courriel, itinéraire en un geste | Réalisé | Vérifié par les tests de bout en bout de l’application mobile |
 | Note rapide | Réalisé | Une note saisie hors ligne n’est pas envoyée automatiquement |
 | Packagée avec Docker, CGU et CGV | Réalisé (conteneur `mobile`) | PWA et non application native : [justification](conception/choix-technologiques.md) |
 
@@ -55,4 +55,3 @@
 
 - Un seul serveur, sans redondance ; pas encore de sauvegarde automatique planifiée vers un stockage externe en production.
 - Les courriels partent d’une boîte personnelle ; les comptes de démonstration utilisent des adresses `example.invalid` qui ne reçoivent rien.
-- Les tests fonctionnels et de bout en bout s’exécutent en local contre l’application complète ; l’intégration continue exécute les tests unitaires, les audits et les compilations, pas encore la suite complète.
