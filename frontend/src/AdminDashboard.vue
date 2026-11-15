@@ -1,5 +1,5 @@
 <script setup>
-// Tableau de bord de l'administratrice (dans l'espace personnel) : chiffres clés, prochains événements et dernières demandes.
+// Tableau de bord de l'administratrice (dans l'espace personnel) : chiffres clés, prochains événements et dernières notes de l'équipe.
 import { onMounted, ref } from 'vue'
 import { request } from './auth'
 
