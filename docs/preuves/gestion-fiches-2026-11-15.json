@@ -1,0 +1,16 @@
+{
+  "date": "2026-11-15",
+  "environnement": "local Docker (Vite 5173, PHP 8.4, MySQL 8.4, MongoDB 8.0)",
+  "tests": {
+    "tests/app/admin-records.py": "36/36 (dont livraison du journal dans MongoDB)",
+    "tests/app/admin-records-browser.cjs": "20/20, trois exécutions successives (1280 px et 390 px)",
+    "non_regression": {"team-space.py": "36/36", "mobile.py": "22/22", "client-space.py": "32/32", "admin-accounts.py": "39/39", "public-pages.py": "31/31", "authentication.py": "réussi", "accounts.py": "réussi", "quote-decisions.py": "réussi", "conversion.py": "réussi", "events.py": "réussi", "navigateur": "team-space, mobile, client-space, admin-accounts, public-pages réussis"},
+    "build_production_vue": "réussi"
+  },
+  "corrections_pendant_les_tests": [
+    "Suppression d'une tâche : la liste est rechargée avant d'afficher la confirmation.",
+    "Test de l'espace employé mis à jour : l'administratrice peut supprimer la tâche d'un employé mais pas la faire avancer."
+  ],
+  "verification_base": "Aucune fiche, événement, note ou tâche d'essai restant ; tâches de démonstration inchangées.",
+  "non_verifie": "Effacement du fichier image d'un événement supprimé (non prévu)."
+}

@@ -28,7 +28,10 @@ final class Kernel
             '/api/admin/dashboard'=>'GET','/api/admin/accounts'=>'GET','/api/admin/account-create'=>'POST','/api/admin/account-status'=>'POST','/api/admin/account-delete'=>'POST',
             '/api/team/clients'=>'GET','/api/team/client'=>'GET','/api/team/events'=>'GET','/api/team/event'=>'GET',
             '/api/team/note-save'=>'POST','/api/team/note-delete'=>'POST','/api/team/task-status'=>'POST',
-            '/api/mobile/events'=>'GET','/api/mobile/event'=>'GET','/api/mobile/client'=>'GET','/api/mobile/note'=>'POST'];
+            '/api/mobile/events'=>'GET','/api/mobile/event'=>'GET','/api/mobile/client'=>'GET','/api/mobile/note'=>'POST',
+            '/api/admin/records-context'=>'GET','/api/admin/event-edit'=>'GET','/api/admin/client-create'=>'POST','/api/admin/client-save'=>'POST','/api/admin/client-delete'=>'POST',
+            '/api/admin/event-new'=>'POST','/api/admin/event-update'=>'POST','/api/admin/event-status'=>'POST','/api/admin/event-delete'=>'POST',
+            '/api/admin/task-create'=>'POST','/api/admin/task-delete'=>'POST'];
         try {
             if (!isset($routes[$path])) throw new HttpError(404,'not_found');
             if (($_SERVER['REQUEST_METHOD']??'')!==$routes[$path]) {
@@ -48,6 +51,10 @@ final class Kernel
                         $result=(new \InnovEvents\Service\PublicSite())->event($_GET);break;
                     case '/api/public/event-image':
                         (new \InnovEvents\Service\PublicSite())->image($_GET);return;
+                    case '/api/admin/records-context':
+                        $result=(new \InnovEvents\Service\AdminRecords())->staff();break;
+                    case '/api/admin/event-edit':
+                        $result=(new \InnovEvents\Service\AdminRecords())->eventForEdit($_GET);break;
                     case '/api/mobile/events':
                         $result=(new \InnovEvents\Service\MobileApp())->events();break;
                     case '/api/mobile/event':
@@ -122,6 +129,15 @@ final class Kernel
                     case '/api/admin/quote-counter-proposal':
                     case '/api/admin/quote-draft-save':
                     case '/api/admin/event-save':
+                    case '/api/admin/client-create':
+                    case '/api/admin/client-save':
+                    case '/api/admin/client-delete':
+                    case '/api/admin/event-new':
+                    case '/api/admin/event-update':
+                    case '/api/admin/event-status':
+                    case '/api/admin/event-delete':
+                    case '/api/admin/task-create':
+                    case '/api/admin/task-delete':
                     case '/api/mobile/note':
                     case '/api/team/note-save':
                     case '/api/team/note-delete':
@@ -141,6 +157,13 @@ final class Kernel
                         try {$data=json_decode($raw,true,16,JSON_THROW_ON_ERROR);} catch (\JsonException) {throw new HttpError(400,'invalid_json');}
                         if (!is_array($data)) throw new HttpError(422,'invalid_input');
                         if ($path==='/api/contact'){$result=(new \InnovEvents\Service\PublicSite())->contact($data);http_response_code(202);}
+                        elseif (str_starts_with($path,'/api/admin/')&&in_array(substr($path,11),['client-create','client-save','client-delete','event-new','event-update','event-status','event-delete','task-create','task-delete'],true)){
+                            $records=new \InnovEvents\Service\AdminRecords();
+                            $result=match($path){'/api/admin/client-create'=>$records->createClient($data),'/api/admin/client-save'=>$records->saveClient($data),'/api/admin/client-delete'=>$records->deleteClient($data),
+                                '/api/admin/event-new'=>$records->createEvent($data),'/api/admin/event-update'=>$records->saveEvent($data),'/api/admin/event-status'=>$records->setEventStatus($data),
+                                '/api/admin/event-delete'=>$records->deleteEvent($data),'/api/admin/task-create'=>$records->createTask($data),'/api/admin/task-delete'=>$records->deleteTask($data)};
+                            if(in_array($path,['/api/admin/client-create','/api/admin/event-new','/api/admin/task-create'],true))http_response_code(201);
+                        }
                         elseif ($path==='/api/mobile/note')$result=(new \InnovEvents\Service\MobileApp())->addNote($data);
                         elseif ($path==='/api/team/note-save')$result=(new \InnovEvents\Service\TeamSpace())->saveNote($data);
                         elseif ($path==='/api/team/note-delete')$result=(new \InnovEvents\Service\TeamSpace())->deleteNote($data);

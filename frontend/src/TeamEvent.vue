@@ -3,6 +3,7 @@ import { nextTick, onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { auth, request } from './auth'
 import { eventStatuses, localDate, stamp, taskStatuses } from './teamFormat'
+import AdminEventPanel from './AdminEventPanel.vue'
 const route = useRoute(), data = ref(null), error = ref(''), loading = ref(true)
 const draft = ref(''), draftError = ref(''), editing = ref(''), editText = ref(''), editError = ref(''), confirmDelete = ref(''), busy = ref(''), notice = ref(''), actionError = ref('')
 const nextLabels = { en_cours: 'Commencer la tâche', termine: 'Marquer comme terminée' }
@@ -10,7 +11,19 @@ onMounted(async () => {
   try { data.value = await request('/api/team/event?id=' + encodeURIComponent(route.params.id)) }
   catch (e) { error.value = e.status === 404 || e.status === 422 ? 'Cet événement n’existe pas.' : 'La fiche événement est indisponible pour le moment.' }
   finally { loading.value = false }
+  if (route.query.message === 'cree') notice.value = 'Événement créé (brouillon).'
+  else if (route.query.message === 'modifie') notice.value = 'Événement modifié.'
 })
+const isAdmin = () => auth.user?.role === 'administrateur'
+async function deleteTask(t) {
+  busy.value = 'task-' + t.id; notice.value = ''; actionError.value = ''
+  let done = false
+  try { await post('/api/admin/task-delete', { id: t.id }); done = true }
+  catch (e) { actionError.value = fail(e, 'La suppression de la tâche n’a pas pu être confirmée. Réessayez.') }
+  // Liste rechargée avant d'annoncer le résultat : le message correspond à ce qui est affiché.
+  await reload(); if (done) notice.value = `Tâche « ${t.titre} » supprimée.`
+  busy.value = ''; await focus(actionError.value ? 'team-error' : 'team-notice')
+}
 const post = (path, body) => request(path, { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-CSRF-Token': auth.csrf }, body: JSON.stringify(body) })
 async function focus(id) { await nextTick(); document.getElementById(id)?.focus() }
 function fail(e, fallback) {
@@ -70,6 +83,8 @@ async function advance(t) {
       <p v-if="actionError" id="team-error" class="error" role="alert" tabindex="-1">{{ actionError }}</p>
       <p v-if="notice" id="team-notice" class="success" role="status" tabindex="-1">{{ notice }}</p>
 
+      <AdminEventPanel v-if="isAdmin()" :event-id="data.evenement.id" @changed="reload" />
+
       <section aria-labelledby="tasks-title">
         <h2 id="tasks-title">Tâches</h2>
         <p v-if="!data.taches.length">Aucune tâche pour cet événement.</p>
@@ -78,7 +93,10 @@ async function advance(t) {
             <h3 :id="'task-' + t.id">{{ t.titre }} <span class="badge" :class="t.statut">{{ taskStatuses[t.statut] }}</span></h3>
             <p v-if="t.description" class="text">{{ t.description }}</p>
             <p class="meta">{{ t.assigne ? 'Assignée à ' + t.assigne : 'Non assignée' }}<template v-if="t.a_moi"> (vous)</template></p>
-            <button v-if="t.suivant" type="button" :disabled="!!busy" :aria-describedby="'task-' + t.id" @click="advance(t)">{{ busy === 'task-' + t.id ? 'Enregistrement…' : nextLabels[t.suivant] }}</button>
+            <p class="actions">
+              <button v-if="t.suivant" type="button" :disabled="!!busy" :aria-describedby="'task-' + t.id" @click="advance(t)">{{ busy === 'task-' + t.id ? 'Enregistrement…' : nextLabels[t.suivant] }}</button>
+              <button v-if="isAdmin()" type="button" class="secondary" :disabled="!!busy" :aria-describedby="'task-' + t.id" @click="deleteTask(t)">Supprimer la tâche</button>
+            </p>
           </li>
         </ul>
       </section>
