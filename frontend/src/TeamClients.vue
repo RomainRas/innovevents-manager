@@ -1,0 +1,38 @@
+<script setup>
+import { onMounted, ref } from 'vue'
+import { request } from './auth'
+const clients = ref([]), q = ref(''), loading = ref(true), error = ref(''), searched = ref('')
+async function load() {
+  loading.value = true; error.value = ''
+  try { clients.value = (await request('/api/team/clients?' + new URLSearchParams({ q: q.value }))).clients; searched.value = q.value.trim() }
+  catch { error.value = 'La liste des clients est indisponible pour le moment.' } finally { loading.value = false }
+}
+onMounted(load)
+</script>
+<template>
+  <main class="panel wide">
+    <p><RouterLink to="/espace">← Retour à mon espace</RouterLink></p>
+    <h1>Clients</h1>
+    <form class="search" role="search" @submit.prevent="load">
+      <label for="clients-q">Rechercher un client (entreprise, contact, adresse, ville)</label>
+      <div class="row"><input id="clients-q" v-model="q" type="search" maxlength="100"><button type="submit">Rechercher</button></div>
+    </form>
+    <p v-if="error" class="error" role="alert">{{ error }}</p>
+    <p v-if="loading" role="status">Chargement…</p>
+    <p v-else role="status">{{ clients.length }} client{{ clients.length > 1 ? 's' : '' }}{{ searched ? ` pour « ${searched} »` : '' }}.</p>
+    <ul class="cards">
+      <li v-for="c in clients" :key="c.id">
+        <h2><RouterLink :to="'/equipe/clients/' + c.id">{{ c.entreprise }}</RouterLink></h2>
+        <p class="meta">{{ c.contact }}<template v-if="c.ville"> — {{ c.ville }}</template> — {{ c.evenements }} événement{{ c.evenements > 1 ? 's' : '' }}</p>
+        <p class="meta"><a :href="'tel:' + c.telephone">{{ c.telephone }}</a> — <a :href="'mailto:' + c.email">{{ c.email }}</a></p>
+      </li>
+    </ul>
+  </main>
+</template>
+<style scoped>
+.row { display: flex; gap: 8px; flex-wrap: wrap } .row input { flex: 1 1 220px }
+.cards { list-style: none; padding: 0 }
+.cards li { border: 1px solid #CBD5E1; border-radius: 8px; padding: 16px; margin: 12px 0 }
+h2 { margin: 0 0 4px; font-size: 1.15rem; overflow-wrap: anywhere }
+.meta { margin: 4px 0; color: #4A5B68; overflow-wrap: anywhere }
+</style>
