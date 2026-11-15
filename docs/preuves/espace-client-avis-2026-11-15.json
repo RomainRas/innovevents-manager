@@ -1,0 +1,15 @@
+{
+  "date": "2026-11-15",
+  "environnement": "local Docker (Vite 5173, PHP 8.4, MySQL 8.4)",
+  "tests": {
+    "tests/app/client-space.py": "32/32",
+    "tests/app/client-space-browser.cjs": "15/15 (390 px et 1280 px)",
+    "non_regression": {"public-pages": "31/31", "authentication": "réussi", "quote-decisions": "réussi"},
+    "build_production_vue": "réussi"
+  },
+  "corrections_pendant_les_tests": [
+    "Retour après connexion : les pages /espace/informations, /moderation-avis et /devis ajoutées à la liste des destinations autorisées.",
+    "Restauration de la ville dans le test HTTP : marqueur de valeur vide fiable."
+  ],
+  "non_verifie": "Traitement effectif d'une demande de suppression (administration des comptes non développée)."
+}

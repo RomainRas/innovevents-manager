@@ -22,7 +22,9 @@ final class Kernel
             '/api/admin/quote-pdf-status'=>'GET','/api/admin/quote-pdf'=>'GET','/api/admin/quote-pdf-generate'=>'POST','/api/admin/quote-draft'=>'GET','/api/admin/quote-draft-save'=>'POST','/api/admin/event-image'=>'GET','/api/admin/event-image-upload'=>'POST',
             '/api/admin/quote-transmission'=>'GET','/api/admin/quote-send'=>'POST','/api/me/quotes'=>'GET','/api/me/quote-pdf'=>'GET',
             '/api/me/quote-decision'=>'POST','/api/admin/quotes'=>'GET','/api/admin/quote-counter-proposal'=>'POST',
-            '/api/public/events'=>'GET','/api/public/event'=>'GET','/api/public/event-image'=>'GET','/api/public/reviews'=>'GET','/api/contact'=>'POST'];
+            '/api/public/events'=>'GET','/api/public/event'=>'GET','/api/public/event-image'=>'GET','/api/public/reviews'=>'GET','/api/contact'=>'POST',
+            '/api/me/profile'=>'GET','/api/me/profile-save'=>'POST','/api/me/deletion-request'=>'POST','/api/me/reviews'=>'GET','/api/me/review'=>'POST',
+            '/api/team/reviews'=>'GET','/api/team/review-moderation'=>'POST'];
         try {
             if (!isset($routes[$path])) throw new HttpError(404,'not_found');
             if (($_SERVER['REQUEST_METHOD']??'')!==$routes[$path]) {
@@ -42,6 +44,12 @@ final class Kernel
                         $result=(new \InnovEvents\Service\PublicSite())->event($_GET);break;
                     case '/api/public/event-image':
                         (new \InnovEvents\Service\PublicSite())->image($_GET);return;
+                    case '/api/me/profile':
+                        $result=(new \InnovEvents\Service\ClientSpace())->profile();break;
+                    case '/api/me/reviews':
+                        $result=(new \InnovEvents\Service\ClientSpace())->reviews();break;
+                    case '/api/team/reviews':
+                        $result=(new \InnovEvents\Service\ReviewModeration())->listing($_GET);break;
                     case '/api/public/reviews':
                         $result=(new \InnovEvents\Service\PublicSite())->reviews();break;
                     case '/api/admin/quote-pdf-status':
@@ -92,6 +100,10 @@ final class Kernel
                     case '/api/admin/quote-counter-proposal':
                     case '/api/admin/quote-draft-save':
                     case '/api/admin/event-save':
+                    case '/api/me/profile-save':
+                    case '/api/me/deletion-request':
+                    case '/api/me/review':
+                    case '/api/team/review-moderation':
                     case '/api/contact':
                         if (strtolower(trim(explode(';',$_SERVER['CONTENT_TYPE']??'')[0]))!=='application/json') throw new HttpError(415,'json_required');
                         $limit=in_array($path,['/api/quote-requests','/api/admin/quote-draft-save'],true)?65536:8192;
@@ -100,6 +112,10 @@ final class Kernel
                         try {$data=json_decode($raw,true,16,JSON_THROW_ON_ERROR);} catch (\JsonException) {throw new HttpError(400,'invalid_json');}
                         if (!is_array($data)) throw new HttpError(422,'invalid_input');
                         if ($path==='/api/contact'){$result=(new \InnovEvents\Service\PublicSite())->contact($data);http_response_code(202);}
+                        elseif ($path==='/api/me/profile-save')$result=(new \InnovEvents\Service\ClientSpace())->saveProfile($data);
+                        elseif ($path==='/api/me/deletion-request'){$result=(new \InnovEvents\Service\ClientSpace())->requestDeletion($data);http_response_code(202);}
+                        elseif ($path==='/api/me/review')$result=(new \InnovEvents\Service\ClientSpace())->submitReview($data);
+                        elseif ($path==='/api/team/review-moderation')$result=(new \InnovEvents\Service\ReviewModeration())->moderate($data);
                         elseif ($path==='/api/me/quote-decision')$result=(new \InnovEvents\Service\ClientQuotes())->decide($data);
                         elseif ($path==='/api/admin/quote-counter-proposal')$result=(new \InnovEvents\Service\QuoteDrafts())->counterProposal($data);
                         elseif ($path==='/api/admin/quote-send')$result=(new \InnovEvents\Service\QuoteTransmissions())->send($data);
