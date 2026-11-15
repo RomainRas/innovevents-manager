@@ -26,7 +26,8 @@ final class AdminRecords
     private static function confirmed(array $input): void {if(($input['confirmation']??null)!==true)throw new HttpError(422,'confirmation_required');}
 
     // ---- Clients -------------------------------------------------------------------------------------------
-    private function clientData(array $input): array {
+    /** Validation pure de la fiche client (sans base de données), testée unitairement. */
+    public static function validateClient(array $input): array {
         $errors=[];$d=[];
         foreach(['entreprise'=>200,'contact_prenom'=>100,'contact_nom'=>100,'email'=>254,'telephone'=>32] as $k=>$max)$d[$k]=self::text($input,$k,$max,true,$errors);
         foreach(['adresse_ligne1'=>255,'adresse_ligne2'=>255,'code_postal'=>20,'ville'=>120] as $k=>$max)$d[$k]=self::text($input,$k,$max,false,$errors);
@@ -38,7 +39,7 @@ final class AdminRecords
         return $d;
     }
     public function createClient(array $input): array {
-        $user=(new Authentication())->requireUser(['administrateur']);$d=$this->clientData($input);$db=Connections::records();
+        $user=(new Authentication())->requireUser(['administrateur']);$d=self::validateClient($input);$db=Connections::records();
         try{
             $db->beginTransaction();
             $db->prepare('INSERT INTO clients(entreprise,contact_prenom,contact_nom,email,telephone,adresse_ligne1,adresse_ligne2,code_postal,ville,pays_code) VALUES(?,?,?,?,?,?,?,?,?,?)')
@@ -50,7 +51,7 @@ final class AdminRecords
         return ['id'=>$id];
     }
     public function saveClient(array $input): array {
-        $user=(new Authentication())->requireUser(['administrateur']);$id=self::id($input['id']??null);$d=$this->clientData($input);$db=Connections::records();
+        $user=(new Authentication())->requireUser(['administrateur']);$id=self::id($input['id']??null);$d=self::validateClient($input);$db=Connections::records();
         try{
             $db->beginTransaction();
             $s=$db->prepare('SELECT utilisateur_id FROM clients WHERE id=? FOR UPDATE');$s->execute([$id]);$row=$s->fetch();
@@ -80,7 +81,8 @@ final class AdminRecords
     }
 
     // ---- Événements ----------------------------------------------------------------------------------------
-    private function eventData(array $input): array {
+    /** Validation pure d'un événement (sans base de données), testée unitairement. */
+    public static function validateEvent(array $input): array {
         $errors=[];$d=[];
         $d['nom']=self::text($input,'nom',200,true,$errors);
         foreach(['lieu'=>255,'type_evenement'=>100,'theme'=>100] as $k=>$max)$d[$k]=self::text($input,$k,$max,false,$errors);
@@ -110,7 +112,7 @@ final class AdminRecords
             'statut'=>$e['statut'],'revision'=>(int)$e['revision'],'avec_devis'=>(int)$e['devis']>0]]+$this->staff();
     }
     public function createEvent(array $input): array {
-        $user=(new Authentication())->requireUser(['administrateur']);$client=self::id($input['client_id']??null,'invalid_client');$d=$this->eventData($input);$db=Connections::records();
+        $user=(new Authentication())->requireUser(['administrateur']);$client=self::id($input['client_id']??null,'invalid_client');$d=self::validateEvent($input);$db=Connections::records();
         try{
             $db->beginTransaction();
             $s=$db->prepare('SELECT id FROM clients WHERE id=?');$s->execute([$client]);if($s->fetchColumn()===false)throw new HttpError(404,'client_not_found');
@@ -124,7 +126,7 @@ final class AdminRecords
     }
     /** Modification avec contrôle de révision : deux personnes ne s'écrasent pas sans le savoir. */
     public function saveEvent(array $input): array {
-        (new Authentication())->requireUser(['administrateur']);$id=self::id($input['id']??null);$revision=self::id($input['revision']??null,'invalid_revision');$d=$this->eventData($input);$db=Connections::records();
+        (new Authentication())->requireUser(['administrateur']);$id=self::id($input['id']??null);$revision=self::id($input['revision']??null,'invalid_revision');$d=self::validateEvent($input);$db=Connections::records();
         try{
             $db->beginTransaction();
             $s=$db->prepare('SELECT statut,revision FROM evenements WHERE id=? FOR UPDATE');$s->execute([$id]);$row=$s->fetch();

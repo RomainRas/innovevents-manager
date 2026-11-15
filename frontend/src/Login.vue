@@ -13,6 +13,8 @@ async function submit() {
     const target = typeof retour === 'string' && (destinations.includes(retour) || /^\/prospects\/[1-9][0-9]{0,17}(\/(convertir|evenement))?$/.test(retour) || /^\/(clients|evenements)\/[1-9][0-9]{0,17}(\/devis)?$/.test(retour) || /^\/equipe\/(clients|evenements)(\/[1-9][0-9]{0,17})?$/.test(retour)) ? retour : '/espace'
     await router.replace(target)
   } catch (e) {
+    // Mot de passe effacé immédiatement, sans attendre le rafraîchissement de la session.
+    password.value = ''
     error.value = e.status === 429 ? 'Trop de tentatives. Réessayez dans quinze minutes.'
       : e.status === 401 ? 'Adresse électronique ou mot de passe incorrect.'
       : e.status === 403 ? 'La session a expiré. Réessayez.'

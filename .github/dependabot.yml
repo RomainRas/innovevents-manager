@@ -1,0 +1,27 @@
+# Veille automatisée : alertes et propositions de mise à jour des dépendances (voir docs/veille.md).
+# Les mises à jour proposées arrivent sur la branche dev et passent par l'intégration continue avant toute fusion.
+version: 2
+updates:
+  - package-ecosystem: composer
+    directory: /backend
+    target-branch: dev
+    schedule: {interval: weekly}
+    open-pull-requests-limit: 5
+  - package-ecosystem: npm
+    directory: /frontend
+    target-branch: dev
+    schedule: {interval: weekly}
+    open-pull-requests-limit: 5
+  - package-ecosystem: npm
+    directory: /mobile
+    target-branch: dev
+    schedule: {interval: weekly}
+    open-pull-requests-limit: 5
+  - package-ecosystem: github-actions
+    directory: /
+    target-branch: dev
+    schedule: {interval: monthly}
+  - package-ecosystem: docker
+    directories: [/docker/php, /docker/caddy, /docker/mobile]
+    target-branch: dev
+    schedule: {interval: monthly}

@@ -9,5 +9,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends libssl-dev pkg-
 COPY --from=composer /usr/bin/composer /usr/local/bin/composer
 RUN apt-get update && apt-get install -y --no-install-recommends libxml2-dev libonig-dev \
     && docker-php-ext-install dom mbstring && rm -rf /var/lib/apt/lists/*
+# Mesure de couverture (développement uniquement) : PCOV installé mais désactivé par défaut,
+# activé seulement par compose.coverage.yaml ou PHPUnit. L'image de production ne l'embarque pas.
+RUN pecl install pcov-1.0.12 && docker-php-ext-enable pcov \
+    && printf 'pcov.enabled=0\npcov.directory=/app/src\n' > /usr/local/etc/php/conf.d/zz-pcov.ini
 WORKDIR /app
 CMD ["php", "-d", "display_errors=0", "-d", "upload_max_filesize=5M", "-d", "post_max_size=6M", "-S", "0.0.0.0:8080", "-t", "public", "public/index.php"]

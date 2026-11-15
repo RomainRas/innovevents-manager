@@ -1,0 +1,7 @@
+# Mesure de couverture (local uniquement) : docker compose -f compose.yaml -f compose.app.yaml -f compose.coverage.yaml up -d api
+# Active PCOV et enregistre, pour chaque requête HTTP traitée par l'API, les lignes de src/ exécutées (tests/coverage/prepend.php).
+services:
+  api:
+    command: ["php", "-d", "display_errors=0", "-d", "upload_max_filesize=5M", "-d", "post_max_size=6M",
+      "-d", "pcov.enabled=1", "-d", "auto_prepend_file=/app/tests/coverage/prepend.php",
+      "-S", "0.0.0.0:8080", "-t", "public", "public/index.php"]

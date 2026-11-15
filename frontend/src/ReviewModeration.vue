@@ -11,14 +11,15 @@ async function load() {
 onMounted(load)
 async function show(key) { status.value = key; notice.value = ''; await load() }
 async function decide(r, decision) {
-  busy.value = r.id; error.value = ''; notice.value = ''
+  busy.value = r.id; error.value = ''; notice.value = ''; let done = ''
   try {
     await request('/api/team/review-moderation', { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-CSRF-Token': auth.csrf }, body: JSON.stringify({ id: r.id, decision }) })
-    notice.value = decision === 'valide' ? `Avis de ${r.auteur} validé : il est publié sur la page Avis${r.evenement_public ? '' : ' dès que l’événement sera public'}.` : `Avis de ${r.auteur} refusé : il ne sera pas publié.`
+    done = decision === 'valide' ? `Avis de ${r.auteur} validé : il est publié sur la page Avis${r.evenement_public ? '' : ' dès que l’événement sera public'}.` : `Avis de ${r.auteur} refusé : il ne sera pas publié.`
   } catch (e) {
     error.value = e.status === 409 ? 'Cet avis a déjà été modéré par un autre membre de l’équipe.' : e.status === 404 ? 'Cet avis n’existe plus.' : e.status === 401 || e.status === 403 ? 'Votre session a expiré. Reconnectez-vous.' : 'La décision n’a pas pu être confirmée. Rechargez la liste avant de réessayer.'
   }
-  busy.value = ''; await load(); await nextTick(); document.getElementById(error.value ? 'moderation-error' : 'moderation-notice')?.focus()
+  // Liste rechargée avant d'annoncer le résultat : le message correspond à ce qui est affiché.
+  busy.value = ''; await load(); notice.value = done; await nextTick(); document.getElementById(error.value ? 'moderation-error' : 'moderation-notice')?.focus()
 }
 </script>
 <template>

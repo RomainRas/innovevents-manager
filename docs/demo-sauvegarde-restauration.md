@@ -60,3 +60,23 @@ Un premier essai a créé `innovevents_restore_e6372452deb5`. Un deuxième essai
 - [Preuve sans mots de passe](preuves/restauration-2026-11-10.json) et ce compte rendu.
 
 Cette preuve complète les [tests de contraintes](verification-bases.md). Restent les droits applicatifs restreints, les règles PHP, la concurrence, la reprise inter-bases, les fichiers PDF et une vraie sauvegarde hors poste. Une copie située sur le même ordinateur ne protège pas d’une perte du poste. Les tâches #6 et #7 restent ouvertes pour leurs autres livrables.
+
+## Mise à jour du 15 novembre 2026 — base complète et fichiers
+
+La base de démonstration contient désormais toutes les migrations (`003` à `015`). Nouvel essai `--backup-only`, restauration dans `innovevents_restore_1319c9ef91e3` :
+
+- export MySQL après restauration **identique** à la source (21 tables, vues et données) ;
+- MongoDB identique : 1 343 entrées de journal, validateur de schéma et index ;
+- sources MySQL et MongoDB inchangées ; mot de passe de démonstration vérifié par PHP.
+
+**Fichiers (images d’événements et devis PDF)** : ils ne sont pas dans les bases mais dans le volume monté sur `/var/lib/innovevents` (`auth_state` en local, `app_state` en production). Sauvegarde et restauration vérifiées le même jour : 170 fichiers archivés (3,2 Mo), restaurés dans un **nouveau volume**, empreintes SHA-256 toutes identiques.
+
+```powershell
+# Sauvegarde des fichiers (lecture seule du volume)
+docker run --rm -v innovevents-ecf-db_auth_state:/data:ro -v ${PWD}\backups:/backup alpine:3.20 sh -c "cd /data && tar czf /backup/fichiers-AAAAMMJJ.tar.gz event-images quote-pdfs"
+# Restauration dans un nouveau volume, sans toucher à la source
+docker volume create innovevents-restore-fichiers
+docker run --rm -v innovevents-restore-fichiers:/restore -v ${PWD}\backups:/backup:ro alpine:3.20 sh -c "tar xzf /backup/fichiers-AAAAMMJJ.tar.gz -C /restore"
+```
+
+En production, le nom exact du volume s’obtient avec `docker volume ls` (suffixe `_app_state`). Procédure complète en cas d’incident : restaurer la base MySQL (`mysql.sql`), l’archive MongoDB (`mongorestore --gzip --archive`) et les fichiers dans de nouvelles bases et un nouveau volume, vérifier, puis faire pointer les services dessus. La planification automatique de ces sauvegardes vers un stockage externe reste à mettre en place en production.

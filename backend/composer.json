@@ -14,5 +14,9 @@
     "phpmailer/phpmailer": "^7.2"
   },
   "autoload": {"psr-4": {"InnovEvents\\": "src/"}},
-  "config": {"sort-packages": true}
+  "config": {"sort-packages": true},
+  "require-dev": {
+    "phpunit/phpcov": "^11",
+    "phpunit/phpunit": "^12"
+  }
 }
