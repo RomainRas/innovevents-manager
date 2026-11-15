@@ -66,8 +66,10 @@ for t in [
 ]:
     q += f" GRANT SELECT ON innovevents_demo.{t} TO 'ecf_quote_send'@'%';"
 q += (
-    " GRANT SELECT (id,email_normalise,role) ON innovevents_demo.utilisateurs TO 'ecf_quote_send'@'%';"
+    " GRANT SELECT (id,email_normalise,role,statut) ON innovevents_demo.utilisateurs TO 'ecf_quote_send'@'%';"
     " GRANT INSERT (email,email_normalise,prenom,nom,nom_utilisateur,mot_de_passe_hash,role,changement_mdp_requis) ON innovevents_demo.utilisateurs TO 'ecf_quote_send'@'%';"
+    # Rattachement d'un compte client déjà inscrit : seul son mot de passe est remplacé (provisoire, à changer).
+    " GRANT UPDATE (mot_de_passe_hash,changement_mdp_requis,mdp_temporaire_hash,mdp_temporaire_expire_le) ON innovevents_demo.utilisateurs TO 'ecf_quote_send'@'%';"
     " GRANT UPDATE (utilisateur_id) ON innovevents_demo.clients TO 'ecf_quote_send'@'%';"
     " GRANT UPDATE (statut,figee_le,transmise_le) ON innovevents_demo.versions_devis TO 'ecf_quote_send'@'%';"
     " GRANT INSERT (document_id,acteur_id,mode,destinataire,etat,cle_idempotence,confirmee_le,courriel_id) ON innovevents_demo.transmissions_devis TO 'ecf_quote_send'@'%';"

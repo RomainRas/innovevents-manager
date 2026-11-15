@@ -7,6 +7,7 @@ $checks=[
     'send_amounts_denied'=>[Connections::quoteSend(),'UPDATE versions_devis SET total_ht=0 WHERE 1=0'],
     'send_lines_denied'=>[Connections::quoteSend(),'DELETE FROM prestations_devis WHERE 1=0'],
     'send_role_denied'=>[Connections::quoteSend(),"UPDATE utilisateurs SET role='administrateur' WHERE 1=0"],
+    'send_identity_denied'=>[Connections::quoteSend(),"UPDATE utilisateurs SET email='x', statut='actif' WHERE 1=0"],
     'send_password_read_denied'=>[Connections::quoteSend(),'SELECT mot_de_passe_hash FROM utilisateurs WHERE 1=0'],
     'send_client_identity_denied'=>[Connections::quoteSend(),"UPDATE clients SET email='x' WHERE 1=0"],
     'send_transmission_update_denied'=>[Connections::quoteSend(),"UPDATE transmissions_devis SET etat='confirme' WHERE 1=0"],

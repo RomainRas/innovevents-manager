@@ -313,6 +313,82 @@ try:
         )
         == '0'
     )
+
+    # Le client s'est inscrit lui-même avant sa demande de devis : son compte est rattaché à la fiche
+    # à la première transmission, et son mot de passe est remplacé par un mot de passe provisoire envoyé par courriel.
+    attach_email = 'inscrit-' + secrets.token_hex(6) + '@example.invalid'
+    first_password = 'Inscrit!' + secrets.token_hex(6) + 'A1'
+    registered = Browser()
+    code, d, _ = registered.call(
+        '/api/auth/register',
+        {
+            'email': attach_email,
+            'prenom': 'Inès',
+            'nom': 'Garnier',
+            'nom_utilisateur': 'Inès G.',
+            'password': first_password,
+            'confirmation': first_password,
+        },
+    )
+    assert code == 202, d
+    assert registered.login(attach_email, first_password)[0] == 200
+    sql(
+        f"INSERT INTO clients(entreprise,contact_nom,contact_prenom,email,telephone) VALUES('Atelier Garnier','Garnier','Inès','{attach_email}','0600000002');"
+    )
+    cid3 = sql(f"SELECT id FROM clients WHERE email='{attach_email}';")
+    sql(
+        f"INSERT INTO evenements(client_id,nom,debut,fin,lieu) VALUES({cid3},'Séminaire Garnier','2031-09-10 08:00:00','2031-09-10 16:00:00','Lyon');"
+    )
+    attach_eid = sql(f"SELECT id FROM evenements WHERE client_id={cid3};")
+    assert (
+        admin.call(
+            '/api/admin/quote-draft-save', {'event_id': attach_eid, 'revision': 0, 'taux_tva': '20', 'prestations': lines}
+        )[0]
+        == 200
+    )
+    assert admin.upload(attach_eid, picture())[0] == 200
+    code, d, _ = admin.call('/api/admin/quote-pdf-generate', {'event_id': attach_eid, 'revision': 1})
+    assert code == 200, d
+    attach_doc = d['document_id']
+    attach_status = admin.call('/api/admin/quote-transmission?event_id=' + attach_eid)[1]
+    results['existing_account_announced'] = (
+        attach_status['compte_client'] is False
+        and attach_status['compte_existant'] == 'rattachable'
+        and admin.call('/api/admin/quote-transmission?event_id=' + conflict_eid)[1]['compte_existant'] == 'bloquant'
+    )
+    code, d, _ = admin.call(
+        send, {'event_id': attach_eid, 'document_id': attach_doc, 'mode': 'automatique', 'cle': key()}
+    )
+    account_id = sql(f"SELECT id FROM utilisateurs WHERE email_normalise='{attach_email}';")
+    results['existing_account_attached'] = (
+        code == 200
+        and d['compte_rattache'] is True
+        and d['compte_cree'] is False
+        and sql(
+            f"SELECT CONCAT(c.utilisateur_id={account_id},'|',u.changement_mdp_requis,'|',u.role,'|',u.prenom) FROM clients c JOIN utilisateurs u ON u.id={account_id} WHERE c.id={cid3};"
+        )
+        == '1|1|client|Inès'
+        and sql(f"SELECT COUNT(*) FROM utilisateurs WHERE email_normalise='{attach_email}';") == '1'
+    )
+    # L'inscription ne prouvait pas la possession de l'adresse : l'ancien mot de passe et la session ouverte ne servent plus.
+    results['existing_account_old_access_closed'] = (
+        registered.call('/api/me/quotes')[0] == 401 and Browser().login(attach_email, first_password)[0] == 401
+    )
+    provisional = None
+    for _ in range(30):
+        found = [m for m in messages(attach_email) if m['Subject'] == 'Votre espace client Innov’Events']
+        if found:
+            text = json.loads(mailpit('/api/v1/message/' + found[0]['ID']))['Text']
+            match = re.search(r'Mot de passe par défaut : (\S+)', text)
+            provisional = match and 'nouveau mot de passe provisoire' in text and match.group(1)
+            break
+        time.sleep(1)
+    attached = Browser()
+    code, d, _ = attached.login(attach_email, provisional) if provisional else (0, {}, None)
+    results['existing_account_new_password_mailed'] = (
+        code == 200 and d['user']['password_change_required'] is True
+    )
+
     r = subprocess.run(
         COMPOSE + ['exec', '-T', 'api', 'php', 'tests/quote-send-permissions.php'],
         encoding='utf-8',
@@ -342,7 +418,7 @@ finally:
     if worker_stopped:
         compose('start', 'mail_worker')
     if 'cid' in locals():
-        clients = f"{cid},{cid2}"
+        clients = f"{cid},{cid2}" + (f",{cid3}" if 'cid3' in locals() else '')
         sql(
             f"DELETE t FROM transmissions_devis t JOIN documents_devis p ON p.id=t.document_id JOIN versions_devis v ON v.id=p.version_id JOIN devis d ON d.id=v.devis_id JOIN evenements e ON e.id=d.evenement_id WHERE e.client_id IN ({clients});"
         )
@@ -353,7 +429,9 @@ finally:
         sql(
             f"UPDATE devis d JOIN evenements e ON e.id=d.evenement_id SET d.version_courante_id=NULL WHERE e.client_id IN ({clients}); DELETE v FROM versions_devis v JOIN devis d ON d.id=v.devis_id JOIN evenements e ON e.id=d.evenement_id WHERE e.client_id IN ({clients}); DELETE d FROM devis d JOIN evenements e ON e.id=d.evenement_id WHERE e.client_id IN ({clients}); DELETE FROM evenements WHERE client_id IN ({clients}); UPDATE clients SET utilisateur_id=NULL WHERE id IN ({clients}); DELETE FROM clients WHERE id IN ({clients}); DELETE FROM utilisateurs WHERE email_normalise='{email}';"
         )
+    if 'attach_email' in locals():
+        sql(f"DELETE FROM utilisateurs WHERE email_normalise='{attach_email}';")
     (ROOT / 'tmp').mkdir(exist_ok=True)
     (ROOT / 'tmp/quote-transmission-tests.json').write_text(json.dumps(results, indent=2), encoding='utf-8')
 print(json.dumps(results, indent=2))
-raise SystemExit(0 if len(results) == 29 and all(results.values()) else 1)
+raise SystemExit(0 if len(results) == 33 and all(results.values()) else 1)

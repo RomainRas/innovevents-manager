@@ -17,7 +17,9 @@ La première transmission fige la version (`figee_le`, `transmise_le`) et la pas
 
 Si la fiche client n’est liée à aucun compte, la transmission crée un compte `client` avec un mot de passe par défaut aléatoire, envoyé par courriel, et `changement_mdp_requis=1` : le client doit le changer à sa première connexion (parcours existant `/mot-de-passe`). Le mot de passe n’est stocké que haché ; le courriel est chiffré dans la file jusqu’à son envoi, puis effacé.
 
-**Choix de sécurité :** si un compte existe déjà avec l’adresse du client, il n’est **pas** rattaché automatiquement et rien n’est transmis. L’inscription publique ne prouve pas la possession de l’adresse : un rattachement automatique pourrait exposer le devis à un tiers. Un rattachement vérifié reste à développer.
+**Client déjà inscrit :** si le client a créé lui-même son compte avant sa demande de devis, avec la même adresse, ce compte est rattaché à sa fiche lors de la première transmission. L’inscription publique ne prouve pas la possession de l’adresse : le mot de passe du compte est donc **remplacé** par un mot de passe provisoire aléatoire, envoyé à cette adresse, à changer à la première connexion. Seul le vrai titulaire de l’adresse peut ainsi accéder au devis ; l’ancien mot de passe ne fonctionne plus et toute session ouverte sur ce compte est fermée (elle est liée à l’empreinte du mot de passe). L’écran de transmission l’annonce avant l’envoi.
+
+Le rattachement est refusé, et rien n’est transmis, si l’adresse appartient à un compte de l’équipe, à un compte suspendu ou supprimé, ou à un compte déjà lié à une autre fiche : l’administratrice doit alors corriger l’adresse de la fiche.
 
 ## Fiabilité
 
@@ -32,14 +34,14 @@ Dans « Mon espace », la section « Vos devis » liste uniquement les devis tra
 
 ## Droits et installation
 
-- `ecf_quote_send` : lecture des données du devis, création du compte client (sans lecture des mots de passe ni changement de rôle), rattachement `clients.utilisateur_id`, statut et dates de la version, insertion des transmissions et des courriels.
+- `ecf_quote_send` : lecture des données du devis, création du compte client ou remplacement du mot de passe d’un compte client déjà inscrit (sans lecture des mots de passe, ni changement de rôle, d’adresse ou de statut), rattachement `clients.utilisateur_id`, statut et dates de la version, insertion des transmissions et des courriels.
 - `ecf_client_quotes` : lecture seule des devis, sans accès aux utilisateurs.
 - `ecf_mail` : mise à jour de l’état des transmissions liées à ses courriels.
 - Migration additive `009` (types de courriel, lien transmission/courriel) appliquée par `scripts/provision-quote-send.py`, intégré à `Start-App.ps1`. Le traitement d’envoi accède au volume des PDF en lecture seule.
 
 ## Tests exécutés
 
-`tests/app/quote-transmission.py` (avec `quote-transmission-browser.cjs` et `backend/tests/quote-send-permissions.php`) : **29 contrôles réussis.**
+`tests/app/quote-transmission.py` (avec `quote-transmission-browser.cjs` et `backend/tests/quote-send-permissions.php`) : **33 contrôles réussis.**
 
 - Droits : visiteur, client, employé refusés ; CSRF exigé ; entrées invalides refusées ; PDF d’un autre devis refusé.
 - Envoi plateforme avec traitement des courriels arrêté puis relancé : en attente, puis confirmé ; courriel reçu dans Mailpit avec le PDF joint, d’empreinte identique au document.
@@ -47,8 +49,9 @@ Dans « Mon espace », la section « Vos devis » liste uniquement les devis tra
 - Version figée : prestations, génération et édition refusées.
 - Compte créé et identifiants reçus ; première connexion bloquée jusqu’au changement de mot de passe ; espace client avec le seul devis transmis ; téléchargement identique ; isolation entre clients et brouillon caché.
 - Envoi manuel : déclaration obligatoire, historique à deux entrées.
-- Compte existant de même adresse : refus, aucune transmission, devis resté brouillon.
-- Dix refus SQL des comptes limités.
+- Client déjà inscrit avec la même adresse : situation annoncée à l’écran, compte rattaché à la fiche (aucun doublon), ancien mot de passe et session ouverte refusés, mot de passe provisoire reçu par courriel et changement exigé à la connexion.
+- Adresse d’un compte déjà lié à une autre fiche : refus, aucune transmission, devis resté brouillon.
+- Onze refus SQL des comptes limités (dont modification de l’adresse, du rôle ou du statut d’un compte).
 - Chromium 1280 px (envoi plateforme avec réponse perdue simulée) et 390 px (envoi manuel avec focus sur la déclaration), puis espace client et téléchargement aux deux largeurs ; pas de débordement horizontal.
 
 Non-régression : `quote-pdf.py` 23/23, `quote-drafts.py` 22/22, `mail-recovery.py` 7/7 ; compilation Vue réussie. [Preuve sans secrets](preuves/transmission-devis.json).

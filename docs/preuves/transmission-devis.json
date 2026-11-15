@@ -1,5 +1,4 @@
 {
-  "date": "2026-11-14",
   "checks": {
     "anonymous_denied": true,
     "client_denied": true,
@@ -28,25 +27,28 @@
     "manual_requires_confirmation": true,
     "manual_declaration": true,
     "existing_account_not_linked": true,
+    "existing_account_announced": true,
+    "existing_account_attached": true,
+    "existing_account_old_access_closed": true,
+    "existing_account_new_password_mailed": true,
     "sql_permissions": true,
     "browser": true
   },
-  "http_data_checks": 27,
-  "sql_permission_checks": 10,
+  "http_data_checks": 31,
+  "sql_permission_checks": 11,
   "browser_widths": [
     1280,
     390
   ],
   "regressions": {
-    "quote-pdf": "23/23",
-    "quote-drafts": "22/22",
-    "mail-recovery": "7/7"
+    "quote-decisions": "30/30",
+    "accounts": "26/26",
+    "admin-accounts": "39/39",
+    "phpunit": "48 tests"
   },
   "vue_build": "passed",
   "fixtures_cleaned": true,
   "limitations": [
-    "Réponse du client (acceptation, modification, refus) non livrée",
-    "Compte existant de même adresse non rattaché automatiquement",
     "Transmission non journalisée dans MongoDB : action absente de la liste de l’énoncé",
     "Téléchargement administrateur du PDF déjà transmis non proposé",
     "Sauvegarde du volume des PDF toujours à développer"

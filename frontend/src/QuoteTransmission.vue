@@ -100,11 +100,12 @@ async function send() {
     notice.value = (mode === 'manuel' ? 'Envoi manuel enregistré.' : 'Envoi demandé : le courriel avec le PDF est en file d’envoi.')
       + ' Le devis est en étude côté client et n’est plus modifiable.'
       + (d.compte_cree ? ' Un espace client a été créé ; ses identifiants sont envoyés par courriel.' : '')
+      + (d.compte_rattache ? ' Le compte déjà inscrit avec cette adresse est rattaché à la fiche ; un mot de passe provisoire lui est envoyé par courriel.' : '')
     await load(); emit('sent')
   } catch (e) {
     // Refus connus du serveur : la demande n'a pas été enregistrée, on peut repartir de zéro.
     const known = {
-      account_email_conflict: 'Un compte existe déjà avec l’adresse du client. Il n’est pas rattaché automatiquement : vérifiez l’identité de son titulaire. Rien n’a été envoyé.',
+      account_email_conflict: 'L’adresse du client est déjà utilisée par un compte de l’équipe, un compte suspendu ou un compte lié à une autre fiche. Corrigez l’adresse de la fiche. Rien n’a été envoyé.',
       pdf_obsolete: 'Le PDF n’est plus à jour. Générez-le à nouveau avant de le transmettre.',
       transmission_pending: 'Un envoi est déjà en attente. Actualisez pour suivre son résultat.',
       quote_not_transmissible: 'Ce devis ne peut plus être transmis depuis cet écran.',
@@ -155,8 +156,15 @@ async function send() {
       </p>
       <p v-if="state.statut === 'accepte'">Le client a accepté ce devis : l’événement est passé au statut accepté.</p>
       <p v-if="state.statut === 'brouillon' && !state.document_id">Générez un PDF à jour avant de le transmettre.</p>
-      <p v-if="state.statut === 'brouillon' && state.document_id && !state.compte_client">
+      <p v-if="state.statut === 'brouillon' && state.document_id && !state.compte_client && !state.compte_existant">
         Le client n’a pas encore d’espace : il sera créé à la transmission et ses identifiants envoyés à {{ state.destinataire }}, avec un mot de passe à changer à la première connexion.
+      </p>
+      <!-- Le client s'est déjà inscrit avec cette adresse : son compte sera rattaché, avec un mot de passe provisoire. -->
+      <p v-if="state.statut === 'brouillon' && state.document_id && state.compte_existant === 'rattachable'">
+        Un compte client existe déjà avec l’adresse {{ state.destinataire }} : il sera rattaché à cette fiche à la transmission, et un mot de passe provisoire, à changer à la première connexion, sera envoyé à cette adresse.
+      </p>
+      <p v-if="state.statut === 'brouillon' && state.compte_existant === 'bloquant'" class="error">
+        L’adresse {{ state.destinataire }} est déjà utilisée par un compte de l’équipe, un compte suspendu ou un compte lié à une autre fiche : corrigez l’adresse de la fiche avant de transmettre.
       </p>
       <p v-if="state.en_attente">Un courriel est en attente d’envoi. <button type="button" class="secondary" :disabled="busy" @click="load">Actualiser</button></p>
       <p v-if="uncertain"><button :disabled="busy" @click="send">{{ busy ? 'Vérification…' : 'Vérifier le résultat' }}</button></p>

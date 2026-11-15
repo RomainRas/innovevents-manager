@@ -124,6 +124,27 @@ final class QuoteTransmissions
             : null;
     }
 
+    /**
+     * Compte qui existe déjà avec l'adresse de la fiche client, ou null s'il n'y en a pas.
+     * « rattachable » : compte client actif, non supprimé et sans autre fiche. Il est alors rattaché à la fiche
+     * à la première transmission. Un compte de l'équipe, suspendu ou déjà lié à une autre fiche ne l'est jamais.
+     */
+    private function existingAccount(\PDO $db, string $email): ?array
+    {
+        $query = $db->prepare('SELECT u.id, u.role, u.statut, (SELECT COUNT(*) FROM clients c WHERE c.utilisateur_id = u.id) AS fiches FROM utilisateurs u WHERE u.email_normalise = ?');
+        $query->execute([strtolower(trim($email))]);
+        $row = $query->fetch();
+        if (!$row) {
+            return null;
+        }
+
+        // Un compte supprimé est toujours « suspendu » (contrainte de la base) : il est donc exclu ici aussi.
+        return [
+            'id'          => (string) $row['id'],
+            'rattachable' => $row['role'] === 'client' && $row['statut'] === 'actif' && (int) $row['fiches'] === 0,
+        ];
+    }
+
     /** Historique des transmissions sous la forme envoyée au navigateur. */
     private function publicHistory(array $history): array
     {
@@ -147,6 +168,8 @@ final class QuoteTransmissions
             $state = $this->state($db, $id);
             $quote = $state['quote'];
             $send = $this->sendable($db, $state, $id);
+            // Sans compte lié : indique si un compte existe déjà avec l'adresse (rattaché à l'envoi) ou s'il bloque l'envoi.
+            $existing = $state['client']['utilisateur_id'] === null ? $this->existingAccount($db, $state['client']['email']) : null;
 
             return [
                 'statut'        => $quote['statut'] ?? null,
@@ -154,6 +177,7 @@ final class QuoteTransmissions
                 'version'       => $quote ? (int) $quote['numero'] : null,
                 'destinataire'  => $send['email'] ?? $state['client']['email'],
                 'compte_client' => $state['client']['utilisateur_id'] !== null,
+                'compte_existant' => $existing === null ? null : ($existing['rattachable'] ? 'rattachable' : 'bloquant'),
                 'document_id'   => $send ? (string) $send['document']['id'] : null,
                 'en_attente'    => (bool) array_filter($state['history'], static fn($t) => $t['etat'] === 'en_attente'),
                 'transmissions' => $this->publicHistory($state['history']),
@@ -245,7 +269,7 @@ final class QuoteTransmissions
                 if ((string) $previous['document_id'] !== $documentId || $previous['mode'] !== $mode || (string) $previous['evenement_id'] !== $id) {
                     throw new HttpError(409, 'idempotency_conflict');
                 }
-                return ['transmission' => $this->publicHistory([$previous])[0], 'statut' => $previous['statut'], 'compte_cree' => false, 'repetition' => true];
+                return ['transmission' => $this->publicHistory([$previous])[0], 'statut' => $previous['statut'], 'compte_cree' => false, 'compte_rattache' => false, 'repetition' => true];
             }
 
             $state = $this->state($db, $id, true);
@@ -264,33 +288,49 @@ final class QuoteTransmissions
             }
 
             $created = false;
+            $attached = false;
             if ($quote['statut'] === 'brouillon') {
-                // Première transmission : création du compte client s'il n'en a pas encore.
+                // Première transmission : le client reçoit un espace s'il n'en a pas encore.
                 $client = $state['client'];
                 if ($client['utilisateur_id'] === null) {
                     $email = strtolower(trim($client['email']));
-                    $query = $db->prepare('SELECT id FROM utilisateurs WHERE email_normalise = ?');
-                    $query->execute([$email]);
-                    // Un compte existant n'est jamais rattaché automatiquement : l'inscription ne prouve pas la possession de l'adresse.
-                    if ($query->fetchColumn() !== false) {
+                    $existing = $this->existingAccount($db, $email);
+                    if ($existing && !$existing['rattachable']) {
                         throw new HttpError(409, 'account_email_conflict');
                     }
 
                     // Mot de passe par défaut aléatoire, à changer obligatoirement à la première connexion.
                     $password = 'Ie!7' . bin2hex(random_bytes(10));
-                    $username = mb_substr(trim($client['contact_prenom'] . ' ' . $client['contact_nom']), 0, 100);
-                    $db->prepare("INSERT INTO utilisateurs(email, email_normalise, prenom, nom, nom_utilisateur, mot_de_passe_hash, role, changement_mdp_requis) VALUES(?, ?, ?, ?, ?, ?, 'client', 1)")
-                        ->execute([trim($client['email']), $email, $client['contact_prenom'], $client['contact_nom'], $username, password_hash($password, PASSWORD_BCRYPT, ['cost' => 12])]);
+                    $hash = password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
+
+                    if ($existing) {
+                        // Le client s'est déjà inscrit avec cette adresse : son compte est rattaché à la fiche.
+                        // L'inscription ne prouve pas que l'adresse lui appartient : le mot de passe est donc remplacé
+                        // et envoyé à cette adresse. Seul son vrai titulaire peut se connecter, et toute session
+                        // ouverte sur ce compte est fermée (elle est liée à l'ancien mot de passe).
+                        $db->prepare('UPDATE utilisateurs SET mot_de_passe_hash = ?, changement_mdp_requis = 1, mdp_temporaire_hash = NULL, mdp_temporaire_expire_le = NULL WHERE id = ?')
+                            ->execute([$hash, $existing['id']]);
+                        $accountId = $existing['id'];
+                        $attached = true;
+                    } else {
+                        $username = mb_substr(trim($client['contact_prenom'] . ' ' . $client['contact_nom']), 0, 100);
+                        $db->prepare("INSERT INTO utilisateurs(email, email_normalise, prenom, nom, nom_utilisateur, mot_de_passe_hash, role, changement_mdp_requis) VALUES(?, ?, ?, ?, ?, ?, 'client', 1)")
+                            ->execute([trim($client['email']), $email, $client['contact_prenom'], $client['contact_nom'], $username, $hash]);
+                        $accountId = $db->lastInsertId();
+                        $created = true;
+                    }
 
                     $query = $db->prepare('UPDATE clients SET utilisateur_id = ? WHERE id = ? AND utilisateur_id IS NULL');
-                    $query->execute([$db->lastInsertId(), $client['id']]);
+                    $query->execute([$accountId, $client['id']]);
                     if ($query->rowCount() !== 1) {
                         throw new HttpError(409, 'client_changed');
                     }
 
+                    $intro = $attached
+                        ? "Votre devis Innov’Events est désormais disponible dans l’espace client lié à votre compte.\nPour protéger vos informations, un nouveau mot de passe provisoire a été attribué à ce compte."
+                        : "Innov’Events vous a ouvert un espace client pour consulter vos devis.";
                     MailQueue::enqueue($db, 'compte_client', trim($client['email']), 'Votre espace client Innov’Events',
-                        "Bonjour {$client['contact_prenom']},\nInnov’Events vous a ouvert un espace client pour consulter vos devis.\nIdentifiant : " . trim($client['email']) . "\nMot de passe par défaut : $password\nÀ votre première connexion, vous devrez choisir un nouveau mot de passe.\nConnexion : " . $this->origin() . "/connexion", 10080);
-                    $created = true;
+                        "Bonjour {$client['contact_prenom']},\n$intro\nIdentifiant : " . trim($client['email']) . "\nMot de passe par défaut : $password\nÀ votre première connexion, vous devrez choisir un nouveau mot de passe.\nConnexion : " . $this->origin() . "/connexion", 10080);
                 }
 
                 // La version est figée : elle ne pourra plus être modifiée, seulement remplacée par une contre-proposition.
@@ -318,7 +358,7 @@ final class QuoteTransmissions
             $query = $db->prepare('SELECT * FROM transmissions_devis WHERE id = ?');
             $query->execute([$db->lastInsertId()]);
 
-            return ['transmission' => $this->publicHistory([$query->fetch()])[0], 'statut' => 'etude_client', 'compte_cree' => $created, 'repetition' => false];
+            return ['transmission' => $this->publicHistory([$query->fetch()])[0], 'statut' => 'etude_client', 'compte_cree' => $created, 'compte_rattache' => $attached, 'repetition' => false];
         });
     }
 
