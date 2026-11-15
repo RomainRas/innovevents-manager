@@ -1,7 +1,7 @@
 # Image PHP de développement : serveur intégré, extensions MySQL (PDO), MongoDB et images (GD),
 # Composer pour les dépendances, PCOV pour la couverture de tests.
 FROM composer:2@sha256:8de2184c6de224f4689e8f80ed5f5edaf0030b6b8b7839a22a2bcb6722ac87d0 AS composer
-FROM php:8.4-cli-bookworm@sha256:b3e907a1108629c562c4bb313ce3449e34d49991f6bb2487913f6146f47200fe
+FROM php:8.5-cli-bookworm@sha256:050713ce008e2360ea9dc96e1f9a075690132388d917fc3552806f7a7be6f2a0
 RUN apt-get update && apt-get install -y --no-install-recommends libssl-dev pkg-config unzip libpng-dev libjpeg62-turbo-dev \
     && docker-php-ext-configure gd --with-jpeg \
     && docker-php-ext-install pdo_mysql gd \
