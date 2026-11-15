@@ -1,9 +1,14 @@
 <?php
 declare(strict_types=1);
+
 namespace InnovEvents\Service;
 
 use InnovEvents\Infrastructure\Connections;
 
+/**
+ * Contrôle de santé (/api/health) : l'API est « prête » seulement si les deux bases répondent.
+ * Utilisé par Docker (healthcheck) et par le pipeline de déploiement.
+ */
 final class Readiness
 {
     public function check(): void

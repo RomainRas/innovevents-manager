@@ -1,66 +1,287 @@
 <?php
 declare(strict_types=1);
+
 namespace InnovEvents\Service;
-use InnovEvents\Infrastructure\Connections;
+
 use InnovEvents\Http\HttpError;
+use InnovEvents\Infrastructure\Connections;
+
+/**
+ * Génération et téléchargement du devis PDF par l'administratrice.
+ *
+ * Avant de générer, toutes les données sont revérifiées (événement complet, client complet, totaux recalculés).
+ * Le PDF est stocké sous le nom de son empreinte SHA-256 et rattaché à une « empreinte source » :
+ * si une donnée du devis change ensuite, l'ancien PDF est reconnu comme obsolète et n'est plus téléchargeable.
+ * Chaque génération est journalisée (GENERATION_PDF_DEVIS), comme l'exige l'énoncé.
+ */
 final class QuotePdfs
 {
-    private const DIRECTORY='/var/lib/innovevents/quote-pdfs';
-    private function id(mixed $v): string {if(!(is_int($v)||is_string($v))||!preg_match('/^[1-9][0-9]{0,17}$/D',(string)$v))throw new HttpError(422,'invalid_id');return (string)$v;}
-    public function source(\PDO $db,string $id): array {
-        $q=$db->prepare('SELECT id,client_id,nom,debut,fin,fuseau,lieu,statut,image_reference,image_alternative,revision FROM evenements WHERE id=? FOR SHARE');$q->execute([$id]);$event=$q->fetch();if(!$event)throw new HttpError(404,'event_not_found');
-        $q=$db->prepare('SELECT id,entreprise,contact_nom,contact_prenom,email,telephone FROM clients WHERE id=? FOR SHARE');$q->execute([$event['client_id']]);$client=$q->fetch();
-        $q=$db->prepare('SELECT v.id,v.numero,v.revision_contenu,v.statut,v.figee_le,v.taux_tva,v.total_ht,v.total_tva,v.total_ttc,v.devise,v.regle_calcul,d.reference FROM devis d JOIN versions_devis v ON v.id=d.version_courante_id AND v.devis_id=d.id WHERE d.evenement_id=? FOR SHARE');$q->execute([$id]);$quote=$q->fetch();if(!$quote)throw new HttpError(422,'quote_required');
-        if($quote['statut']!=='brouillon'||$quote['figee_le']!==null||$event['statut']!=='brouillon')throw new HttpError(409,'quote_not_editable');
-        foreach(['nom','debut','fin','lieu','image_reference','image_alternative'] as $key)if(!is_string($event[$key])||trim($event[$key])==='')throw new HttpError(422,'event_incomplete');
-        if($event['fuseau']!=='Europe/Paris'||$event['fin']<=$event['debut'])throw new HttpError(422,'event_incomplete');
-        foreach(['entreprise','contact_nom','contact_prenom','email','telephone'] as $key)if(!is_string($client[$key])||trim($client[$key])==='')throw new HttpError(422,'client_incomplete');
-        $q=$db->prepare('SELECT libelle,montant_ht FROM prestations_devis WHERE version_id=? ORDER BY ordre');$q->execute([$quote['id']]);$lines=$q->fetchAll();
-        $computed=QuoteAmounts::calculate(['prestations'=>$lines,'taux_tva'=>$quote['taux_tva']]);
-        foreach(['total_ht','total_tva','total_ttc','devise','regle_calcul'] as $key)if($quote[$key]!==$computed[$key])throw new HttpError(409,'quote_totals_changed');
-        return ['event'=>$event,'client'=>$client,'quote'=>$quote,'prestations'=>$lines];
+    private const DIRECTORY = '/var/lib/innovevents/quote-pdfs';
+
+    private function id(mixed $v): string
+    {
+        if (!(is_int($v) || is_string($v)) || !preg_match('/^[1-9][0-9]{0,17}$/D', (string) $v)) {
+            throw new HttpError(422, 'invalid_id');
+        }
+        return (string) $v;
     }
-    public function hash(array $source): string {return hash('sha256',json_encode($source,JSON_THROW_ON_ERROR));}
-    public function bytes(array $document): ?string {
-        $ref=$document['fichier_reference'];if(!is_string($ref)||!preg_match('/^[a-f0-9]{64}\.pdf$/D',$ref))return null;
-        $path=self::DIRECTORY.'/'.$ref;if(!is_file($path))return null;$bytes=file_get_contents($path);
-        return is_string($bytes)&&hash_equals($document['empreinte_sha256'],hash('sha256',$bytes))?$bytes:null;
+
+    /**
+     * Rassemble et vérifie tout ce qui entre dans le PDF : événement, client, devis et prestations.
+     * Les lignes sont lues « FOR SHARE » : personne ne peut les modifier pendant la génération.
+     * Attention : l'ordre des colonnes sélectionnées entre dans l'empreinte source ; ne pas le modifier.
+     */
+    public function source(\PDO $db, string $id): array
+    {
+        $query = $db->prepare('SELECT id,client_id,nom,debut,fin,fuseau,lieu,statut,image_reference,image_alternative,revision FROM evenements WHERE id=? FOR SHARE');
+        $query->execute([$id]);
+        $event = $query->fetch();
+        if (!$event) {
+            throw new HttpError(404, 'event_not_found');
+        }
+
+        $query = $db->prepare('SELECT id,entreprise,contact_nom,contact_prenom,email,telephone FROM clients WHERE id=? FOR SHARE');
+        $query->execute([$event['client_id']]);
+        $client = $query->fetch();
+
+        $query = $db->prepare('SELECT v.id,v.numero,v.revision_contenu,v.statut,v.figee_le,v.taux_tva,v.total_ht,v.total_tva,v.total_ttc,v.devise,v.regle_calcul,d.reference FROM devis d JOIN versions_devis v ON v.id=d.version_courante_id AND v.devis_id=d.id WHERE d.evenement_id=? FOR SHARE');
+        $query->execute([$id]);
+        $quote = $query->fetch();
+        if (!$quote) {
+            throw new HttpError(422, 'quote_required');
+        }
+
+        // Un PDF ne se génère que pour un devis encore en brouillon (un devis transmis est figé).
+        if ($quote['statut'] !== 'brouillon' || $quote['figee_le'] !== null || $event['statut'] !== 'brouillon') {
+            throw new HttpError(409, 'quote_not_editable');
+        }
+
+        foreach (['nom', 'debut', 'fin', 'lieu', 'image_reference', 'image_alternative'] as $key) {
+            if (!is_string($event[$key]) || trim($event[$key]) === '') {
+                throw new HttpError(422, 'event_incomplete');
+            }
+        }
+        if ($event['fuseau'] !== 'Europe/Paris' || $event['fin'] <= $event['debut']) {
+            throw new HttpError(422, 'event_incomplete');
+        }
+        foreach (['entreprise', 'contact_nom', 'contact_prenom', 'email', 'telephone'] as $key) {
+            if (!is_string($client[$key]) || trim($client[$key]) === '') {
+                throw new HttpError(422, 'client_incomplete');
+            }
+        }
+
+        $query = $db->prepare('SELECT libelle,montant_ht FROM prestations_devis WHERE version_id=? ORDER BY ordre');
+        $query->execute([$quote['id']]);
+        $lines = $query->fetchAll();
+
+        // Les totaux enregistrés doivent correspondre exactement à un nouveau calcul.
+        $computed = QuoteAmounts::calculate(['prestations' => $lines, 'taux_tva' => $quote['taux_tva']]);
+        foreach (['total_ht', 'total_tva', 'total_ttc', 'devise', 'regle_calcul'] as $key) {
+            if ($quote[$key] !== $computed[$key]) {
+                throw new HttpError(409, 'quote_totals_changed');
+            }
+        }
+
+        return ['event' => $event, 'client' => $client, 'quote' => $quote, 'prestations' => $lines];
     }
-    private function locked(string $id,callable $fn): mixed {
-        $db=Connections::quotePdf();$lock='innovevents.quote.'.$id;$q=$db->prepare('SELECT GET_LOCK(?,5)');$q->execute([$lock]);if((int)$q->fetchColumn()!==1)throw new HttpError(503,'quote_busy');
-        try{$db->beginTransaction();$result=$fn($db);$db->commit();return $result;}catch(\Throwable $e){if($db->inTransaction())$db->rollBack();throw $e;}finally{$q=$db->prepare('SELECT RELEASE_LOCK(?)');$q->execute([$lock]);}
+
+    /** Empreinte des données du devis : change dès qu'une seule donnée du PDF change. */
+    public function hash(array $source): string
+    {
+        return hash('sha256', json_encode($source, JSON_THROW_ON_ERROR));
     }
-    public function status(array $input): array {
-        (new Authentication())->requireUser(['administrateur']);$id=$this->id($input['event_id']??null);
-        return $this->locked($id,function($db)use($id){
-            try{$s=$this->source($db,$id);}catch(HttpError $e){if(in_array($e->status,[422,409],true))return ['ready'=>false];throw $e;}
-            $q=$db->prepare("SELECT * FROM documents_devis WHERE version_id=? AND revision_contenu=? AND source_empreinte=? AND etat='disponible' ORDER BY id DESC LIMIT 1");$q->execute([$s['quote']['id'],$s['quote']['revision_contenu'],$this->hash($s)]);$doc=$q->fetch();return $doc&&$this->bytes($doc)!==null?['ready'=>true,'document_id'=>(string)$doc['id']]:['ready'=>false];
+
+    /** Contenu d'un PDF stocké, seulement s'il est intact (empreinte vérifiée) ; null sinon. */
+    public function bytes(array $document): ?string
+    {
+        $reference = $document['fichier_reference'];
+        if (!is_string($reference) || !preg_match('/^[a-f0-9]{64}\.pdf$/D', $reference)) {
+            return null;
+        }
+        $path = self::DIRECTORY . '/' . $reference;
+        if (!is_file($path)) {
+            return null;
+        }
+        $bytes = file_get_contents($path);
+
+        return is_string($bytes) && hash_equals($document['empreinte_sha256'], hash('sha256', $bytes)) ? $bytes : null;
+    }
+
+    /**
+     * Exécute une opération sur le devis d'un événement sous verrou et dans une transaction.
+     * Le verrou « innovevents.quote.<id> » est partagé avec la préparation, la transmission et la réponse du client :
+     * deux opérations sur le même devis ne s'exécutent jamais en même temps.
+     */
+    private function locked(string $id, callable $operation): mixed
+    {
+        $db = Connections::quotePdf();
+        $lock = 'innovevents.quote.' . $id;
+        $query = $db->prepare('SELECT GET_LOCK(?, 5)');
+        $query->execute([$lock]);
+        if ((int) $query->fetchColumn() !== 1) {
+            throw new HttpError(503, 'quote_busy');
+        }
+
+        try {
+            $db->beginTransaction();
+            $result = $operation($db);
+            $db->commit();
+            return $result;
+        } catch (\Throwable $e) {
+            if ($db->inTransaction()) {
+                $db->rollBack();
+            }
+            throw $e;
+        } finally {
+            $db->prepare('SELECT RELEASE_LOCK(?)')->execute([$lock]);
+        }
+    }
+
+    /** Indique si un PDF à jour existe déjà pour le devis de l'événement. */
+    public function status(array $input): array
+    {
+        (new Authentication())->requireUser(['administrateur']);
+        $id = $this->id($input['event_id'] ?? null);
+
+        return $this->locked($id, function ($db) use ($id) {
+            try {
+                $source = $this->source($db, $id);
+            } catch (HttpError $e) {
+                // Devis incomplet ou déjà transmis : simplement « pas de PDF prêt ».
+                if (in_array($e->status, [422, 409], true)) {
+                    return ['ready' => false];
+                }
+                throw $e;
+            }
+
+            $query = $db->prepare("SELECT * FROM documents_devis WHERE version_id=? AND revision_contenu=? AND source_empreinte=? AND etat='disponible' ORDER BY id DESC LIMIT 1");
+            $query->execute([$source['quote']['id'], $source['quote']['revision_contenu'], $this->hash($source)]);
+            $document = $query->fetch();
+
+            return $document && $this->bytes($document) !== null
+                ? ['ready' => true, 'document_id' => (string) $document['id']]
+                : ['ready' => false];
         });
     }
-    public function generate(array $input): array {
-        $user=(new Authentication())->requireUser(['administrateur']);$id=$this->id($input['event_id']??null);$revision=$input['revision']??null;if(!is_int($revision)||$revision<1)throw new HttpError(422,'invalid_revision');
-        return $this->locked($id,function($db)use($id,$revision,$user){
-            $s=$this->source($db,$id);$v=$s['quote'];if((int)$v['revision_contenu']!==$revision)throw new HttpError(409,'quote_revision_conflict');$hash=$this->hash($s);
-            $q=$db->prepare("SELECT * FROM documents_devis WHERE version_id=? AND revision_contenu=? AND source_empreinte=? AND etat='disponible' ORDER BY id DESC LIMIT 1");$q->execute([$v['id'],$revision,$hash]);$old=$q->fetch();if($old&&$this->bytes($old)!==null)return ['document_id'=>(string)$old['id']];
-            $image=$s['event']['image_reference'];if(!preg_match('/^[a-f0-9]{64}\.(png|jpg)$/D',$image))throw new HttpError(422,'event_image_unavailable');
-            $path=EventImages::path($image);$imageBytes=$path!==null?file_get_contents($path):false;if(!is_string($imageBytes)||!hash_equals(substr($image,0,64),hash('sha256',$imageBytes)))throw new HttpError(422,'event_image_unavailable');
-            $bytes=QuotePdfRenderer::render($s,$imageBytes);if(!str_starts_with($bytes,'%PDF-'))throw new \RuntimeException('PDF rendering');
-            if(!is_dir(self::DIRECTORY)&&!mkdir(self::DIRECTORY,0700,true)&&!is_dir(self::DIRECTORY))throw new \RuntimeException('PDF storage');
-            $digest=hash('sha256',$bytes);$file=$digest.'.pdf';$temp=tempnam(self::DIRECTORY,'pending-');if($temp===false)throw new \RuntimeException('PDF storage');
-            try{if(file_put_contents($temp,$bytes)!==strlen($bytes)||!rename($temp,self::DIRECTORY.'/'.$file))throw new \RuntimeException('PDF storage');chmod(self::DIRECTORY.'/'.$file,0600);}finally{if(is_file($temp))unlink($temp);}
-            $q=$db->prepare('UPDATE versions_devis SET client_snapshot=?,evenement_snapshot=? WHERE id=?');$q->execute([json_encode($s['client'],JSON_THROW_ON_ERROR),json_encode($s['event'],JSON_THROW_ON_ERROR),$v['id']]);
-            $q=$db->prepare("UPDATE documents_devis SET etat='obsolete' WHERE version_id=? AND etat='disponible'");$q->execute([$v['id']]);
-            $q=$db->prepare("INSERT INTO documents_devis(version_id,revision_contenu,etat,fichier_reference,empreinte_sha256,source_empreinte,genere_le) VALUES(?,?,'disponible',?,?,?,UTC_TIMESTAMP(6))");$q->execute([$v['id'],$revision,$file,$digest,$hash]);$docId=$db->lastInsertId();
-            $q=$db->prepare("INSERT INTO journal_a_emettre(id_trace,horodatage,type_action,id_utilisateur,details) VALUES(UUID(),UTC_TIMESTAMP(6),'GENERATION_PDF_DEVIS',?,?)");$q->execute([$user['id'],json_encode(['id_evenement'=>$id],JSON_THROW_ON_ERROR)]);
-            return ['document_id'=>(string)$docId];
+
+    /** Génère le PDF du devis (ou renvoie celui qui existe déjà s'il est à jour). */
+    public function generate(array $input): array
+    {
+        $user = (new Authentication())->requireUser(['administrateur']);
+        $id = $this->id($input['event_id'] ?? null);
+        $revision = $input['revision'] ?? null;
+        if (!is_int($revision) || $revision < 1) {
+            throw new HttpError(422, 'invalid_revision');
+        }
+
+        return $this->locked($id, function ($db) use ($id, $revision, $user) {
+            $source = $this->source($db, $id);
+            $quote = $source['quote'];
+            // Le devis a été modifié depuis l'affichage de la page : on ne génère pas une version que l'administratrice n'a pas vue.
+            if ((int) $quote['revision_contenu'] !== $revision) {
+                throw new HttpError(409, 'quote_revision_conflict');
+            }
+            $hash = $this->hash($source);
+
+            // PDF identique déjà disponible : inutile de le refaire.
+            $query = $db->prepare("SELECT * FROM documents_devis WHERE version_id=? AND revision_contenu=? AND source_empreinte=? AND etat='disponible' ORDER BY id DESC LIMIT 1");
+            $query->execute([$quote['id'], $revision, $hash]);
+            $existing = $query->fetch();
+            if ($existing && $this->bytes($existing) !== null) {
+                return ['document_id' => (string) $existing['id']];
+            }
+
+            // L'image doit exister et correspondre à son empreinte.
+            $image = $source['event']['image_reference'];
+            if (!preg_match('/^[a-f0-9]{64}\.(png|jpg)$/D', $image)) {
+                throw new HttpError(422, 'event_image_unavailable');
+            }
+            $path = EventImages::path($image);
+            $imageBytes = $path !== null ? file_get_contents($path) : false;
+            if (!is_string($imageBytes) || !hash_equals(substr($image, 0, 64), hash('sha256', $imageBytes))) {
+                throw new HttpError(422, 'event_image_unavailable');
+            }
+
+            $bytes = QuotePdfRenderer::render($source, $imageBytes);
+            if (!str_starts_with($bytes, '%PDF-')) {
+                throw new \RuntimeException('PDF rendering');
+            }
+
+            // Écriture dans un fichier temporaire puis renommage : jamais de PDF à moitié écrit.
+            if (!is_dir(self::DIRECTORY) && !mkdir(self::DIRECTORY, 0700, true) && !is_dir(self::DIRECTORY)) {
+                throw new \RuntimeException('PDF storage');
+            }
+            $digest = hash('sha256', $bytes);
+            $file = $digest . '.pdf';
+            $temporary = tempnam(self::DIRECTORY, 'pending-');
+            if ($temporary === false) {
+                throw new \RuntimeException('PDF storage');
+            }
+            try {
+                if (file_put_contents($temporary, $bytes) !== strlen($bytes) || !rename($temporary, self::DIRECTORY . '/' . $file)) {
+                    throw new \RuntimeException('PDF storage');
+                }
+                chmod(self::DIRECTORY . '/' . $file, 0600);
+            } finally {
+                if (is_file($temporary)) {
+                    unlink($temporary);
+                }
+            }
+
+            // Copie figée du client et de l'événement dans la version du devis.
+            $db->prepare('UPDATE versions_devis SET client_snapshot=?, evenement_snapshot=? WHERE id=?')
+                ->execute([json_encode($source['client'], JSON_THROW_ON_ERROR), json_encode($source['event'], JSON_THROW_ON_ERROR), $quote['id']]);
+            // Un seul PDF « disponible » par version : les précédents deviennent obsolètes.
+            $db->prepare("UPDATE documents_devis SET etat='obsolete' WHERE version_id=? AND etat='disponible'")
+                ->execute([$quote['id']]);
+            $db->prepare("INSERT INTO documents_devis(version_id,revision_contenu,etat,fichier_reference,empreinte_sha256,source_empreinte,genere_le) VALUES(?,?,'disponible',?,?,?,UTC_TIMESTAMP(6))")
+                ->execute([$quote['id'], $revision, $file, $digest, $hash]);
+            $documentId = $db->lastInsertId();
+
+            // Journal exigé : génération d'un devis en PDF (identifiant de l'événement).
+            $db->prepare("INSERT INTO journal_a_emettre(id_trace,horodatage,type_action,id_utilisateur,details) VALUES(UUID(),UTC_TIMESTAMP(6),'GENERATION_PDF_DEVIS',?,?)")
+                ->execute([$user['id'], json_encode(['id_evenement' => $id], JSON_THROW_ON_ERROR)]);
+
+            return ['document_id' => (string) $documentId];
         });
     }
-    public function download(array $input): void {
-        (new Authentication())->requireUser(['administrateur']);$docId=$this->id($input['id']??null);$db=Connections::quotePdf();
-        $q=$db->prepare('SELECT d.evenement_id FROM documents_devis p JOIN versions_devis v ON v.id=p.version_id JOIN devis d ON d.id=v.devis_id WHERE p.id=?');$q->execute([$docId]);$id=$q->fetchColumn();if($id===false)throw new HttpError(404,'document_not_found');
-        $result=$this->locked((string)$id,function($db)use($id,$docId){$s=$this->source($db,(string)$id);$q=$db->prepare('SELECT * FROM documents_devis WHERE id=?');$q->execute([$docId]);$doc=$q->fetch();
-            if(!$doc||$doc['etat']!=='disponible'||(string)$doc['version_id']!==(string)$s['quote']['id']||!is_string($doc['source_empreinte'])||!hash_equals($doc['source_empreinte'],$this->hash($s)))throw new HttpError(409,'pdf_obsolete');
-            $bytes=$this->bytes($doc);if($bytes===null)throw new HttpError(503,'pdf_unavailable');return ['bytes'=>$bytes,'name'=>'devis-'.$id.'-r'.$doc['revision_contenu'].'.pdf'];});
-        header('Content-Type: application/pdf');header('Cache-Control: no-store');header('Content-Disposition: attachment; filename="'.$result['name'].'"');header('Content-Length: '.strlen($result['bytes']));echo $result['bytes'];
+
+    /** Téléchargement du PDF par l'administratrice, refusé s'il ne correspond plus aux données actuelles. */
+    public function download(array $input): void
+    {
+        (new Authentication())->requireUser(['administrateur']);
+        $documentId = $this->id($input['id'] ?? null);
+
+        $query = Connections::quotePdf()->prepare('SELECT d.evenement_id FROM documents_devis p JOIN versions_devis v ON v.id=p.version_id JOIN devis d ON d.id=v.devis_id WHERE p.id=?');
+        $query->execute([$documentId]);
+        $id = $query->fetchColumn();
+        if ($id === false) {
+            throw new HttpError(404, 'document_not_found');
+        }
+
+        $result = $this->locked((string) $id, function ($db) use ($id, $documentId) {
+            $source = $this->source($db, (string) $id);
+
+            $query = $db->prepare('SELECT * FROM documents_devis WHERE id=?');
+            $query->execute([$documentId]);
+            $document = $query->fetch();
+
+            if (!$document || $document['etat'] !== 'disponible' || (string) $document['version_id'] !== (string) $source['quote']['id']
+                || !is_string($document['source_empreinte']) || !hash_equals($document['source_empreinte'], $this->hash($source))) {
+                throw new HttpError(409, 'pdf_obsolete');
+            }
+
+            $bytes = $this->bytes($document);
+            if ($bytes === null) {
+                throw new HttpError(503, 'pdf_unavailable');
+            }
+            return ['bytes' => $bytes, 'name' => 'devis-' . $id . '-r' . $document['revision_contenu'] . '.pdf'];
+        });
+
+        header('Content-Type: application/pdf');
+        header('Cache-Control: no-store');
+        header('Content-Disposition: attachment; filename="' . $result['name'] . '"');
+        header('Content-Length: ' . strlen($result['bytes']));
+        echo $result['bytes'];
     }
 }
