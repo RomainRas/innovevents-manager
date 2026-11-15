@@ -45,6 +45,7 @@ final class Connections
     public static function reviews(): PDO { return self::accountDatabase('ecf_reviews','mysql_reviews'); }
     public static function admin(): PDO { return self::accountDatabase('ecf_admin','mysql_admin'); }
     public static function team(): PDO { return self::accountDatabase('ecf_team','mysql_team'); }
+    public static function records(): PDO { return self::accountDatabase('ecf_records','mysql_records'); }
     private static function accountDatabase(string $user,string $secret): PDO
     {
         return new PDO('mysql:host=mysql;dbname=innovevents_demo;charset=utf8mb4',$user,self::secret($secret),[

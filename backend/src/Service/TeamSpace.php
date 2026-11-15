@@ -38,7 +38,9 @@ final class TeamSpace
         $s=$db->prepare('SELECT id,nom,debut,fin,lieu,statut FROM evenements WHERE client_id=? ORDER BY debut IS NULL,debut DESC,id DESC');$s->execute([$id]);
         return ['client'=>['id'=>(string)$c['id'],'entreprise'=>$c['entreprise'],'contact'=>$c['contact_prenom'].' '.$c['contact_nom'],'email'=>$c['email'],'telephone'=>$c['telephone'],
             'adresse'=>array_values(array_filter([$c['adresse_ligne1'],$c['adresse_ligne2'],trim(($c['code_postal']??'').' '.($c['ville']??'')),$c['pays_code']],static fn($v)=>is_string($v)&&trim($v)!=='')),
-            'compte'=>$c['utilisateur_id']!==null,'cree_le'=>$c['cree_le']],'evenements'=>array_map([self::class,'event'],$s->fetchAll())];
+            'compte'=>$c['utilisateur_id']!==null,'cree_le'=>$c['cree_le'],
+            // Valeurs séparées, pour préremplir la modification de la fiche par l'administratrice.
+            'champs'=>array_intersect_key($c,array_flip(['entreprise','contact_prenom','contact_nom','email','telephone','adresse_ligne1','adresse_ligne2','code_postal','ville']))],'evenements'=>array_map([self::class,'event'],$s->fetchAll())];
     }
     public function events(array $input): array {
         (new Authentication())->requireUser(self::ROLES);$q=self::search($input);

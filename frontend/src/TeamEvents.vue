@@ -1,6 +1,8 @@
 <script setup>
 import { onMounted, reactive, ref } from 'vue'
-import { request } from './auth'
+import { useRoute } from 'vue-router'
+import { auth, request } from './auth'
+const notice = useRoute().query.message === 'supprime' ? 'Événement supprimé.' : ''
 import { eventStatuses, localDate } from './teamFormat'
 const events = ref([]), filter = reactive({ q: '', statut: '' }), loading = ref(true), error = ref('')
 async function load() {
@@ -14,6 +16,8 @@ onMounted(load)
   <main class="panel wide">
     <p><RouterLink to="/espace">← Retour à mon espace</RouterLink></p>
     <h1>Événements</h1>
+    <p v-if="notice" class="success" role="status">{{ notice }}</p>
+    <RouterLink v-if="auth.user?.role === 'administrateur'" class="button-link" to="/equipe/evenements/nouveau">Nouvel événement</RouterLink>
     <form class="filters" role="search" @submit.prevent="load">
       <div><label for="events-q">Rechercher (nom, lieu, client)</label><input id="events-q" v-model="filter.q" type="search" maxlength="100"></div>
       <div><label for="events-statut">Statut</label>
@@ -38,4 +42,7 @@ onMounted(load)
 h2 { margin: 0 0 4px; font-size: 1.15rem; overflow-wrap: anywhere }
 .badge { display: inline-block; margin-left: 4px; padding: 2px 8px; border-radius: 12px; background: #E6EEF3; font-size: .85rem; font-weight: 600 }
 .meta { margin: 4px 0; color: #4A5B68; overflow-wrap: anywhere }
+.button-link { display: inline-flex; align-items: center; min-height: 48px; padding: 12px 20px; border-radius: 4px; background: #087F8C; color: #fff; text-decoration: none; margin: 8px 0 }
+.button-link:hover { background: #06616B }
+.success { color: #0B6B3A; font-weight: 600 }
 </style>

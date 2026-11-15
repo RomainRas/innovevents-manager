@@ -69,4 +69,6 @@ Espace administrateur : tableau de bord (prochains événements, notes récentes
 
 Espace employé : tous les clients et événements en consultation, notes collaboratives et statut des tâches assignées. [Règles, tests et limites](docs/espace-employe.md).
 
+Gestion par l’administratrice : création, modification et suppression des fiches clients et des événements, changement de statut et tâches, avec journal. [Règles, tests et limites](docs/gestion-fiches.md).
+
 Application mobile (PWA installable, conteneur Docker dédié) : https://innovevents.rascleromain.fr/mobile/ — événements à venir, fiche contact (appel, courriel, itinéraire), notes rapides, consultation hors ligne. [Choix, sécurité, tests et limites](docs/application-mobile.md).

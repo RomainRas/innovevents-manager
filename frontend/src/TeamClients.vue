@@ -1,7 +1,14 @@
 <script setup>
-import { onMounted, ref } from 'vue'
-import { request } from './auth'
-const clients = ref([]), q = ref(''), loading = ref(true), error = ref(''), searched = ref('')
+import { nextTick, onMounted, ref } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+import { auth, request } from './auth'
+import ClientForm from './ClientForm.vue'
+const route = useRoute(), router = useRouter()
+const clients = ref([]), q = ref(''), loading = ref(true), error = ref(''), searched = ref(''), creating = ref(false)
+const notice = ref(route.query.message === 'supprime' ? 'Fiche client supprimée.' : '')
+async function startCreate() { creating.value = true; notice.value = ''; await nextTick(); document.getElementById('client-new-entreprise')?.focus() }
+async function cancelCreate() { creating.value = false; await nextTick(); document.getElementById('client-new-button')?.focus() }
+const created = id => router.push({ path: '/equipe/clients/' + id, query: { message: 'cree' } })
 async function load() {
   loading.value = true; error.value = ''
   try { clients.value = (await request('/api/team/clients?' + new URLSearchParams({ q: q.value }))).clients; searched.value = q.value.trim() }
@@ -13,6 +20,14 @@ onMounted(load)
   <main class="panel wide">
     <p><RouterLink to="/espace">← Retour à mon espace</RouterLink></p>
     <h1>Clients</h1>
+    <p v-if="notice" class="success" role="status">{{ notice }}</p>
+    <template v-if="auth.user?.role === 'administrateur'">
+      <button v-if="!creating" id="client-new-button" type="button" @click="startCreate">Nouveau client</button>
+      <section v-else aria-labelledby="client-new-title" class="box">
+        <h2 id="client-new-title">Nouveau client</h2>
+        <ClientForm submit-label="Créer la fiche client" @saved="created" @cancel="cancelCreate" />
+      </section>
+    </template>
     <form class="search" role="search" @submit.prevent="load">
       <label for="clients-q">Rechercher un client (entreprise, contact, adresse, ville)</label>
       <div class="row"><input id="clients-q" v-model="q" type="search" maxlength="100"><button type="submit">Rechercher</button></div>
@@ -35,4 +50,6 @@ onMounted(load)
 .cards li { border: 1px solid #CBD5E1; border-radius: 8px; padding: 16px; margin: 12px 0 }
 h2 { margin: 0 0 4px; font-size: 1.15rem; overflow-wrap: anywhere }
 .meta { margin: 4px 0; color: #4A5B68; overflow-wrap: anywhere }
+.box { border: 1px solid #CBD5E1; border-radius: 8px; padding: 16px; margin: 16px 0 }
+.success { color: #0B6B3A; font-weight: 600 }
 </style>

@@ -34,6 +34,8 @@ try {
     if ($LASTEXITCODE -ne 0) { throw 'Provisionnement administration interrompu' }
     & $Python -X utf8 scripts/provision-team-space.py
     if ($LASTEXITCODE -ne 0) { throw 'Provisionnement espace employe interrompu' }
+    & $Python -X utf8 scripts/provision-records.py
+    if ($LASTEXITCODE -ne 0) { throw 'Provisionnement gestion des fiches interrompu' }
     $composeArgs=@('compose','-f','compose.yaml','-f','compose.app.yaml')
     & docker @composeArgs build api
     if ($LASTEXITCODE -ne 0) { throw 'Construction PHP echouee.' }

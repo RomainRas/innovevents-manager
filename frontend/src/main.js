@@ -27,6 +27,7 @@ import TeamClients from './TeamClients.vue'
 import TeamClient from './TeamClient.vue'
 import TeamEvents from './TeamEvents.vue'
 import TeamEvent from './TeamEvent.vue'
+import EventForm from './EventForm.vue'
 import { auth, refresh } from './auth'
 import './style.css'
 const router = createRouter({ history: createWebHistory(), routes: [
@@ -60,6 +61,8 @@ const router = createRouter({ history: createWebHistory(), routes: [
   { path: '/equipe/clients/:id', component: TeamClient, meta: { private: true, title: 'Fiche client' } },
   { path: '/equipe/evenements', component: TeamEvents, meta: { private: true, title: 'Événements' } },
   { path: '/equipe/evenements/:id', component: TeamEvent, meta: { private: true, title: 'Fiche événement' } },
+  { path: '/equipe/evenements/nouveau', component: EventForm, meta: { private: true, title: 'Nouvel événement' } },
+  { path: '/equipe/evenements/:id/modifier', component: EventForm, meta: { private: true, title: 'Modifier l’événement' } },
   { path: '/journaux', component: Logs, meta: { private: true } },
 ] })
 router.beforeEach(async to => {

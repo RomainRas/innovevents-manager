@@ -49,7 +49,9 @@ try{
  await page.getByRole('link',{name:'Lancement produit Horizon'}).click();
  const joseNote=page.getByRole('listitem').filter({hasText:note+' (corrigée)'});await joseNote.waitFor();
  results.admin_can_manage_note=await joseNote.getByRole('button',{name:'Modifier'}).count()===1;
- results.admin_no_task_button_for_jose=await page.getByRole('listitem').filter({has:page.getByRole('heading',{name:/Réserver la sonorisation/})}).getByRole('button').count()===0;
+ // L'administratrice peut supprimer la tâche de José, mais pas la faire avancer à sa place.
+ const joseTask=page.getByRole('listitem').filter({has:page.getByRole('heading',{name:/Réserver la sonorisation/})});
+ results.admin_no_task_button_for_jose=await joseTask.getByRole('button',{name:/Commencer la tâche|Marquer comme terminée/}).count()===0&&await joseTask.getByRole('button',{name:'Supprimer la tâche'}).count()===1;
  await joseNote.getByRole('button',{name:'Supprimer…'}).click();await joseNote.getByRole('button',{name:'Annuler'}).click();
  results.delete_cancel_focus=(await focused(page)).startsWith('note-actions-');
  await joseNote.getByRole('button',{name:'Supprimer…'}).click();await joseNote.getByRole('button',{name:'Supprimer la note'}).click();
