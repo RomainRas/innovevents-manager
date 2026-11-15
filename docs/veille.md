@@ -11,6 +11,7 @@ Objectif : suivre les évolutions et les failles des briques utilisées (PHP, Vu
 | Images Docker | `docker compose build --pull` au déploiement | Les images de base (PHP, Caddy, MySQL, MongoDB, Node) sont rechargées : correctifs de sécurité de la version mineure fixée. Les images de développement sont épinglées par empreinte (`@sha256`) pour la reproductibilité. |
 | Versions verrouillées | `composer.lock`, `package-lock.json` | Installations identiques en local, en intégration continue et en production. |
 | Certificats | Caddy | Renouvellement automatique Let’s Encrypt. |
+| Propositions de mise à jour | Dependabot (`.github/dependabot.yml`) | Une pull request vers `dev` par nouvelle version : npm (site et application mobile), Composer, images Docker et actions GitHub. Rien n’est appliqué sans relecture. |
 
 ## Sources suivies
 
@@ -32,6 +33,8 @@ Objectif : suivre les évolutions et les failles des briques utilisées (PHP, Vu
 3. **Vérifier** : tests unitaires, fonctionnels et de bout en bout (`scripts/run-tests.py`), puis intégration continue.
 4. **Déployer** : fusion vers `main`, déploiement automatique, vérification du site.
 5. **Tracer** : ticket GitHub et note dans la documentation concernée.
+
+Les mises à jour proposées par Dependabot suivent la même démarche : elles sont examinées, puis appliquées après une campagne de tests complète. Les changements de version majeure en attente (Node 26, PHP 8.5, `actions/checkout` v7) sont reportés après la livraison : ils ne corrigent pas de faille connue et demandent de revalider toute l’application. Les pull requests restent ouvertes en attendant.
 
 ## Points de vigilance déjà appliqués (issus de cette veille)
 
