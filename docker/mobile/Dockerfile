@@ -1,6 +1,6 @@
 # Application mobile (PWA) : compilation Vue, puis service des fichiers statiques par un Caddy interne (port 8080).
 # Le Caddy public relaie /mobile/* vers ce conteneur : même origine que l'API, HTTPS assuré en façade.
-FROM node:24-bookworm-slim@sha256:01d566e8d94d8c619591d78652babfccd3c6992a3dffa9ed5ab39e11cf6c70e9 AS build
+FROM node:26-bookworm-slim@sha256:5df79989ed685e09f0a98019db4cebfb22fb9df1a53c0161664a011f7ff6b0f1 AS build
 WORKDIR /app
 COPY mobile/package.json mobile/package-lock.json ./
 RUN npm ci --no-audit --no-fund
