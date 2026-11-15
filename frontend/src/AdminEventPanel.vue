@@ -148,7 +148,9 @@ async function remove() {
     <template v-if="info">
       <p v-if="error" id="admin-error" class="error" role="alert" tabindex="-1">{{ error }}</p>
       <p v-if="notice" id="admin-notice" class="success" role="status" tabindex="-1">{{ notice }}</p>
+      <!-- Actions possibles tant que l'événement n'est pas annulé -->
       <template v-if="info.statut !== 'annule'">
+        <!-- Changement de statut -->
         <div class="row">
           <div>
             <label for="admin-status">Nouveau statut</label>
@@ -169,6 +171,7 @@ async function remove() {
             >Modifier les informations</RouterLink
           >
         </p>
+        <!-- Ajout d'une tâche -->
         <form class="task" novalidate @submit.prevent="addTask">
           <h3>Ajouter une tâche</h3>
           <fieldset :disabled="!!busy">

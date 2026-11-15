@@ -46,6 +46,7 @@ onMounted(async () => {
         <dd>{{ client.telephone }}</dd>
       </dl></template
     >
+    <!-- Demandes de devis d'origine du client -->
     <section v-if="client">
       <h2>Demandes associées</h2>
       <ul>

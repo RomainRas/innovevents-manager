@@ -113,6 +113,7 @@ onMounted(load)
       <p v-if="prospect.statut === 'converti'">
         <RouterLink :to="'/clients/' + prospect.client_id">Consulter la fiche client</RouterLink>
       </p>
+      <!-- Demande à traiter : conversion en client ou qualification en échec -->
       <section v-if="prospect.statut === 'a_contacter'">
         <h2>Le projet ne peut pas aboutir ?</h2>
         <p>
@@ -138,6 +139,7 @@ onMounted(load)
           </button>
         </form>
       </section>
+      <!-- Demande en échec : message envoyé au prospect -->
       <section v-if="prospect.statut === 'echoue'">
         <h2>Message enregistré pour le prospect</h2>
         <p class="message">{{ prospect.message_echec }}</p>

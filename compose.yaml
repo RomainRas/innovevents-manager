@@ -1,6 +1,7 @@
-# Environnement local de verification des bases, pas un deploiement de production.
+# Environnement local de vérification des bases, pas un déploiement de production.
 name: innovevents-ecf-db
 services:
+  # Base relationnelle : schéma créé au premier démarrage, mot de passe root lu dans un secret Docker.
   mysql:
     image: mysql:8.4@sha256:a81d043930e51745522bd5c430961cf8286f0a23f0a9a2a6e0108f7ea71b0902
     environment:
@@ -13,6 +14,7 @@ services:
       - mysql_data:/var/lib/mysql
       - ./docker/mysql/client.sh:/opt/innovevents/client.sh:ro
       - ./database/mysql/001_schema.sql:/docker-entrypoint-initdb.d/001_schema.sql:ro
+    # Le service n'est déclaré prêt que lorsque le schéma est entièrement créé.
     healthcheck:
       test: ["CMD-SHELL", "test \"$$(sh /opt/innovevents/client.sh --batch --skip-column-names -e 'SELECT COUNT(*) FROM information_schema.tables WHERE table_schema=\"innovevents_test\"')\" = 16"]
       interval: 10s
@@ -20,6 +22,7 @@ services:
       retries: 18
       start_period: 60s
     restart: "no"
+  # Base des journaux d'activité : collection logs créée et validée au premier démarrage.
   mongodb:
     image: mongo:8.0@sha256:b9924c330a8bbc5800fe9c69f04a84e221eca7b28fd049a0354147d9908fa142
     environment:
@@ -40,12 +43,13 @@ services:
       retries: 18
       start_period: 60s
     restart: "no"
-# Aucun port publie sur Windows : acces par docker compose exec.
+# Aucun port publié sur Windows : accès par docker compose exec.
 volumes:
   mysql_data:
   mongo_data:
   mongo_config:
 secrets:
+  # Secrets lus dans .secrets/ (hors Git) et montés dans /run/secrets/ des conteneurs.
   mysql_root:
     file: ./.secrets/mysql-root.txt
   mysql_client:

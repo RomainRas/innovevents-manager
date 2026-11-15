@@ -87,6 +87,7 @@ async function submit() {
     </p>
     <p v-if="success" role="status">{{ success }}</p>
     <form v-else @submit.prevent="submit" :aria-busy="busy">
+      <!-- Adresse électronique : inscription et mot de passe oublié -->
       <template v-if="mode !== 'password'">
         <label for="account-email">Adresse électronique</label
         ><input
@@ -99,6 +100,7 @@ async function submit() {
           :disabled="busy"
         />
       </template>
+      <!-- Identité : inscription seulement -->
       <template v-if="mode === 'register'">
         <label for="first-name">Prénom</label
         ><input
@@ -128,6 +130,7 @@ async function submit() {
           :disabled="busy"
         />
       </template>
+      <!-- Mot de passe actuel : changement de mot de passe seulement -->
       <template v-if="mode === 'password'">
         <label for="current-password">Mot de passe actuel ou temporaire</label
         ><input
@@ -139,6 +142,7 @@ async function submit() {
           :disabled="busy"
         />
       </template>
+      <!-- Nouveau mot de passe et confirmation, avec les règles affichées -->
       <template v-if="mode !== 'forgot'">
         <label for="new-password">{{ mode === 'register' ? 'Mot de passe' : 'Nouveau mot de passe' }}</label
         ><input

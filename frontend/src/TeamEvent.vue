@@ -225,6 +225,7 @@ async function advance(t) {
     <p v-if="error" class="error" role="alert">{{ error }}</p>
     <template v-if="data">
       <h1>{{ data.evenement.nom }}</h1>
+      <!-- Informations de l'événement et client associé -->
       <dl class="facts">
         <div>
           <dt>Statut</dt>
@@ -266,8 +267,10 @@ async function advance(t) {
       <p v-if="actionError" id="team-error" class="error" role="alert" tabindex="-1">{{ actionError }}</p>
       <p v-if="notice" id="team-notice" class="success" role="status" tabindex="-1">{{ notice }}</p>
 
+      <!-- Gestion de l'événement, administratrice seulement -->
       <AdminEventPanel v-if="isAdmin()" :event-id="data.evenement.id" @changed="reload" />
 
+      <!-- Tâches : bouton vers l'étape suivante, affiché seulement si l'API l'autorise -->
       <section aria-labelledby="tasks-title">
         <h2 id="tasks-title">Tâches</h2>
         <p v-if="!data.taches.length">Aucune tâche pour cet événement.</p>
@@ -305,6 +308,7 @@ async function advance(t) {
         </ul>
       </section>
 
+      <!-- Notes partagées : ajout, puis modification ou suppression de ses propres notes -->
       <section aria-labelledby="notes-title">
         <h2 id="notes-title">Notes de l’équipe</h2>
         <form novalidate @submit.prevent="addNote">

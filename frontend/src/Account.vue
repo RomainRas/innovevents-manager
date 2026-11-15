@@ -39,11 +39,13 @@ onMounted(async () => {
       <RouterLink to="/espace/informations">Modifier mes informations ou supprimer mon compte</RouterLink>
     </p>
     <p><RouterLink to="/mot-de-passe">Changer mon mot de passe</RouterLink></p>
+    <!-- Raccourcis de l'équipe : événements, clients, modération des avis -->
     <nav v-if="auth.user?.role !== 'client'" aria-label="Espace équipe" class="team-links">
       <RouterLink to="/equipe/evenements">Tous les événements, notes et tâches</RouterLink>
       <RouterLink to="/equipe/clients">Tous les clients</RouterLink>
       <RouterLink to="/moderation-avis">Modérer les avis des clients</RouterLink>
     </nav>
+    <!-- Tableau de bord, administratrice seulement -->
     <AdminDashboard v-if="auth.user?.role === 'administrateur'" />
     <p v-if="auth.user?.role === 'administrateur'">
       <RouterLink to="/comptes">Gérer les comptes employés et clients</RouterLink>
@@ -57,6 +59,7 @@ onMounted(async () => {
     <p v-if="auth.user?.role === 'administrateur'">
       <RouterLink to="/parametres-demandes">Modifier le remerciement des demandes</RouterLink>
     </p>
+    <!-- Client : ses prochains événements ; équipe : dernières notes -->
     <h2>{{ auth.user?.role === 'client' ? 'Vos prochains événements' : 'Notes de l’équipe' }}</h2>
     <p v-if="loading" role="status">Chargement…</p>
     <p v-if="error" role="alert" class="error">{{ error }}</p>
@@ -67,6 +70,7 @@ onMounted(async () => {
       </li>
     </ul>
     <p v-if="!loading && !error && !rows.length">Aucune information à afficher pour le moment.</p>
+    <!-- Client : ses devis et ses avis -->
     <ClientQuotes v-if="auth.user?.role === 'client'" />
     <ClientReviews v-if="auth.user?.role === 'client'" />
     <RouterLink v-if="auth.user?.role === 'administrateur'" to="/journaux">Consulter les journaux</RouterLink>

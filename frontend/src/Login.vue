@@ -66,6 +66,7 @@ async function submit() {
   <main class="panel narrow">
     <h1>Connexion</h1>
     <p>Retrouvez votre espace Innov’Events.</p>
+    <!-- Identifiants ; liens vers l'inscription et le mot de passe oublié -->
     <form @submit.prevent="submit" :aria-busy="busy">
       <label for="email">Adresse électronique</label>
       <input

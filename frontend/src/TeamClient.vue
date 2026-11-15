@@ -111,6 +111,7 @@ async function remove() {
       <h1>{{ data.client.entreprise }}</h1>
       <p v-if="notice" id="client-notice" class="success" role="status" tabindex="-1">{{ notice }}</p>
       <p v-if="actionError" id="client-action-error" class="error" role="alert" tabindex="-1">{{ actionError }}</p>
+      <!-- Modification de la fiche (administratrice) -->
       <section v-if="admin() && editing" aria-labelledby="client-edit-title" class="box">
         <h2 id="client-edit-title">Modifier la fiche</h2>
         <ClientForm
@@ -122,6 +123,7 @@ async function remove() {
         />
       </section>
       <template v-else>
+        <!-- Coordonnées du client -->
         <dl class="facts">
           <div>
             <dt>Contact</dt>
@@ -150,6 +152,7 @@ async function remove() {
             <dd>{{ data.client.compte ? 'Compte ouvert' : 'Pas de compte' }}</dd>
           </div>
         </dl>
+        <!-- Actions de l'administratrice : modifier, supprimer (avec confirmation) -->
         <div v-if="admin()" class="actions" role="group" aria-label="Gestion de la fiche client">
           <button id="client-edit-button" type="button" class="secondary" @click="startEdit">Modifier la fiche</button>
           <RouterLink
@@ -181,6 +184,7 @@ async function remove() {
           </p>
         </div>
       </template>
+      <!-- Événements du client -->
       <h2>Historique des événements</h2>
       <p v-if="!data.evenements.length">Aucun événement pour ce client.</p>
       <table v-else>

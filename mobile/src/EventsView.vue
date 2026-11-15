@@ -45,6 +45,7 @@ onMounted(load)
             : 'Aucun événement à venir.'
         }}
       </p>
+      <!-- Événements à venir ou en cours, avec pastille de date -->
       <ul class="events">
         <li v-for="e in events" :key="e.id">
           <a :href="'#/evenement/' + e.id" class="event-card">

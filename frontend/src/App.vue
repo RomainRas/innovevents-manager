@@ -20,6 +20,7 @@ async function disconnect() {
 </script>
 <template>
   <a class="skip-link" href="#contenu">Aller au contenu</a>
+  <!-- En-tête : logo et navigation, différente selon la connexion -->
   <header>
     <RouterLink class="brand" to="/">Innov’Events</RouterLink>
     <nav aria-label="Navigation principale">
@@ -35,8 +36,10 @@ async function disconnect() {
     </nav>
   </header>
   <p v-if="error" role="alert" class="error">{{ error }}</p>
+  <!-- Page courante ; la clé recrée l'écran à chaque changement d'adresse -->
   <div id="contenu" tabindex="-1"><RouterView :key="$route.path" /></div>
   <footer>
+    <!-- Pied de page : pages légales -->
     <nav aria-label="Informations légales">
       <RouterLink to="/mentions-legales">Mentions légales</RouterLink>
       <RouterLink to="/cgu">Conditions générales d’utilisation</RouterLink>

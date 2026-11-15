@@ -59,6 +59,7 @@ async function signOut() {
 </script>
 <template>
   <a class="skip" href="#contenu">Aller au contenu</a>
+  <!-- Barre du haut (déconnexion) et bandeau hors ligne -->
   <header class="bar">
     <span class="brand">Innov’Events</span>
     <button v-if="state.user" type="button" class="link" @click="signOut">Se déconnecter</button>
@@ -66,6 +67,7 @@ async function signOut() {
   <p v-if="state.offline" class="offline" role="status">
     Hors ligne : dernières informations enregistrées sur ce téléphone.
   </p>
+  <!-- Écran courant : connexion, accès refusé, liste, fiche événement ou fiche contact -->
   <div id="contenu">
     <p v-if="!state.loaded" class="page" role="status">Chargement…</p>
     <template v-else-if="!state.user">

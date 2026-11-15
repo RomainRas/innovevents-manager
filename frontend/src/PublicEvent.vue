@@ -57,6 +57,7 @@ onMounted(async () => {
           <dd>{{ statusLabels[event.statut] }}</dd>
         </dl>
       </article>
+      <!-- Invitation à demander un devis -->
       <section class="quote-callout" aria-labelledby="quote-title">
         <h2 id="quote-title">Prestations et Devis</h2>
         <p>Vous imaginez un événement similaire ? Décrivez votre projet et recevez un devis personnalisé.</p>

@@ -1,11 +1,66 @@
-const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright'),fs=require('fs');
-(async()=>{const ids=(process.env.PDF_TEST_IDS||'').split(',');if(ids.length!==2||!ids.every(x=>/^\d+$/.test(x)))throw Error('Fixtures');const browser=await chromium.launch({headless:true,...(process.env.CHROMIUM_PATH?{executablePath:process.env.CHROMIUM_PATH}:{})});
-try{for(const [i,width] of [1280,390].entries()){
- const context=await browser.newContext({viewport:{width,height:900}}),page=await context.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));
- await page.goto('http://127.0.0.1:5173/evenements/'+ids[i]+'/devis');await page.getByLabel('Adresse électronique').fill('chloe@example.invalid');await page.getByLabel('Mot de passe',{exact:true}).fill(fs.readFileSync('.secrets/demo-password.txt','utf8').trim());await page.getByRole('button',{name:'Se connecter',exact:true}).click();await page.getByRole('heading',{name:'Devis PDF',exact:true}).waitFor();
- await page.evaluate(()=>{const original=window.fetch.bind(window);let once=false;window.fetch=async(...args)=>{const r=await original(...args);if(!once&&String(args[0]).includes('/api/admin/quote-pdf-generate')&&r.ok){once=true;throw new TypeError('Lost confirmation')}return r}});
- await page.getByRole('button',{name:'Générer le PDF',exact:true}).click();await page.getByRole('button',{name:'Vérifier et retrouver le PDF'}).waitFor();if(!await page.getByRole('button',{name:'Calculer et enregistrer'}).isDisabled())throw Error('Concurrent form not locked');await page.getByRole('button',{name:'Vérifier et retrouver le PDF'}).click();await page.getByRole('button',{name:'Télécharger le PDF'}).waitFor();if(await page.evaluate(()=>document.activeElement.id)!=='pdf-result')throw Error('Focus PDF');
- const download=page.waitForEvent('download');await page.getByRole('button',{name:'Télécharger le PDF'}).click();const file=await download;await file.saveAs(`tmp/quote-pdf/browser-${width}.pdf`);if(!fs.readFileSync(`tmp/quote-pdf/browser-${width}.pdf`).subarray(0,5).equals(Buffer.from('%PDF-')))throw Error('Invalid download');
- await page.reload();await page.getByRole('button',{name:'Télécharger le PDF'}).waitFor();await page.getByLabel('Montant HT 1 (€)').fill('1100');if(await page.getByRole('button',{name:'Télécharger le PDF'}).count())throw Error('Stale PDF offered');
- if(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth)||errors.length)throw Error('UI failure');await context.close();
-}console.log('PDF : génération, reprise et téléchargement à 1280/390 px validés.')}finally{await browser.close()}})().catch(e=>{console.error(e);process.exit(1)});
+// Test dans un vrai navigateur (Chromium piloté par Playwright) : génération du PDF du devis, reprise et téléchargement, à 1280 et 390 px.
+const { chromium } = require(process.env.PLAYWRIGHT_MODULE || 'playwright'),
+  fs = require('fs')
+;(async () => {
+  const ids = (process.env.PDF_TEST_IDS || '').split(',')
+  if (ids.length !== 2 || !ids.every(x => /^\d+$/.test(x))) throw Error('Fixtures')
+  // Navigateur sans fenêtre ; CHROMIUM_PATH permet d'utiliser un Chromium déjà installé.
+  const browser = await chromium.launch({
+    headless: true,
+    ...(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {}),
+  })
+  try {
+    for (const [i, width] of [1280, 390].entries()) {
+      const context = await browser.newContext({ viewport: { width, height: 900 } }),
+        page = await context.newPage(),
+        errors = []
+      page.on('pageerror', e => errors.push(e.message))
+      await page.goto('http://127.0.0.1:5173/evenements/' + ids[i] + '/devis')
+      await page.getByLabel('Adresse électronique').fill('chloe@example.invalid')
+      await page
+        .getByLabel('Mot de passe', { exact: true })
+        .fill(fs.readFileSync('.secrets/demo-password.txt', 'utf8').trim())
+      await page.getByRole('button', { name: 'Se connecter', exact: true }).click()
+      await page.getByRole('heading', { name: 'Devis PDF', exact: true }).waitFor()
+      await page.evaluate(() => {
+        const original = window.fetch.bind(window)
+        let once = false
+        window.fetch = async (...args) => {
+          const r = await original(...args)
+          if (!once && String(args[0]).includes('/api/admin/quote-pdf-generate') && r.ok) {
+            once = true
+            throw new TypeError('Lost confirmation')
+          }
+          return r
+        }
+      })
+      await page.getByRole('button', { name: 'Générer le PDF', exact: true }).click()
+      await page.getByRole('button', { name: 'Vérifier et retrouver le PDF' }).waitFor()
+      if (!(await page.getByRole('button', { name: 'Calculer et enregistrer' }).isDisabled()))
+        throw Error('Concurrent form not locked')
+      await page.getByRole('button', { name: 'Vérifier et retrouver le PDF' }).click()
+      await page.getByRole('button', { name: 'Télécharger le PDF' }).waitFor()
+      if ((await page.evaluate(() => document.activeElement.id)) !== 'pdf-result') throw Error('Focus PDF')
+      const download = page.waitForEvent('download')
+      await page.getByRole('button', { name: 'Télécharger le PDF' }).click()
+      const file = await download
+      await file.saveAs(`tmp/quote-pdf/browser-${width}.pdf`)
+      if (!fs.readFileSync(`tmp/quote-pdf/browser-${width}.pdf`).subarray(0, 5).equals(Buffer.from('%PDF-')))
+        throw Error('Invalid download')
+      await page.reload()
+      await page.getByRole('button', { name: 'Télécharger le PDF' }).waitFor()
+      await page.getByLabel('Montant HT 1 (€)').fill('1100')
+      if (await page.getByRole('button', { name: 'Télécharger le PDF' }).count()) throw Error('Stale PDF offered')
+      if ((await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)) || errors.length)
+        throw Error('UI failure')
+      await context.close()
+    }
+    console.log('PDF : génération, reprise et téléchargement à 1280/390 px validés.')
+  } finally {
+    // Le navigateur est toujours fermé, même en cas d'échec.
+    await browser.close()
+  }
+})().catch(e => {
+  console.error(e)
+  process.exit(1)
+})

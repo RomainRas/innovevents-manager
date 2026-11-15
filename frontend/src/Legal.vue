@@ -13,6 +13,7 @@ const updated = '14 novembre 2026'
       fictives.
     </p>
 
+    <!-- Mentions légales -->
     <template v-if="page === 'mentions'">
       <h1>Mentions légales</h1>
       <h2>Éditeur du site</h2>
@@ -44,6 +45,7 @@ const updated = '14 novembre 2026'
     </template>
 
     <template v-else-if="page === 'cgu'">
+      <!-- Conditions générales d'utilisation -->
       <h1>Conditions générales d’utilisation</h1>
       <p>Dernière mise à jour : {{ updated }}.</p>
       <h2>1. Objet</h2>
@@ -97,6 +99,7 @@ const updated = '14 novembre 2026'
     </template>
 
     <template v-else-if="page === 'cgv'">
+      <!-- Conditions générales de vente -->
       <h1>Conditions générales de vente</h1>
       <p>Dernière mise à jour : {{ updated }}.</p>
       <h2>1. Champ d’application</h2>
@@ -147,6 +150,7 @@ const updated = '14 novembre 2026'
     </template>
 
     <template v-else>
+      <!-- Politique de confidentialité -->
       <h1>Politique de confidentialité</h1>
       <p>
         Dernière mise à jour : {{ updated }}. Responsable du traitement : Innov’Events (voir les

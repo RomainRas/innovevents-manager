@@ -1,10 +1,12 @@
 # Production : docker compose -f compose.yaml -f compose.prod.yaml (variable COMPOSE_FILE sur le serveur).
 # Seul Caddy publie des ports (80/443). MySQL, MongoDB, PHP-FPM et les traitements restent sur le réseau interne.
 services:
+  # Bases : aucun port publié, redémarrage automatique.
   mysql:
     restart: unless-stopped
   mongodb:
     restart: unless-stopped
+  # API PHP-FPM : image de production avec le code inclus.
   api:
     build:
       context: .
@@ -26,6 +28,7 @@ services:
       timeout: 5s
       retries: 3
     restart: unless-stopped
+  # Envoi des courriels par le SMTP de Hostinger (Mailpit si les paramètres SMTP sont vides).
   mail_worker:
     image: innovevents-api:prod
     command: ["php", "bin/mail-worker.php"]
@@ -41,6 +44,7 @@ services:
       mysql: {condition: service_healthy}
       api: {condition: service_started}
     restart: unless-stopped
+  # Livraison du journal d'activité vers MongoDB.
   journal_worker:
     image: innovevents-api:prod
     command: ["php", "bin/journal-worker.php"]
@@ -52,6 +56,7 @@ services:
     restart: unless-stopped
   # Boîte de réception de secours tant que le SMTP réel n'est pas configuré : interface uniquement
   # sur la boucle locale du serveur (tunnel SSH), aucun courriel ne sort.
+  # Boîte de secours, interface sur 127.0.0.1 du serveur seulement (tunnel SSH).
   mailpit:
     image: axllent/mailpit@sha256:aef2aacc11f075ec0fb6874275ee4a421e688e11a96ebb296134d1735c7761ce
     ports: ["127.0.0.1:8025:8025"]
@@ -61,12 +66,14 @@ services:
     volumes: ["mailpit_data:/data"]
     restart: unless-stopped
   # Application mobile (PWA) : fichiers statiques servis en interne, relayés par Caddy sous /mobile/.
+  # Application mobile compilée, servie sur le réseau interne et relayée par Caddy.
   mobile:
     build:
       context: .
       dockerfile: docker/mobile/Dockerfile
     image: innovevents-mobile:prod
     restart: unless-stopped
+  # Seul service exposé : HTTPS (Let's Encrypt), site Vue compilé, relais vers l'API et l'application mobile.
   caddy:
     build:
       context: .

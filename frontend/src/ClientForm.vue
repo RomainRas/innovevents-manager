@@ -69,6 +69,7 @@ async function submit() {
     <p v-if="error" :id="prefix + 'error'" class="error" role="alert" tabindex="-1">{{ error }}</p>
     <fieldset :disabled="busy">
       <legend class="sr-only">Fiche client</legend>
+      <!-- Champs générés depuis la liste fields (libellé, erreur et aide liés au champ) -->
       <div class="grid">
         <div v-for="f in fields" :key="f.key">
           <label :for="prefix + f.key">{{ f.label }}{{ f.required ? ' *' : '' }}</label>

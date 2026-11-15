@@ -102,10 +102,12 @@ async function submit() {
     <h1>Convertir en client</h1>
     <p v-if="loading" role="status">Chargement des coordonnées…</p>
     <p v-if="error" id="conversion-error" role="alert" tabindex="-1" class="error">{{ error }}</p>
+    <!-- Conversion faite : lien vers la fiche client et suite du parcours -->
     <section v-if="clientId" id="conversion-success" role="status" tabindex="-1">
       <h2>La fiche client est créée</h2>
       <RouterLink :to="'/clients/' + clientId">Consulter la fiche client</RouterLink>
     </section>
+    <!-- Coordonnées reprises de la demande, modifiables avant confirmation -->
     <form v-if="canConvert" @submit.prevent="submit" novalidate :aria-busy="busy">
       <p>
         Les coordonnées du prospect sont reprises ci-dessous. Vérifiez-les et corrigez-les si nécessaire. Tous les

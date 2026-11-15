@@ -1,5 +1,6 @@
 # Complément local : docker compose -f compose.yaml -f compose.app.yaml ...
 services:
+  # API PHP (serveur intégré en local) : un secret par compte MySQL limité à une fonctionnalité.
   api:
     build:
       context: .
@@ -20,6 +21,7 @@ services:
       timeout: 5s
       retries: 6
     restart: "no"
+  # Boîte de réception locale : retient tous les courriels, consultable sur http://127.0.0.1:8025.
   mailpit:
     image: axllent/mailpit@sha256:aef2aacc11f075ec0fb6874275ee4a421e688e11a96ebb296134d1735c7761ce
     ports: ["127.0.0.1:8025:8025"]
@@ -27,6 +29,7 @@ services:
       MP_DATABASE: /data/mailpit.db
     volumes: ["mailpit_data:/data"]
     restart: "no"
+  # Envoi des courriels de la file d'attente (contenu chiffré en base).
   mail_worker:
     image: innovevents-ecf-db-api
     working_dir: /app
@@ -37,6 +40,7 @@ services:
       mysql: {condition: service_healthy}
       mailpit: {condition: service_started}
     restart: "no"
+  # Livraison du journal d'activité de MySQL vers MongoDB.
   journal_worker:
     image: innovevents-ecf-db-api
     working_dir: /app
@@ -47,6 +51,7 @@ services:
       mysql: {condition: service_healthy}
       mongodb: {condition: service_healthy}
     restart: "no"
+  # Serveur Vite du site (rechargement à chaud), seul port ouvert : 127.0.0.1:5173.
   web:
     image: node:24-bookworm-slim@sha256:01d566e8d94d8c619591d78652babfccd3c6992a3dffa9ed5ab39e11cf6c70e9
     working_dir: /app
@@ -58,6 +63,7 @@ services:
     depends_on:
       api: {condition: service_healthy}
     restart: "no"
+  # Serveur Vite de l'application mobile, relayé par celui du site sous /mobile/.
   mobile:
     image: node:24-bookworm-slim@sha256:01d566e8d94d8c619591d78652babfccd3c6992a3dffa9ed5ab39e11cf6c70e9
     working_dir: /app
@@ -74,6 +80,7 @@ volumes:
   auth_state:
   mailpit_data:
 secrets:
+  # Un secret par compte MySQL : chaque fonctionnalité n'a que les droits dont elle a besoin.
   mysql_api: {file: ./.secrets/mysql-api.txt}
   mongo_api: {file: ./.secrets/mongo-api.txt}
   mongo_auth: {file: ./.secrets/mongo-auth.txt}

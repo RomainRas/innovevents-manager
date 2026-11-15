@@ -7,10 +7,16 @@ Prérequis : application locale démarrée (scripts/Start-App.ps1), Node.js et P
 Résultats : tmp/tests/resultats.json ; couverture : tmp/coverage/html/index.html et tmp/coverage/resume.txt.
 Les essais restaurent eux-mêmes leurs données ; le limiteur de connexion local est remis à zéro entre deux suites.
 """
+
 from pathlib import Path
 import json, os, shutil, subprocess, sys, time
+
+# Racine du dépôt (les commandes docker compose s'y exécutent).
 ROOT = Path(__file__).resolve().parents[1]
-DOCKER = os.environ.get('DOCKER_BIN', 'docker'); PYTHON = sys.executable; NODE = os.environ.get('NODE_BIN', 'node')
+# Exécutable Docker (modifiable par la variable DOCKER_BIN).
+DOCKER = os.environ.get('DOCKER_BIN', 'docker')
+PYTHON = sys.executable
+NODE = os.environ.get('NODE_BIN', 'node')
 APP = [DOCKER, 'compose', '-f', 'compose.yaml', '-f', 'compose.app.yaml']
 COVERAGE = '--coverage' in sys.argv
 
@@ -48,60 +54,142 @@ SUITES = [
     ('tests/app/mobile-browser.cjs', 'bout en bout', 'Application mobile sur téléphone émulé'),
 ]
 
+
 def compose(*args, extra=(), check=True, capture=True):
-    return subprocess.run(APP + list(extra) + list(args), cwd=ROOT, encoding='utf-8', capture_output=capture, check=check)
+    return subprocess.run(
+        APP + list(extra) + list(args), cwd=ROOT, encoding='utf-8', capture_output=capture, check=check
+    )
+
+
 def reset_limiter():
     compose('exec', '-T', 'api', 'rm', '-f', '/var/lib/innovevents/login-rate.json', check=False)
+
+
 def wait_api():
     for _ in range(60):
-        r = compose('exec', '-T', 'api', 'php', '-r', "exit(@file_get_contents('http://127.0.0.1:8080/api/health')==='{\"status\":\"ready\"}'?0:1);", check=False)
-        if r.returncode == 0: return
+        r = compose(
+            'exec',
+            '-T',
+            'api',
+            'php',
+            '-r',
+            "exit(@file_get_contents('http://127.0.0.1:8080/api/health')==='{\"status\":\"ready\"}'?0:1);",
+            check=False,
+        )
+        if r.returncode == 0:
+            return
         time.sleep(2)
     raise SystemExit('API indisponible.')
+
+
 def summary(output):
     for line in reversed(output.splitlines()):
-        if 'contrôles réussis' in line or line.startswith('OK (') or line.startswith('Tests:'): return line.strip()
+        if 'contrôles réussis' in line or line.startswith('OK (') or line.startswith('Tests:'):
+            return line.strip()
     return ''
 
-results = []; started = time.time()
-out = ROOT / 'tmp/tests'; out.mkdir(parents=True, exist_ok=True)
+
+results = []
+started = time.time()
+out = ROOT / 'tmp/tests'
+out.mkdir(parents=True, exist_ok=True)
 if COVERAGE:
     shutil.rmtree(ROOT / 'tmp/coverage', ignore_errors=True)
     (ROOT / 'backend/tmp/coverage/requetes').mkdir(parents=True, exist_ok=True)
-    for f in (ROOT / 'backend/tmp/coverage/requetes').glob('*.cov'): f.unlink()
-    compose('up', '-d', '--force-recreate', '--no-deps', 'api', extra=('-f', 'compose.coverage.yaml')); wait_api()
+    for f in (ROOT / 'backend/tmp/coverage/requetes').glob('*.cov'):
+        f.unlink()
+    compose('up', '-d', '--force-recreate', '--no-deps', 'api', extra=('-f', 'compose.coverage.yaml'))
+    wait_api()
+# Exécution de chaque suite ; une suite en échec n'arrête pas les suivantes.
 try:
     # Tests unitaires (PHPUnit) : couverture propre ajoutée à celle des tests HTTP.
-    args = ['exec', '-T', 'api', 'php'] + (['-d', 'pcov.enabled=1'] if COVERAGE else []) + ['vendor/bin/phpunit', '--no-progress']
-    if COVERAGE: args += ['--coverage-php', 'tmp/coverage/requetes/unitaires.cov']
+    args = (
+        ['exec', '-T', 'api', 'php']
+        + (['-d', 'pcov.enabled=1'] if COVERAGE else [])
+        + ['vendor/bin/phpunit', '--no-progress']
+    )
+    if COVERAGE:
+        args += ['--coverage-php', 'tmp/coverage/requetes/unitaires.cov']
     r = compose(*args, check=False)
-    results.append({'fichier': 'backend/tests/Unit (PHPUnit)', 'type': 'unitaire', 'fonctionnalite': 'Règles métier : événements, clients, dates, montants', 'reussi': r.returncode == 0, 'resume': summary(r.stdout)})
+    results.append(
+        {
+            'fichier': 'backend/tests/Unit (PHPUnit)',
+            'type': 'unitaire',
+            'fonctionnalite': 'Règles métier : événements, clients, dates, montants',
+            'reussi': r.returncode == 0,
+            'resume': summary(r.stdout),
+        }
+    )
     print(('OK  ' if r.returncode == 0 else 'ÉCHEC ') + 'PHPUnit', summary(r.stdout), flush=True)
     for path, kind, feature in SUITES:
         reset_limiter()
         command = [PYTHON, '-X', 'utf8', path] if path.endswith('.py') else [NODE, path]
-        t = time.time(); r = subprocess.run(command, cwd=ROOT, encoding='utf-8', capture_output=True, env=os.environ)
+        t = time.time()
+        r = subprocess.run(command, cwd=ROOT, encoding='utf-8', capture_output=True, env=os.environ)
         ok = r.returncode == 0
-        results.append({'fichier': path, 'type': kind, 'fonctionnalite': feature, 'reussi': ok, 'resume': summary(r.stdout), 'duree_s': round(time.time() - t, 1)})
+        results.append(
+            {
+                'fichier': path,
+                'type': kind,
+                'fonctionnalite': feature,
+                'reussi': ok,
+                'resume': summary(r.stdout),
+                'duree_s': round(time.time() - t, 1),
+            }
+        )
         print(('OK  ' if ok else 'ÉCHEC ') + path, summary(r.stdout), flush=True)
-        if not ok: (out / (Path(path).stem + '.echec.txt')).write_text(r.stdout + '\n' + r.stderr, encoding='utf-8')
+        if not ok:
+            (out / (Path(path).stem + '.echec.txt')).write_text(r.stdout + '\n' + r.stderr, encoding='utf-8')
+# Toujours : limiteur de connexion remis à zéro et API relancée sans mesure de couverture.
 finally:
     reset_limiter()
     if COVERAGE:
-        compose('up', '-d', '--force-recreate', '--no-deps', 'api'); wait_api()
+        compose('up', '-d', '--force-recreate', '--no-deps', 'api')
+        wait_api()
 coverage = None
 if COVERAGE:
-    r = compose('exec', '-T', 'api', 'php', 'vendor/bin/phpcov', 'merge', '--text', 'tmp/coverage/resume.txt', '--html', 'tmp/coverage/html', '--clover', 'tmp/coverage/clover.xml', 'tmp/coverage/requetes', check=False)
+    r = compose(
+        'exec',
+        '-T',
+        'api',
+        'php',
+        'vendor/bin/phpcov',
+        'merge',
+        '--text',
+        'tmp/coverage/resume.txt',
+        '--html',
+        'tmp/coverage/html',
+        '--clover',
+        'tmp/coverage/clover.xml',
+        'tmp/coverage/requetes',
+        check=False,
+    )
     report = ROOT / 'backend/tmp/coverage'
     if (report / 'resume.txt').exists():
         (ROOT / 'tmp/coverage').mkdir(parents=True, exist_ok=True)
-        shutil.copy(report / 'resume.txt', ROOT / 'tmp/coverage/resume.txt'); shutil.copytree(report / 'html', ROOT / 'tmp/coverage/html', dirs_exist_ok=True)
+        shutil.copy(report / 'resume.txt', ROOT / 'tmp/coverage/resume.txt')
+        shutil.copytree(report / 'html', ROOT / 'tmp/coverage/html', dirs_exist_ok=True)
         text = (report / 'resume.txt').read_text(encoding='utf-8')
-        coverage = [l.strip() for l in text.splitlines() if l.strip().startswith(('Classes:', 'Methods:', 'Lines:'))][:3]
+        coverage = [l.strip() for l in text.splitlines() if l.strip().startswith(('Classes:', 'Methods:', 'Lines:'))][
+            :3
+        ]
         print('\n'.join(coverage))
     else:
         print('Fusion de la couverture impossible :', r.stdout, r.stderr)
-(out / 'resultats.json').write_text(json.dumps({'date': time.strftime('%Y-%m-%d %H:%M'), 'duree_min': round((time.time() - started) / 60, 1),
-    'reussis': sum(r['reussi'] for r in results), 'total': len(results), 'couverture': coverage, 'suites': results}, ensure_ascii=False, indent=1), encoding='utf-8')
+(out / 'resultats.json').write_text(
+    json.dumps(
+        {
+            'date': time.strftime('%Y-%m-%d %H:%M'),
+            'duree_min': round((time.time() - started) / 60, 1),
+            'reussis': sum(r['reussi'] for r in results),
+            'total': len(results),
+            'couverture': coverage,
+            'suites': results,
+        },
+        ensure_ascii=False,
+        indent=1,
+    ),
+    encoding='utf-8',
+)
 print(f"{sum(r['reussi'] for r in results)}/{len(results)} suites réussies.")
 raise SystemExit(0 if all(r['reussi'] for r in results) else 1)

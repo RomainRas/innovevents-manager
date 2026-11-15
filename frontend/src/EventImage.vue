@@ -91,6 +91,7 @@ async function upload() {
     </p>
     <p v-if="error" id="image-error" role="alert" tabindex="-1" class="error">{{ error }}</p>
     <p v-if="message" id="image-result" role="status" tabindex="-1">{{ message }}</p>
+    <!-- Fichier image et description (texte alternatif), obligatoire pour l'accessibilité -->
     <form @submit.prevent="upload" novalidate :aria-busy="busy">
       <label for="event-image">{{ hasImage ? 'Remplacer l’image' : 'Choisir une image' }}</label
       ><input

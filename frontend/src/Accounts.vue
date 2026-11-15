@@ -160,6 +160,7 @@ async function confirmDelete() {
     <p v-if="error" id="accounts-error" class="error" role="alert" tabindex="-1">{{ error }}</p>
     <p v-if="notice" id="accounts-notice" class="success" role="status" tabindex="-1">{{ notice }}</p>
 
+    <!-- Création d'un compte : employé (identité) ou client (fiche client à rattacher) -->
     <section aria-labelledby="create-title" class="box">
       <h2 id="create-title">Créer un compte</h2>
       <p v-if="formError" id="create-error" class="error" role="alert" tabindex="-1">{{ formError }}</p>
@@ -243,6 +244,7 @@ async function confirmDelete() {
       </form>
     </section>
 
+    <!-- Liste des comptes, filtrable par rôle et par recherche -->
     <section aria-labelledby="list-title">
       <h2 id="list-title">Comptes</h2>
       <form class="filters" role="search" @submit.prevent="load">
@@ -262,6 +264,7 @@ async function confirmDelete() {
       </form>
       <p v-if="loading" role="status">Chargement…</p>
       <p v-else-if="!accounts.length">Aucun compte ne correspond.</p>
+      <!-- Un compte par ligne : statut, accès mobile, suspension, réactivation, suppression -->
       <ul class="accounts">
         <li
           v-for="a in accounts"

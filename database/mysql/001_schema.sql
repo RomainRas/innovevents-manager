@@ -5,6 +5,7 @@ SET NAMES utf8mb4;
 SET SESSION time_zone = '+00:00';
 SET SESSION sql_mode = 'STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
+-- Comptes de connexion : administratrice, employés et clients (rôle, statut, empreinte du mot de passe).
 CREATE TABLE utilisateurs (
  id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
  email VARCHAR(254) NOT NULL,
@@ -25,6 +26,7 @@ CREATE TABLE utilisateurs (
   AND CHAR_LENGTH(TRIM(nom_utilisateur)) > 0 AND CHAR_LENGTH(mot_de_passe_hash) > 0)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+-- Fiches clients (entreprise et contact), créées par conversion d'une demande ou par l'administratrice.
 CREATE TABLE clients (
  id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY, utilisateur_id BIGINT UNSIGNED NULL,
  entreprise VARCHAR(200) NOT NULL, contact_nom VARCHAR(100) NOT NULL, contact_prenom VARCHAR(100) NOT NULL,
@@ -39,6 +41,7 @@ CREATE TABLE clients (
   AND CHAR_LENGTH(TRIM(contact_prenom)) > 0 AND CHAR_LENGTH(TRIM(email)) > 0 AND CHAR_LENGTH(TRIM(telephone)) > 0)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+-- Demandes de devis envoyées depuis le site public, avant conversion en client.
 CREATE TABLE prospects (
  id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
  entreprise VARCHAR(200) NOT NULL, nom VARCHAR(100) NOT NULL, prenom VARCHAR(100) NOT NULL,
@@ -63,6 +66,7 @@ CREATE TABLE prospects (
  INDEX ix_prospects_statut_date (statut, cree_le)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+-- Événements d'un client : dates, lieu, statut, accord de publication sur le site.
 CREATE TABLE evenements (
  id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY, client_id BIGINT UNSIGNED NOT NULL,
  prospect_id BIGINT UNSIGNED NULL, nom VARCHAR(200) NULL,
@@ -86,6 +90,7 @@ CREATE TABLE evenements (
  INDEX ix_evenements_client_debut (client_id, debut), INDEX ix_evenements_statut_debut (statut, debut)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+-- Dossier de devis d'un événement ; pointe vers sa version courante.
 CREATE TABLE devis (
  id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY, evenement_id BIGINT UNSIGNED NOT NULL,
  reference VARCHAR(50) COLLATE utf8mb4_0900_bin NOT NULL, version_courante_id BIGINT UNSIGNED NULL,
@@ -96,6 +101,8 @@ CREATE TABLE devis (
  CONSTRAINT ck_devis_reference CHECK (CHAR_LENGTH(TRIM(reference)) > 0)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+-- Versions successives d'un devis (contre-propositions). Une version transmise est figée :
+-- copie du client et de l'événement, taux de TVA et totaux ne changent plus.
 CREATE TABLE versions_devis (
  id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY, devis_id BIGINT UNSIGNED NOT NULL,
  numero INT UNSIGNED NOT NULL, revision_contenu INT UNSIGNED NOT NULL DEFAULT 1,
@@ -134,6 +141,7 @@ CREATE TABLE versions_devis (
 ALTER TABLE devis ADD CONSTRAINT fk_devis_version_courante
  FOREIGN KEY (id, version_courante_id) REFERENCES versions_devis(devis_id, id);
 
+-- Lignes de prestation d'une version (libellé et montant HT).
 CREATE TABLE prestations_devis (
  id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY, version_id BIGINT UNSIGNED NOT NULL,
  ordre INT UNSIGNED NOT NULL, libelle VARCHAR(255) NOT NULL, montant_ht DECIMAL(15,2) NOT NULL,
@@ -144,6 +152,7 @@ CREATE TABLE prestations_devis (
  CONSTRAINT ck_prestations_valeurs CHECK (ordre > 0 AND montant_ht >= 0 AND CHAR_LENGTH(TRIM(libelle)) > 0)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+-- Réponse du client à une version : acceptation, refus ou modification (motif obligatoire).
 CREATE TABLE decisions_devis (
  id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY, version_id BIGINT UNSIGNED NOT NULL,
  auteur_id BIGINT UNSIGNED NOT NULL, choix VARCHAR(20) NOT NULL, motif TEXT NULL,
@@ -156,6 +165,7 @@ CREATE TABLE decisions_devis (
   OR (choix IN ('accepte','refuse') AND motif IS NULL))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+-- PDF générés pour une version ; seul le PDF de la révision courante est téléchargeable.
 CREATE TABLE documents_devis (
  id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY, version_id BIGINT UNSIGNED NOT NULL,
  revision_contenu INT UNSIGNED NOT NULL, etat VARCHAR(20) NOT NULL DEFAULT 'en_cours',
@@ -170,6 +180,8 @@ CREATE TABLE documents_devis (
    AND empreinte_sha256 IS NOT NULL AND CHAR_LENGTH(empreinte_sha256) = 64 AND genere_le IS NOT NULL))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+-- Envois du devis au client (par la plateforme ou déclaré manuel) ; la clé d'idempotence
+-- empêche un double envoi si la réponse est perdue.
 CREATE TABLE transmissions_devis (
  id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY, document_id BIGINT UNSIGNED NOT NULL,
  acteur_id BIGINT UNSIGNED NOT NULL, mode VARCHAR(20) NOT NULL, destinataire VARCHAR(254) NOT NULL,
@@ -186,6 +198,7 @@ CREATE TABLE transmissions_devis (
  CONSTRAINT ck_transmissions_textes CHECK (CHAR_LENGTH(TRIM(destinataire)) > 0 AND CHAR_LENGTH(cle_idempotence) = 36)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+-- Tâches d'un événement, éventuellement assignées à un membre de l'équipe.
 CREATE TABLE taches (
  id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY, evenement_id BIGINT UNSIGNED NOT NULL,
  assigne_a BIGINT UNSIGNED NULL, titre VARCHAR(200) NOT NULL, description TEXT NULL,
@@ -197,6 +210,7 @@ CREATE TABLE taches (
  CONSTRAINT ck_taches_titre CHECK (CHAR_LENGTH(TRIM(titre)) > 0), INDEX ix_taches_assigne_statut (assigne_a, statut)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+-- Notes de l'équipe sur un événement, partagées entre le site et l'application mobile.
 CREATE TABLE notes_evenement (
  id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY, evenement_id BIGINT UNSIGNED NOT NULL,
  auteur_id BIGINT UNSIGNED NOT NULL, contenu TEXT NOT NULL,
@@ -208,6 +222,7 @@ CREATE TABLE notes_evenement (
  INDEX ix_notes_evenement_date (evenement_id, cree_le), INDEX ix_notes_date (cree_le)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+-- Notes de l'équipe non rattachées à un événement.
 CREATE TABLE notes_globales (
  id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY, auteur_id BIGINT UNSIGNED NOT NULL, contenu TEXT NOT NULL,
  cree_le DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
@@ -216,6 +231,7 @@ CREATE TABLE notes_globales (
  CONSTRAINT ck_notes_globales_contenu CHECK (CHAR_LENGTH(TRIM(contenu)) > 0)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+-- Avis d'un client sur un événement terminé : un seul par client et par événement, publié après modération.
 CREATE TABLE avis (
  id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY, evenement_id BIGINT UNSIGNED NOT NULL,
  auteur_id BIGINT UNSIGNED NOT NULL, contenu TEXT NOT NULL, statut VARCHAR(20) NOT NULL DEFAULT 'en_attente',
@@ -233,6 +249,7 @@ CREATE TABLE avis (
  INDEX ix_avis_statut_date (statut, cree_le)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+-- Réglages modifiables par l'administratrice (texte de remerciement des demandes de devis).
 CREATE TABLE parametres_application (
  cle VARCHAR(100) COLLATE utf8mb4_0900_bin PRIMARY KEY, valeur TEXT NOT NULL,
  modifie_par BIGINT UNSIGNED NULL, modifie_le DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
@@ -240,6 +257,8 @@ CREATE TABLE parametres_application (
  CONSTRAINT ck_parametres_cle CHECK (CHAR_LENGTH(TRIM(cle)) > 0)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+-- File d'attente du journal : chaque action est d'abord écrite ici, dans la même transaction,
+-- puis livrée à MongoDB par le journal_worker (aucune action perdue si MongoDB est indisponible).
 CREATE TABLE journal_a_emettre (
  id_trace CHAR(36) COLLATE utf8mb4_0900_bin PRIMARY KEY, horodatage DATETIME(6) NOT NULL,
  type_action VARCHAR(40) NOT NULL, id_utilisateur BIGINT UNSIGNED NULL, details JSON NOT NULL,
@@ -262,6 +281,7 @@ CREATE TABLE journal_a_emettre (
  INDEX ix_journal_reprise (etat, prochain_essai_le)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+-- Texte de remerciement par défaut.
 INSERT INTO parametres_application (cle, valeur) VALUES
  ('remerciement_demande_devis', 'Merci pour votre demande. Chloé vous recontactera dans les plus brefs délais pour discuter de votre projet.');
 -- Le compte Chloé et le jeu d'essai sont à initialiser séparément avec des empreintes de mots de passe valides.

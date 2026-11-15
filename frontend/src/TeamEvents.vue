@@ -35,6 +35,7 @@ onMounted(load)
     <RouterLink v-if="auth.user?.role === 'administrateur'" class="button-link" to="/equipe/evenements/nouveau"
       >Nouvel événement</RouterLink
     >
+    <!-- Recherche et filtre par statut -->
     <form class="filters" role="search" @submit.prevent="load">
       <div>
         <label for="events-q">Rechercher (nom, lieu, client)</label
@@ -52,6 +53,7 @@ onMounted(load)
     <p v-if="error" class="error" role="alert">{{ error }}</p>
     <p v-if="loading" role="status">Chargement…</p>
     <p v-else role="status">{{ events.length }} événement{{ events.length > 1 ? 's' : '' }}.</p>
+    <!-- Liste des événements -->
     <ul class="cards">
       <li v-for="e in events" :key="e.id">
         <h2>

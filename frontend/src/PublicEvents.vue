@@ -57,6 +57,7 @@ watch(() => route.query, load, { immediate: true })
   <main class="panel wide">
     <h1>Nos événements</h1>
     <p>Une sélection d’événements organisés par Innov’Events, publiés avec l’accord de nos clients.</p>
+    <!-- Filtres : période, type et thème -->
     <form class="filters" @submit.prevent="apply" aria-label="Filtrer les événements">
       <div>
         <label for="filter-du">Du</label
@@ -99,6 +100,7 @@ watch(() => route.query, load, { immediate: true })
         ><button type="button" class="secondary" @click="reset">Réinitialiser</button>
       </div>
     </form>
+    <!-- Résultats, annoncés aux lecteurs d'écran à chaque changement -->
     <div id="events-result" tabindex="-1" aria-live="polite">
       <p v-if="loading">Chargement des événements…</p>
       <p v-else-if="error" class="error" role="alert">{{ error }}</p>

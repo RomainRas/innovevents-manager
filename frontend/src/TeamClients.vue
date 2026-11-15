@@ -55,6 +55,7 @@ onMounted(load)
     <p><RouterLink to="/espace">← Retour à mon espace</RouterLink></p>
     <h1>Clients</h1>
     <p v-if="notice" class="success" role="status">{{ notice }}</p>
+    <!-- Création d'une fiche (administratrice) -->
     <template v-if="auth.user?.role === 'administrateur'">
       <button v-if="!creating" id="client-new-button" type="button" @click="startCreate">Nouveau client</button>
       <section v-else aria-labelledby="client-new-title" class="box">
@@ -62,6 +63,7 @@ onMounted(load)
         <ClientForm submit-label="Créer la fiche client" @saved="created" @cancel="cancelCreate" />
       </section>
     </template>
+    <!-- Recherche -->
     <form class="search" role="search" @submit.prevent="load">
       <label for="clients-q">Rechercher un client (entreprise, contact, adresse, ville)</label>
       <div class="row">
@@ -73,6 +75,7 @@ onMounted(load)
     <p v-else role="status">
       {{ clients.length }} client{{ clients.length > 1 ? 's' : '' }}{{ searched ? ` pour « ${searched} »` : '' }}.
     </p>
+    <!-- Liste des clients -->
     <ul class="cards">
       <li v-for="c in clients" :key="c.id">
         <h2>

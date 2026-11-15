@@ -34,6 +34,7 @@ onMounted(async () => {
     <p v-if="loading" role="status">Chargement…</p>
     <p v-if="error" class="error" role="alert">{{ error }}</p>
     <template v-if="data">
+      <!-- Chiffres clés : clients actifs, brouillons à traiter, avis à modérer, demandes de suppression -->
       <section aria-labelledby="kpi-title" class="widget">
         <h3 id="kpi-title">Indicateurs clés</h3>
         <dl class="kpis">
@@ -58,6 +59,7 @@ onMounted(async () => {
         </dl>
       </section>
       <div class="columns">
+        <!-- Prochains événements -->
         <section aria-labelledby="upcoming-title" class="widget">
           <h3 id="upcoming-title">Prochains événements</h3>
           <p v-if="!data.prochains_evenements.length">Aucun événement à venir.</p>
@@ -68,6 +70,7 @@ onMounted(async () => {
             </li>
           </ul>
         </section>
+        <!-- Dernières notes de l'équipe -->
         <section aria-labelledby="notes-title" class="widget">
           <h3 id="notes-title">Notes récentes</h3>
           <p v-if="!data.notes_recentes.length">Aucune note n’a encore été ajoutée sur les projets.</p>

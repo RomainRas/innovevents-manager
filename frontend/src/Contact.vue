@@ -51,6 +51,7 @@ async function submit() {
 <template>
   <main class="panel narrow-form">
     <h1>Contact</h1>
+    <!-- Confirmation après envoi -->
     <section v-if="sent" id="contact-success" tabindex="-1" role="status">
       <h2>Message envoyé</h2>
       <p>

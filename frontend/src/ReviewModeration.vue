@@ -81,6 +81,7 @@ async function decide(r, decision) {
       Seuls les avis validés apparaissent sur la <RouterLink to="/avis">page Avis</RouterLink>, et uniquement pour les
       événements dont le client a accepté la publication.
     </p>
+    <!-- Onglets : à modérer, publiés, refusés -->
     <nav aria-label="Filtrer les avis" class="tabs">
       <button
         v-for="t in tabs"
@@ -99,6 +100,7 @@ async function decide(r, decision) {
     <p v-else-if="!reviews.length">
       {{ status === 'en_attente' ? 'Aucun avis en attente : tout est à jour.' : 'Aucun avis dans cette liste.' }}
     </p>
+    <!-- Avis de l'onglet choisi, avec validation ou refus -->
     <ul class="moderation-list">
       <li v-for="r in reviews" :key="r.id">
         <h2 :id="'review-' + r.id">{{ r.evenement }}</h2>

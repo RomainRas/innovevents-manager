@@ -93,6 +93,7 @@ async function submit() {
   <main class="panel">
     <h1>Parlons de votre événement</h1>
     <p>Décrivez votre projet pour que Chloé puisse vous recontacter et étudier votre demande de devis.</p>
+    <!-- Demande enregistrée : message de remerciement de l'agence -->
     <section v-if="message" id="quote-success" tabindex="-1" role="status">
       <h2>Votre demande est enregistrée</h2>
       <p class="preserve-text">{{ message }}</p>
@@ -101,6 +102,7 @@ async function submit() {
     <form v-else @submit.prevent="submit" novalidate :aria-busy="busy">
       <p>Tous les champs sont obligatoires.</p>
       <div v-if="error" id="quote-errors" class="error" role="alert" tabindex="-1">{{ error }}</div>
+      <!-- Rubriques du formulaire, générées depuis la liste groups -->
       <fieldset v-for="group in groups" :key="group.title" :disabled="busy || uncertain">
         <legend>{{ group.title }}</legend>
         <div class="quote-grid">

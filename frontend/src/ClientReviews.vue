@@ -108,6 +108,7 @@ async function submit(e) {
     <p v-if="!loading && !error && !events.length">
       Aucun événement terminé pour le moment. Vous pourrez l’évaluer une fois celui-ci passé.
     </p>
+    <!-- Un élément par événement terminé : avis déjà donné ou formulaire -->
     <ul class="review-list">
       <li v-for="e in events" :key="e.id" class="review-item">
         <h3 :id="'review-event-' + e.id">{{ e.nom }}</h3>

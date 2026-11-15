@@ -100,6 +100,7 @@ async function save() {
       <span class="badge" :class="data.evenement.statut">{{
         statuses[data.evenement.statut] || data.evenement.statut
       }}</span>
+      <!-- Informations de l'événement et lien vers la fiche contact -->
       <dl class="facts">
         <div>
           <dt>Dates</dt>
@@ -130,6 +131,7 @@ async function save() {
       </button>
       <p v-if="state.offline" class="hint">L’ajout de note nécessite le réseau.</p>
       <p v-if="notice" id="note-notice" class="success" role="status" tabindex="-1">{{ notice }}</p>
+      <!-- Panneau d'ajout de note -->
       <div v-if="sheet" class="sheet" role="dialog" aria-modal="false" aria-labelledby="note-title">
         <h2 id="note-title">Nouvelle note</h2>
         <label for="note-text">Note sur « {{ data.evenement.nom }} »</label>
@@ -149,6 +151,7 @@ async function save() {
           ><button type="button" class="secondary" :disabled="saving" @click="closeSheet">Fermer</button>
         </div>
       </div>
+      <!-- Cinq dernières notes -->
       <h2>Dernières notes</h2>
       <p v-if="!data.notes.length">Aucune note pour cet événement.</p>
       <ul class="notes">

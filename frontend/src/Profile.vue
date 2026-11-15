@@ -137,6 +137,7 @@ async function requestDeletion() {
     <p v-if="loading" role="status">Chargement…</p>
     <p v-if="error" id="profile-error" class="error" role="alert" tabindex="-1">{{ error }}</p>
     <template v-if="profile">
+      <!-- Coordonnées modifiables -->
       <form @submit.prevent="save" novalidate :aria-busy="busy === 'profile'">
         <p>Les champs marqués * sont obligatoires.</p>
         <p class="meta">
@@ -166,6 +167,7 @@ async function requestDeletion() {
         </fieldset>
       </form>
 
+      <!-- Demande de suppression du compte -->
       <section class="danger" aria-labelledby="deletion-title">
         <h2 id="deletion-title">Supprimer mon compte</h2>
         <div v-if="deletion" id="deletion-status" role="status" tabindex="-1">

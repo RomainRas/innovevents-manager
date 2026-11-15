@@ -45,6 +45,8 @@ const route = computed(() =>
     <template v-if="client">
       <h1 tabindex="-1">{{ client.contact }}</h1>
       <p class="hello">{{ client.entreprise }}</p>
+      <!-- Trois actions : appeler (tel:), écrire (mailto:), itinéraire (Google Maps) ; -->
+      <!-- une action sans donnée est affichée comme indisponible -->
       <ul class="actions">
         <li v-if="client.telephone_composable">
           <a class="action" :href="'tel:' + client.telephone_composable"

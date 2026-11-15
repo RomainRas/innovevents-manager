@@ -50,6 +50,7 @@ onMounted(() => load())
   <main class="panel">
     <h1>Demandes reçues</h1>
     <p>Retrouvez les prospects à contacter pour préciser leur besoin et vérifier la faisabilité du projet.</p>
+    <!-- Filtre par statut et recherche -->
     <form @submit.prevent="load(true)" class="filters">
       <div>
         <label for="prospect-search">Entreprise, nom ou adresse électronique</label
@@ -69,6 +70,7 @@ onMounted(() => load())
     <p v-if="busy" role="status">Chargement…</p>
     <p v-if="error" role="alert" class="error">{{ error }}</p>
     <p v-if="!busy && !error && !rows.length" role="status">Aucune demande ne correspond à ces critères.</p>
+    <!-- Demandes reçues, les plus récentes en premier -->
     <ul class="prospect-list">
       <li v-for="row in rows" :key="row.id">
         <h2>
@@ -78,6 +80,7 @@ onMounted(() => load())
         <p>{{ row.type_evenement }} · Date souhaitée : {{ row.date_souhaitee.split('-').reverse().join('/') }}</p>
       </li>
     </ul>
+    <!-- Page suivante -->
     <div class="pagination">
       <button v-if="cursor" :disabled="busy" @click="load(true)">Revenir aux premières demandes</button
       ><button v-if="next" :disabled="busy" @click="more">Demandes suivantes</button>

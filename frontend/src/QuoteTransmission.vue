@@ -139,6 +139,7 @@ async function send() {
     <template v-if="state && !loading">
       <p><strong>Statut du devis :</strong> {{ statuses[state.statut] || 'Aucun devis' }}<span v-if="state.version"> (version {{ state.version }})</span></p>
 
+      <!-- Réponses du client aux versions précédentes -->
       <div v-if="state.decisions.length" class="decisions">
         <h3>Réponses du client</h3>
         <ul>
@@ -183,6 +184,7 @@ async function send() {
         </p>
       </div>
 
+      <!-- Historique des envois -->
       <template v-if="state.transmissions.length">
         <h3>Historique des envois</h3>
         <ul class="history">

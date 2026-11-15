@@ -1,3 +1,5 @@
+-- Demandes de devis publiques : clé d'envoi tirée par le navigateur. Un nouvel essai avec la même clé
+-- retrouve la demande déjà créée (pas de doublon) ; avec un contenu différent (empreinte), il est refusé.
 CREATE TABLE IF NOT EXISTS soumissions_devis (
  cle CHAR(64) CHARACTER SET ascii COLLATE ascii_bin PRIMARY KEY,
  empreinte CHAR(64) CHARACTER SET ascii COLLATE ascii_bin NOT NULL,

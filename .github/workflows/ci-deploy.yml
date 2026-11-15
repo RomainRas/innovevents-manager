@@ -1,6 +1,7 @@
 # Intégration continue (dev, main, pull requests) et déploiement automatique à chaque push sur main.
 name: CI et déploiement
 
+# Déclenchement : chaque push ou pull request sur dev et main, ou lancement manuel.
 on:
   push:
     branches: [dev, main]
@@ -8,14 +9,17 @@ on:
     branches: [dev, main]
   workflow_dispatch:
 
+# Droits minimaux : lecture du dépôt seulement.
 permissions:
   contents: read
 
+# Un seul déploiement à la fois par branche, sans annuler celui en cours.
 concurrency:
   group: deploy-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
+  # Contrôles : tout doit réussir, sinon le déploiement n'a pas lieu.
   checks:
     name: Contrôles
     runs-on: ubuntu-24.04
@@ -57,6 +61,7 @@ jobs:
       - name: Scripts shell
         run: shellcheck -S warning scripts/server/*.sh scripts/server/php docker/mysql/*.sh
 
+  # Déploiement : seulement après les contrôles, et seulement pour un push sur main.
   deploy:
     name: Déploiement en production
     needs: checks

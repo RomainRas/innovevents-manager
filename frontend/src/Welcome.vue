@@ -8,6 +8,7 @@ const values = [
 </script>
 <template>
   <main class="home">
+    <!-- Présentation de l'agence -->
     <section class="hero" aria-labelledby="home-title">
       <div class="hero-text">
         <p class="eyebrow">Agence événementielle</p>
@@ -25,6 +26,7 @@ const values = [
         height="750"
       />
     </section>
+    <!-- Valeurs -->
     <section class="values" aria-labelledby="values-title">
       <h2 id="values-title">Notre approche</h2>
       <ul>
@@ -34,6 +36,7 @@ const values = [
         </li>
       </ul>
     </section>
+    <!-- Galerie d'univers d'événements -->
     <section class="gallery" aria-labelledby="gallery-title">
       <h2 id="gallery-title">Nos univers</h2>
       <div class="gallery-grid">
@@ -60,6 +63,7 @@ const values = [
       </div>
       <p><RouterLink to="/evenements-publics">Découvrir nos événements réalisés</RouterLink></p>
     </section>
+    <!-- Appel à demander un devis -->
     <section class="cta" aria-labelledby="cta-title">
       <h2 id="cta-title">Un projet en préparation ?</h2>
       <p>Décrivez votre besoin en quelques minutes : Chloé vous recontacte rapidement.</p>
