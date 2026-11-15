@@ -49,7 +49,7 @@
 | CI/CD : tests continus, déploiement automatique sur `main` | Réalisé | `.github/workflows/ci-deploy.yml` |
 | Documentation utilisateur | Réalisé | [guide-utilisateur.md](guide-utilisateur.md) |
 | Veille technologique et sécurité | Réalisé | [veille.md](veille.md) |
-| Kanban partagé | À mettre à jour par Romain (GitHub Projects) | — |
+| Kanban partagé (colonnes : à faire, prêt à développer, en cours, terminé sur dev, fusionné sur main) | Réalisé et à jour | GitHub Projects « Innov’Events - Suivi ECF » (n° 3) |
 
 ## Limites générales connues
 

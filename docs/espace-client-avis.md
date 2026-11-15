@@ -47,6 +47,6 @@ node tests/app/client-space-browser.cjs
 
 ## Limites
 
-- Le **traitement** de la demande de suppression (effacement des données puis confirmation au client) relève de l’administration des comptes, qui n’est pas encore développée. Aujourd’hui, la demande est enregistrée, l’agence est prévenue par courriel et le client voit qu’elle est en attente.
+- Le **traitement** de la demande de suppression (anonymisation du compte, confirmation par courriel au client) est fait par l’administratrice depuis la gestion des comptes : voir [administration-comptes.md](administration-comptes.md). Il n’est pas automatique.
 - Le changement d’adresse électronique de connexion passe par le formulaire de contact.
 - Le client ne peut pas modifier ni retirer un avis déjà envoyé.

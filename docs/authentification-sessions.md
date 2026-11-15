@@ -1,5 +1,7 @@
 # Connexion web, sessions et premiers droits — 12 novembre 2026
 
+> **Note du 15 novembre 2026 :** ce document décrit l’état du projet à sa date de rédaction. Les éléments qu’il signale comme « à développer » ont pour la plupart été réalisés depuis ; l’état final, avec les limites encore valables, est dans le [bilan des fonctionnalités](bilan-fonctionnalites.md).
+
 ## Ce qui fonctionne
 
 La page `/connexion` accepte l’adresse électronique et le mot de passe. Une session authentifiée permet de rejoindre `/espace` ; la déconnexion retire l’accès. Le retour après connexion est limité aux chemins internes connus `/espace` et `/journaux`, sans redirection externe. Les rechargements conservent la session.

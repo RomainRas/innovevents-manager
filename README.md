@@ -30,6 +30,8 @@ Tests unitaires (PHPUnit), fonctionnels (HTTP) et de bout en bout (Playwright), 
 
 ## Documentation
 
+**Pour le correcteur : [rendu — liens, comptes et emplacement de chaque livrable](docs/rendu.md)**
+
 **Utilisation**
 - [Guide d’utilisation par rôle](docs/guide-utilisateur.md)
 

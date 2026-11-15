@@ -1,5 +1,7 @@
 # Environnement local des bases — préparation du 9 novembre 2026
 
+> **Note du 15 novembre 2026 :** ce document décrit l’état du projet à sa date de rédaction. Les éléments qu’il signale comme « à développer » ont pour la plupart été réalisés depuis ; l’état final, avec les limites encore valables, est dans le [bilan des fonctionnalités](bilan-fonctionnalites.md).
+
 Cette étape prépare la tâche #7. Elle installe les bases de test, pas encore le serveur PHP, Vue ou la construction mobile. Le [guide des scripts](../database/README.md) décrit les contraintes et les limites des vérifications.
 
 ## Prérequis Windows

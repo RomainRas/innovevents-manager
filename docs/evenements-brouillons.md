@@ -1,5 +1,7 @@
 # Brouillon d’événement associé au client — 13 novembre 2026
 
+> **Note du 15 novembre 2026 :** ce document décrit l’état du projet à sa date de rédaction. Les éléments qu’il signale comme « à développer » ont pour la plupart été réalisés depuis ; l’état final, avec les limites encore valables, est dans le [bilan des fonctionnalités](bilan-fonctionnalites.md).
+
 Complément ultérieur : [l’ajout et le remplacement d’image privée](images-evenements.md) sont désormais disponibles. Le bilan ci-dessous conserve le périmètre de la livraison initiale ; consentement, publication, statuts et devis restent à développer.
 
 ## Source et périmètre

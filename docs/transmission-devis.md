@@ -1,5 +1,7 @@
 # Transmission du devis et espace client — 14 novembre 2026
 
+> **Note du 15 novembre 2026 :** ce document décrit l’état du projet à sa date de rédaction. Les éléments qu’il signale comme « à développer » ont pour la plupart été réalisés depuis ; l’état final, avec les limites encore valables, est dans le [bilan des fonctionnalités](bilan-fonctionnalites.md).
+
 ## Périmètre et utilisation
 
 L’énoncé, pages 9 et 10, prévoit le téléchargement du PDF pour un envoi manuel ou l’envoi par la plateforme au courriel du client, le passage au statut « étude côté client », l’affichage du devis dans l’espace client et la création automatique du compte client s’il n’existe pas. Cette livraison réalise ces points. **La réponse du client (acceptation, demande de modification motivée, refus) reste à développer.**

@@ -1,5 +1,7 @@
 # Images des brouillons d’événements
 
+> **Note du 15 novembre 2026 :** ce document décrit l’état du projet à sa date de rédaction. Les éléments qu’il signale comme « à développer » ont pour la plupart été réalisés depuis ; l’état final, avec les limites encore valables, est dans le [bilan des fonctionnalités](bilan-fonctionnalites.md).
+
 ## Source et périmètre
 
 L’énoncé p. 9 demande à Chloé d’ajouter une image de l’événement, par exemple celle du lieu. La page 7 prévoit une image sur la page publique, mais uniquement avec l’accord du client et un statut différent de brouillon.

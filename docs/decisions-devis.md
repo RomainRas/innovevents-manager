@@ -1,5 +1,7 @@
 # Réponse du client au devis et contre-proposition — 14 novembre 2026
 
+> **Note du 15 novembre 2026 :** ce document décrit l’état du projet à sa date de rédaction. Les éléments qu’il signale comme « à développer » ont pour la plupart été réalisés depuis ; l’état final, avec les limites encore valables, est dans le [bilan des fonctionnalités](bilan-fonctionnalites.md).
+
 ## Périmètre et utilisation
 
 L’énoncé, page 10, prévoit trois réponses du client : **acceptation** (statut « accepté » et courriel à Innov’Events), **demande de modification** (motif exigé, statut « modification », contre-proposition par Chloé) et **refus** (statut « refusé »). Cette livraison les réalise, ainsi que la contre-proposition, en suivant les [états WEB03](conception/etats-decisions-devis.md) et le [parcours commercial](conception/parcours-prospect-devis-evenement.md).

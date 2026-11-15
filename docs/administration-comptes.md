@@ -45,6 +45,5 @@ Les essais retirent les comptes et fiches créés ; la base de démonstration a 
 
 ## Limites
 
-- La gestion complète des fiches clients (création, modification, suppression avec journal `SUPPRESSION_CLIENT`) et des événements (suppression, changement de statut) n’est pas encore développée.
-- Les notes collaboratives (création, modification, suppression) relèvent de l’espace employé, à venir : le widget « Notes récentes » affiche les notes déjà présentes.
+- La gestion des fiches clients et des événements (dont `SUPPRESSION_CLIENT` et les changements de statut) est décrite dans [gestion-fiches.md](gestion-fiches.md) ; les notes collaboratives, qui alimentent le widget « Notes récentes », dans [espace-employe.md](espace-employe.md) (réalisées le 15 novembre 2026).
 - La modification de l’identité d’un employé après création n’est pas proposée (le supprimer puis le recréer).

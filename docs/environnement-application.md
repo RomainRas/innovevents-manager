@@ -1,5 +1,7 @@
 # Environnement PHP et Vue — mis à jour le 12 novembre 2026
 
+> **Note du 15 novembre 2026 :** ce document décrit l’état du projet à sa date de rédaction. Les éléments qu’il signale comme « à développer » ont pour la plupart été réalisés depuis ; l’état final, avec les limites encore valables, est dans le [bilan des fonctionnalités](bilan-fonctionnalites.md).
+
 ## Périmètre
 
 Liaison Vue → API PHP native → MySQL/MongoDB, connexion avec contrôle des rôles, inscription et récupération de compte. L’écran d’accueil reste provisoire. Les comptes techniques de base sont distincts des comptes Chloé, José et Alice.

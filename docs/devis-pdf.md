@@ -1,5 +1,7 @@
 # Génération et téléchargement du devis PDF — 14 novembre 2026
 
+> **Note du 15 novembre 2026 :** ce document décrit l’état du projet à sa date de rédaction. Les éléments qu’il signale comme « à développer » ont pour la plupart été réalisés depuis ; l’état final, avec les limites encore valables, est dans le [bilan des fonctionnalités](bilan-fonctionnalites.md).
+
 ## Périmètre et utilisation
 
 L’énoncé p. 9 prévoit la génération du devis PDF, son téléchargement pour envoi manuel ou son envoi par la plateforme ; la journalisation de la génération est prévue p. 13. Cette livraison réalise **la génération et le téléchargement administrateur**, avec trace MongoDB. La transmission, le passage en étude côté client et la réponse du client restent à développer.

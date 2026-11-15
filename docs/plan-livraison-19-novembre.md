@@ -1,5 +1,7 @@
 # Livraison ECF — échéance annoncée le 19 novembre 2026
 
+> **Note du 15 novembre 2026 :** ce document décrit l’état du projet à sa date de rédaction. L’état final des fonctionnalités, avec les limites encore valables, est dans le [bilan des fonctionnalités](bilan-fonctionnalites.md).
+
 Romain a confirmé le 14 novembre une échéance au 19 novembre et deux journées complètes disponibles pour travailler intensivement. L’heure de fermeture et les modalités exactes de dépôt restent à confirmer. Cette échéance vient de Romain, pas des PDF sources.
 
 ## Priorités de travail

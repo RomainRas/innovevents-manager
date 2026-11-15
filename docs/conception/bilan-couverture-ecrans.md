@@ -1,4 +1,6 @@
 # Bilan de couverture des écrans
+
+> **Note du 15 novembre 2026 :** ce document décrit l’état du projet à sa date de rédaction. L’état final des fonctionnalités, avec les limites encore valables, est dans le [bilan des fonctionnalités](../bilan-fonctionnalites.md).
 Version du 3 novembre 2026 — tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5), toujours ouverte.
 
 ## Objet et sources

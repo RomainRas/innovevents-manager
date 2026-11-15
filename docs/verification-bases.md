@@ -1,5 +1,7 @@
 # Vérification réelle des bases — 9 novembre 2026
 
+> **Note du 15 novembre 2026 :** ce document décrit l’état du projet à sa date de rédaction. Les éléments qu’il signale comme « à développer » ont pour la plupart été réalisés depuis ; l’état final, avec les limites encore valables, est dans le [bilan des fonctionnalités](bilan-fonctionnalites.md).
+
 ## Environnement et résultat
 
 WSL 2.7.14.0, Docker Desktop 4.99.0, moteur 29.9.3, Compose 5.7.0. Images officielles figées par empreinte dans [Compose](../compose.yaml), MySQL **8.4.13**, MongoDB **8.0.34**. Deux services déclarés sains après import initial : seize tables MySQL, collection logs avec validateur et quatre index MongoDB.

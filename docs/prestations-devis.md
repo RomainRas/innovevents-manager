@@ -1,5 +1,7 @@
 # Prestations et calculs du devis — 14 novembre 2026
 
+> **Note du 15 novembre 2026 :** ce document décrit l’état du projet à sa date de rédaction. Les éléments qu’il signale comme « à développer » ont pour la plupart été réalisés depuis ; l’état final, avec les limites encore valables, est dans le [bilan des fonctionnalités](bilan-fonctionnalites.md).
+
 Depuis la fiche événement, « Préparer les prestations et le devis » ouvre le formulaire administrateur : ajout/suppression de lignes (libellé et montant HT), taux de TVA, calcul et enregistrement. Les totaux deviennent visibles après validation serveur ; une modification de la saisie masque les anciens totaux jusqu’au prochain enregistrement.
 
 L’énoncé p. 9 exige les prestations HT et les calculs automatiques TVA/TTC. Il ne fournit ni taux, ni devise, ni arrondi. Les choix déjà consignés dans `conception/mld-mysql.md` sont appliqués : EUR, taux explicite par version sans valeur par défaut, TVA calculée sur la somme HT, arrondie au centime demi au supérieur, puis TTC = HT + TVA. Les calculs utilisent des centimes entiers et des centièmes de pourcentage, sans calcul flottant. Virgule ou point admis en saisie ; valeurs normalisées à deux décimales en base.
