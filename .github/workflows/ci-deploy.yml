@@ -30,6 +30,19 @@ jobs:
       - name: Calcul des devis (tests unitaires sans base)
         run: docker run --rm -v "$PWD/backend/tests:/app/tests:ro" innovevents-api:ci php tests/quote-amounts.php
 
+      - name: Tests unitaires PHPUnit avec couverture (image de développement)
+        run: |
+          docker build -f docker/php/Dockerfile -t innovevents-api-dev:ci .
+          docker run --rm -v "$PWD/backend:/app" -w /app innovevents-api-dev:ci sh -c \
+            'composer install --no-interaction --no-progress --prefer-dist >/dev/null && php -d pcov.enabled=1 vendor/bin/phpunit --no-progress --coverage-text=php://stdout --only-summary-for-coverage-text'
+
+      - name: Audit de sécurité des dépendances (veille automatisée)
+        run: |
+          docker run --rm -v "$PWD/backend:/app" -w /app innovevents-api-dev:ci composer audit --locked --no-dev
+          for dir in frontend mobile; do
+            docker run --rm -v "$PWD/$dir:/app" -w /app node:24-bookworm-slim npm audit --omit=dev --audit-level=high
+          done
+
       - name: Compilation Vue et serveur web
         run: docker build -f docker/caddy/Dockerfile -t innovevents-caddy:ci .
 

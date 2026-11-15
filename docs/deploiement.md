@@ -8,7 +8,8 @@
 
 | Service | Rôle | Exposition |
 | --- | --- | --- |
-| `caddy` | Serveur web : HTTPS automatique Let's Encrypt, fichiers Vue compilés, en-têtes de sécurité, transmission de `/api` à PHP-FPM | Ports 80 et 443, seuls ports publics |
+| `caddy` | Serveur web : HTTPS automatique Let's Encrypt, fichiers Vue compilés, en-têtes de sécurité, transmission de `/api` à PHP-FPM et de `/mobile/` au conteneur `mobile` | Ports 80 et 443, seuls ports publics |
+| `mobile` | Application mobile (PWA) compilée, servie par un Caddy interne (`docker/mobile/Dockerfile`), ajoutée le 15 novembre 2026 | Réseau interne (port 8080) |
 | `api` | PHP 8.4-FPM, code et dépendances inclus dans l'image (`docker/php/Dockerfile.prod`) | Réseau interne |
 | `mail_worker`, `journal_worker` | Envoi des courriels et livraison des journaux vers MongoDB | Réseau interne |
 | `mysql`, `mongodb` | Bases MySQL 8.4 et MongoDB 8.0, volumes persistants | Réseau interne, aucun port publié |
@@ -42,13 +43,26 @@ Côté application : HTTPS forcé avec HSTS, cookie de session `Secure`/`HttpOnl
 `scripts/server/deploy.sh`, idempotent, lancé dans `/opt/innovevents/app` :
 
 1. génération des secrets manquants ;
-2. construction des images `api` (PHP-FPM) et `caddy` (compilation Vue) ;
+2. construction des images `api` (PHP-FPM), `mobile` (compilation de la PWA) et `caddy` (compilation Vue) ;
 3. démarrage et contrôle de santé de MySQL et MongoDB ;
 4. création unique du jeu de démonstration (`prepare_demo_backup.py`, avec sauvegarde et restauration vérifiées) ;
 5. migrations et comptes limités (`provision-*.py`, déjà utilisés en local) ;
 6. démarrage de l'application, contrôle de santé et nettoyage des anciennes images.
 
-**Déploiement automatique :** `.github/workflows/ci-deploy.yml` exécute les contrôles à chaque push sur `dev` et `main` (syntaxe PHP dans l'image de production, tests de calcul, compilation Vue, configuration Compose, analyse des scripts shell). Sur `main`, après succès, il envoie le code au serveur par SSH avec une clé dédiée et lance `deploy.sh`, puis vérifie `/api/health`. Secrets GitHub requis : `DEPLOY_SSH_KEY`, `DEPLOY_HOST`, `DEPLOY_KNOWN_HOSTS` ; variable `SITE_URL`.
+**Déploiement automatique :** `.github/workflows/ci-deploy.yml` exécute les contrôles à chaque push sur `dev` et `main` : syntaxe PHP dans l'image de production, tests de calcul, **tests unitaires PHPUnit avec couverture**, **audit de sécurité des dépendances** (Composer et npm, voir [veille](veille.md)), compilation Vue, compilation de l'application mobile, configuration Compose et analyse des scripts shell. Un seul contrôle en échec bloque le déploiement. Sur `main`, après succès, il envoie le code au serveur par SSH avec une clé dédiée et lance `deploy.sh`, puis vérifie `/api/health`. Secrets GitHub requis : `DEPLOY_SSH_KEY`, `DEPLOY_HOST`, `DEPLOY_KNOWN_HOSTS` ; variable `SITE_URL`.
+
+## Reproduire le déploiement sur un nouveau serveur
+
+Prérequis : un VPS Ubuntu 24.04 joignable en SSH par clé (root), un nom de domaine dont l'enregistrement `A` pointe vers le VPS, un dépôt GitHub contenant ce code.
+
+1. **Préparer le serveur** (une fois, en root) : copier `scripts/server/bootstrap.sh` sur le VPS puis `sh bootstrap.sh`. Le script installe Docker, le pare-feu (SSH, HTTP, HTTPS), fail2ban et les mises à jour automatiques, crée l'utilisateur `deploy` avec les clés SSH autorisées de root et interdit la connexion par mot de passe.
+2. **Créer la clé de déploiement** sur son poste : `ssh-keygen -t ed25519 -f deploy_key -C github-actions`. Ajouter la clé publique dans `/home/deploy/.ssh/authorized_keys`, précédée de `restrict `.
+3. **Configurer l'application** sur le serveur, en tant que `deploy` : `mkdir -p /opt/innovevents/app`, y copier `scripts/server/env.example` en `.env` et renseigner `SITE_DOMAIN`, `AGENCY_EMAIL`, `MAIL_FROM` (et les `SMTP_*` pour des courriels réels, sinon Mailpit les retient). Mot de passe SMTP éventuel : `mkdir -p .secrets && chmod 700 .secrets && read -rs p && printf '%s' "$p" > .secrets/smtp-password.txt` (saisie masquée).
+4. **Configurer GitHub** (Settings → Secrets and variables → Actions) : secrets `DEPLOY_SSH_KEY` (clé privée), `DEPLOY_HOST` (adresse du VPS), `DEPLOY_KNOWN_HOSTS` (sortie de `ssh-keyscan -t ed25519 <adresse>`), variable `SITE_URL` (`https://<domaine>`) ; environnement `production`.
+5. **Déployer** : pousser sur `main` (ou fusionner `dev` dans `main`). GitHub Actions exécute les contrôles, envoie le code et lance `deploy.sh`, qui génère les secrets, construit les images, crée la démonstration la première fois, applique les migrations et démarre les services. Caddy obtient le certificat HTTPS au premier accès.
+6. **Vérifier** : l'étape « Vérification du site » du pipeline doit afficher « Site en ligne » ; ouvrir `https://<domaine>`, `https://<domaine>/mobile/` et `https://<domaine>/api/health` (`{"status":"ready"}`). Le mot de passe des comptes de démonstration est dans `.secrets/demo-password.txt` sur le serveur.
+
+Redéploiement manuel (sans GitHub) : depuis le dossier du dépôt, `git archive --format=tar HEAD | gzip | ssh deploy@<adresse> 'mkdir -p /opt/innovevents/app && tar -xzf - -C /opt/innovevents/app && cd /opt/innovevents/app && sh scripts/server/deploy.sh'`.
 
 ## Limites connues
 

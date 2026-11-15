@@ -4,6 +4,8 @@ Décision du 18 octobre 2026 : utiliser Vue.js pour les interfaces et PHP natif 
 
 Ce document justifie les technologies retenues. Leur installation, leur compatibilité effective et leur exécution seront vérifiées dans la tâche de mise en place de l’environnement. Aucune application n’est déclarée opérationnelle à ce stade.
 
+> **Révision du 15 novembre 2026 — application mobile.** Le choix initial (Vue + Capacitor, Android) a été remplacé par une **application web installable (PWA)** en Vue, servie par son propre conteneur Docker. Raisons : le sujet impose seulement que l’application soit « packagée avec docker » (ce qu’une PWA respecte directement, alors qu’un APK n’est qu’un fichier construit dans Docker) ; les fonctions demandées (appel, courriel, itinéraire, note rapide) passent par des liens `tel:`, `mailto:` et Google Maps ouverts par les applications du téléphone ; la même application fonctionne sur Android et iOS ; le délai restant ne permettait pas de construire et tester en plus une chaîne Android (SDK, JDK, Gradle). La PWA reste emballable plus tard avec Capacitor sans réécriture. Détails et tests : [application mobile](../application-mobile.md). Les mentions de Capacitor ci-dessous décrivent le choix d’origine.
+
 ## Choix retenus
 
 | Partie | Technologie | Utilisation et justification |

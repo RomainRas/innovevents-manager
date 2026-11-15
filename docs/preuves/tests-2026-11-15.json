@@ -1,0 +1,252 @@
+{
+ "date": "2026-11-15 17:05",
+ "duree_min": 59.5,
+ "reussis": 30,
+ "total": 30,
+ "couverture": [
+  "Classes: 70.97% (22/31)",
+  "Methods: 92.07% (151/164)",
+  "Lines:   98.31% (1341/1364)"
+ ],
+ "suites": [
+  {
+   "fichier": "backend/tests/Unit (PHPUnit)",
+   "type": "unitaire",
+   "fonctionnalite": "Règles métier : événements, clients, dates, montants",
+   "reussi": true,
+   "resume": "OK (48 tests, 81 assertions)"
+  },
+  {
+   "fichier": "tests/app/authentication.py",
+   "type": "fonctionnel",
+   "fonctionnalite": "Connexion, sessions et journal des connexions",
+   "reussi": true,
+   "resume": "",
+   "duree_s": 130.4
+  },
+  {
+   "fichier": "tests/app/accounts.py",
+   "type": "fonctionnel",
+   "fonctionnalite": "Création de compte, mot de passe oublié et changement",
+   "reussi": true,
+   "resume": "",
+   "duree_s": 72.8
+  },
+  {
+   "fichier": "tests/app/mail-recovery.py",
+   "type": "fonctionnel",
+   "fonctionnalite": "File des courriels et reprise après incident",
+   "reussi": true,
+   "resume": "",
+   "duree_s": 118.6
+  },
+  {
+   "fichier": "tests/app/auth-outage.py",
+   "type": "fonctionnel",
+   "fonctionnalite": "Connexion pendant une panne MongoDB",
+   "reussi": true,
+   "resume": "",
+   "duree_s": 24.5
+  },
+  {
+   "fichier": "tests/app/quote-requests.py",
+   "type": "fonctionnel",
+   "fonctionnalite": "Demande de devis publique",
+   "reussi": true,
+   "resume": "",
+   "duree_s": 86.1
+  },
+  {
+   "fichier": "tests/app/prospects.py",
+   "type": "fonctionnel+navigateur",
+   "fonctionnalite": "Qualification des prospects",
+   "reussi": true,
+   "resume": "",
+   "duree_s": 125.6
+  },
+  {
+   "fichier": "tests/app/conversion.py",
+   "type": "fonctionnel+navigateur",
+   "fonctionnalite": "Conversion d’un prospect en client",
+   "reussi": true,
+   "resume": "",
+   "duree_s": 203.8
+  },
+  {
+   "fichier": "tests/app/events.py",
+   "type": "fonctionnel+navigateur",
+   "fonctionnalite": "Événement créé depuis une demande",
+   "reussi": true,
+   "resume": "",
+   "duree_s": 165.4
+  },
+  {
+   "fichier": "tests/app/event-images.py",
+   "type": "fonctionnel+navigateur",
+   "fonctionnalite": "Images des événements",
+   "reussi": true,
+   "resume": "",
+   "duree_s": 170.9
+  },
+  {
+   "fichier": "tests/app/quote-drafts.py",
+   "type": "fonctionnel+navigateur",
+   "fonctionnalite": "Préparation du devis et calculs",
+   "reussi": true,
+   "resume": "",
+   "duree_s": 136.6
+  },
+  {
+   "fichier": "tests/app/quote-pdf.py",
+   "type": "fonctionnel+navigateur",
+   "fonctionnalite": "Devis PDF",
+   "reussi": true,
+   "resume": "",
+   "duree_s": 240.2
+  },
+  {
+   "fichier": "tests/app/quote-transmission.py",
+   "type": "fonctionnel+navigateur",
+   "fonctionnalite": "Transmission du devis et espace client",
+   "reussi": true,
+   "resume": "",
+   "duree_s": 304.3
+  },
+  {
+   "fichier": "tests/app/quote-decisions.py",
+   "type": "fonctionnel+navigateur",
+   "fonctionnalite": "Réponse du client et contre-proposition",
+   "reussi": true,
+   "resume": "",
+   "duree_s": 328.9
+  },
+  {
+   "fichier": "tests/app/quote-resilience.py",
+   "type": "fonctionnel",
+   "fonctionnalite": "Devis : concurrence et reprises",
+   "reussi": true,
+   "resume": "",
+   "duree_s": 45.0
+  },
+  {
+   "fichier": "tests/app/public-pages.py",
+   "type": "fonctionnel",
+   "fonctionnalite": "Pages publiques, avis validés et contact",
+   "reussi": true,
+   "resume": "31/31 contrôles réussis",
+   "duree_s": 71.8
+  },
+  {
+   "fichier": "tests/app/client-space.py",
+   "type": "fonctionnel",
+   "fonctionnalite": "Espace client : informations, suppression, avis",
+   "reussi": true,
+   "resume": "32/32 contrôles réussis",
+   "duree_s": 112.1
+  },
+  {
+   "fichier": "tests/app/admin-accounts.py",
+   "type": "fonctionnel",
+   "fonctionnalite": "Tableau de bord et comptes (administratrice)",
+   "reussi": true,
+   "resume": "39/39 contrôles réussis",
+   "duree_s": 146.6
+  },
+  {
+   "fichier": "tests/app/team-space.py",
+   "type": "fonctionnel",
+   "fonctionnalite": "Espace employé : clients, événements, notes, tâches",
+   "reussi": true,
+   "resume": "36/36 contrôles réussis",
+   "duree_s": 130.3
+  },
+  {
+   "fichier": "tests/app/admin-records.py",
+   "type": "fonctionnel",
+   "fonctionnalite": "Gestion des fiches et statuts (administratrice)",
+   "reussi": true,
+   "resume": "36/36 contrôles réussis",
+   "duree_s": 133.5
+  },
+  {
+   "fichier": "tests/app/mobile.py",
+   "type": "fonctionnel",
+   "fonctionnalite": "API de l’application mobile",
+   "reussi": true,
+   "resume": "22/22 contrôles réussis",
+   "duree_s": 63.7
+  },
+  {
+   "fichier": "tests/app/auth-browser.cjs",
+   "type": "bout en bout",
+   "fonctionnalite": "Connexion et retour à la page demandée",
+   "reussi": true,
+   "resume": "",
+   "duree_s": 57.1
+  },
+  {
+   "fichier": "tests/app/accounts-browser.cjs",
+   "type": "bout en bout",
+   "fonctionnalite": "Création de compte et mot de passe",
+   "reussi": true,
+   "resume": "",
+   "duree_s": 52.5
+  },
+  {
+   "fichier": "tests/app/quote-browser.cjs",
+   "type": "bout en bout",
+   "fonctionnalite": "Demande de devis publique",
+   "reussi": true,
+   "resume": "",
+   "duree_s": 24.1
+  },
+  {
+   "fichier": "tests/app/public-pages-browser.cjs",
+   "type": "bout en bout",
+   "fonctionnalite": "Pages publiques",
+   "reussi": true,
+   "resume": "",
+   "duree_s": 130.6
+  },
+  {
+   "fichier": "tests/app/client-space-browser.cjs",
+   "type": "bout en bout",
+   "fonctionnalite": "Espace client : informations, suppression, avis",
+   "reussi": true,
+   "resume": "",
+   "duree_s": 74.1
+  },
+  {
+   "fichier": "tests/app/admin-accounts-browser.cjs",
+   "type": "bout en bout",
+   "fonctionnalite": "Tableau de bord et comptes (administratrice)",
+   "reussi": true,
+   "resume": "",
+   "duree_s": 61.2
+  },
+  {
+   "fichier": "tests/app/team-space-browser.cjs",
+   "type": "bout en bout",
+   "fonctionnalite": "Espace employé : clients, événements, notes, tâches",
+   "reussi": true,
+   "resume": "",
+   "duree_s": 64.1
+  },
+  {
+   "fichier": "tests/app/admin-records-browser.cjs",
+   "type": "bout en bout",
+   "fonctionnalite": "Gestion des fiches et statuts (administratrice)",
+   "reussi": true,
+   "resume": "",
+   "duree_s": 115.4
+  },
+  {
+   "fichier": "tests/app/mobile-browser.cjs",
+   "type": "bout en bout",
+   "fonctionnalite": "Application mobile sur téléphone émulé",
+   "reussi": true,
+   "resume": "",
+   "duree_s": 40.2
+  }
+ ]
+}

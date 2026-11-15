@@ -22,9 +22,11 @@ async function create() {
   const body = form.role === 'client' ? { role: 'client', client_id: form.client_id } : { role: 'employe', prenom: form.prenom, nom: form.nom, email: form.email, acces_mobile: form.acces_mobile }
   try {
     const r = await post('/api/admin/account-create', body)
-    notice.value = `Compte ${roles[r.role].toLowerCase()} créé pour ${r.email}. Les identifiants lui ont été envoyés par courriel ; un nouveau mot de passe lui sera demandé à la première connexion.`
     Object.assign(form, { prenom: '', nom: '', email: '', acces_mobile: false, client_id: '' })
-    busy.value = ''; await load(); await focus('accounts-notice')
+    // Liste rechargée avant d'annoncer le résultat : le message correspond à ce qui est affiché.
+    busy.value = ''; await load()
+    notice.value = `Compte ${roles[r.role].toLowerCase()} créé pour ${r.email}. Les identifiants lui ont été envoyés par courriel ; un nouveau mot de passe lui sera demandé à la première connexion.`
+    await focus('accounts-notice')
   } catch (e) {
     errors.value = e.fields || {}
     formError.value = e.status === 422 ? (form.role === 'client' && !form.client_id ? 'Choisissez la fiche client à rattacher.' : 'Vérifiez les champs signalés.')
@@ -35,22 +37,22 @@ async function create() {
   } finally { busy.value = '' }
 }
 async function setStatus(a, statut) {
-  busy.value = a.id; error.value = ''; notice.value = ''
+  busy.value = a.id; error.value = ''; notice.value = ''; let done = ''
   try {
     await post('/api/admin/account-status', { id: a.id, statut })
-    notice.value = statut === 'suspendu' ? `Compte de ${a.prenom} ${a.nom} suspendu : la connexion est bloquée immédiatement.` : `Compte de ${a.prenom} ${a.nom} réactivé.`
+    done = statut === 'suspendu' ? `Compte de ${a.prenom} ${a.nom} suspendu : la connexion est bloquée immédiatement.` : `Compte de ${a.prenom} ${a.nom} réactivé.`
   } catch (e) { error.value = e.status === 404 ? 'Ce compte n’existe plus.' : 'La modification n’a pas pu être confirmée. Rechargez la liste avant de réessayer.' }
-  busy.value = ''; await load(); await focus(error.value ? 'accounts-error' : 'accounts-notice')
+  busy.value = ''; await load(); notice.value = done; await focus(error.value ? 'accounts-error' : 'accounts-notice')
 }
 async function askDelete(a) { pendingDelete.value = a; notice.value = ''; error.value = ''; await focus('delete-dialog') }
 async function cancelDelete() { const id = pendingDelete.value.id; pendingDelete.value = null; await focus('delete-' + id) }
 async function confirmDelete() {
-  const a = pendingDelete.value; busy.value = a.id
+  const a = pendingDelete.value; busy.value = a.id; let done = ''
   try {
     await post('/api/admin/account-delete', { id: a.id, confirmation: true })
-    notice.value = `Compte de ${a.prenom} ${a.nom} supprimé : informations personnelles effacées, confirmation envoyée par courriel.`
+    done = `Compte de ${a.prenom} ${a.nom} supprimé : informations personnelles effacées, confirmation envoyée par courriel.`
   } catch (e) { error.value = e.status === 404 ? 'Ce compte a déjà été supprimé.' : 'La suppression n’a pas pu être confirmée. Rechargez la liste avant de réessayer.' }
-  pendingDelete.value = null; busy.value = ''; await load(); await focus(error.value ? 'accounts-error' : 'accounts-notice')
+  pendingDelete.value = null; busy.value = ''; await load(); notice.value = done; await focus(error.value ? 'accounts-error' : 'accounts-notice')
 }
 </script>
 <template>

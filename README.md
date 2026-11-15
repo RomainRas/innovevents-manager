@@ -1,74 +1,55 @@
-# innovevents-manager
-Projet ECF CDA - Application de gestion événementielle Innov’Events
+# Innov’Events Manager
+
+Projet ECF « Concepteur Développeur d’Applications » : application de gestion de l’agence événementielle (fictive) Innov’Events — site public, espaces client, employé et administratrice, application mobile pour l’équipe.
+
+- **Site en ligne :** https://innovevents.rascleromain.fr
+- **Application mobile (PWA) :** https://innovevents.rascleromain.fr/mobile/
+- **Dépôt :** branche `dev` (développement), `main` (production, déployée automatiquement)
+
+Les identifiants des comptes de démonstration sont transmis avec le rendu ; ils ne sont pas dans le dépôt.
+
+## Technologies
+
+Vue 3 + Vite (site et application mobile), PHP 8.4 natif avec PDO (API), MySQL 8.4 (données métier), MongoDB 8.0 (journal des actions), Caddy (HTTPS), Docker Compose, GitHub Actions (intégration et déploiement continus), VPS Ubuntu. [Choix et justification](docs/conception/choix-technologiques.md).
 
 ## Démarrage local
 
-Lire le [guide PHP/Vue](docs/environnement-application.md). Prérequis : Docker Desktop, Python 3 et [bases de démonstration initialisées](docs/demo-sauvegarde-restauration.md).
-
 ```powershell
-./scripts/Start-App.ps1
+./scripts/Start-App.ps1 -Python (Get-Command py).Source
 ```
 
-Ouvrir http://127.0.0.1:5173/connexion. La connexion, les sessions et les premières lectures par rôle sont disponibles ; les autres fonctionnalités métier restent à développer. Voir [les comptes locaux, protections et limites](docs/authentification-sessions.md).
+Puis http://127.0.0.1:5173 (site), http://127.0.0.1:5173/mobile/ (mobile), http://127.0.0.1:8025 (courriels de test). Première installation, prérequis et dépannage : [guide d’installation locale](docs/installation-locale.md).
+
+## Tests
+
+```powershell
+py -3 -X utf8 scripts/run-tests.py --coverage
+```
+
+Tests unitaires (PHPUnit), fonctionnels (HTTP) et de bout en bout (Playwright), couverture du code : [plan de tests et résultats](docs/plan-de-tests.md).
 
 ## Documentation
 
-- [Énoncé et notice](docs/enonce/)
-- [Choix techniques](docs/conception/choix-technologiques.md)
-- [Environnement des bases](docs/environnement-local.md)
-- [Tests de contraintes](docs/verification-bases.md)
-- [Démonstration, sauvegarde et restauration](docs/demo-sauvegarde-restauration.md)
-- [Authentification, sessions et tests](docs/authentification-sessions.md)
+**Utilisation**
+- [Guide d’utilisation par rôle](docs/guide-utilisateur.md)
 
-Les secrets, dépendances installées et archives locales sont exclus de Git. Le suivi de développement est conservé sur `dev` ; aucune publication de production n’est réalisée à ce stade.
-# Parcours de compte — complément du 12 novembre
+**Conception**
+- [Analyse des exigences](docs/conception/analyse-exigences.md), [utilisateurs et droits](docs/conception/utilisateurs-et-droits.md)
+- [Diagrammes : cas d’utilisation, séquence, architecture](docs/conception/diagrammes.md)
+- [MCD](docs/conception/mcd-relationnel.md), [MLD MySQL](docs/conception/mld-mysql.md), [dictionnaire des données](docs/conception/dictionnaire-donnees.md), [journaux MongoDB](docs/conception/modele-journaux-mongodb.md)
+- [Charte graphique](docs/conception/charte-graphique.md), maquettes et wireframes (`docs/maquettes/`, `docs/conception/maquette-*`, `wireframe-*`), [enchaînement des écrans](docs/conception/enchainement-ecrans.md)
+- Scripts SQL écrits à la main : [création des tables](database/mysql/001_schema.sql), [jeu de données](database/mysql/002_demo.sql), migrations `database/mysql/003` à `015`
 
-Inscription et récupération web : [guide et limites](docs/parcours-comptes.md). Courriels de test locaux dans Mailpit sur http://127.0.0.1:8025.
+**Fonctionnalités (règles, tests, limites)**
+- Comptes : [authentification et sessions](docs/authentification-sessions.md), [création de compte et mot de passe](docs/parcours-comptes.md)
+- Parcours commercial : [demande de devis](docs/implementation-demande-devis.md), [prospects](docs/qualification-prospects.md), [conversion en client](docs/conversion-clients.md), [événement](docs/evenements-brouillons.md), [images](docs/images-evenements.md), [prestations](docs/prestations-devis.md), [PDF](docs/devis-pdf.md), [transmission](docs/transmission-devis.md), [réponse du client](docs/decisions-devis.md)
+- [Pages publiques](docs/pages-publiques.md), [espace client et avis](docs/espace-client-avis.md), [espace employé](docs/espace-employe.md), [tableau de bord et comptes](docs/administration-comptes.md), [gestion des fiches et statuts](docs/gestion-fiches.md), [application mobile](docs/application-mobile.md)
+- [Bilan des fonctionnalités et limites](docs/bilan-fonctionnalites.md)
 
-# Demande de devis
+**Déploiement et exploitation**
+- [Déploiement en production (procédure reproductible)](docs/deploiement.md)
+- [Sauvegarde et restauration](docs/demo-sauvegarde-restauration.md)
+- [Veille technologique et sécurité](docs/veille.md)
+- Preuves datées des tests : `docs/preuves/`
 
-Formulaire local : http://127.0.0.1:5173/demande-devis. [Fonctionnement, essais et limites](docs/implementation-demande-devis.md).
-
-## Espace prospects
-
-Depuis le compte administratrice : consultation, recherche et qualification négative sur `/prospects`. [Bilan et preuves](docs/qualification-prospects.md). Conversion en client disponible depuis une demande à contacter.
-
-## Conversion en client
-
-Depuis une fiche prospect à contacter, « Convertir en client » reprend les coordonnées et permet de créer la fiche. Journalisation différée vers MongoDB avec reprise : [bilan et preuves](docs/conversion-clients.md).
-
-## Brouillon d’événement
-
-Depuis la fiche client, préparer l’événement d’une demande convertie, puis compléter son nom, lieu, type, participants et horaires. Création privée et journalisée, reprise sans doublon et protection contre les modifications périmées : [utilisation, tests et limites](docs/evenements-brouillons.md).
-
-L’administratrice peut ajouter ou remplacer une image JPEG/PNG dans le brouillon, avec aperçu privé et description accessible : [guide des images](docs/images-evenements.md).
-
-## Prestations du devis
-
-Depuis l’événement, ouvrir « Préparer les prestations et le devis » : lignes HT, taux explicite, calcul exact TVA/TTC et sauvegarde du brouillon. [Résultats et limites](docs/prestations-devis.md). La transmission reste à développer. [Priorités pour le rendu du 19 novembre](docs/plan-livraison-19-novembre.md).
-
-Complément : génération et téléchargement administrateur du PDF désormais disponibles, avec contrôle de validité et journalisation MongoDB. [Guide PDF](docs/devis-pdf.md). La transmission et la réponse du client sont livrées (voir ci-dessous).
-
-## Transmission du devis et espace client
-
-Depuis le devis, « Envoyer par la plateforme » (courriel avec PDF joint) ou « Déclarer un envoi manuel ». Le devis passe en étude côté client et devient non modifiable ; le compte client est créé s’il n’existe pas, avec un mot de passe à changer à la première connexion. Le client consulte et télécharge ses devis dans « Mon espace ». [Fonctionnement, tests et limites](docs/transmission-devis.md).
-
-## Réponse du client et contre-proposition
-
-Le client accepte, refuse ou demande une modification motivée depuis « Mon espace ». L’acceptation fait passer l’événement à « accepté », est journalisée et notifiée à l’agence. Chloé consulte le motif, prépare une contre-proposition (nouvelle version) et suit les devis sur `/devis`. [Règles, tests et limites](docs/decisions-devis.md).
-
-## Mise en ligne
-
-Application en ligne : https://innovevents.rascleromain.fr (VPS Ubuntu, Docker Compose, Caddy en HTTPS, PHP-FPM). [Architecture, sécurité, procédure et vérifications](docs/deploiement.md).
-
-Pages publiques : accueil, événements publiés avec filtres, avis validés, contact, mentions légales, CGU, CGV et confidentialité. [Sécurité, accessibilité, tests et limites](docs/pages-publiques.md). Après une mise à jour : `py -3 -X utf8 scripts/provision-public-pages.py`.
-
-Espace client et avis : modification des informations, demande de suppression du compte, avis après un événement terminé et modération par l’équipe. [Règles, tests et limites](docs/espace-client-avis.md).
-
-Espace administrateur : tableau de bord (prochains événements, notes récentes, indicateurs) et gestion des comptes employés et clients (création, suspension, suppression). [Règles, tests et limites](docs/administration-comptes.md).
-
-Espace employé : tous les clients et événements en consultation, notes collaboratives et statut des tâches assignées. [Règles, tests et limites](docs/espace-employe.md).
-
-Gestion par l’administratrice : création, modification et suppression des fiches clients et des événements, changement de statut et tâches, avec journal. [Règles, tests et limites](docs/gestion-fiches.md).
-
-Application mobile (PWA installable, conteneur Docker dédié) : https://innovevents.rascleromain.fr/mobile/ — événements à venir, fiche contact (appel, courriel, itinéraire), notes rapides, consultation hors ligne. [Choix, sécurité, tests et limites](docs/application-mobile.md).
+Les secrets (`.secrets/`, `.env`), dépendances installées, sauvegardes et fichiers temporaires sont exclus de Git.

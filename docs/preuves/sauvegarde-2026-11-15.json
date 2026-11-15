@@ -1,0 +1,5 @@
+{
+  "date": "2026-11-15",
+  "bases": {"source": "innovevents_demo", "restauration": "innovevents_restore_1319c9ef91e3", "mysql_dump_identique": true, "mysql_tables": 21, "mongo_documents_validateur_index_identiques": true, "mongo_logs": 1343, "sources_inchangees": true},
+  "fichiers": {"volume": "innovevents-ecf-db_auth_state", "dossiers": ["event-images", "quote-pdfs"], "fichiers": 170, "archive_ko": 3215, "restauration": "nouveau volume innovevents-restore-fichiers-20261115-170641", "empreintes_sha256_identiques": true}
+}
