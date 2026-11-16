@@ -23,7 +23,7 @@ Le menu présent sur toutes les pages contient Accueil, Événements, Avis, Cont
 
 ## Démonstration
 
-Six événements fictifs publiés (conférence, séminaire, soirée, team building, atelier, lancement) et quatre avis validés. Leur accord de publication est explicitement marqué comme fictif. Les illustrations sont générées par `backend/bin/demo-images.php` (GD) : aucune photo tierce. Elles sont livrées dans l'image PHP (`backend/demo-images`, lecture seule) ; les images envoyées par Chloé restent dans le stockage privé.
+Six événements fictifs publiés (conférence, séminaire, soirée, team building, atelier, lancement) et quatre avis validés. Leur accord de publication est explicitement marqué comme fictif. Les sept événements publiés (dont l'afterwork ajouté avec l'espace client) sont illustrés par des photos d'ambiance que j'ai choisies pour le projet, recadrées en JPEG 1200 × 750 et nommées par leur empreinte SHA-256. Elles sont livrées dans l'image PHP (`backend/demo-images`, lecture seule) et associées aux événements par `database/mysql/016_demo_photos.sql`, rejoué à chaque déploiement : il ne remplace qu'une illustration de démonstration d'origine, jamais une image envoyée par Chloé, qui reste dans le stockage privé. Les anciennes illustrations générées par `backend/bin/demo-images.php` (GD) restent dans le dossier.
 
 ## Accessibilité (RGAA)
 
