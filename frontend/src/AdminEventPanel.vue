@@ -232,13 +232,22 @@ async function remove() {
 </template>
 <style scoped>
 .admin {
-  border: 2px solid #142d43;
-  border-radius: 8px;
-  padding: 16px;
+  padding: 0 20px 20px;
   margin: 24px 0;
+  background: #fbf8f1;
+  border: 1px solid #172033;
+  border-radius: 10px;
+  overflow: hidden;
 }
+/* Bandeau de titre, comme les cartes de la page Comptes. */
 .admin h2 {
-  margin-top: 0;
+  margin: 0 -20px 16px;
+  padding: 12px 20px;
+  background: #efe8d8;
+  font-family: Anton, Impact, 'Arial Narrow', sans-serif;
+  font-weight: 400;
+  font-size: 1.7rem;
+  color: #111;
 }
 h3 {
   font-size: 1.1rem;
@@ -259,11 +268,11 @@ h3 {
   gap: 12px;
 }
 .meta {
-  color: #4a5b68;
+  color: #4a4a4a;
   font-size: 0.95rem;
 }
 .task {
-  border-top: 1px solid #cbd5e1;
+  border-top: 1px solid #d8cfbd;
   margin-top: 16px;
 }
 .task button {
@@ -274,19 +283,25 @@ h3 {
   align-items: center;
   min-height: 48px;
   padding: 12px 20px;
-  border-radius: 4px;
-  background: #087f8c;
+  border-radius: 6px;
+  background: #172033;
   color: #fff;
+  font-weight: 700;
   text-decoration: none;
 }
 .button-link:hover {
-  background: #06616b;
+  background: #000;
 }
 .dialog {
   border: 2px solid #b42318;
   border-radius: 8px;
   padding: 16px;
   margin-top: 12px;
+  background: #fbe4e1;
+}
+.secondary {
+  border: 2px solid #111;
+  border-radius: 6px;
 }
 .danger-button {
   background: #b42318;

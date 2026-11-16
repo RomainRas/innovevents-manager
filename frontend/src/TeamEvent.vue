@@ -2,6 +2,7 @@
 // Fiche événement (équipe) : informations, client, tâches et notes partagées.
 // Chaque membre gère ses propres notes ; l'administratrice a en plus le panneau de gestion (AdminEventPanel).
 import { nextTick, onMounted, ref } from 'vue'
+import Icon from './Icon.vue'
 import { useRoute } from 'vue-router'
 import { auth, request } from './auth'
 import { eventStatuses, localDate, stamp, taskStatuses } from './teamFormat'
@@ -219,31 +220,36 @@ async function advance(t) {
 }
 </script>
 <template>
-  <main class="panel wide">
-    <p><RouterLink to="/equipe/evenements">← Tous les événements</RouterLink></p>
+  <main class="work-page">
+    <p><RouterLink class="back-link" to="/equipe/evenements">← Tous les événements</RouterLink></p>
     <p v-if="loading" role="status">Chargement…</p>
     <p v-if="error" class="error" role="alert">{{ error }}</p>
     <template v-if="data">
-      <h1>{{ data.evenement.nom }}</h1>
+      <h1 class="event-title">{{ data.evenement.nom }}</h1>
       <!-- Informations de l'événement et client associé -->
       <dl class="facts">
         <div>
+          <span class="tile yellow"><Icon name="flag" /></span>
           <dt>Statut</dt>
           <dd>{{ eventStatuses[data.evenement.statut] || data.evenement.statut }}</dd>
         </div>
         <div>
+          <span class="tile red"><Icon name="calendar" /></span>
           <dt>Début</dt>
           <dd>{{ localDate(data.evenement.debut) }}</dd>
         </div>
         <div>
+          <span class="tile red"><Icon name="calendar" /></span>
           <dt>Fin</dt>
           <dd>{{ localDate(data.evenement.fin) }}</dd>
         </div>
         <div>
+          <span class="tile blue"><Icon name="pin" /></span>
           <dt>Lieu</dt>
           <dd>{{ data.evenement.lieu || 'À définir' }}</dd>
         </div>
         <div>
+          <span class="tile yellow"><Icon name="tag" /></span>
           <dt>Type et thème</dt>
           <dd>
             {{ data.evenement.type_evenement || '—'
@@ -251,10 +257,12 @@ async function advance(t) {
           </dd>
         </div>
         <div>
+          <span class="tile blue"><Icon name="user" /></span>
           <dt>Participants</dt>
           <dd>{{ data.evenement.participants ?? '—' }}</dd>
         </div>
         <div>
+          <span class="tile red"><Icon name="building" /></span>
           <dt>Client</dt>
           <dd>
             <RouterLink :to="'/equipe/clients/' + data.evenement.client_id">{{ data.evenement.client }}</RouterLink
@@ -272,7 +280,7 @@ async function advance(t) {
 
       <!-- Tâches : bouton vers l'étape suivante, affiché seulement si l'API l'autorise -->
       <section aria-labelledby="tasks-title">
-        <h2 id="tasks-title">Tâches</h2>
+        <h2 id="tasks-title" class="slash-title blue">Tâches</h2>
         <p v-if="!data.taches.length">Aucune tâche pour cet événement.</p>
         <ul class="list">
           <li v-for="t in data.taches" :key="t.id" :class="{ mine: t.a_moi }">
@@ -310,8 +318,8 @@ async function advance(t) {
 
       <!-- Notes partagées : ajout, puis modification ou suppression de ses propres notes -->
       <section aria-labelledby="notes-title">
-        <h2 id="notes-title">Notes de l’équipe</h2>
-        <form novalidate @submit.prevent="addNote">
+        <h2 id="notes-title" class="slash-title">Notes de l’équipe</h2>
+        <form class="note-form" novalidate @submit.prevent="addNote">
           <label for="note-new">Ajouter une note</label>
           <textarea
             id="note-new"
@@ -377,59 +385,110 @@ async function advance(t) {
   </main>
 </template>
 <style scoped>
+/* Fiche événement (équipe) : grand titre, informations à pastilles colorées, tâches et notes en cartes. */
+.event-title {
+  margin: 8px 0 24px;
+  font-family: Anton, Impact, 'Arial Narrow', sans-serif;
+  font-weight: 400;
+  font-size: clamp(40px, 5.5vw, 72px);
+  line-height: 1;
+  text-transform: uppercase;
+  color: #111;
+  overflow-wrap: anywhere;
+}
+.event-title::after {
+  content: '';
+  display: block;
+  width: 200px;
+  max-width: 60%;
+  height: 8px;
+  margin-top: 12px;
+  background: #ffd836;
+  transform: rotate(-1.5deg);
+}
 .facts {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 12px;
-  margin: 16px 0;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 0;
+  margin: 0 0 24px;
+  background: #fbf8f1;
+  border: 2px solid #111;
 }
 .facts div {
-  background: #eef3f6;
-  border-radius: 6px;
-  padding: 12px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0 14px;
+  align-items: center;
+  padding: 14px 18px;
+  border-bottom: 1px solid #d8cfbd;
+}
+.tile {
+  grid-row: span 2;
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 42px;
+  color: #111;
+  clip-path: polygon(4% 8%, 96% 0, 100% 92%, 0 100%);
+}
+.tile.red {
+  background: #d9342b;
+}
+.tile.blue {
+  background: #1d3fbf;
+}
+.tile.yellow {
+  background: #ffd836;
+}
+.tile :deep(.icon) {
+  stroke-width: 2.2;
 }
 dt {
-  font-size: 0.9rem;
-  color: #2f4250;
+  font-weight: 800;
 }
 dd {
-  margin: 4px 0 0;
-  font-weight: 600;
+  margin: 0;
   overflow-wrap: anywhere;
+}
+dd a {
+  color: #1d3fbf;
 }
 .list {
   list-style: none;
+  margin: 0;
   padding: 0;
 }
 .list li {
-  border: 1px solid #cbd5e1;
+  margin: 0 0 12px;
+  padding: 16px 20px;
+  background: #fbf8f1;
+  border: 1px solid #d8cfbd;
+  border-left: 5px solid #d8cfbd;
   border-radius: 8px;
-  padding: 16px;
-  margin: 12px 0;
 }
 .list li.mine {
-  border-left: 4px solid #087f8c;
+  border-left-color: #1d3fbf;
 }
 h3 {
   margin: 0 0 4px;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   overflow-wrap: anywhere;
 }
 .badge {
   display: inline-block;
-  margin-left: 4px;
-  padding: 2px 8px;
-  border-radius: 12px;
-  background: #e6eef3;
+  margin-left: 6px;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: #e5dccb;
   font-size: 0.85rem;
   font-weight: 600;
 }
 .badge.en_cours {
-  background: #fff4d6;
-  color: #6b4e00;
+  background: #fff1a8;
+  color: #111;
 }
 .badge.termine {
-  background: #e3f4ea;
+  background: #d9f0e1;
   color: #0b6b3a;
 }
 .text {
@@ -437,28 +496,48 @@ h3 {
   overflow-wrap: anywhere;
 }
 .meta {
-  color: #4a5b68;
+  color: #4a4a4a;
   font-size: 0.95rem;
   margin: 4px 0;
 }
 .actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 10px;
+  margin: 10px 0 0;
+}
+.actions button {
+  border-radius: 6px;
+}
+.actions .secondary {
+  border: 2px solid #111;
+}
+.note-form {
+  margin-bottom: 20px;
+  padding: 18px 20px;
+  background: #fbf8f1;
+  border: 1px solid #d8cfbd;
+  border-radius: 8px;
+}
+.note-form label {
+  margin-top: 0;
 }
 form button {
   margin-top: 12px;
+  border-radius: 6px;
 }
 .dialog {
+  margin-top: 10px;
+  padding: 12px 16px;
   border: 2px solid #b42318;
   border-radius: 8px;
-  padding: 12px;
+  background: #fbe4e1;
 }
 .danger-button {
-  background: #b42318;
+  background: #b42318 !important;
 }
 .danger-button:hover {
-  background: #8f1c13;
+  background: #8f1c13 !important;
 }
 .success {
   color: #0b6b3a;
