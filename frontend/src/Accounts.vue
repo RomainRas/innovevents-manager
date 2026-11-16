@@ -2,6 +2,7 @@
 // Gestion des comptes (administratrice) : liste filtrable, création d'un compte employé ou client,
 // suspension, réactivation et suppression avec confirmation.
 import { nextTick, onMounted, reactive, ref } from 'vue'
+import Icon from './Icon.vue'
 import { auth, request } from './auth'
 
 const accounts = ref([]),
@@ -154,15 +155,15 @@ async function confirmDelete() {
 }
 </script>
 <template>
-  <main class="panel wide">
-    <p><RouterLink to="/espace">← Retour au tableau de bord</RouterLink></p>
-    <h1>Comptes employés et clients</h1>
+  <main class="work-page">
+    <p><RouterLink class="back-link" to="/espace">← Retour au tableau de bord</RouterLink></p>
+    <h1 class="accounts-title"><Icon name="users" />Comptes employés et clients</h1>
     <p v-if="error" id="accounts-error" class="error" role="alert" tabindex="-1">{{ error }}</p>
     <p v-if="notice" id="accounts-notice" class="success" role="status" tabindex="-1">{{ notice }}</p>
 
     <!-- Création d'un compte : employé (identité) ou client (fiche client à rattacher) -->
     <section aria-labelledby="create-title" class="box">
-      <h2 id="create-title">Créer un compte</h2>
+      <h2 id="create-title" class="box-head">Créer un compte</h2>
       <p v-if="formError" id="create-error" class="error" role="alert" tabindex="-1">{{ formError }}</p>
       <form novalidate :aria-busy="busy === 'create'" @submit.prevent="create">
         <fieldset :disabled="busy === 'create'">
@@ -237,16 +238,17 @@ async function confirmDelete() {
               }}
             </p>
           </template>
-          <button type="submit">
-            {{ busy === 'create' ? 'Création…' : 'Créer le compte et envoyer les identifiants' }}
+          <button type="submit" class="send">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m3 11 18-8-8 18-2-8z" /></svg
+            >{{ busy === 'create' ? 'Création…' : 'Créer le compte et envoyer les identifiants' }}
           </button>
         </fieldset>
       </form>
     </section>
 
     <!-- Liste des comptes, filtrable par rôle et par recherche -->
-    <section aria-labelledby="list-title">
-      <h2 id="list-title">Comptes</h2>
+    <section aria-labelledby="list-title" class="box">
+      <h2 id="list-title" class="box-head">Comptes</h2>
       <form class="filters" role="search" @submit.prevent="load">
         <div>
           <label for="filter-q">Rechercher (nom, adresse, entreprise)</label
@@ -260,7 +262,7 @@ async function confirmDelete() {
             <option value="client">Clients</option>
           </select>
         </div>
-        <button type="submit" class="secondary">Rechercher</button>
+        <button type="submit" class="search-button"><Icon name="search" />Rechercher</button>
       </form>
       <p v-if="loading" role="status">Chargement…</p>
       <p v-else-if="!accounts.length">Aucun compte ne correspond.</p>
@@ -271,6 +273,9 @@ async function confirmDelete() {
           :key="a.id"
           :class="{ suspended: a.statut === 'suspendu', pending: a.suppression_demandee_le }"
         >
+          <span class="avatar" :class="a.role" aria-hidden="true">{{
+            ((a.prenom || ' ')[0] + (a.nom || ' ')[0]).toUpperCase()
+          }}</span>
           <h3 :id="'account-' + a.id">
             {{ a.prenom }} {{ a.nom }} <span class="badge">{{ roles[a.role] }}</span
             ><span v-if="a.statut === 'suspendu'" class="badge warn">Suspendu</span>
@@ -319,20 +324,47 @@ async function confirmDelete() {
   </main>
 </template>
 <style scoped>
+/* Comptes : deux cartes à bandeau (création, liste) ; un compte par ligne avec initiales et actions. */
+.accounts-title {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 8px 0 24px;
+  font-family: Anton, Impact, 'Arial Narrow', sans-serif;
+  font-weight: 400;
+  font-size: clamp(34px, 4.5vw, 52px);
+  line-height: 1.1;
+  color: #111;
+}
+.accounts-title :deep(.icon) {
+  width: 44px;
+  height: 44px;
+}
 .box {
-  border: 1px solid #cbd5e1;
-  border-radius: 8px;
-  padding: 16px;
-  margin: 16px 0;
+  margin: 0 0 28px;
+  padding: 0 24px 24px;
+  background: #fbf8f1;
+  border: 1px solid #172033;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.box-head {
+  margin: 0 -24px 16px;
+  padding: 14px 24px;
+  background: #efe8d8;
+  font-family: Anton, Impact, 'Arial Narrow', sans-serif;
+  font-weight: 400;
+  font-size: 1.8rem;
+  color: #111;
 }
 legend {
-  font-weight: 600;
+  font-weight: 700;
   padding: 0;
 }
 .radios {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 24px;
   margin: 8px 0;
 }
 .radios label {
@@ -349,10 +381,11 @@ legend {
   min-height: 0;
   margin: 0;
   flex: none;
+  accent-color: #1d3fbf;
 }
 .check {
   display: flex;
-  gap: 8px;
+  gap: 10px;
   align-items: center;
   margin: 16px 0;
 }
@@ -363,39 +396,94 @@ legend {
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 0 16px;
+  gap: 0 20px;
 }
-form button[type='submit'] {
+.send {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   margin-top: 16px;
+  background: #1d3fbf !important;
+  border-radius: 6px;
+}
+.send:hover {
+  background: #142e8f !important;
+}
+.send svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
 }
 .filters {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: minmax(0, 2fr) minmax(160px, 1fr) auto;
   gap: 0 16px;
   align-items: end;
+  margin-bottom: 16px;
 }
 .filters label {
-  margin-top: 8px;
+  margin-top: 0;
+}
+.search-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #111 !important;
+  background: #ffd836 !important;
+  border-radius: 6px;
+}
+.search-button:hover {
+  background: #f2c400 !important;
 }
 .accounts {
   list-style: none;
+  margin: 0;
   padding: 0;
 }
 .accounts li {
-  border: 1px solid #cbd5e1;
-  border-radius: 8px;
-  padding: 16px;
-  margin: 12px 0;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 4px 16px;
+  align-items: center;
+  margin: 0;
+  padding: 14px 4px;
+  border-top: 1px solid #d8cfbd;
+}
+.accounts li > :not(.avatar):not(.actions) {
+  grid-column: 2;
+}
+.accounts li > .actions {
+  grid-column: 3;
+  grid-row: 1 / span 2;
+}
+.accounts li > .dialog {
+  grid-column: 1 / -1;
 }
 .accounts li.suspended {
-  background: #f6f7f9;
+  background: #efe8d8;
 }
 .accounts li.pending {
-  border: 2px solid #b42318;
+  border-left: 4px solid #b42318;
+  padding-left: 12px;
+}
+.avatar {
+  grid-row: 1 / span 2;
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  font-weight: 700;
+  color: #142e8f;
+  background: #dde4fb;
+}
+.avatar.client {
+  color: #8f1c13;
+  background: #fbe4e1;
 }
 h3 {
-  margin: 0 0 4px;
-  font-size: 1.1rem;
+  margin: 0;
+  font-size: 1.15rem;
   overflow-wrap: anywhere;
 }
 h4 {
@@ -404,37 +492,49 @@ h4 {
 .badge {
   display: inline-block;
   margin-left: 8px;
-  padding: 2px 8px;
-  border-radius: 12px;
-  background: #e6eef3;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: #fff1a8;
   font-size: 0.85rem;
   font-weight: 600;
 }
 .badge.warn {
-  background: #fdecea;
+  background: #fbe4e1;
   color: #8f1c13;
 }
 .meta {
-  color: #4a5b68;
+  margin: 0;
+  color: #4a4a4a;
   font-size: 0.95rem;
   overflow-wrap: anywhere;
 }
 .alert {
+  margin: 4px 0 0;
   color: #8f1c13;
 }
 .actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 10px;
+  margin: 0;
+}
+.actions button {
+  min-height: 40px;
+  padding: 8px 16px;
+  border-radius: 6px;
+}
+.actions .secondary {
+  border: 2px solid #172033;
 }
 .dialog {
   border: 2px solid #b42318;
   border-radius: 8px;
   padding: 16px;
   margin-top: 12px;
+  background: #fbe4e1;
 }
 .danger-button {
-  background: #b42318;
+  background: #c8221a;
 }
 .danger-button:hover {
   background: #8f1c13;
@@ -442,5 +542,18 @@ h4 {
 .success {
   color: #0b6b3a;
   font-weight: 600;
+}
+@media (max-width: 800px) {
+  .filters {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
+  .accounts li {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+  .accounts li > .actions {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
 }
 </style>

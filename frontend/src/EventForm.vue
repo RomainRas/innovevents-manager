@@ -1,6 +1,7 @@
 <script setup>
 // Création et modification d'un événement par l'administratrice (/equipe/evenements/nouveau et /:id/modifier).
 import { nextTick, onMounted, reactive, ref } from 'vue'
+import Icon from './Icon.vue'
 import { useRoute, useRouter } from 'vue-router'
 import { auth, request } from './auth'
 
@@ -107,19 +108,23 @@ async function submit() {
 }
 </script>
 <template>
-  <main class="panel narrow-form">
+  <main class="work-page event-form">
+    <!-- Décor : quarts de disque jaune, bleu et rouge en haut à droite -->
+    <span class="disc yellow" aria-hidden="true"></span>
+    <span class="disc blue" aria-hidden="true"></span>
+    <span class="disc red" aria-hidden="true"></span>
     <p>
-      <RouterLink :to="editing ? '/equipe/evenements/' + route.params.id : '/equipe/evenements'"
+      <RouterLink class="back-link" :to="editing ? '/equipe/evenements/' + route.params.id : '/equipe/evenements'"
         >← {{ editing ? 'Retour à la fiche' : 'Tous les événements' }}</RouterLink
       >
     </p>
-    <h1>{{ editing ? 'Modifier l’événement' : 'Nouvel événement' }}</h1>
+    <h1 class="list-title">{{ editing ? 'Modifier l’événement' : 'Nouvel événement' }}</h1>
     <p v-if="loading" role="status">Chargement…</p>
     <p v-if="loadError" class="error" role="alert">{{ loadError }}</p>
     <form v-else-if="!loading" novalidate :aria-busy="busy" @submit.prevent="submit">
-      <p>Les champs marqués * sont obligatoires. Dates et heures de Paris.</p>
+      <p>Les champs marqués <span class="req">*</span> sont obligatoires. Dates et heures de Paris.</p>
       <p v-if="error" id="event-error" class="error" role="alert" tabindex="-1">{{ error }}</p>
-      <fieldset :disabled="busy">
+      <fieldset class="work-card fields" :disabled="busy">
         <legend class="sr-only">Événement</legend>
         <label for="event-client_id">Client *</label>
         <select id="event-client_id" v-model="form.client_id" :disabled="editing" required>
@@ -176,28 +181,99 @@ async function submit() {
         <p v-if="errors.participants_estimes" id="event-err-participants_estimes" class="error">
           {{ errors.participants_estimes }}
         </p>
-        <button type="submit">
-          {{ busy ? 'Enregistrement…' : editing ? 'Enregistrer les modifications' : 'Créer l’événement (brouillon)' }}
+        <button type="submit" class="create">
+          <Icon name="calendar" />{{
+            busy ? 'Enregistrement…' : editing ? 'Enregistrer les modifications' : 'Créer l’événement (brouillon)'
+          }}
         </button>
       </fieldset>
     </form>
   </main>
 </template>
 <style scoped>
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 0 16px;
-}
-form button[type='submit'] {
-  margin-top: 24px;
-}
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
+/* Formulaire d'événement : libellés à gauche, champs à droite, carte claire. */
+.event-form {
+  position: relative;
   overflow: hidden;
-  clip: rect(0 0 0 0);
-  white-space: nowrap;
+}
+.event-form > *:not(.disc) {
+  position: relative;
+}
+.disc {
+  position: absolute;
+  top: -200px;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.disc.yellow {
+  right: 200px;
+  background: #ffd836;
+}
+.disc.blue {
+  right: 60px;
+  background: #1d3fbf;
+}
+.disc.red {
+  right: -110px;
+  top: -150px;
+  background: #c8221a;
+}
+.fields {
+  display: grid;
+  grid-template-columns: minmax(160px, 240px) minmax(0, 1fr);
+  gap: 14px 28px;
+  align-items: center;
+  margin: 8px 0 0;
+}
+.fields label {
+  margin: 0;
+}
+.fields .error {
+  grid-column: 2;
+  margin: -6px 0 0;
+}
+.grid {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(160px, 240px) minmax(0, 1fr);
+  gap: 14px 28px;
+}
+.grid > div {
+  display: contents;
+}
+.fields input,
+.fields select {
+  min-height: 44px;
+}
+.create {
+  grid-column: 1 / -1;
+  justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+  padding-top: 20px;
+  border-top: 1px solid #d8cfbd;
+}
+@media (max-width: 900px) {
+  .disc {
+    display: none;
+  }
+}
+@media (max-width: 700px) {
+  .fields,
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 6px;
+  }
+  .fields .error {
+    grid-column: 1;
+  }
+  .create {
+    justify-self: stretch;
+    justify-content: center;
+  }
 }
 </style>

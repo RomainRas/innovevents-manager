@@ -1,6 +1,7 @@
 <script setup>
 // Modération des avis (équipe) : avis à modérer, publiés ou refusés ; validation ou refus de chaque avis.
 import { nextTick, onMounted, ref } from 'vue'
+import Icon from './Icon.vue'
 import { auth, request } from './auth'
 
 const tabs = [
@@ -74,9 +75,9 @@ async function decide(r, decision) {
 }
 </script>
 <template>
-  <main class="panel">
-    <p><RouterLink to="/espace">← Retour à mon espace</RouterLink></p>
-    <h1>Modération des avis</h1>
+  <main class="work-page">
+    <p><RouterLink class="back-link" to="/espace">← Retour à mon espace</RouterLink></p>
+    <h1 class="list-title">Modération des avis</h1>
     <p>
       Seuls les avis validés apparaissent sur la <RouterLink to="/avis">page Avis</RouterLink>, et uniquement pour les
       événements dont le client a accepté la publication.
@@ -103,10 +104,20 @@ async function decide(r, decision) {
     <!-- Avis de l'onglet choisi, avec validation ou refus -->
     <ul class="moderation-list">
       <li v-for="r in reviews" :key="r.id">
-        <h2 :id="'review-' + r.id">{{ r.evenement }}</h2>
-        <p class="meta">
-          {{ r.auteur }} — déposé le {{ day(r.depose_le)
-          }}<template v-if="r.modere_le"> — modéré le {{ day(r.modere_le) }}</template>
+        <span class="result-tile yellow" aria-hidden="true"><Icon name="calendar" /></span>
+        <div class="who">
+          <h2 :id="'review-' + r.id">{{ r.evenement }}</h2>
+          <p class="meta"><Icon name="user" />{{ r.auteur }}</p>
+        </div>
+        <p class="dates">
+          <span><Icon name="calendar" />Déposé le {{ day(r.depose_le) }}</span
+          ><span v-if="r.modere_le"
+            ><span class="sr-only"> — </span
+            ><svg aria-hidden="true" viewBox="0 0 24 24" class="ok">
+              <circle cx="12" cy="12" r="9" />
+              <path d="m8 12 3 3 5-6" /></svg
+            >Modéré le {{ day(r.modere_le) }}</span
+          >
         </p>
         <blockquote>« {{ r.contenu }} »</blockquote>
         <p v-if="!r.evenement_public" class="meta">
@@ -124,40 +135,129 @@ async function decide(r, decision) {
   </main>
 </template>
 <style scoped>
+/* Modération : onglets, puis un avis par carte (événement, dates, citation, actions). */
 .tabs {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin: 16px 0;
+  gap: 6px;
+  margin: 24px 0 20px;
+  padding-bottom: 0;
+  border-bottom: 2px solid #172033;
+}
+.tabs button {
+  margin-bottom: -2px;
+  border-radius: 8px 8px 0 0;
+  border: 2px solid #172033;
+  color: white;
+  background: #172033;
+}
+.work-page .tabs button:not(.secondary) {
+  background: #172033;
+  border-radius: 8px 8px 0 0;
+  font-size: 1rem;
+  padding-inline: 24px;
+}
+.tabs button.secondary {
+  color: #111;
+  background: #fbf8f1;
 }
 .moderation-list {
   list-style: none;
+  margin: 0;
   padding: 0;
 }
 .moderation-list li {
-  border: 1px solid #cbd5e1;
-  border-radius: 8px;
-  padding: 16px;
-  margin: 16px 0;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1.1fr) auto minmax(0, 1.6fr) auto;
+  gap: 10px 20px;
+  align-items: center;
+  margin: 0 0 14px;
+  padding: 16px 20px;
+  background: #fbf8f1;
+  border: 1px solid #d8cfbd;
+  border-radius: 10px;
+}
+.moderation-list li > .meta,
+.moderation-list li > .actions {
+  grid-column: 1 / -1;
 }
 h2 {
   margin: 0 0 4px;
-  font-size: 1.2rem;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.15rem;
   overflow-wrap: anywhere;
 }
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  color: #4a4a4a;
+}
+.meta :deep(.icon),
+.dates :deep(.icon) {
+  width: 18px;
+  height: 18px;
+}
+.dates {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0;
+  padding: 0 20px;
+  border-inline: 1px solid #d8cfbd;
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+.ok {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: #0b6b3a;
+  stroke-width: 1.8;
+}
+.dates > span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 blockquote {
-  margin: 12px 0;
-  padding-left: 12px;
-  border-left: 3px solid #087f8c;
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-style: italic;
   overflow-wrap: anywhere;
 }
 .actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 10px;
+  margin: 0;
+}
+.actions button {
+  border-radius: 6px;
+}
+.actions .secondary {
+  color: #c8221a;
+  background: #fffdf8;
+  border: 2px solid #c8221a;
 }
 .success {
   color: #0b6b3a;
   font-weight: 600;
+}
+@media (max-width: 1000px) {
+  .moderation-list li {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+  .moderation-list li > .dates,
+  .moderation-list li > blockquote {
+    grid-column: 1 / -1;
+  }
+  .dates {
+    padding: 0;
+    border: 0;
+    white-space: normal;
+  }
 }
 </style>
