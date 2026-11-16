@@ -32,7 +32,7 @@ const BASE = 'http://127.0.0.1:5173'
       await page.goto(BASE + '/')
       await page.getByRole('heading', { level: 1, name: 'Des événements professionnels cousus main' }).waitFor()
       const nav = page.getByRole('navigation', { name: 'Navigation principale' })
-      for (const name of ['Accueil', 'Évènements', 'Avis', 'Contact', 'Demande de devis', 'Se connecter'])
+      for (const name of ['Accueil', 'Événements', 'Avis', 'Contact', 'Demande de devis', 'Se connecter'])
         await nav.getByRole('link', { name, exact: true }).waitFor()
       results['menu_' + width] = true
       results['images_alt_' + width] = await page.evaluate(
@@ -48,7 +48,7 @@ const BASE = 'http://127.0.0.1:5173'
       await page.getByRole('main').getByRole('link', { name: 'Demander un devis' }).first().click()
       await page.waitForURL(BASE + '/demande-devis')
       // Événements : filtres type, thème et période.
-      await nav.getByRole('link', { name: 'Évènements' }).click()
+      await nav.getByRole('link', { name: 'Événements' }).click()
       await page.getByRole('heading', { level: 1, name: 'Nos événements' }).waitFor()
       await page.getByText(/^\d+ événements?$/).waitFor()
       const all = await page.locator('.event-cards > li').count()

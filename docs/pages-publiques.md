@@ -5,13 +5,13 @@
 | Page | Adresse | Exigence de l'énoncé |
 | --- | --- | --- |
 | Accueil | `/` | Présentation de l'agence, images, bouton « Demander un devis » |
-| Évènements | `/evenements-publics` | Événements commandés, accord du client, statut différent de brouillon, image et informations sans prix ; filtres par période, type et thème |
+| Événements | `/evenements-publics` | Événements commandés, accord du client, statut différent de brouillon, image et informations sans prix ; filtres par période, type et thème |
 | Détail d'un événement | `/evenements-publics/:id` | Section « Prestations et Devis » qui renvoie vers la demande de devis |
 | Avis | `/avis` | Avis validés par un employé |
 | Contact | `/contact` | Nom d'utilisateur facultatif, titre, adresse électronique obligatoire sans nom d'utilisateur, description ; courriel envoyé à l'adresse générique de l'agence |
 | Mentions légales, CGU, CGV, confidentialité | `/mentions-legales`, `/cgu`, `/cgv`, `/confidentialite` | Accessibles depuis le pied de page de toutes les pages |
 
-Le menu présent sur toutes les pages contient Accueil, Évènements, Avis, Contact, Demande de devis et Se connecter (ou Mon espace et Se déconnecter).
+Le menu présent sur toutes les pages contient Accueil, Événements, Avis, Contact, Demande de devis et Se connecter (ou Mon espace et Se déconnecter). Le pied de page reprend le plan du site (Accueil, Événements, Avis, Contact) et les quatre pages légales.
 
 ## Sécurité et données
 

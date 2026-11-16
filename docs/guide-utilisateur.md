@@ -9,7 +9,7 @@ Les comptes de démonstration (Chloé, administratrice ; José, employé ; Alice
 | Je veux… | Où | Comment |
 | --- | --- | --- |
 | Découvrir l’agence | Accueil | Présentation, réalisations et bouton « Demander un devis ». |
-| Voir les événements réalisés | Menu « Évènements » | Filtrer par période, type ou thème ; ouvrir un événement pour son détail. Seuls les événements dont le client a accepté la publication apparaissent. |
+| Voir les événements réalisés | Menu « Événements » | Filtrer par période, type ou thème ; ouvrir un événement pour son détail. Seuls les événements dont le client a accepté la publication apparaissent. |
 | Lire les avis | Menu « Avis » | Avis validés par l’équipe. |
 | Demander un devis | Menu « Demande de devis » | Remplir le formulaire (entreprise, contact, lieu, type, date, participants, besoin). Un message de remerciement confirme l’envoi ; l’équipe vous recontacte. |
 | Poser une question | Menu « Contact » | Titre, description et adresse électronique (ou nom d’utilisateur si vous avez un compte). |

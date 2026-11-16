@@ -25,7 +25,7 @@ async function disconnect() {
     <RouterLink class="brand" to="/">Innov’Events</RouterLink>
     <nav aria-label="Navigation principale">
       <RouterLink to="/">Accueil</RouterLink>
-      <RouterLink to="/evenements-publics">Évènements</RouterLink>
+      <RouterLink to="/evenements-publics">Événements</RouterLink>
       <RouterLink to="/avis">Avis</RouterLink>
       <RouterLink to="/contact">Contact</RouterLink>
       <RouterLink class="nav-quote" to="/demande-devis">Demande de devis <span aria-hidden="true">→</span></RouterLink>
@@ -46,18 +46,22 @@ async function disconnect() {
   <!-- Page courante ; la clé recrée l'écran à chaque changement d'adresse -->
   <div id="contenu" tabindex="-1"><RouterView :key="$route.path" /></div>
   <footer>
-    <!-- Pied de page : identité de l'agence, puis pages légales -->
-    <div class="footer-brand">
-      <RouterLink class="brand" to="/">Innov’Events</RouterLink>
-      <p>Agence événementielle<br />Séminaires • Conférences • Soirées d’entreprise</p>
+    <!-- Pied de page : logo, plan du site et pages légales sur fond noir au bord déchiré -->
+    <div class="footer-inner">
+      <RouterLink class="footer-logo" to="/">Innov’Events</RouterLink>
+      <nav aria-label="Plan du site">
+        <RouterLink to="/">Accueil</RouterLink>
+        <RouterLink to="/evenements-publics">Événements</RouterLink>
+        <RouterLink to="/avis">Avis</RouterLink>
+        <RouterLink to="/contact">Contact</RouterLink>
+      </nav>
+      <nav aria-label="Informations légales">
+        <RouterLink to="/mentions-legales">Mentions légales</RouterLink>
+        <RouterLink to="/cgu">Conditions générales d’utilisation</RouterLink>
+        <RouterLink to="/cgv">Conditions générales de vente</RouterLink>
+        <RouterLink to="/confidentialite">Confidentialité</RouterLink>
+      </nav>
     </div>
-    <nav aria-label="Informations légales">
-      <RouterLink to="/mentions-legales">Mentions légales</RouterLink>
-      <RouterLink to="/cgu">Conditions générales d’utilisation</RouterLink>
-      <RouterLink to="/cgv">Conditions générales de vente</RouterLink>
-      <RouterLink to="/confidentialite">Confidentialité</RouterLink>
-      <RouterLink to="/contact">Contact</RouterLink>
-    </nav>
     <p>© 2026 Innov’Events — entreprise fictive, projet de formation.</p>
   </footer>
 </template>

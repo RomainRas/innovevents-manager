@@ -122,7 +122,7 @@ const programme = [
   --blue: #1d3fbf;
   --yellow: #ffd836;
   --ink: #111;
-  margin-bottom: -48px;
+  margin-bottom: -72px;
   background: var(--paper);
   color: var(--ink);
   overflow: hidden;
