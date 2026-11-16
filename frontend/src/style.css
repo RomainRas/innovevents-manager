@@ -2,9 +2,9 @@
 @font-face { font-family:Anton; src:url('/fonts/anton.woff2') format('woff2'); font-display:swap; }
 :root { font-family: Inter, system-ui, sans-serif; color:#172B3A; background:#F4F7FA; }
 body { margin:0; } * { box-sizing:border-box; }
-header { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px; padding:24px max(16px,4vw); background:white; }
+header { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px; padding:18px max(16px,4vw); background:#F4EFE4; border-bottom:3px solid #111; }
 nav { display:flex; flex-wrap:wrap; align-items:center; gap:24px; }
-a { color:#142D43; text-underline-offset:4px; } .brand { font-weight:700; }
+a { color:#142D43; text-underline-offset:4px; }
 .panel { max-width:800px; margin:40px auto; padding:32px; background:white; border-radius:8px; }
 .narrow { max-width:480px; } h1 { font-size:clamp(28px,4vw,36px); color:#142D43; }
 p,li { line-height:1.6; } li { margin-block:16px; overflow-wrap:anywhere; }
@@ -18,7 +18,17 @@ button:hover { background:#06616B; } button:disabled { opacity:.65; cursor:wait;
 .skip-link { position:absolute; left:16px; top:-60px; padding:12px 16px; background:#142D43; color:white; z-index:10; border-radius:4px; }
 .skip-link:focus { top:12px; }
 #contenu:focus { outline:none; }
-header nav a[aria-current="page"] { font-weight:700; text-decoration-thickness:2px; }
+/* En-tête et pied de page en style affiche : logo en Anton surligné de jaune, page active soulignée de rouge. */
+.brand { font-family:Anton, Impact, 'Arial Narrow', sans-serif; font-size:1.9rem; line-height:1.2; color:#111; text-decoration:none; padding:0 6px; background:linear-gradient(transparent 72%, #FFD836 72%); display:inline-block; transform:skew(-6deg); }
+header nav { gap:12px 28px; }
+header nav a, header nav button { font-family:Anton, Impact, 'Arial Narrow', sans-serif; font-size:1.05rem; letter-spacing:.02em; color:#111; text-decoration:none; }
+header nav a { padding:6px 0; }
+header nav a:hover { box-shadow:inset 0 -3px 0 #FFD836; }
+header nav a[aria-current="page"] { box-shadow:inset 0 -3px 0 #C8221A; }
+header nav .nav-quote { padding:10px 16px; background:#FFD836; box-shadow:3px 3px 0 #111; }
+header nav .nav-quote:hover, header nav .nav-quote[aria-current="page"] { box-shadow:3px 3px 0 #C8221A; }
+header nav .nav-account { display:inline-flex; align-items:center; gap:8px; min-height:44px; padding:8px 14px; border:2px solid #111; border-radius:0; background:transparent; }
+header nav .nav-account:hover, header nav button.nav-account:hover { background:#FFD836; box-shadow:none; }
 select, textarea { width:100%; min-height:48px; padding:12px; border:1px solid #718391; border-radius:4px; font:inherit; background:white; color:inherit; }
 fieldset { border:0; padding:0; margin:0; min-width:0; }
 .button { display:inline-block; min-height:48px; padding:12px 20px; border-radius:4px; color:white; background:#087F8C; text-decoration:none; font-weight:600; }
@@ -39,9 +49,10 @@ button.secondary { color:#142D43; background:white; border:1px solid #142D43; } 
 figure { margin:0; } .reviews { list-style:none; padding:0; } .reviews li { margin:0 0 24px; padding:24px; background:#F4F7FA; border-left:4px solid #087F8C; border-radius:4px; }
 .reviews blockquote { margin:0 0 12px; font-size:1.1rem; } .reviews blockquote p { margin:0; }
 .legal h2 { font-size:1.25rem; margin-top:32px; }
-footer { margin-top:48px; padding:32px max(16px,4vw); background:#142D43; color:white; }
-footer nav { gap:16px 24px; } footer a { color:white; } footer p { margin:16px 0 0; color:#C9D6E0; }
+footer { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px 32px; margin-top:48px; padding:28px max(16px,4vw); background:#F4EFE4; color:#111; border-top:3px solid #111; }
+footer nav { gap:12px 24px; } footer a { color:#111; } footer > p { flex-basis:100%; margin:0; color:#4A4A4A; font-size:.9rem; }
+.footer-brand { display:flex; align-items:center; gap:20px; } .footer-brand p { margin:0; padding-left:20px; border-left:2px solid #111; font-size:.9rem; line-height:1.4; }
 @media(max-width:840px) {
   .filters { grid-template-columns:1fr 1fr; }
 }
-@media(max-width:480px) { .filters { grid-template-columns:1fr; } nav { gap:12px 20px; } }
+@media(max-width:480px) { .filters { grid-template-columns:1fr; } nav { gap:12px 20px; } .footer-brand { flex-wrap:wrap; } .footer-brand p { padding-left:0; border-left:0; } header nav { gap:12px 16px; } header nav .nav-quote, header nav .nav-account { padding-inline:12px; } }

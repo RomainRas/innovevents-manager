@@ -28,18 +28,29 @@ async function disconnect() {
       <RouterLink to="/evenements-publics">Évènements</RouterLink>
       <RouterLink to="/avis">Avis</RouterLink>
       <RouterLink to="/contact">Contact</RouterLink>
-      <RouterLink to="/demande-devis">Demande de devis</RouterLink>
+      <RouterLink class="nav-quote" to="/demande-devis">Demande de devis <span aria-hidden="true">→</span></RouterLink>
       <template v-if="auth.user"
-        ><RouterLink to="/espace">Mon espace</RouterLink><button @click="disconnect">Se déconnecter</button></template
+        ><RouterLink class="nav-account" to="/espace">Mon espace</RouterLink
+        ><button class="nav-account" @click="disconnect">Se déconnecter</button></template
       >
-      <RouterLink v-else to="/connexion">Se connecter</RouterLink>
+      <!-- Connexion : pictogramme décoratif, le libellé reste le nom du lien -->
+      <RouterLink v-else class="nav-account" to="/connexion"
+        ><svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18">
+          <circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2" />
+          <path d="M4 21c0-4 4-6 8-6s8 2 8 6" fill="none" stroke="currentColor" stroke-width="2" /></svg
+        >Se connecter</RouterLink
+      >
     </nav>
   </header>
   <p v-if="error" role="alert" class="error">{{ error }}</p>
   <!-- Page courante ; la clé recrée l'écran à chaque changement d'adresse -->
   <div id="contenu" tabindex="-1"><RouterView :key="$route.path" /></div>
   <footer>
-    <!-- Pied de page : pages légales -->
+    <!-- Pied de page : identité de l'agence, puis pages légales -->
+    <div class="footer-brand">
+      <RouterLink class="brand" to="/">Innov’Events</RouterLink>
+      <p>Agence événementielle<br />Séminaires • Conférences • Soirées d’entreprise</p>
+    </div>
     <nav aria-label="Informations légales">
       <RouterLink to="/mentions-legales">Mentions légales</RouterLink>
       <RouterLink to="/cgu">Conditions générales d’utilisation</RouterLink>
