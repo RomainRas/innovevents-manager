@@ -32,7 +32,7 @@ Chaque ligne requiert son libellé et son montant HT. Montrer l’erreur sur le 
 Le bouton « Enregistrer les corrections » représente une tentative après correction. Le serveur doit refuser la finalisation si des erreurs subsistent. La sauvegarde éventuelle d’un brouillon incomplet reste distincte de la génération du PDF.
 
 ### Focus et accessibilité
-L’exemple montre un contour bleu nuit de 2 pixels autour du champ actif, en réutilisant une couleur de la charte. La tabulation suit l’ordre logique des éléments interactifs ; Maj + Tabulation permet de revenir en arrière.
+L’exemple montre un contour visible autour du champ actif ; dans le site, le focus est un contour bleu #1D3FBF de 3 pixels décalé de 2 pixels (voir la charte). La tabulation suit l’ordre logique des éléments interactifs ; Maj + Tabulation permet de revenir en arrière.
 
 À développer et vérifier :
 - associer chaque libellé et message d’erreur à son champ ;

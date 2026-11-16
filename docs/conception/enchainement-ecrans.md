@@ -31,7 +31,7 @@ Les choix déjà documentés restent des choix de conception : confirmation de l
 | MOB03 | Fiche client | Chloé et José | [Figma](https://www.figma.com/design/eAJJZyMSjoOff7mA1pNpCU?node-id=57-394) |
 | MOB02-N | Saisie d’une note, état complémentaire | Chloé et José | [Figma](https://www.figma.com/design/eAJJZyMSjoOff7mA1pNpCU?node-id=55-392) |
 
-Un contour turquoise désigne une maquette principale. Les blocs gris représentent des étapes, résultats, écrans intermédiaires, règles ou applications externes. L’état de saisie de note est également maquetté, avec un repère propre ; il n’augmente pas le nombre des six écrans principaux.
+Un contour de couleur désigne une maquette principale. Les blocs gris représentent des étapes, résultats, écrans intermédiaires, règles ou applications externes. L’état de saisie de note est également maquetté, avec un repère propre ; il n’augmente pas le nombre des six écrans principaux.
 
 ## Lecture du parcours web
 

@@ -1,4 +1,4 @@
-# Charte graphique Innov’Events - proposition v1
+# Charte graphique Innov’Events
 
 Tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5).
 
@@ -6,59 +6,62 @@ Tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5).
 
 L’[énoncé](../enonce/enonce-ecf-cda.pdf), pages 4, 6 et 16, a été relu directement : cohérence graphique, adaptation au support, accessibilité, palette et police sont attendues. Ces pages n’imposent pas de palette.
 
-J’ai retenu une direction graphique qui associe bleu nuit et turquoise, pour une interface professionnelle destinée à l’événementiel d’entreprise. Il s’agit de l’identité conçue pour le projet ECF, sans prétendre reproduire une marque commerciale officielle.
+Pour une agence événementielle, j’ai voulu une identité qui évoque l’affiche de spectacle : papier crème, aplats de couleurs franches rouge, bleu et jaune, photos inclinées, titres condensés en majuscules. Il s’agit de l’identité conçue pour le projet ECF, sans prétendre reproduire une marque commerciale officielle.
 
-- [Planche Figma modifiable](https://www.figma.com/design/eAJJZyMSjoOff7mA1pNpCU?node-id=35-388).
-- [Export SVG](../maquettes/charte/charte-graphique-v1.svg).
-- [Valeurs réutilisables](../maquettes/charte/fondations-v1.json).
+- [Planche de la charte](../maquettes/charte/charte-graphique.webp) : palette, typographie, composants et contrastes.
+- [Maquette de la page d’accueil](../maquettes/accueil-affiche.webp).
+- [Maquettes de tous les écrans, site et application mobile](maquettes-affiche.md).
 
 ## Palette
 
 | Rôle | Valeur | Usage |
 | --- | --- | --- |
-| Bleu nuit | #142D43 | Identité, titres, focus |
-| Turquoise | #087F8C | Action principale |
-| Turquoise profond | #06616B | Survol |
-| Encre | #172B3A | Texte courant |
-| Gris ardoise | #526574 | Texte secondaire |
-| Gris clair | #F4F7FA | Fond de page |
-| Blanc | #FFFFFF | Surfaces et texte sur action foncée |
-| Contour | #718391 | Champs et séparations |
-| Succès | #216E4E | Retour positif avec libellé |
-| Erreur | #B42318 | Erreur avec explication |
-| Attention | #8A4B08 | Avertissement avec libellé |
-| Accent corail | #F3A48B | Accroches et touches chaleureuses sur les pages publiques |
+| Papier | #F4EFE4 | Fond de page, étiquettes et boutons clairs |
+| Carte | #FFFDF8 | Surfaces des cartes, champs de saisie |
+| Rouge | #C8221A | Action principale, bandeau d’ouverture, soulignés, décor |
+| Bleu | #1D3FBF | Liens, focus clavier, aplats secondaires |
+| Jaune | #FFD836 | Surlignage des titres, appel au devis, alertes hors ligne |
+| Encre | #111111 | Titres, texte courant, contours, ombres portées |
+| Texte secondaire | #3D3A33 | Dates, lieux, aides sous les champs |
+| Succès | #0B6B3A | Retour positif avec libellé |
+| Erreur | #A31B14 | Erreur avec explication (fond #FBE4E1 pour les encadrés) |
 
-Les liens intégrés dans un texte seront soulignés. Un état ne repose jamais uniquement sur sa couleur. Les états désactivés et autres variantes seront détaillés lors des maquettes.
+Les liens intégrés dans un texte sont soulignés. Un état ne repose jamais uniquement sur sa couleur : les statuts ont un libellé, les erreurs un texte.
 
 ## Typographie
 
-Une seule famille : Inter, déjà utilisée dans les wireframes.
-
-| Style | Taille / interligne | Graisse |
+| Usage | Police | Style |
 | --- | --- | --- |
-| Titre web | 36 / 44 px | Bold |
-| Titre mobile | 28 / 36 px | Bold |
-| Section | 24 / 32 px | Semi Bold |
-| Sous-titre | 20 / 28 px | Semi Bold |
-| Corps | 16 / 24 px | Regular |
-| Libellé | 16 / 24 px | Semi Bold |
-| Légende | 14 / 20 px | Regular |
+| Titres, boutons d’action, nom de la marque | Anton (licence SIL OFL) | Majuscules, interlettrage léger, surlignage jaune pour les titres de page |
+| Texte courant, formulaires | Inter ou police du système | Regular et Semi Bold |
+| Citations, sous-titres de feuille | Georgia | Regular et italique |
 
-Les paragraphes et champs conservent des libellés lisibles. Les dimensions ne constituent pas une obligation de bloquer le zoom ou les préférences de taille de texte.
+| Style | Taille |
+| --- | --- |
+| Titre de page web | 40 à 72 px selon la largeur |
+| Titre mobile | 32 px |
+| Titre de section | 28 à 40 px |
+| Corps | 16 à 17 px |
+| Légende | 14 px |
+
+Anton est servie par le site et par l’application mobile eux-mêmes (`frontend/public/fonts/`, `mobile/public/fonts/`, 18 Ko, licence jointe) : aucun appel à un service de polices extérieur, et la police reste disponible hors ligne dans l’application mobile. Les tailles ne bloquent ni le zoom ni les préférences de taille de texte.
 
 ## Règles communes
 
+- Pages publiques : décor d’affiche (feuilles déchirées, aplats inclinés, tickets, étoiles), masqué aux lecteurs d’écran.
+- Écrans de travail (équipe, administration, client) : même palette et titres en Anton, sur des cartes claires plus sobres pour rester lisibles.
+- Cartes : contour encre de 2 px, coins peu arrondis, ombre portée décalée sur les éléments cliquables.
+- Boutons d’action principaux rouges à texte clair ; boutons secondaires sur fond carte à contour encre.
 - Espacements : 8, 16, 24, 32 et 48 pixels.
-- Rayon des cartes : 8 pixels.
-- Zones tactiles d’au moins 48 pixels de haut, comme choix de conception.
-- Une action principale mise en évidence par zone.
+- Zones tactiles d’au moins 48 pixels de haut.
 - Libellés au-dessus des champs ; les exemples ne les remplacent pas.
-- Focus clavier proposé : contour bleu nuit de 2 pixels, séparé du contrôle par 2 pixels blancs.
-- Conserver les erreurs près des champs et les informations saisies en cas d’échec.
-- Adapter les mises en page au support et vérifier les contenus longs.
+- Focus clavier visible : contour bleu de 3 px décalé de 2 px.
+- Erreurs près des champs, informations saisies conservées en cas d’échec.
+- Mises en page adaptées au support, vérifiées à 1440 et 390 pixels de large, sans défilement horizontal.
 
-Le sujet exige également la navigation clavier, une structure sémantique et des alternatives pour les images informatives. Ces points seront à implémenter et tester ; une planche Figma ne les valide pas.
+Application mobile : bandeau noir liséré de rouge avec le nom en Anton jaune, fond papier, titres surlignés de jaune, cartes à contour noir et ombre portée, boutons d’action rouges, pastilles de contact rouge, bleue et noire ; l’icône de l’application reprend le rouge, le crème et le jaune.
+
+Le sujet exige également la navigation clavier, une structure sémantique et des alternatives pour les images informatives : elles sont implémentées et vérifiées par les tests de navigateur.
 
 ## Mesures de contraste
 
@@ -66,67 +69,24 @@ Calcul par luminance relative sRGB sur les valeurs hexadécimales opaques, avec 
 
 | Association | Rapport calculé |
 | --- | --- |
-| #087F8C / blanc | 4.75:1 |
-| #06616B / blanc | 7.17:1 |
-| #142D43 / blanc | 14.13:1 |
-| #172B3A / blanc | 14.55:1 |
-| #526574 / blanc | 6.05:1 |
-| #216E4E / blanc | 6.17:1 |
-| #B42318 / blanc | 6.57:1 |
-| #8A4B08 / blanc | 6.79:1 |
+| Encre / papier #F4EFE4 | 16.47:1 |
+| Encre / carte #FFFDF8 | 18.58:1 |
+| Texte secondaire #3D3A33 / papier | 9.89:1 |
+| Bleu #1D3FBF / papier | 7.28:1 |
+| Blanc / rouge #C8221A | 5.68:1 |
+| Blanc / bleu #1D3FBF | 8.35:1 |
+| Encre / jaune #FFD836 | 13.6:1 |
+| Rouge #C8221A / papier | 4.95:1 |
+| Jaune / encre (nom de la marque sur le bandeau mobile) | 13.6:1 |
+| Erreur #A31B14 / carte | 7.58:1 |
+| Succès #0B6B3A / carte | 6.5:1 |
 
-Les mesures concernent ces paires seulement, sans transparence, image ou dégradé. Elles ne constituent pas un audit global d’accessibilité ni une attestation de conformité.
+Les mesures concernent ces paires seulement, sans transparence, image ou dégradé. Elles ne constituent pas une attestation de conformité globale.
 
-## Fondations Figma réalisées
+## Images
 
-- Deux collections locales : IE — Primitives et IE — Interface.
-- 32 variables : 12 couleurs primitives, 14 rôles de couleur, 5 espacements et un rayon.
-- 19 alias : 14 couleurs liées aux primitives et 5 espacements liés à la bibliothèque Simple Design System.
-- Sept styles de texte locaux IE/.
-- Un seul mode clair pour la proposition ; aucun mode sombre n’est annoncé.
-- Noms CSS proposés dans le JSON et associés aux variables Figma. Ils ne sont pas encore implémentés dans une application.
+Les photos d’ambiance et des événements sont réduites et converties en WebP, et chacune a un texte alternatif. Les éléments de décor sont masqués aux lecteurs d’écran.
 
-La bibliothèque Simple Design System a été inspectée. Les espacements compatibles sont réutilisés ; les couleurs et styles locaux permettent de maîtriser l’identité proposée. Aucun composant ou écran de maquette n’est compté comme réalisé dans cette étape.
+## Wireframes
 
-## Relecture et vérifications
-
-Les six cadres principaux sont dans Figma : trois web et trois mobile, avec leurs sources et notes de conception sauvegardées.
-
-La planche de charte a été contrôlée visuellement : aucune coupure ni chevauchement constaté. Les sept styles sont appliqués. Les 32 variables ont une syntaxe CSS ; aucune n’a une portée ALL_SCOPES. Les 19 alias ont été retrouvés.
-
-Les wireframes restent en niveaux de gris. Cette charte prépare les futures maquettes sans transformer rétroactivement les wireframes en maquettes.
-
-## Sauvegarde et suite
-
-Figma reste la source modifiable. La planche SVG, les valeurs JSON et ce document sont sauvegardés sur dev. La planche ne remplace pas les six maquettes attendues dans la charte finale.
-
-Première maquette web Demande de devis réalisée en v1. Il restera à formaliser l’enchaînement des maquettes, les diagrammes et les exports pour le rendu.
-
-## Complément événementiel
-
-À la suite des échanges sur l’identité de l’agence, l’accent corail #F3A48B apporte une touche chaleureuse aux pages publiques. Il complète le bleu nuit et le turquoise ; il ne remplace pas la couleur d’action principale. Sur fond corail, utiliser le texte bleu nuit, sans blanc. L’accent est ajouté aux variables Figma et à la planche. La première maquette de demande de devis applique ces règles sans image d’ambiance ; les images restent à préparer pour les écrans où elles servent le contenu.
-
-## Version affiche (site web)
-
-Pour donner plus de caractère à la vitrine, j’ai réalisé une maquette de la page d’accueil dans un style affiche : papier crème, aplats rouge, bleu et jaune, photos inclinées, titres condensés en majuscules ([maquette](../maquettes/accueil-affiche.webp)). J’ai ensuite décliné ce style sur tout le site web à partir d’une maquette par écran : en-tête et pied de page, pages publiques, inscription et connexion, espace client, espaces de l’équipe et de l’administration, jusqu’à la préparation et la transmission des devis. Les pages publiques gardent le décor d’affiche (feuilles déchirées, aplats, tickets) ; les écrans de travail en reprennent la palette et les titres en Anton sur des cartes claires plus sobres, pour rester lisibles. L’application mobile adopte la même palette : bandeau noir liséré de rouge avec le nom en Anton jaune, fond papier crème, titres en Anton surlignés de jaune, cartes claires à contour noir et ombre portée, boutons d’action rouges et icône de l’application aux mêmes couleurs ; les cibles tactiles de 48 px et les contrastes AA sont conservés. Les couleurs par défaut du site (boutons, liens, contours) suivent désormais cette palette ; la charte bleu nuit et turquoise ci-dessus reste la première proposition. Les écrans réalisés dans ce style sont rassemblés dans [maquettes-affiche.md](maquettes-affiche.md).
-
-| Rôle | Valeur | Usage |
-| --- | --- | --- |
-| Papier | #F4EFE4 | Fond de la page, étiquettes et boutons |
-| Rouge | #C8221A | Bandeau d’ouverture, astérisques, décor |
-| Bleu | #1D3FBF | Aplats « Nos univers » et sous la photo |
-| Jaune | #FFD836 | Surlignages et bandeau d’appel au devis |
-| Encre | #111111 | Titres et texte sur fond clair |
-
-Titres : police Anton (licence SIL OFL), servie par le site lui-même (`frontend/public/fonts/`, 18 Ko, licence jointe) ; aucun appel à un service de polices extérieur. Le texte courant reste en Inter ou en police du système.
-
-| Association | Rapport calculé |
-| --- | --- |
-| Blanc / #C8221A | 5.68:1 |
-| Encre / #C8221A | 3.33:1, réservé aux très grands titres (plus de 40 px) |
-| Blanc / #1D3FBF | 8.35:1 |
-| Encre / #FFD836 | 13.6:1 |
-| Encre / #F4EFE4 | 16.47:1 |
-| #C8221A / #F4EFE4 | 4.95:1 |
-
-Les trois photos d’ambiance (soirée dansante, séminaire, dîner de gala) sont réduites et converties en WebP (66 à 119 Ko) et chacune a un texte alternatif. Le ticket « Programme événement » est un décor masqué aux lecteurs d’écran. La page a été vérifiée à 1440 et 390 pixels de large, sans défilement horizontal, et le test des pages publiques passe.
+Les wireframes restent en niveaux de gris : ils fixent la structure, les contenus et les états de chaque écran, et la charte s’applique ensuite dans les maquettes.

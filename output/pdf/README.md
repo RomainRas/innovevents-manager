@@ -1,12 +1,12 @@
 # Exports visuels
 
-| Document | Contenu | Pages | Taille |
-| --- | --- | --- | --- |
-| [Dossier de conception](innov-events-conception.pdf) | Six wireframes, six maquettes, charte, deux enchaînements | 17 | 6,72 Mo |
-| [Annexe](innov-events-annexes-conception.pdf) | États, note, variantes web et menus | 18 | 7,59 Mo |
+| Document | Contenu | Pages |
+| --- | --- | --- |
+| [Dossier de conception](innov-events-conception.pdf) | Charte, maquette de l’accueil, six wireframes et six maquettes (trois web, trois mobile), deux enchaînements | 18 |
+| [Annexe](innov-events-annexes-conception.pdf) | Site sur téléphone (390 px), écrans du site par espace, application mobile, saisie de note | 46 |
 
-Versions de relecture. Les vues longues sont entières : sélectionner « Ajuster à la largeur » et faire défiler. Les pages sont de dimensions adaptées aux visuels, pas toutes au format A4. Les tracés restent nets au zoom ; chaque visuel comporte un lien vers Figma.
+Les vues longues sont entières : sélectionner « Ajuster à la largeur » et faire défiler. Chaque page a la hauteur de son visuel, pas le format A4.
 
-Ces fichiers présentent la conception, pas une application fonctionnelle ni le dossier ECF complet. Conserver la copie fournie pour le rendu et vérifier les contraintes de dépôt avant assemblage final. Ne pas remplacer les documents sources par ces exports.
+Ces fichiers présentent la conception, pas le dossier ECF complet.
 
-[Bilan de relecture, sources, contrôles et suite](../../docs/conception/relecture-et-exports.md).
+[Bilan de relecture, sources et contrôles](../../docs/conception/relecture-et-exports.md).

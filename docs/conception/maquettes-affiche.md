@@ -1,8 +1,8 @@
-# Maquettes actuelles : style affiche
+# Maquettes des écrans
 
-Après la première version (charte bleu nuit et turquoise, maquettes Figma et SVG dans `docs/maquettes/`), j’ai refait l’identité visuelle dans un style affiche : papier crème, aplats rouge #C8221A, bleu #1D3FBF et jaune #FFD836, encre #111, titres en Anton surlignés de jaune. J’ai d’abord dessiné la page d’accueil ([maquette](../maquettes/accueil-affiche.webp)), puis une maquette par écran, que j’ai intégrées une à une. L’application mobile suit la même palette.
+L’identité d’Innov’Events s’inspire de l’affiche de spectacle : papier crème, aplats rouge #C8221A, bleu #1D3FBF et jaune #FFD836, encre #111, titres en Anton surlignés de jaune. La page d’accueil a été dessinée en premier ([maquette](../maquettes/accueil-affiche.webp)), puis chaque écran du site et de l’application mobile dans le même style.
 
-Les images ci-dessous sont les écrans tels qu’ils sont réalisés, en largeur bureau (1440 px, réduites à 1200) pour le site et en téléphone émulé pour l’application mobile. Elles servent de référence visuelle à jour ; les maquettes Figma restent la première proposition, avec leurs wireframes, états et enchaînements, qui décrivent toujours les mêmes parcours et contenus. Les règles de couleurs, de police et d’accessibilité sont dans la [charte graphique](charte-graphique.md).
+Le site est présenté en largeur bureau (1440 pixels, images réduites à 1200) et l’application mobile en largeur téléphone. Les [wireframes](bilan-couverture-ecrans.md), états et [enchaînements](enchainement-ecrans.md) décrivent les parcours et contenus de ces écrans ; les règles de couleurs, de police et d’accessibilité sont dans la [charte graphique](charte-graphique.md).
 
 ## Site public (visiteur)
 

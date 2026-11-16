@@ -12,7 +12,7 @@ La page 16 demande trois wireframes et trois maquettes pour chacun des supports 
 Le présent bilan est documentaire : inventaire des fichiers et rapprochement avec le sujet. Il ne constitue ni une nouvelle revue visuelle de tous les écrans, ni un test de l’application.
 
 ## Représentations disponibles
-Les six wireframes et les six maquettes principales existent en première version. Les états complémentaires ne sont pas comptés comme de nouvelles maquettes principales. L’identité visuelle a ensuite évolué vers un style affiche, appliqué à tout le site et à l’application mobile : les écrans à jour sont rassemblés dans [maquettes-affiche.md](maquettes-affiche.md) ; les parcours, contenus et états décrits ici restent valables.
+Les six wireframes et les six maquettes principales existent. Les états complémentaires ne sont pas comptés comme de nouvelles maquettes principales. Les maquettes de tous les autres écrans du site et de l’application mobile sont rassemblées dans [maquettes-affiche.md](maquettes-affiche.md).
 
 | Ensemble | Preuve et état |
 | --- | --- |
@@ -22,10 +22,10 @@ Les six wireframes et les six maquettes principales existent en première versio
 | Mobile : événements à venir | [Maquette et wireframe associé](maquette-mobile-01-evenements-a-venir.md) |
 | Mobile : fiche événement | [Maquette, saisie de note et wireframe associé](maquette-mobile-02-fiche-evenement.md) ; [six états de note](etats-note-mobile.md) |
 | Mobile : fiche client | [Maquette et wireframe associé](maquette-mobile-03-fiche-client.md) |
-| Fondations graphiques | [Charte](charte-graphique.md) : première proposition bleu nuit, turquoise, corail et Inter, puis style affiche (crème, rouge, bleu, jaune, Anton) retenu pour le site et le mobile ; pas une identité officielle fournie |
+| Fondations graphiques | [Charte](charte-graphique.md) : style affiche (crème, rouge, bleu, jaune, encre, Anton) pour le site et le mobile ; pas une identité officielle fournie |
 | Navigation sélectionnée | [Enchaînements web et mobile](enchainement-ecrans.md), statiques ; pas encore un plan de toutes les pages |
 
-Figma conserve les sources modifiables ; les SVG sont sauvegardés dans docs/maquettes. Les anciennes mentions datées de « 5 sur 6 » décrivent des étapes antérieures : ce bilan donne l’état actuel. Aucune validation finale de l’ensemble n’est enregistrée.
+Les maquettes sont dans `docs/maquettes/affiche/`, les wireframes en SVG dans `docs/maquettes/wireframes/` (sources dans Figma).
 
 ## Couverture des fonctions et pages du projet
 « À concevoir » signifie qu’aucune représentation dédiée n’est recensée dans les livrables actuels. Une fonctionnalité décrite dans l’analyse n’est pas pour autant dessinée ou développée. Les regroupements ci-dessous sont une organisation proposée, pas un découpage de pages imposé.
@@ -81,11 +81,11 @@ Ce bilan est enregistré sur dev et référencé dans #5. Il sert de plan de tra
 
 Pour le rendu, utiliser la copie fournie conformément à la notice. Les exports lisibles seront intégrés au dossier ou joints selon les possibilités de dépôt. La notice prévoit la fusion en un PDF si plusieurs fichiers doivent être remis dans un seul espace. Les formats et tailles réellement acceptés doivent être vérifiés sur la plateforme ; ils ne sont pas établis ici.
 
-Les SVG et les deux PDF de relecture sont disponibles. Les diagrammes sont regroupés dans [diagrammes.md](diagrammes.md).
+Les deux PDF de conception sont disponibles ([relecture et exports](relecture-et-exports.md)). Les diagrammes sont regroupés dans [diagrammes.md](diagrammes.md).
 
 
 ## Mise à jour — Adaptation web
-Les trois variantes web à 390 pixels et trois menus dépliés sont désormais dessinés, relus et sauvegardés. Voir [adaptation web aux petits écrans](adaptation-web-petits-ecrans.md) pour les SVG, la présence des champs/actions, les contrôles de largeur et les limites. Cette réalisation met à jour le point 4 ci-dessus : la conception à 390 pixels est faite ; le fonctionnement sur navigateur, les autres largeurs et le clavier restent à tester après développement. L’ensemble des autres pages du projet n’est pas pour autant maquetté.
+Les trois écrans web principaux ont leur version à 390 pixels. Voir [adaptation web aux petits écrans](adaptation-web-petits-ecrans.md) pour la réorganisation et les contrôles de largeur. Les autres écrans du site sont présentés dans [maquettes-affiche.md](maquettes-affiche.md).
 
 ## Mise à jour — Relecture et exports
 

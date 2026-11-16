@@ -2,48 +2,24 @@
 
 Tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5).
 
-## Version actuelle (style affiche)
+<img src="../maquettes/affiche/mobile-02-evenements-a-venir.webp" alt="Maquette mobile : événements à venir" width="300">
 
-Cette maquette est la première version, dans la charte bleu nuit et turquoise. L’identité a ensuite évolué vers le style affiche (papier crème, rouge, bleu, jaune, titres en Anton) ; l’image ci-dessous montre l’écran tel qu’il est réalisé aujourd’hui. Les contenus, règles et états décrits plus bas restent valables. Tous les écrans actuels : [maquettes-affiche.md](maquettes-affiche.md).
-
-<img src="../maquettes/affiche/mobile-02-evenements-a-venir.webp" alt="Version actuelle" width="300">
-
-
-## Travail réalisé
-
-Première maquette détaillée mobile pour Chloé et José, à partir du wireframe de la liste des événements.
-
-- [Maquette Figma](https://www.figma.com/design/eAJJZyMSjoOff7mA1pNpCU?node-id=53-349).
-- [Export SVG](../maquettes/mobile-01-evenements-a-venir.svg).
 - [Wireframe et règles](wireframe-mobile-01-evenements-a-venir.md).
-- [Charte graphique](charte-graphique.md).
+- [Charte graphique](charte-graphique.md) et [toutes les maquettes](maquettes-affiche.md).
 
-Le cadre mesure 390 × 1304 pixels de contenu défilant. Il représente l’application mobile de l’équipe, pas une déclinaison responsive du site public.
+Écran d’ouverture de l’application mobile de Chloé et José. Il représente l’application de l’équipe, pas une déclinaison responsive du site public.
 
 ## Contenu et direction graphique
 
-Les exigences de l’énoncé page 14 restent conservées : liste claire des événements à venir à l’ouverture et accès à la fiche de chaque événement. Les liens CGU et CGV sont présents ; leurs contenus restent à réaliser.
+Les exigences de l’énoncé page 14 sont conservées : liste claire des événements à venir à l’ouverture et accès à la fiche de chaque événement. Les liens CGU et CGV sont accessibles depuis l’écran de connexion.
 
-La maquette applique l’en-tête bleu nuit, les cartes blanches sur fond clair, les boutons turquoise et Inter. Les actions font 48 pixels de haut. Les coordonnées entre crochets restent des repères, sans données réelles.
+- Bandeau noir liséré de rouge avec le nom en Anton jaune ; titre surligné de jaune.
+- Une carte par événement : bloc de date en couleur (rouge, bleu, noir en alternance), nom, client, horaires, lieu et statut.
+- Cartes claires à contour noir et ombre portée ; toute la carte est cliquable.
+- Actions de 48 pixels de haut au moins.
 
-Les trois cartes illustrent la répétition et ne limitent pas la liste à trois événements. Le tri du plus proche au plus lointain reste un choix de conception documenté.
+La liste n’est pas limitée en nombre ; elle est triée du plus proche au plus lointain.
 
-## États et limites
+## États
 
-Chargement, liste vide, erreur réseau et session expirée sont décrits dans le document du wireframe. Cette maquette présente uniquement l’état avec une liste disponible ; les variantes et interactions restent à compléter.
-
-Aucun fonctionnement hors connexion, accès effectif aux données ou test sur appareil n’est revendiqué. La déconnexion et les liens sont représentés, pas fonctionnels.
-
-## Vérifications
-
-- Contrôle visuel de l’écran complet : absence de chevauchement et de texte coupé constatée.
-- Structure éditable : 7 cadres, 20 textes et 6 instances ; aucune image d’interface aplatie.
-- Police vérifiée : Inter.
-- Boutons, couleurs et styles repris de la charte et du wireframe.
-- Export SVG préparé pour conservation.
-
-## Sauvegarde et suite
-
-Figma reste la source modifiable. SVG et explication sauvegardés sur dev ; exports de rendu à préparer selon les modalités du dépôt.
-
-Avancement : maquettes web 3/3, maquettes mobile 1/3, toutes en première version.
+Chargement, liste vide, erreur réseau, session expirée et consultation hors ligne sont décrits dans le document du wireframe.

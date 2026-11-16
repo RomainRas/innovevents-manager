@@ -1,17 +1,17 @@
 # Relecture et exports de conception
 
-## Résultat et état de la tâche
+## Résultat
 
-Les six wireframes, les six maquettes principales, la charte et les deux enchaînements sont regroupés dans un dossier PDF de relecture. Une annexe rassemble les états complémentaires et les variantes web à 390 pixels. Ces documents ne constituent pas le dossier ECF complet.
+La charte, la maquette de l’accueil, les six wireframes, les six maquettes principales et les deux enchaînements sont regroupés dans un dossier PDF. Une annexe rassemble les écrans du site sur téléphone, les autres écrans du site par espace et l’application mobile. Ces documents ne constituent pas le dossier ECF complet.
 
 ## Fichiers et utilisation
 
-- [Dossier visuel de conception](../../output/pdf/innov-events-conception.pdf) : 17 pages ; 6 715 387 octets. Six wireframes, six maquettes, charte et deux enchaînements, précédés d'une couverture et d'un index.
-- [Annexe — États et petits écrans](../../output/pdf/innov-events-annexes-conception.pdf) : 18 pages ; 7 593 173 octets. Seize planches : note, confirmations, erreurs, reprise, focus, adaptations web et menus.
-- [Mode d'emploi des exports](../../output/pdf/README.md).
-- [Figma modifiable](https://www.figma.com/design/eAJJZyMSjoOff7mA1pNpCU) et [sauvegardes SVG](../maquettes/).
+- [Dossier visuel de conception](../../output/pdf/innov-events-conception.pdf) : 18 pages ; 2 005 730 octets. Couverture, sommaire, charte, accueil, six wireframes, six maquettes et deux enchaînements.
+- [Annexe — petits écrans et autres écrans](../../output/pdf/innov-events-annexes-conception.pdf) : 46 pages ; 6 344 820 octets.
+- [Mode d’emploi des exports](../../output/pdf/README.md).
+- [Toutes les maquettes](maquettes-affiche.md), images dans `docs/maquettes/affiche/` ; wireframes en SVG dans `docs/maquettes/wireframes/`, sources dans [Figma](https://www.figma.com/design/eAJJZyMSjoOff7mA1pNpCU).
 
-Chaque visuel est entier sur une page de hauteur adaptée, avec un lien vers son cadre Figma. Utiliser le zoom ou l'affichage à la largeur pour les vues longues. Le texte et les tracés sont conservés depuis les PDF natifs Figma ; aucune capture d'écran aplatie ne remplace les maquettes.
+Chaque visuel est entier sur une page de hauteur adaptée. Utiliser le zoom ou l’affichage à la largeur pour les vues longues.
 
 ## Points rapprochés des consignes
 
@@ -30,11 +30,9 @@ Sources : [énoncé](../enonce/enonce-ecf-cda.pdf), [notice](../enonce/notice-ev
 
 ## Contrôles des exports
 
-- Les 35 pages des deux PDF ont été rendues et parcourues visuellement ; index, titres, cadres complets, marges et liens de source présents.
-- La première mise en page découpait les écrans : remplacée par une page complète par visuel pour conserver les champs avec leurs libellés et les flèches des parcours.
-- 15 visuels dans le principal et 16 dans l'annexe, sans retrait de partie d'un cadre.
-- Les 38 sauvegardes SVG sont lisibles par un analyseur XML ; aucun lien local manquant détecté dans les documents de conception lors du contrôle.
-- Contrôle documentaire et visuel uniquement : aucun test de navigation, de clavier, de calcul, d'envoi ou d'autorisation applicative revendiqué.
+- Couverture, sommaire, charte et premières pages de maquettes contrôlées visuellement ; visuels entiers, sans découpage.
+- Images des maquettes embarquées en JPEG pour garder des fichiers légers.
+- Aucun lien local manquant dans les documents de conception lors du contrôle.
 
 ## Rendu et suite
 

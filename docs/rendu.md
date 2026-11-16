@@ -10,8 +10,8 @@ Romain Rascle — titre professionnel Concepteur Développeur d’Applications.
 | Application mobile (PWA, production) | https://innovevents.rascleromain.fr/mobile/ |
 | Dépôt GitHub (branches `dev` et `main`) | https://github.com/RomainRas/innovevents-manager |
 | Kanban (GitHub Projects) | https://github.com/users/RomainRas/projects/3 |
-| Maquettes actuelles (style affiche, site et mobile) | [maquettes-affiche.md](conception/maquettes-affiche.md), images dans `docs/maquettes/affiche/` |
-| Premières maquettes Figma (exports SVG aussi dans `docs/maquettes/`) | https://www.figma.com/design/eAJJZyMSjoOff7mA1pNpCU |
+| Maquettes (site et mobile) | [maquettes-affiche.md](conception/maquettes-affiche.md), images dans `docs/maquettes/affiche/` |
+| Wireframes Figma (exports SVG dans `docs/maquettes/wireframes/`) | https://www.figma.com/design/eAJJZyMSjoOff7mA1pNpCU |
 
 ## Comptes de démonstration
 
@@ -32,7 +32,7 @@ Pour l’application mobile : ouvrir le lien sur un téléphone (ou avec l’ém
 | Exigence de l’énoncé | Document |
 | --- | --- |
 | Gestion de projet : kanban partagé | Lien ci-dessus ; historique des branches et commits sur GitHub |
-| Maquettes et wireframes (3 web, 3 mobile), charte graphique, enchaînement | [maquettes actuelles](conception/maquettes-affiche.md), `docs/maquettes/`, [charte](conception/charte-graphique.md), [enchaînement](conception/enchainement-ecrans.md), `docs/conception/maquette-*` et `wireframe-*` |
+| Maquettes et wireframes (3 web, 3 mobile), charte graphique, enchaînement | [maquettes](conception/maquettes-affiche.md), `docs/maquettes/`, [charte](conception/charte-graphique.md), [enchaînement](conception/enchainement-ecrans.md), `docs/conception/maquette-*` et `wireframe-*` |
 | Diagrammes de cas d’utilisation et de séquence | [diagrammes.md](conception/diagrammes.md) |
 | Architecture logicielle, rôle sécurité des couches, éco-conception | [diagrammes.md § 3](conception/diagrammes.md), [choix technologiques](conception/choix-technologiques.md) |
 | Script SQL écrit à la main, jeu de données, MCD | `database/mysql/001_schema.sql`, `002_demo.sql` (migrations `003` à `015`), [MCD](conception/mcd-relationnel.md), [MLD](conception/mld-mysql.md), [journaux MongoDB](conception/modele-journaux-mongodb.md) |
