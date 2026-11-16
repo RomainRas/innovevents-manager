@@ -40,25 +40,33 @@ async function save() {
 }
 </script>
 <template>
-  <main class="panel">
-    <h1>Remerciement des demandes de devis</h1>
-    <form v-if="auth.user?.role === 'administrateur'" @submit.prevent="save">
-      <label for="thanks">Message affiché après une demande</label
-      ><textarea id="thanks" v-model="message" required maxlength="2000" rows="6" :disabled="busy" />
-      <p>Le message est affiché comme du texte, sans mise en forme HTML.</p>
-      <button :disabled="busy">Enregistrer</button>
-    </form>
-    <p v-else>Accès réservé à l’administratrice.</p>
-    <p v-if="error" role="alert" class="error">{{ error }}</p>
-    <p v-if="saved" role="status">Message enregistré.</p>
+  <main class="work-page">
+    <RouterLink class="back-link" to="/espace"><span aria-hidden="true">←</span> Retour au tableau de bord</RouterLink>
+    <!-- Carte : message de remerciement modifiable par l'administratrice -->
+    <div class="work-card">
+      <h1 class="work-title">Remerciement des demandes de devis</h1>
+      <form v-if="auth.user?.role === 'administrateur'" @submit.prevent="save">
+        <label for="thanks">Message affiché après une demande</label
+        ><textarea
+          id="thanks"
+          v-model="message"
+          required
+          maxlength="2000"
+          rows="5"
+          :disabled="busy"
+          aria-describedby="thanks-hint"
+        />
+        <p id="thanks-hint" class="hint">Le message est affiché comme du texte, sans mise en forme HTML.</p>
+        <button :disabled="busy">Enregistrer</button>
+      </form>
+      <p v-else>Accès réservé à l’administratrice.</p>
+      <p v-if="error" role="alert" class="error">{{ error }}</p>
+      <p v-if="saved" role="status">Message enregistré.</p>
+    </div>
   </main>
 </template>
 <style scoped>
 textarea {
-  width: 100%;
-  padding: 12px;
-  font: inherit;
-  border: 1px solid #718391;
-  border-radius: 4px;
+  resize: vertical;
 }
 </style>
