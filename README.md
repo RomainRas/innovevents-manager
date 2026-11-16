@@ -12,6 +12,21 @@ Les identifiants des comptes de démonstration sont transmis avec le rendu ; ils
 
 Vue 3 + Vite (site et application mobile), PHP 8.4 natif avec PDO (API), MySQL 8.4 (données métier), MongoDB 8.0 (journal des actions), Caddy (HTTPS), Docker Compose, GitHub Actions (intégration et déploiement continus), VPS Ubuntu. [Choix et justification](docs/conception/choix-technologiques.md).
 
+## Structure du dépôt
+
+```text
+backend/     API PHP : point d’entrée public/, src/ (Http, Service, Repository, Security, Infrastructure), tests PHPUnit, images de démonstration
+frontend/    Site web Vue 3 : pages, composants, styles, police et images servies par le site
+mobile/      Application mobile PWA (Vue 3) : écrans, manifeste, service worker, icônes
+database/    Scripts SQL MySQL écrits à la main (schéma, données de démonstration, migrations) et MongoDB
+docker/      Images et configuration : PHP, Caddy, MySQL, MongoDB, application mobile
+scripts/     Démarrage local, création des comptes de base de données limités, sauvegarde, lanceur de tests
+tests/       Tests fonctionnels (HTTP) et de bout en bout (Playwright) par fonctionnalité
+docs/        Conception (exigences, diagrammes, données, charte, maquettes), fonctionnalités, déploiement, preuves
+output/pdf/  Dossier visuel de conception en PDF
+compose*.yaml  Environnements Docker : bases, application locale, couverture, production
+```
+
 ## Démarrage local
 
 ```powershell
@@ -39,9 +54,10 @@ Tests unitaires (PHPUnit), fonctionnels (HTTP) et de bout en bout (Playwright), 
 - [Analyse des exigences](docs/conception/analyse-exigences.md), [utilisateurs et droits](docs/conception/utilisateurs-et-droits.md)
 - [Diagrammes : cas d’utilisation, séquence, architecture](docs/conception/diagrammes.md)
 - [MCD](docs/conception/mcd-relationnel.md), [MLD MySQL](docs/conception/mld-mysql.md), [dictionnaire des données](docs/conception/dictionnaire-donnees.md), [journaux MongoDB](docs/conception/modele-journaux-mongodb.md)
-- [Maquettes de tous les écrans](docs/conception/maquettes-affiche.md) (site et application mobile, `docs/maquettes/affiche/`) ; l’identité visuelle a évolué en cours de projet, voir [pourquoi](docs/conception/charte-graphique.md#évolution-de-lidentité-visuelle)
-- [Charte graphique](docs/conception/charte-graphique.md), maquettes principales et wireframes (`docs/maquettes/`, `docs/conception/maquette-*`, `wireframe-*`), [enchaînement des écrans](docs/conception/enchainement-ecrans.md)
-- Scripts SQL écrits à la main : [création des tables](database/mysql/001_schema.sql), [jeu de données](database/mysql/002_demo.sql), migrations `database/mysql/003` à `015`
+- [Charte graphique](docs/conception/charte-graphique.md) ; l’identité visuelle a évolué en cours de projet, voir [pourquoi](docs/conception/charte-graphique.md#évolution-de-lidentité-visuelle)
+- [Maquettes de tous les écrans](docs/conception/maquettes-affiche.md) (site et application mobile), maquettes principales et wireframes (`docs/conception/maquette-*`, `wireframe-*`), [enchaînement des écrans](docs/conception/enchainement-ecrans.md)
+- Dossier visuel en PDF : [conception](output/pdf/innov-events-conception.pdf) (charte, wireframes, maquettes) et [annexe](output/pdf/innov-events-annexes-conception.pdf) (tous les écrans)
+- Scripts SQL écrits à la main : [création des tables](database/mysql/001_schema.sql), [jeu de données](database/mysql/002_demo.sql), migrations `database/mysql/003` à `017`
 
 **Fonctionnalités (règles, tests, limites)**
 - Comptes : [authentification et sessions](docs/authentification-sessions.md), [création de compte et mot de passe](docs/parcours-comptes.md)
