@@ -1,6 +1,7 @@
 <script setup>
 // Liste des demandes de devis (administratrice) : filtre par statut, recherche et pagination par curseur.
 import { onMounted, ref } from 'vue'
+import Icon from './Icon.vue'
 import { request } from './auth'
 
 const status = ref('a_contacter'),
@@ -10,6 +11,8 @@ const status = ref('a_contacter'),
   rows = ref([]),
   busy = ref(false),
   error = ref('')
+// Couleur de la pastille selon le statut de la demande.
+const tones = { a_contacter: '', echoue: 'red', converti: 'green' }
 const labels = { a_contacter: 'À contacter', echoue: 'Échoué', converti: 'Converti' }
 
 // Charge une page de résultats ; reset repart du début (nouveau filtre ou nouvelle recherche).
@@ -47,16 +50,19 @@ function more() {
 onMounted(() => load())
 </script>
 <template>
-  <main class="panel">
-    <h1>Demandes reçues</h1>
+  <main class="work-page">
+    <p><RouterLink class="back-link" to="/espace">← Retour à mon espace</RouterLink></p>
+    <h1 class="list-title">Demandes reçues</h1>
     <p>Retrouvez les prospects à contacter pour préciser leur besoin et vérifier la faisabilité du projet.</p>
     <!-- Filtre par statut et recherche -->
-    <form @submit.prevent="load(true)" class="filters">
-      <div>
+    <form @submit.prevent="load(true)" class="search-bar">
+      <div class="search-field">
         <label for="prospect-search">Entreprise, nom ou adresse électronique</label
-        ><input id="prospect-search" v-model="search" maxlength="200" type="search" :disabled="busy" />
+        ><input id="prospect-search" v-model="search" maxlength="200" type="search" :disabled="busy" /><Icon
+          name="search"
+        />
       </div>
-      <div>
+      <div class="status-field">
         <label for="prospect-status">Statut</label
         ><select id="prospect-status" v-model="status" :disabled="busy">
           <option value="a_contacter">À contacter</option>
@@ -71,13 +77,25 @@ onMounted(() => load())
     <p v-if="error" role="alert" class="error">{{ error }}</p>
     <p v-if="!busy && !error && !rows.length" role="status">Aucune demande ne correspond à ces critères.</p>
     <!-- Demandes reçues, les plus récentes en premier -->
-    <ul class="prospect-list">
+    <ul class="result-list">
       <li v-for="row in rows" :key="row.id">
-        <h2>
-          <RouterLink :to="'/prospects/' + row.id">{{ row.entreprise }}</RouterLink>
-        </h2>
-        <p>{{ row.prenom }} {{ row.nom }} — {{ labels[row.statut] }}</p>
-        <p>{{ row.type_evenement }} · Date souhaitée : {{ row.date_souhaitee.split('-').reverse().join('/') }}</p>
+        <span class="result-tile"><Icon name="building" /></span>
+        <div class="result-main">
+          <h2>
+            <RouterLink :to="'/prospects/' + row.id">{{ row.entreprise }}</RouterLink>
+          </h2>
+          <p class="result-meta">
+            {{ row.prenom }} {{ row.nom }}<span class="sr-only"> — {{ labels[row.statut] }}</span>
+          </p>
+        </div>
+        <div class="details">
+          <span class="status-pill" :class="tones[row.statut]" aria-hidden="true">{{ labels[row.statut] }}</span>
+          <p class="result-meta">
+            {{ row.type_evenement }} · Date souhaitée : {{ row.date_souhaitee.split('-').reverse().join('/') }}
+          </p>
+        </div>
+        <!-- Indication visuelle : toute la carte ouvre la fiche, via le lien du titre -->
+        <span class="open-link" aria-hidden="true">Ouvrir la demande <Icon name="arrow" /></span>
       </li>
     </ul>
     <!-- Page suivante -->
@@ -88,34 +106,14 @@ onMounted(() => load())
   </main>
 </template>
 <style scoped>
-.filters {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  align-items: end;
+.status-field {
+  flex: 0 1 260px !important;
 }
-.filters > div {
-  flex: 1;
-  min-width: 200px;
+.details {
+  flex: 1 1 260px;
 }
-select {
-  min-height: 48px;
-  width: 100%;
-  padding: 12px;
-  font: inherit;
-  border: 1px solid #718391;
-  border-radius: 4px;
-}
-.prospect-list {
-  list-style: none;
-  padding: 0;
-}
-.prospect-list li {
-  border-bottom: 1px solid #ccd5dc;
-  padding: 12px 0;
-}
-.prospect-list h2 {
-  font-size: 22px;
+.details .result-meta {
+  margin-top: 6px;
 }
 .pagination {
   display: flex;

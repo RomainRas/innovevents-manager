@@ -1,6 +1,7 @@
 <script setup>
 // Liste des clients (équipe) avec recherche ; l'administratrice peut aussi créer une fiche.
 import { nextTick, onMounted, ref } from 'vue'
+import Icon from './Icon.vue'
 import { useRoute, useRouter } from 'vue-router'
 import { auth, request } from './auth'
 import ClientForm from './ClientForm.vue'
@@ -51,9 +52,9 @@ async function load() {
 onMounted(load)
 </script>
 <template>
-  <main class="panel wide">
-    <p><RouterLink to="/espace">← Retour à mon espace</RouterLink></p>
-    <h1>Clients</h1>
+  <main class="work-page">
+    <p><RouterLink class="back-link" to="/espace">← Retour à mon espace</RouterLink></p>
+    <h1 class="list-title" style="--bar: #ffd836">Clients</h1>
     <p v-if="notice" class="success" role="status">{{ notice }}</p>
     <!-- Création d'une fiche (administratrice) -->
     <template v-if="auth.user?.role === 'administrateur'">
@@ -64,69 +65,79 @@ onMounted(load)
       </section>
     </template>
     <!-- Recherche -->
-    <form class="search" role="search" @submit.prevent="load">
-      <label for="clients-q">Rechercher un client (entreprise, contact, adresse, ville)</label>
-      <div class="row">
-        <input id="clients-q" v-model="q" type="search" maxlength="100" /><button type="submit">Rechercher</button>
+    <form class="search-bar" role="search" @submit.prevent="load">
+      <div class="search-field">
+        <label for="clients-q">Rechercher un client (entreprise, contact, adresse, ville)</label>
+        <input id="clients-q" v-model="q" type="search" maxlength="100" /><Icon name="search" />
       </div>
+      <button type="submit">Rechercher</button>
     </form>
     <p v-if="error" class="error" role="alert">{{ error }}</p>
     <p v-if="loading" role="status">Chargement…</p>
-    <p v-else role="status">
+    <p v-else role="status" class="count">
       {{ clients.length }} client{{ clients.length > 1 ? 's' : '' }}{{ searched ? ` pour « ${searched} »` : '' }}.
     </p>
     <!-- Liste des clients -->
-    <ul class="cards">
+    <ul class="result-list">
       <li v-for="c in clients" :key="c.id">
-        <h2>
-          <RouterLink :to="'/equipe/clients/' + c.id">{{ c.entreprise }}</RouterLink>
-        </h2>
-        <p class="meta">
-          {{ c.contact }}<template v-if="c.ville"> — {{ c.ville }}</template> — {{ c.evenements }} événement{{
-            c.evenements > 1 ? 's' : ''
-          }}
-        </p>
-        <p class="meta">
-          <a :href="'tel:' + c.telephone">{{ c.telephone }}</a> — <a :href="'mailto:' + c.email">{{ c.email }}</a>
-        </p>
+        <span class="result-tile yellow"><Icon name="building" /></span>
+        <div class="result-main">
+          <h2>
+            <RouterLink :to="'/equipe/clients/' + c.id">{{ c.entreprise }}</RouterLink>
+          </h2>
+          <p class="result-meta">
+            {{ c.contact }}<template v-if="c.ville"> — {{ c.ville }}</template> —
+            <span class="status-pill">{{ c.evenements }} événement{{ c.evenements > 1 ? 's' : '' }}</span>
+          </p>
+          <p class="result-meta contact">
+            <Icon name="phone" /><a :href="'tel:' + c.telephone">{{ c.telephone }}</a> — <Icon name="mail" /><a
+              :href="'mailto:' + c.email"
+              >{{ c.email }}</a
+            >
+          </p>
+        </div>
+        <!-- Indication visuelle : toute la carte ouvre la fiche, via le lien du titre -->
+        <span class="file-link" aria-hidden="true">Voir le dossier client <Icon name="arrow" /></span>
       </li>
     </ul>
   </main>
 </template>
 <style scoped>
-.row {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-.row input {
-  flex: 1 1 220px;
-}
-.cards {
-  list-style: none;
-  padding: 0;
-}
-.cards li {
-  border: 1px solid #cbd5e1;
-  border-radius: 8px;
-  padding: 16px;
-  margin: 12px 0;
-}
-h2 {
-  margin: 0 0 4px;
+.count {
+  font-weight: 700;
   font-size: 1.15rem;
-  overflow-wrap: anywhere;
 }
-.meta {
-  margin: 4px 0;
-  color: #4a5b68;
-  overflow-wrap: anywhere;
+.contact {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 8px;
+}
+.contact a {
+  color: #1d3fbf;
+}
+.file-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding-left: 24px;
+  border-left: 1px solid #d8cfbd;
+  color: #a51b14;
+  font-weight: 700;
+}
+.result-tile {
+  width: 72px;
+  height: 72px;
 }
 .box {
-  border: 1px solid #cbd5e1;
-  border-radius: 8px;
-  padding: 16px;
+  padding: 20px;
   margin: 16px 0;
+  background: #fbf8f1;
+  border: 1px solid #d8cfbd;
+  border-radius: 8px;
+}
+#client-new-button {
+  margin-bottom: 16px;
 }
 .success {
   color: #0b6b3a;

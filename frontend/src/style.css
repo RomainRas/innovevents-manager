@@ -115,3 +115,30 @@ footer > p { margin:40px 0 0; padding-top:20px; border-top:2px solid #F4EFE4; co
 .slash-title { display:flex; align-items:center; gap:18px; margin:44px 0 18px; font-family:Anton, Impact, 'Arial Narrow', sans-serif; font-weight:400; font-size:clamp(30px,4vw,44px); line-height:1.1; text-transform:uppercase; color:#111; }
 .slash-title::before { content:''; flex:none; width:13px; height:.8em; background:var(--accent, #C8221A); transform:skew(-18deg); }
 .slash-title.yellow { --accent:#FFD836; } .slash-title.blue { --accent:#1D3FBF; }
+/* Listes de l'équipe (demandes, clients, événements) : titre souligné, barre de recherche, cartes résultats. */
+.list-title { margin:8px 0 20px; font-family:Anton, Impact, 'Arial Narrow', sans-serif; font-weight:400; font-size:clamp(40px,5vw,60px); line-height:1.05; color:#111; }
+.list-title::after { content:''; display:block; width:90px; height:6px; margin-top:10px; border-radius:3px; background:var(--bar, #C8221A); }
+.search-bar { display:flex; flex-wrap:wrap; align-items:end; gap:12px 16px; margin:8px 0 24px; padding:18px 20px; background:#FBF8F1; border:1px solid #D8CFBD; border-radius:8px; }
+.search-bar > div { flex:1 1 220px; } .search-bar label { margin:0 0 6px; }
+.search-field { position:relative; } .search-field .icon { position:absolute; left:14px; bottom:12px; color:#4A4A4A; pointer-events:none; }
+.search-field input { padding-left:46px; }
+.search-bar button { background:#172033 !important; border-radius:6px; padding-inline:32px; }
+.search-bar button:hover { background:#000 !important; }
+.result-list { margin:0; padding:0; list-style:none; }
+.result-list > li { display:flex; flex-wrap:wrap; align-items:center; gap:14px 24px; margin:0 0 14px; padding:18px 22px; background:#FBF8F1; border:1px solid #D8CFBD; border-radius:10px; }
+.result-tile { flex:none; display:grid; place-items:center; width:56px; height:56px; border-radius:10px; background:#E3E9FA; color:#111; }
+.result-tile.yellow { background:#FFF1A8; } .result-tile.red { background:#FBE4E1; } .result-tile.green { background:#D9F0E1; } .result-tile.grey { background:#EFE8D8; }
+.result-tile .icon { width:28px; height:28px; }
+.result-main { flex:1 1 220px; min-width:0; padding-left:20px; border-left:1px solid #D8CFBD; }
+.result-main h2 { margin:0 0 4px; font-size:1.3rem; overflow-wrap:anywhere; }
+.result-main h2 a { color:#111; text-decoration:none; } .result-main h2 a:hover { text-decoration:underline; }
+.result-meta { margin:2px 0; color:#4A4A4A; overflow-wrap:anywhere; }
+.status-pill { display:inline-block; padding:3px 12px; border-radius:999px; font-size:.92rem; font-weight:600; background:#FFF1A8; color:#111; }
+.status-pill.blue { background:#DDE4FB; color:#142E8F; } .status-pill.green { background:#D9F0E1; color:#0B6B3A; } .status-pill.red { background:#FBE4E1; color:#8F1C13; } .status-pill.grey { background:#E5DCCB; color:#333; }
+.open-link { display:inline-flex; align-items:center; gap:10px; padding:10px 18px; border:2px solid #111; border-radius:6px; color:#111; font-weight:700; text-decoration:none; background:#FFFDF8; }
+.open-link:hover { background:#FFD836; }
+/* Carte entièrement cliquable : le lien du titre s'étend à toute la carte. */
+.result-list > li { position:relative; } .result-list > li:hover { border-color:#111; }
+.result-list h2 a::after { content:''; position:absolute; inset:0; border-radius:10px; }
+.result-list > li:focus-within { outline:3px solid #111; outline-offset:2px; }
+.result-list a:not(h2 a) { position:relative; z-index:1; }
