@@ -111,3 +111,7 @@ footer > p { margin:40px 0 0; padding-top:20px; border-top:2px solid #F4EFE4; co
 @media(max-width:700px) { .row-list, .empty-box { margin-left:0; } .block-head { gap:14px; } .block-icon { width:48px; height:48px; } }
 .sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
 .req { color:#C8221A; }
+/* Titres de section des espaces de l'équipe : majuscules Anton précédées d'un trait incliné coloré. */
+.slash-title { display:flex; align-items:center; gap:18px; margin:44px 0 18px; font-family:Anton, Impact, 'Arial Narrow', sans-serif; font-weight:400; font-size:clamp(30px,4vw,44px); line-height:1.1; text-transform:uppercase; color:#111; }
+.slash-title::before { content:''; flex:none; width:13px; height:.8em; background:var(--accent, #C8221A); transform:skew(-18deg); }
+.slash-title.yellow { --accent:#FFD836; } .slash-title.blue { --accent:#1D3FBF; }
