@@ -6,7 +6,7 @@
 
 L’énoncé p. 9 prévoit la génération du devis PDF, son téléchargement pour envoi manuel ou son envoi par la plateforme ; la journalisation de la génération est prévue p. 13. Cette livraison réalise **la génération et le téléchargement administrateur**, avec trace MongoDB. La transmission, le passage en étude côté client et la réponse du client restent à développer.
 
-1. Compléter le client et l’événement (nom, dates/heures, lieu, image avec description).
+1. Compléter le client et l’événement (nom, dates/heures, lieu, image avec description). L’écran de préparation nomme le client concerné et liste ce qui manque encore, avec un lien vers la fiche à compléter ; un refus de génération renvoie la même liste.
 2. Enregistrer les prestations et le taux de TVA depuis « Préparer les prestations et le devis ».
 3. Cliquer « Générer le PDF », puis « Télécharger le PDF ».
 4. Après modification d’une donnée du document, générer un nouveau fichier. Le téléchargement ne vaut pas envoi et ne modifie pas le statut commercial.

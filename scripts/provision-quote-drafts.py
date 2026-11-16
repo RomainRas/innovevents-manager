@@ -1,4 +1,4 @@
-"""Compte MySQL limité à la préparation des devis (événements, devis, versions, prestations).
+"""Compte MySQL limité à la préparation des devis (événements, devis, versions, prestations, lecture du client).
 Le mot de passe est généré une fois dans .secrets/ et n'est jamais affiché."""
 
 from pathlib import Path
@@ -16,6 +16,8 @@ if len(password) != 64 or any(c not in '0123456789abcdef' for c in password):
 q = "CREATE USER IF NOT EXISTS 'ecf_quote_drafts'@'%' IDENTIFIED BY '" + password + "';"
 for table in ['evenements', 'devis', 'versions_devis', 'prestations_devis']:
     q += f" GRANT SELECT ON innovevents_demo.{table} TO 'ecf_quote_drafts'@'%';"
+# Lecture de la fiche client (identité et coordonnées) pour afficher le client et ce qui manque avant le PDF.
+q += " GRANT SELECT (id,entreprise,contact_nom,contact_prenom,email,telephone) ON innovevents_demo.clients TO 'ecf_quote_drafts'@'%';"
 q += " GRANT INSERT (evenement_id,reference),UPDATE (version_courante_id) ON innovevents_demo.devis TO 'ecf_quote_drafts'@'%'; GRANT INSERT (devis_id,numero),UPDATE (revision_contenu,devise,taux_tva,regle_calcul,total_ht,total_tva,total_ttc) ON innovevents_demo.versions_devis TO 'ecf_quote_drafts'@'%'; GRANT INSERT (version_id,ordre,libelle,montant_ht),DELETE ON innovevents_demo.prestations_devis TO 'ecf_quote_drafts'@'%'; GRANT SELECT (version_id,etat),UPDATE (etat) ON innovevents_demo.documents_devis TO 'ecf_quote_drafts'@'%';"
 r = subprocess.run(
     [

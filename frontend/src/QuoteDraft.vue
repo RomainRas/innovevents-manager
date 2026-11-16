@@ -14,6 +14,8 @@ const route = useRoute(), loading = ref(true), busy = ref(false), uncertain = re
 const error = ref(''), errors = ref({}), notice = ref('')
 // Libellé du statut de l'événement, pour expliquer pourquoi aucun devis ne peut être préparé.
 const statusLabel = computed(() => eventStatuses[event.value?.statut] || event.value?.statut || '')
+// Client concerné et informations manquantes avant le PDF (renvoyés par l'API).
+const client = ref(null), missing = ref(null)
 const event = ref(null), revision = ref(0), editable = ref(true), reference = ref(''), rate = ref('')
 const lines = ref([{ libelle: '', montant_ht: '' }]), totals = ref(null)
 
@@ -28,6 +30,8 @@ async function load() {
   try {
     const d = await request('/api/admin/quote-draft?event_id=' + route.params.id)
     event.value = d.event
+    client.value = d.client
+    missing.value = d.manquants
     if (d.quote) {
       const q = d.quote
       revision.value = q.revision
@@ -101,7 +105,7 @@ async function save() {
 }
 </script>
 <template><main class="poster-page quote-poster"><span class="shape red torn-a deco-a" aria-hidden="true"></span><span class="shape yellow torn-b deco-b" aria-hidden="true"></span><span class="shape yellow torn-a deco-c" aria-hidden="true"></span><span class="shape blue torn-b deco-d" aria-hidden="true"></span><div class="paper sheet"><RouterLink class="back-link" :to="'/evenements/'+route.params.id">← Retour à l’événement</RouterLink><h1 class="poster-title yellow">Préparer le devis</h1><p v-if="loading" role="status">Chargement…</p><p v-if="error" id="quote-error" role="alert" tabindex="-1" class="error">{{ error }}</p><p v-if="notice" id="quote-result" role="status" tabindex="-1">{{ notice }}</p>
-<template v-if="event"><p class="quote-event">{{ event.nom }} <span v-if="reference" class="status-pill">{{ reference }}</span></p><p class="tva-info">Montants en euros. La TVA est calculée sur le total HT, puis arrondie au centime. Renseignez le taux applicable : aucun taux n’est présélectionné.</p><p v-if="!editable&&!reference" class="notice">Aucun devis n’a été préparé pour cet événement. Le devis se prépare tant que l’événement est en brouillon ; celui-ci est au statut « {{ statusLabel }} ».</p><p v-else-if="!editable">Ce devis n’est plus modifiable dans cet écran.</p>
+<template v-if="event"><p class="quote-event">{{ event.nom }} <span v-if="reference" class="status-pill">{{ reference }}</span></p><p v-if="client" class="quote-client">Client : <RouterLink :to="'/equipe/clients/'+client.id">{{ client.entreprise }}</RouterLink><span v-if="client.contact"> — contact : {{ client.contact }}</span></p><div v-if="editable&&missing&&(missing.evenement.length||missing.client.length)" class="missing" role="note"><p><strong>Avant de générer le PDF, il manque :</strong></p><ul><li v-if="missing.evenement.length">sur l’événement : {{ missing.evenement.join(', ') }} — <RouterLink :to="'/evenements/'+route.params.id">compléter l’événement</RouterLink></li><li v-if="missing.client.length">sur la fiche du client {{ client?.entreprise || '' }} : {{ missing.client.join(', ') }} — <RouterLink :to="'/equipe/clients/'+client?.id">compléter la fiche client</RouterLink></li></ul></div><p class="tva-info">Montants en euros. La TVA est calculée sur le total HT, puis arrondie au centime. Renseignez le taux applicable : aucun taux n’est présélectionné.</p><p v-if="!editable&&!reference" class="notice">Aucun devis n’a été préparé pour cet événement. Le devis se prépare tant que l’événement est en brouillon ; celui-ci est au statut « {{ statusLabel }} ».</p><p v-else-if="!editable">Ce devis n’est plus modifiable dans cet écran.</p>
 <form v-if="editable||reference" class="quote-form" @submit.prevent="save" novalidate :aria-busy="busy"><fieldset :disabled="busy||uncertain||pdfLocked||sendLocked||!editable"><legend>Prestations</legend><p v-if="errors.prestations" id="prestations" tabindex="-1" class="error">{{ errors.prestations }}</p>
 <div v-for="(line,i) in lines" :key="i" class="line"><label :for="'libelle-'+i">Prestation {{ i+1 }} — libellé</label><input :id="'libelle-'+i" v-model="line.libelle" maxlength="255" required :aria-invalid="!!errors['libelle-'+i]" :aria-describedby="errors['libelle-'+i]?'libelle-error-'+i:undefined" @input="changed"><p v-if="errors['libelle-'+i]" :id="'libelle-error-'+i" class="error">{{ errors['libelle-'+i] }}</p>
 <label :for="'montant-'+i">Montant HT {{ i+1 }} (€)</label><input :id="'montant-'+i" v-model="line.montant_ht" inputmode="decimal" required :aria-invalid="!!errors['montant-'+i]" :aria-describedby="errors['montant-'+i]?'montant-error-'+i:undefined" @input="changed"><p v-if="errors['montant-'+i]" :id="'montant-error-'+i" class="error">{{ errors['montant-'+i] }}</p><button type="button" class="remove" :disabled="lines.length===1" :aria-label="'Supprimer la prestation '+(i+1)" @click="lines.splice(i,1);changed()">Supprimer</button></div>
@@ -129,6 +133,32 @@ async function save() {
   width: fit-content;
   margin: 8px auto 24px;
   font-size: clamp(40px, 6vw, 68px);
+}
+.quote-client {
+  margin: 0 0 10px;
+  font-size: 1.1rem;
+}
+.quote-client a {
+  color: #1d3fbf;
+  font-weight: 700;
+}
+.missing {
+  margin: 0 0 18px;
+  padding: 12px 18px;
+  background: #fbe4e1;
+  border-left: 5px solid #c8221a;
+  border-radius: 4px;
+}
+.missing p,
+.missing ul {
+  margin: 0;
+}
+.missing li {
+  margin: 4px 0;
+}
+.missing a {
+  color: #8f1c13;
+  font-weight: 700;
 }
 .quote-event {
   margin: 0 0 6px;

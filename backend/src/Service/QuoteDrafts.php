@@ -72,17 +72,28 @@ final class QuoteDrafts
         $id = $this->id($input['event_id'] ?? null);
         $db = Connections::quoteDrafts();
 
-        $query = $db->prepare('SELECT id, nom, statut FROM evenements WHERE id = ?');
+        $query = $db->prepare('SELECT id, nom, statut, debut, fin, lieu, image_reference, image_alternative, client_id FROM evenements WHERE id = ?');
         $query->execute([$id]);
-        $event = $query->fetch();
-        if (!$event) {
+        $row = $query->fetch();
+        if (!$row) {
             throw new HttpError(404, 'event_not_found');
         }
+        // Client concerné par le devis : tout événement est rattaché à une fiche client.
+        $query = $db->prepare('SELECT id, entreprise, contact_prenom, contact_nom, email, telephone FROM clients WHERE id = ?');
+        $query->execute([$row['client_id']]);
+        $client = $query->fetch() ?: [];
+        $event = ['id' => $row['id'], 'nom' => $row['nom'], 'statut' => $row['statut']];
 
         $version = $this->current($db, $id);
 
         return [
-            'event' => $event,
+            'event'     => $event,
+            'client'    => $client ? [
+                'id'         => (int) $client['id'],
+                'entreprise' => $client['entreprise'],
+                'contact'    => trim(($client['contact_prenom'] ?? '') . ' ' . ($client['contact_nom'] ?? '')),
+            ] : null,
+            'manquants' => QuotePdfs::missing($row, $client),
             'quote' => $version ? [
                 'reference'   => $version['reference'],
                 'revision'    => (int) $version['revision_contenu'],

@@ -16,7 +16,7 @@ La sauvegarde utilise les tables existantes `devis`, `versions_devis` et `presta
 
 Les documents déjà disponibles de la version sont marqués obsolètes à la modification du contenu. Cette anticipation est codée ; la génération PDF et son invalidation de bout en bout restent à tester avec le prochain bloc. Aucun devis figé ou transmis n’est modifié par ce formulaire.
 
-Le compte SQL dédié lit les données nécessaires, crée le dossier/version, remplace les prestations et met à jour les colonnes de calcul. Il ne peut pas changer les statuts commerciaux, figer les coordonnées, modifier un client ou lire les utilisateurs. Les droits restent un complément aux règles applicatives : ce compte peut supprimer des lignes de prestations, le contrôle de la version modifiable reste donc indispensable dans le service.
+Le compte SQL dédié lit les données nécessaires (dont l’identité et les coordonnées de la fiche client, en lecture seule, pour afficher le client concerné et ce qui manque avant le PDF), crée le dossier/version, remplace les prestations et met à jour les colonnes de calcul. Il ne peut pas changer les statuts commerciaux, figer les coordonnées, modifier un client ou lire les utilisateurs. Les droits restent un complément aux règles applicatives : ce compte peut supprimer des lignes de prestations, le contrôle de la version modifiable reste donc indispensable dans le service.
 
 ## Résultats exécutés
 

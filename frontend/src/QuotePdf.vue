@@ -43,8 +43,17 @@ async function generate() {
     document.getElementById('pdf-result')?.focus()
   } catch (e) {
     if (e.status === 422) {
-      error.value =
-        'Complétez les coordonnées du client, le nom, le lieu, les dates et l’image de l’événement, puis enregistrez les prestations et le taux de TVA.'
+      // Détail renvoyé par l'API : ce qui manque sur l'événement et sur la fiche client.
+      const m = e.fields?.manquants
+      const parts = m
+        ? [
+            m.evenement?.length && 'sur l’événement : ' + m.evenement.join(', '),
+            m.client?.length && 'sur la fiche client : ' + m.client.join(', '),
+          ].filter(Boolean)
+        : []
+      error.value = parts.length
+        ? 'Le PDF ne peut pas encore être généré. Il manque ' + parts.join(' ; ') + '.'
+        : 'Enregistrez les prestations et le taux de TVA avant de générer le PDF.'
       uncertain.value = false
     } else if (e.status === 409) {
       error.value = 'Le devis a changé ou ne peut plus être généré. Rechargez la fiche.'

@@ -27,6 +27,39 @@ final class QuotePdfs
     }
 
     /**
+     * Informations encore manquantes pour produire le PDF, en libellés lisibles :
+     * côté événement (nom, dates, lieu, image) et côté fiche client (entreprise, contact, coordonnées).
+     *
+     * @return array{evenement: string[], client: string[]}
+     */
+    public static function missing(array $event, array $client): array
+    {
+        $blank = static fn($v) => !is_string($v) || trim($v) === '';
+        $event_missing = [];
+        if ($blank($event['nom'] ?? null)) {
+            $event_missing[] = 'le nom de l’événement';
+        }
+        if ($blank($event['debut'] ?? null) || $blank($event['fin'] ?? null)) {
+            $event_missing[] = 'les dates de début et de fin';
+        } elseif ($event['fin'] <= $event['debut']) {
+            $event_missing[] = 'une date de fin postérieure au début';
+        }
+        if ($blank($event['lieu'] ?? null)) {
+            $event_missing[] = 'le lieu';
+        }
+        if ($blank($event['image_reference'] ?? null) || $blank($event['image_alternative'] ?? null)) {
+            $event_missing[] = 'l’image de l’événement et sa description';
+        }
+        $client_missing = [];
+        foreach (['entreprise' => 'le nom de l’entreprise', 'contact_prenom' => 'le prénom du contact', 'contact_nom' => 'le nom du contact', 'email' => 'l’adresse électronique', 'telephone' => 'le téléphone'] as $key => $label) {
+            if ($blank($client[$key] ?? null)) {
+                $client_missing[] = $label;
+            }
+        }
+        return ['evenement' => $event_missing, 'client' => $client_missing];
+    }
+
+    /**
      * Rassemble et vérifie tout ce qui entre dans le PDF : événement, client, devis et prestations.
      * Les lignes sont lues « FOR SHARE » : personne ne peut les modifier pendant la génération.
      * Attention : l'ordre des colonnes sélectionnées entre dans l'empreinte source ; ne pas le modifier.
@@ -56,18 +89,16 @@ final class QuotePdfs
             throw new HttpError(409, 'quote_not_editable');
         }
 
-        foreach (['nom', 'debut', 'fin', 'lieu', 'image_reference', 'image_alternative'] as $key) {
-            if (!is_string($event[$key]) || trim($event[$key]) === '') {
-                throw new HttpError(422, 'event_incomplete');
-            }
+        // Tout ce qui manque est renvoyé d'un coup, pour que l'écran l'indique précisément.
+        $missing = self::missing($event, $client ?: []);
+        if ($missing['evenement']) {
+            throw new HttpError(422, 'event_incomplete', ['manquants' => $missing]);
         }
-        if ($event['fuseau'] !== 'Europe/Paris' || $event['fin'] <= $event['debut']) {
+        if ($event['fuseau'] !== 'Europe/Paris') {
             throw new HttpError(422, 'event_incomplete');
         }
-        foreach (['entreprise', 'contact_nom', 'contact_prenom', 'email', 'telephone'] as $key) {
-            if (!is_string($client[$key]) || trim($client[$key]) === '') {
-                throw new HttpError(422, 'client_incomplete');
-            }
+        if ($missing['client']) {
+            throw new HttpError(422, 'client_incomplete', ['manquants' => $missing]);
         }
 
         $query = $db->prepare('SELECT libelle,montant_ht FROM prestations_devis WHERE version_id=? ORDER BY ordre');
