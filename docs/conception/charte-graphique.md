@@ -106,9 +106,9 @@ Première maquette web Demande de devis réalisée en v1. Il restera à formalis
 
 À la suite des échanges sur l’identité de l’agence, l’accent corail #F3A48B apporte une touche chaleureuse aux pages publiques. Il complète le bleu nuit et le turquoise ; il ne remplace pas la couleur d’action principale. Sur fond corail, utiliser le texte bleu nuit, sans blanc. L’accent est ajouté aux variables Figma et à la planche. La première maquette de demande de devis applique ces règles sans image d’ambiance ; les images restent à préparer pour les écrans où elles servent le contenu.
 
-## Page d’accueil : version affiche
+## Version affiche (site web)
 
-Pour donner plus de caractère à la vitrine, j’ai réalisé une maquette de la page d’accueil dans un style affiche : papier crème, aplats rouge, bleu et jaune, photos inclinées, titres condensés en majuscules ([maquette](../maquettes/accueil-affiche.webp)). Ce style reste propre à l’accueil ; les autres pages, l’espace client, l’espace équipe et l’application mobile gardent la charte bleu nuit et turquoise.
+Pour donner plus de caractère à la vitrine, j’ai réalisé une maquette de la page d’accueil dans un style affiche : papier crème, aplats rouge, bleu et jaune, photos inclinées, titres condensés en majuscules ([maquette](../maquettes/accueil-affiche.webp)). J’ai ensuite décliné ce style sur tout le site web à partir d’une maquette par écran : en-tête et pied de page, pages publiques, inscription et connexion, espace client, espaces de l’équipe et de l’administration, jusqu’à la préparation et la transmission des devis. Les pages publiques gardent le décor d’affiche (feuilles déchirées, aplats, tickets) ; les écrans de travail en reprennent la palette et les titres en Anton sur des cartes claires plus sobres, pour rester lisibles. L’application mobile garde la charte bleu nuit et turquoise. Les couleurs par défaut du site (boutons, liens, contours) suivent désormais cette palette ; la charte bleu nuit et turquoise ci-dessus reste la première proposition.
 
 | Rôle | Valeur | Usage |
 | --- | --- | --- |
