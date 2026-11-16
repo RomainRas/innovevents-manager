@@ -2,6 +2,7 @@
 // Conversion d'une demande de devis en fiche client (administratrice) : coordonnées reprises de la demande,
 // modifiables, puis confirmation explicite.
 import { nextTick, onMounted, reactive, ref } from 'vue'
+import Icon from './Icon.vue'
 import { useRoute } from 'vue-router'
 import { auth, request, refresh } from './auth'
 
@@ -97,9 +98,9 @@ async function submit() {
 }
 </script>
 <template>
-  <main class="panel narrow">
-    <RouterLink :to="'/prospects/' + route.params.id">Retour au prospect</RouterLink>
-    <h1>Convertir en client</h1>
+  <main class="work-page conversion">
+    <RouterLink class="back-link" :to="'/prospects/' + route.params.id">← Retour au prospect</RouterLink>
+    <h1 class="list-title" style="--bar: #ffd836">Convertir en client</h1>
     <p v-if="loading" role="status">Chargement des coordonnées…</p>
     <p v-if="error" id="conversion-error" role="alert" tabindex="-1" class="error">{{ error }}</p>
     <!-- Conversion faite : lien vers la fiche client et suite du parcours -->
@@ -110,8 +111,8 @@ async function submit() {
     <!-- Coordonnées reprises de la demande, modifiables avant confirmation -->
     <form v-if="canConvert" @submit.prevent="submit" novalidate :aria-busy="busy">
       <p>
-        Les coordonnées du prospect sont reprises ci-dessous. Vérifiez-les et corrigez-les si nécessaire. Tous les
-        champs sont obligatoires.
+        Les coordonnées du prospect sont reprises ci-dessous. Vérifiez-les et corrigez-les si nécessaire.
+        <strong>Tous les champs sont obligatoires.</strong>
       </p>
       <div v-for="[id, label, autocomplete, max] in fields" :key="id">
         <label :for="id">{{ label }}</label
@@ -131,23 +132,49 @@ async function submit() {
       <label class="confirm"
         ><input type="checkbox" v-model="confirmed" :disabled="busy || uncertain" />Je confirme la création de cette
         fiche client.</label
-      ><button :disabled="busy || !confirmed">
-        {{ busy ? 'Conversion…' : uncertain ? 'Vérifier et réessayer' : 'Créer la fiche client' }}
+      ><button class="create" :disabled="busy || !confirmed">
+        <Icon name="users" />{{ busy ? 'Conversion…' : uncertain ? 'Vérifier et réessayer' : 'Créer la fiche client' }}
       </button>
     </form>
   </main>
 </template>
 <style scoped>
+/* Conversion : formulaire en une colonne, case de confirmation, bouton rouge à pictogramme. */
+.conversion form {
+  max-width: 1100px;
+}
+.conversion form > p {
+  font-size: 1.1rem;
+}
+.conversion label {
+  font-size: 1.1rem;
+}
 .confirm {
   display: flex;
   gap: 12px;
   align-items: center;
-  font-weight: 400;
+  margin: 28px 0 20px !important;
+  font-weight: 400 !important;
 }
 .confirm input {
-  width: 22px;
-  min-height: 22px;
+  width: 24px;
+  min-height: 24px;
   flex-shrink: 0;
+}
+.create {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.2rem !important;
+}
+#conversion-success {
+  padding: 18px 22px;
+  background: #d9f0e1;
+  border-left: 6px solid #0b6b3a;
+  border-radius: 6px;
+}
+#conversion-success h2 {
+  margin-top: 0;
 }
 [aria-invalid='true'] {
   border: 2px solid #b42318;

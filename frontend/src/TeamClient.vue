@@ -1,9 +1,13 @@
 <script setup>
 // Fiche client (équipe) : coordonnées et événements du client. L'administratrice peut la modifier ou la supprimer.
 import { nextTick, onMounted, ref } from 'vue'
+import Icon from './Icon.vue'
 import { useRoute, useRouter } from 'vue-router'
 import { auth, request } from './auth'
 import { eventStatuses, localDate } from './teamFormat'
+
+// Couleur de la pastille de statut des événements.
+const tones = { brouillon: 'grey', accepte: 'green', en_cours: 'blue', termine: 'yellow', annule: 'red' }
 import ClientForm from './ClientForm.vue'
 
 const route = useRoute(),
@@ -103,12 +107,18 @@ async function remove() {
 }
 </script>
 <template>
-  <main class="panel wide">
-    <p><RouterLink to="/equipe/clients">← Tous les clients</RouterLink></p>
+  <main class="work-page">
+    <p><RouterLink class="back-link" to="/equipe/clients">← Tous les clients</RouterLink></p>
     <p v-if="loading" role="status">Chargement…</p>
     <p v-if="error" class="error" role="alert">{{ error }}</p>
     <template v-if="data">
-      <h1>{{ data.client.entreprise }}</h1>
+      <div class="client-head">
+        <span class="result-tile yellow" aria-hidden="true"><Icon name="building" /></span>
+        <div>
+          <h1>{{ data.client.entreprise }}</h1>
+          <span class="status-pill">{{ data.client.compte ? 'Espace client ouvert' : 'Pas d’espace client' }}</span>
+        </div>
+      </div>
       <p v-if="notice" id="client-notice" class="success" role="status" tabindex="-1">{{ notice }}</p>
       <p v-if="actionError" id="client-action-error" class="error" role="alert" tabindex="-1">{{ actionError }}</p>
       <!-- Modification de la fiche (administratrice) -->
@@ -126,41 +136,55 @@ async function remove() {
         <!-- Coordonnées du client -->
         <dl class="facts">
           <div>
+            <span class="fact-icon"><Icon name="user" /></span>
             <dt>Contact</dt>
             <dd>{{ data.client.contact }}</dd>
           </div>
           <div>
+            <span class="fact-icon"><Icon name="phone" /></span>
             <dt>Téléphone</dt>
             <dd>
               <a :href="'tel:' + data.client.telephone">{{ data.client.telephone }}</a>
             </dd>
           </div>
           <div>
+            <span class="fact-icon"><Icon name="mail" /></span>
             <dt>Adresse électronique</dt>
             <dd>
               <a :href="'mailto:' + data.client.email">{{ data.client.email }}</a>
             </dd>
           </div>
           <div v-if="data.client.adresse.length">
+            <span class="fact-icon"><Icon name="pin" /></span>
             <dt>Adresse</dt>
             <dd>
               <span v-for="(l, i) in data.client.adresse" :key="i">{{ l }}<br /></span>
             </dd>
           </div>
           <div>
+            <span class="fact-icon"><Icon name="users" /></span>
             <dt>Espace client</dt>
             <dd>{{ data.client.compte ? 'Compte ouvert' : 'Pas de compte' }}</dd>
           </div>
         </dl>
         <!-- Actions de l'administratrice : modifier, supprimer (avec confirmation) -->
         <div v-if="admin()" class="actions" role="group" aria-label="Gestion de la fiche client">
-          <button id="client-edit-button" type="button" class="secondary" @click="startEdit">Modifier la fiche</button>
+          <button id="client-edit-button" type="button" class="secondary edit" @click="startEdit">
+            <Icon name="pen" />Modifier la fiche
+          </button>
           <RouterLink
             class="button-link"
             :to="{ path: '/equipe/evenements/nouveau', query: { client: data.client.id } }"
             >Nouvel événement pour ce client</RouterLink
           >
-          <button v-if="!confirmDelete" id="client-delete-button" type="button" class="secondary" @click="askDelete">
+          <button
+            v-if="!confirmDelete"
+            id="client-delete-button"
+            type="button"
+            class="secondary delete"
+            @click="askDelete"
+          >
+            <Icon name="trash" />
             Supprimer la fiche…
           </button>
         </div>
@@ -185,7 +209,7 @@ async function remove() {
         </div>
       </template>
       <!-- Événements du client -->
-      <h2>Historique des événements</h2>
+      <h2 class="history-title"><Icon name="calendar" />Historique des événements</h2>
       <p v-if="!data.evenements.length">Aucun événement pour ce client.</p>
       <table v-else>
         <caption class="sr-only">
@@ -206,7 +230,9 @@ async function remove() {
             </td>
             <td>{{ localDate(e.debut, false) }}</td>
             <td>{{ e.lieu || '—' }}</td>
-            <td>{{ eventStatuses[e.statut] || e.statut }}</td>
+            <td>
+              <span class="status-pill" :class="tones[e.statut]">{{ eventStatuses[e.statut] || e.statut }}</span>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -214,36 +240,148 @@ async function remove() {
   </main>
 </template>
 <style scoped>
+/* Fiche client : en-tête à pavé, coordonnées en cartes à pictogramme, actions, historique en tableau. */
+.client-head {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin: 8px 0 24px;
+}
+.client-head .result-tile {
+  width: 84px;
+  height: 84px;
+  border-radius: 12px;
+}
+.client-head .result-tile :deep(.icon) {
+  width: 44px;
+  height: 44px;
+}
+h1 {
+  margin: 0 0 6px;
+  font-family: Anton, Impact, 'Arial Narrow', sans-serif;
+  font-weight: 400;
+  font-size: clamp(36px, 5vw, 56px);
+  line-height: 1.05;
+  color: #111;
+  overflow-wrap: anywhere;
+}
 .facts {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 12px;
-  margin: 16px 0;
+  gap: 14px;
+  margin: 0 0 20px;
 }
 .facts div {
-  background: #eef3f6;
-  border-radius: 6px;
-  padding: 12px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 2px 14px;
+  align-items: start;
+  padding: 16px 18px;
+  background: #fbf8f1;
+  border: 1px solid #d8cfbd;
+  border-radius: 8px;
+}
+.fact-icon {
+  grid-row: span 2;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #efe8d8;
+}
+.fact-icon :deep(.icon) {
+  width: 22px;
+  height: 22px;
 }
 dt {
-  font-size: 0.9rem;
-  color: #2f4250;
+  font-size: 0.92rem;
+  color: #4a4a4a;
 }
 dd {
-  margin: 4px 0 0;
-  font-weight: 600;
+  margin: 0;
+  font-weight: 700;
   overflow-wrap: anywhere;
+}
+dd a {
+  color: #1d3fbf;
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #d8cfbd;
+}
+.actions > * {
+  flex: 1 1 220px;
+  justify-content: center;
+}
+.actions button,
+.button-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-weight: 700;
+}
+.edit {
+  color: white !important;
+  background: #172033 !important;
+  border: 0 !important;
+}
+.button-link {
+  color: #fff;
+  background: #c8221a;
+  text-decoration: none;
+}
+.button-link:hover {
+  background: #a51b14;
+}
+.delete {
+  color: #c8221a !important;
+  border: 2px solid #c8221a !important;
+  background: #fffdf8 !important;
+}
+.history-title {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 28px 0 14px;
+  font-family: Anton, Impact, 'Arial Narrow', sans-serif;
+  font-weight: 400;
+  font-size: 2rem;
+  color: #111;
+}
+.history-title :deep(.icon) {
+  width: 34px;
+  height: 34px;
+  color: #d4a600;
 }
 table {
   width: 100%;
   border-collapse: collapse;
+  background: #fbf8f1;
+  border: 1px solid #d8cfbd;
+  border-radius: 8px;
+  overflow: hidden;
 }
 th,
 td {
   text-align: left;
-  padding: 8px 6px;
-  border-bottom: 1px solid #e2e8f0;
+  padding: 12px 16px;
+  border-bottom: 1px solid #e5dccb;
   overflow-wrap: anywhere;
+}
+th {
+  background: #efe8d8;
+}
+td a {
+  color: #111;
+  font-weight: 700;
 }
 @media (max-width: 600px) {
   thead {
@@ -251,13 +389,13 @@ td {
   }
   tr {
     display: block;
-    border-bottom: 1px solid #cbd5e1;
+    border-bottom: 1px solid #d8cfbd;
     padding: 8px 0;
   }
   td {
     display: block;
     border: 0;
-    padding: 2px 0;
+    padding: 2px 12px;
   }
 }
 .sr-only {
@@ -268,46 +406,22 @@ td {
   clip: rect(0 0 0 0);
   white-space: nowrap;
 }
-.actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  align-items: center;
-}
-.button-link {
-  display: inline-flex;
-  align-items: center;
-  min-height: 48px;
-  padding: 12px 20px;
-  border-radius: 4px;
-  background: #087f8c;
-  color: #fff;
-  text-decoration: none;
-}
-.button-link:hover {
-  background: #06616b;
-}
 .box {
-  border: 1px solid #cbd5e1;
-  border-radius: 8px;
-  padding: 16px;
+  padding: 20px;
   margin: 16px 0;
+  background: #fbf8f1;
+  border: 1px solid #d8cfbd;
+  border-radius: 8px;
 }
 .dialog {
+  margin-top: 12px;
+  padding: 16px;
   border: 2px solid #b42318;
   border-radius: 8px;
-  padding: 16px;
-  margin-top: 16px;
-}
-.dialog h2 {
-  margin-top: 0;
-  font-size: 1.15rem;
+  background: #fbe4e1;
 }
 .danger-button {
-  background: #b42318;
-}
-.danger-button:hover {
-  background: #8f1c13;
+  background: #b42318 !important;
 }
 .success {
   color: #0b6b3a;
