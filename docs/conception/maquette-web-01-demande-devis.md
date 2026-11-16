@@ -2,6 +2,15 @@
 
 Tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5).
 
+## Version actuelle (style affiche)
+
+Cette maquette est la première version, dans la charte bleu nuit et turquoise. L’identité a ensuite évolué vers le style affiche (papier crème, rouge, bleu, jaune, titres en Anton) ; l’image ci-dessous montre l’écran tel qu’il est réalisé aujourd’hui. Les contenus, règles et états décrits plus bas restent valables. Tous les écrans actuels : [maquettes-affiche.md](maquettes-affiche.md).
+
+<img src="../maquettes/affiche/web-05-visiteur-demande-de-devis.webp" alt="Version actuelle, bureau" width="900">
+
+<img src="../maquettes/affiche/web-05-visiteur-demande-de-devis-petit-ecran.webp" alt="Version actuelle, petit écran" width="300">
+
+
 ## Travail réalisé
 
 Première maquette détaillée de l’interface publique de demande de devis, construite à partir du wireframe existant.

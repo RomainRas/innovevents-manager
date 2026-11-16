@@ -2,7 +2,7 @@
 Tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5).
 
 ## Travail réalisé
-Trois variantes à 390 pixels de large adaptent les maquettes web existantes. Elles représentent le site web consulté sur téléphone ; elles sont distinctes des trois écrans de l’application mobile destinée à Chloé et José.
+Trois variantes à 390 pixels de large adaptent les maquettes web existantes. Les versions actuelles en style affiche, capturées à 390 pixels, sont dans [maquettes-affiche.md](maquettes-affiche.md#petits-écrans). Elles représentent le site web consulté sur téléphone ; elles sont distinctes des trois écrans de l’application mobile destinée à Chloé et José.
 
 Les menus communs et les rubriques propres aux rôles disposent de trois états dépliés. Les maquettes restent statiques : les boutons Menu et Rubriques ne sont pas câblés dans un prototype interactif.
 

@@ -2,6 +2,13 @@
 
 Tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5).
 
+## Version actuelle (style affiche)
+
+Cette maquette est la première version, dans la charte bleu nuit et turquoise. L’identité a ensuite évolué vers le style affiche (papier crème, rouge, bleu, jaune, titres en Anton) ; l’image ci-dessous montre l’écran tel qu’il est réalisé aujourd’hui. Les contenus, règles et états décrits plus bas restent valables. Tous les écrans actuels : [maquettes-affiche.md](maquettes-affiche.md).
+
+<img src="../maquettes/affiche/mobile-04-fiche-client.webp" alt="Version actuelle" width="300">
+
+
 ## Travail réalisé et fichiers
 
 Troisième maquette détaillée mobile pour Chloé et José : consultation des coordonnées et accès aux applications de contact depuis la fiche événement.

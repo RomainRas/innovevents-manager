@@ -50,6 +50,7 @@ Les images ci-dessous sont les écrans tels qu’ils sont réalisés, en largeur
 | --- | --- |
 | Espace client (devis, avis) | [web-38](../maquettes/affiche/web-38-alice-espace-client.webp) |
 | Mes informations | [web-39](../maquettes/affiche/web-39-alice-mes-informations.webp) |
+| Devis transmis et réponses (accepter, modifier, refuser), client de test | [web-40](../maquettes/affiche/web-40-client-consultation-devis.webp) |
 
 ## Application mobile (équipe)
 
@@ -59,6 +60,16 @@ Les images ci-dessous sont les écrans tels qu’ils sont réalisés, en largeur
 | Événements à venir | [mobile-02](../maquettes/affiche/mobile-02-evenements-a-venir.webp) |
 | Fiche événement et notes | [mobile-03](../maquettes/affiche/mobile-03-fiche-evenement.webp) |
 | Fiche client (appeler, écrire, itinéraire) | [mobile-04](../maquettes/affiche/mobile-04-fiche-client.webp) |
+
+## Petits écrans
+
+Le site s’adapte au téléphone (390 pixels de large) ; les trois écrans web principaux :
+
+| Écran | Image |
+| --- | --- |
+| Demande de devis | [web-05 petit écran](../maquettes/affiche/web-05-visiteur-demande-de-devis-petit-ecran.webp) |
+| Préparation du devis | [web-26 petit écran](../maquettes/affiche/web-26-chloe-preparation-devis-petit-ecran.webp) |
+| Consultation des devis par le client | [web-40 petit écran](../maquettes/affiche/web-40-client-consultation-devis-petit-ecran.webp) |
 
 ## Aperçu
 
