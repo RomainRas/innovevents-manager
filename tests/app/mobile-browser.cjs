@@ -123,7 +123,15 @@ const sql = q =>
     await context.setOffline(true)
     await page.reload()
     await page.getByText('Hors ligne : dernières informations enregistrées sur ce téléphone.').waitFor()
-    results.offline_list = (await page.locator('.event-card').count()) > 3
+    // Le bandeau peut s'afficher avant la liste lue dans le cache du téléphone : on attend les cartes.
+    results.offline_list = await page
+      .locator('.event-card')
+      .first()
+      .waitFor({ timeout: 10000 })
+      .then(
+        async () => (await page.locator('.event-card').count()) > 3,
+        () => false,
+      )
     await page.screenshot({ path: 'tmp/mobile/4-hors-ligne.png' })
     await page.getByRole('link', { name: /Lancement produit Horizon/ }).tap()
     await page.getByRole('heading', { name: 'Lancement produit Horizon' }).waitFor()
