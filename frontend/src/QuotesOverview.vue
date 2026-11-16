@@ -43,62 +43,101 @@ async function load() {
 onMounted(load)
 </script>
 <template>
-  <main class="panel">
-    <h1>Suivi des devis</h1>
+  <main class="work-page">
+    <p><RouterLink class="back-link" to="/espace">← Retour au tableau de bord</RouterLink></p>
+    <h1 class="list-title" style="--bar: #d4a600">Suivi des devis</h1>
     <p>Version courante de chaque devis. Les demandes de modification et les devis acceptés apparaissent en premier.</p>
-    <label for="quote-status">Filtrer par statut</label>
-    <select id="quote-status" v-model="status" @change="load">
-      <option value="">Tous les statuts</option>
-      <option v-for="(l, k) in labels" :key="k" :value="k">{{ l }}</option>
-    </select>
+    <div class="search-bar">
+      <div class="status-field">
+        <label for="quote-status">Filtrer par statut</label>
+        <select id="quote-status" v-model="status" @change="load">
+          <option value="">Tous les statuts</option>
+          <option v-for="(l, k) in labels" :key="k" :value="k">{{ l }}</option>
+        </select>
+      </div>
+      <p v-if="!loading && !error" class="count">{{ rows.length }} devis</p>
+    </div>
     <p v-if="loading" role="status">Chargement…</p>
     <p v-if="error" role="alert" class="error">{{ error }}</p>
     <p v-if="!loading && !error && !rows.length">Aucun devis pour ce filtre.</p>
     <ul v-if="!loading && !error" class="quotes">
-      <li v-for="r in rows" :key="r.reference">
+      <li v-for="r in rows" :key="r.reference" :class="r.statut">
         <RouterLink :to="'/evenements/' + r.evenement_id + '/devis'">{{ r.reference }} — {{ r.evenement }}</RouterLink
         ><br />
-        {{ r.client }} · version {{ r.version }} · {{ money(r.total_ttc) }}<br />
-        <span class="badge" :class="r.statut">{{ labels[r.statut] }}</span> <small>Événement {{ events[r.evenement_statut] || r.evenement_statut }}</small>
+        <span class="client"
+          >{{ r.client }} · <span class="version">version {{ r.version }}</span> ·
+          <strong>{{ money(r.total_ttc) }}</strong></span
+        ><br />
+        <span class="badge" :class="r.statut">{{ labels[r.statut] }}</span>
+        <small>Événement {{ events[r.evenement_statut] || r.evenement_statut }}</small>
       </li>
     </ul>
   </main>
 </template>
 <style scoped>
-select {
-  width: 100%;
-  min-height: 48px;
-  padding: 12px;
-  border: 1px solid #718391;
-  border-radius: 4px;
-  font: inherit;
-  background: white;
+/* Suivi des devis : filtre et compteur, une carte par devis avec liseré selon le statut. */
+.search-bar {
+  justify-content: space-between;
+}
+.status-field {
+  flex: 0 1 340px !important;
+}
+.count {
+  margin: 0;
+  font-weight: 700;
 }
 .quotes {
+  margin: 0;
   padding: 0;
   list-style: none;
 }
 .quotes li {
-  border-bottom: 1px solid #e2e8f0;
-  padding-bottom: 16px;
+  margin: 0 0 12px;
+  padding: 14px 20px;
+  line-height: 1.8;
+  background: #fbf8f1;
+  border: 1px solid #d8cfbd;
+  border-left: 5px solid #b9b09c;
+  border-radius: 8px;
+}
+.quotes li.modification,
+.quotes li.refuse {
+  border-left-color: #c8221a;
+}
+.quotes li.accepte {
+  border-left-color: #0b6b3a;
+}
+.quotes li.etude_client {
+  border-left-color: #d4a600;
+}
+.quotes a {
+  color: #111;
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+.client {
+  color: #333;
+}
+.version {
+  padding: 1px 8px;
+  border-radius: 6px;
+  background: #e5dccb;
+  font-size: 0.9rem;
 }
 .badge {
   display: inline-block;
-  padding: 2px 10px;
+  padding: 2px 12px;
   border-radius: 999px;
-  background: #e6eef3;
+  background: #fff1a8;
   font-weight: 600;
 }
-.badge.modification {
-  background: #fef0c7;
-  color: #7a2e0e;
+.badge.modification,
+.badge.refuse {
+  background: #fbe4e1;
+  color: #8f1c13;
 }
 .badge.accepte {
-  background: #d1fadf;
-  color: #05603a;
-}
-.badge.refuse {
-  background: #fee4e2;
-  color: #912018;
+  background: #d9f0e1;
+  color: #0b6b3a;
 }
 </style>

@@ -61,7 +61,7 @@ async function upload() {
       error.value = 'Votre session ou vos droits ne permettent plus cette action.'
       pending = null
       uncertain.value = false
-    // Réponse perdue : on garde le même envoi pour le réessayer.
+      // Réponse perdue : on garde le même envoi pour le réessayer.
     } else {
       error.value = 'Enregistrement non confirmé. Réessayez avec la même image.'
       uncertain.value = true
@@ -76,7 +76,7 @@ async function upload() {
 }
 </script>
 <template>
-  <section aria-labelledby="image-title">
+  <section class="work-card image-card" aria-labelledby="image-title">
     <h2 id="image-title">Image de l’événement</h2>
     <img
       v-if="hasImage"
@@ -124,20 +124,34 @@ async function upload() {
   </section>
 </template>
 <style scoped>
+/* Image de l'événement : carte claire, aperçu à gauche et formulaire à droite sur grand écran. */
+.image-card {
+  margin-top: 28px;
+}
+h2 {
+  margin: 0 0 12px;
+  font-family: Anton, Impact, 'Arial Narrow', sans-serif;
+  font-weight: 400;
+  font-size: 1.9rem;
+  color: #111;
+}
 .event-picture {
   display: block;
   max-width: 100%;
   max-height: 360px;
   object-fit: contain;
+  border-radius: 6px;
 }
-section {
-  border-top: 1px solid #cbd5e1;
-  margin-top: 32px;
-  padding-top: 16px;
+#image-help {
+  color: #4a4a4a;
+  font-size: 0.95rem;
 }
 input[type='file'] {
   max-width: 100%;
   box-sizing: border-box;
+  padding: 18px;
+  border: 2px dashed #1d3fbf;
+  background: #f4f6fd;
 }
 [aria-invalid='true'] {
   border: 2px solid #b42318;

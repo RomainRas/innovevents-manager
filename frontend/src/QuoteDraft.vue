@@ -100,14 +100,150 @@ async function save() {
   }
 }
 </script>
-<template><main class="panel"><RouterLink :to="'/evenements/'+route.params.id">Retour à l’événement</RouterLink><h1>Préparer le devis</h1><p v-if="loading" role="status">Chargement…</p><p v-if="error" id="quote-error" role="alert" tabindex="-1" class="error">{{ error }}</p><p v-if="notice" id="quote-result" role="status" tabindex="-1">{{ notice }}</p>
-<template v-if="event"><p>{{ event.nom }} <span v-if="reference">— {{ reference }}</span></p><p>Montants en euros. La TVA est calculée sur le total HT, puis arrondie au centime. Renseignez le taux applicable : aucun taux n’est présélectionné.</p><p v-if="!editable&&!reference" class="notice">Aucun devis n’a été préparé pour cet événement. Le devis se prépare tant que l’événement est en brouillon ; celui-ci est au statut « {{ statusLabel }} ».</p><p v-else-if="!editable">Ce devis n’est plus modifiable dans cet écran.</p>
-<form v-if="editable||reference" @submit.prevent="save" novalidate :aria-busy="busy"><fieldset :disabled="busy||uncertain||pdfLocked||sendLocked||!editable"><legend>Prestations</legend><p v-if="errors.prestations" id="prestations" tabindex="-1" class="error">{{ errors.prestations }}</p>
+<template><main class="work-page quote-draft"><RouterLink class="back-link" :to="'/evenements/'+route.params.id">← Retour à l’événement</RouterLink><h1 class="list-title">Préparer le devis</h1><p v-if="loading" role="status">Chargement…</p><p v-if="error" id="quote-error" role="alert" tabindex="-1" class="error">{{ error }}</p><p v-if="notice" id="quote-result" role="status" tabindex="-1">{{ notice }}</p>
+<template v-if="event"><p class="quote-event">{{ event.nom }} <span v-if="reference" class="status-pill">{{ reference }}</span></p><p class="tva-info">Montants en euros. La TVA est calculée sur le total HT, puis arrondie au centime. Renseignez le taux applicable : aucun taux n’est présélectionné.</p><p v-if="!editable&&!reference" class="notice">Aucun devis n’a été préparé pour cet événement. Le devis se prépare tant que l’événement est en brouillon ; celui-ci est au statut « {{ statusLabel }} ».</p><p v-else-if="!editable">Ce devis n’est plus modifiable dans cet écran.</p>
+<form v-if="editable||reference" class="work-card quote-form" @submit.prevent="save" novalidate :aria-busy="busy"><fieldset :disabled="busy||uncertain||pdfLocked||sendLocked||!editable"><legend>Prestations</legend><p v-if="errors.prestations" id="prestations" tabindex="-1" class="error">{{ errors.prestations }}</p>
 <div v-for="(line,i) in lines" :key="i" class="line"><label :for="'libelle-'+i">Prestation {{ i+1 }} — libellé</label><input :id="'libelle-'+i" v-model="line.libelle" maxlength="255" required :aria-invalid="!!errors['libelle-'+i]" :aria-describedby="errors['libelle-'+i]?'libelle-error-'+i:undefined" @input="changed"><p v-if="errors['libelle-'+i]" :id="'libelle-error-'+i" class="error">{{ errors['libelle-'+i] }}</p>
-<label :for="'montant-'+i">Montant HT {{ i+1 }} (€)</label><input :id="'montant-'+i" v-model="line.montant_ht" inputmode="decimal" required :aria-invalid="!!errors['montant-'+i]" :aria-describedby="errors['montant-'+i]?'montant-error-'+i:undefined" @input="changed"><p v-if="errors['montant-'+i]" :id="'montant-error-'+i" class="error">{{ errors['montant-'+i] }}</p><button type="button" :disabled="lines.length===1" :aria-label="'Supprimer la prestation '+(i+1)" @click="lines.splice(i,1);changed()">Supprimer</button></div>
-<p><button type="button" :disabled="lines.length>=100" @click="lines.push({libelle:'',montant_ht:''});changed()">Ajouter une prestation</button></p><label for="taux_tva">Taux de TVA (%)</label><input id="taux_tva" v-model="rate" inputmode="decimal" required :aria-invalid="!!errors.taux_tva" :aria-describedby="errors.taux_tva?'taux-error':undefined" @input="changed"><p v-if="errors.taux_tva" id="taux-error" class="error">{{ errors.taux_tva }}</p></fieldset>
-<p><button :disabled="busy||pdfLocked||sendLocked||!editable">{{ busy?'Enregistrement…':uncertain?'Vérifier et réessayer':'Calculer et enregistrer' }}</button></p></form>
-<section v-if="totals" aria-labelledby="totals-title"><h2 id="totals-title">Totaux enregistrés</h2><dl><dt>Total HT</dt><dd>{{ totals.total_ht }} €</dd><dt>TVA</dt><dd>{{ totals.total_tva }} €</dd><dt>Total TTC</dt><dd>{{ totals.total_ttc }} €</dd></dl></section><p v-else-if="editable||reference">Les totaux seront affichés après validation et enregistrement.</p>
+<label :for="'montant-'+i">Montant HT {{ i+1 }} (€)</label><input :id="'montant-'+i" v-model="line.montant_ht" inputmode="decimal" required :aria-invalid="!!errors['montant-'+i]" :aria-describedby="errors['montant-'+i]?'montant-error-'+i:undefined" @input="changed"><p v-if="errors['montant-'+i]" :id="'montant-error-'+i" class="error">{{ errors['montant-'+i] }}</p><button type="button" class="remove" :disabled="lines.length===1" :aria-label="'Supprimer la prestation '+(i+1)" @click="lines.splice(i,1);changed()">Supprimer</button></div>
+<p class="add-line"><button type="button" class="secondary" :disabled="lines.length>=100" @click="lines.push({libelle:'',montant_ht:''});changed()">Ajouter une prestation</button></p><label for="taux_tva">Taux de TVA (%)</label><input id="taux_tva" v-model="rate" inputmode="decimal" required :aria-invalid="!!errors.taux_tva" :aria-describedby="errors.taux_tva?'taux-error':undefined" @input="changed"><p v-if="errors.taux_tva" id="taux-error" class="error">{{ errors.taux_tva }}</p></fieldset>
+<p class="save-quote"><button :disabled="busy||pdfLocked||sendLocked||!editable">{{ busy?'Enregistrement…':uncertain?'Vérifier et réessayer':'Calculer et enregistrer' }}</button></p></form>
+<section v-if="totals" class="totals" aria-labelledby="totals-title"><h2 id="totals-title">Totaux enregistrés</h2><dl><dt>Total HT</dt><dd>{{ totals.total_ht }} €</dd><dt>TVA</dt><dd>{{ totals.total_tva }} €</dd><dt>Total TTC</dt><dd>{{ totals.total_ttc }} €</dd></dl></section><p v-else-if="editable||reference">Les totaux seront affichés après validation et enregistrement.</p>
 <QuotePdf v-if="totals && revision>0 && editable" :key="revision" :event-id="String(route.params.id)" :revision="revision" :disabled="busy||uncertain||sendLocked||!editable" @locked="pdfLocked=$event" @generated="pdfKey++" />
 <QuoteTransmission v-if="totals && revision>0" :key="revision+'-'+pdfKey+'-'+counterKey" :event-id="String(route.params.id)" :disabled="busy||uncertain||pdfLocked" @locked="sendLocked=$event" @sent="editable=false" @counter="counterCreated" /></template></main></template>
-<style scoped>fieldset{border:1px solid #CBD5E1;padding:16px;min-width:0}.line{border-bottom:1px solid #CBD5E1;padding-bottom:16px;margin-bottom:16px}dt{font-weight:700}dd{margin:4px 0 16px}[aria-invalid=true]{border:2px solid #B42318}</style>
+<style scoped>
+/* Préparation du devis : encadré TVA, prestations en lignes libellé + montant, totaux dans un encadré. */
+.quote-event {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
+  margin: 0 0 14px;
+  font-family: Anton, Impact, 'Arial Narrow', sans-serif;
+  font-size: 1.8rem;
+}
+.quote-event .status-pill {
+  font-family: system-ui, sans-serif;
+  font-size: 0.95rem;
+}
+.tva-info {
+  padding: 14px 18px;
+  background: #e3e9fa;
+  border: 1px solid #b8c6ef;
+  border-radius: 6px;
+}
+fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+legend {
+  margin-bottom: 8px;
+  font-family: Anton, Impact, 'Arial Narrow', sans-serif;
+  font-size: 1.8rem;
+}
+.line {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(140px, 1fr) auto;
+  gap: 4px 16px;
+  align-items: end;
+  padding: 12px 0;
+  border-bottom: 1px solid #d8cfbd;
+}
+/* Libellé et montant côte à côte ; erreurs dessous ; suppression à droite. */
+.line label[for^='libelle'] {
+  grid-area: 1 / 1;
+}
+.line input[id^='libelle'] {
+  grid-area: 2 / 1;
+}
+.line label[for^='montant'] {
+  grid-area: 1 / 2;
+}
+.line input[id^='montant'] {
+  grid-area: 2 / 2;
+  text-align: right;
+}
+.line [id^='libelle-error'] {
+  grid-area: 3 / 1;
+}
+.line [id^='montant-error'] {
+  grid-area: 3 / 2;
+}
+.line label {
+  margin: 0;
+}
+.line .error {
+  margin: 0;
+}
+.remove {
+  grid-area: 2 / 3;
+  min-height: 44px;
+  color: #c8221a !important;
+  background: #fffdf8 !important;
+  border: 2px solid #c8221a !important;
+  border-radius: 6px;
+}
+.add-line .secondary {
+  border: 2px solid #1d3fbf !important;
+  color: #1d3fbf !important;
+  border-radius: 6px;
+}
+#taux_tva {
+  max-width: 220px;
+}
+.save-quote {
+  display: flex;
+  justify-content: flex-end;
+}
+.totals {
+  max-width: 520px;
+  margin: 0 0 24px auto;
+  padding: 16px 22px;
+  background: #fbf8f1;
+  border: 2px solid #111;
+  border-radius: 8px;
+}
+.totals h2 {
+  margin: 0 0 8px;
+  font-family: Anton, Impact, 'Arial Narrow', sans-serif;
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+.totals dl {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  margin: 0;
+}
+.totals dt,
+.totals dd {
+  margin: 0;
+  padding: 8px 0;
+  border-bottom: 1px solid #d8cfbd;
+}
+.totals dd {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.totals dt:last-of-type,
+.totals dd:last-of-type {
+  border-bottom: 0;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #c8221a;
+}
+[aria-invalid='true'] {
+  border: 2px solid #b42318;
+}
+@media (max-width: 700px) {
+  .line {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .line > * {
+    grid-area: auto !important;
+  }
+  .remove {
+    justify-self: start;
+  }
+}
+</style>

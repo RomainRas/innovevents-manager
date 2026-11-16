@@ -94,11 +94,95 @@ async function submit() {
   }
 }
 </script>
-<template><main class="panel"><RouterLink v-if="client" :to="'/clients/'+client">Retour au client</RouterLink><h1>{{ creating?'Préparer l’événement':'Événement — '+(form.nom||'fiche') }}</h1>
+<template><main class="work-page draft-page"><RouterLink v-if="client" class="back-link" :to="'/clients/'+client">← Retour au client</RouterLink><h1 class="draft-title">{{ creating?'Préparer l’événement':'Événement — '+(form.nom||'fiche') }}</h1>
  <p v-if="loading" role="status">Chargement…</p><p v-if="error" id="event-error" role="alert" tabindex="-1" class="error">{{ error }}</p>
  <p v-if="route.query.cree==='1'" role="status">Événement créé en brouillon.</p><p v-if="notice" id="event-result" role="status" tabindex="-1">{{ notice }}</p>
- <template v-if="!loading && client"><p>Statut : <strong>{{ status==='brouillon'?'Brouillon':status }}</strong>. Ce formulaire ne publie pas l’événement.</p><p v-if="requested">Date souhaitée dans la demande : {{ requested.split('-').reverse().join('/') }}. Les heures restent à préciser.</p>
+ <template v-if="!loading && client"><p class="draft-status">Statut : <strong class="status-pill">{{ status==='brouillon'?'Brouillon':status }}</strong> Ce formulaire ne publie pas l’événement.</p><p v-if="requested">Date souhaitée dans la demande : {{ requested.split('-').reverse().join('/') }}. Les heures restent à préciser.</p>
  <p>Heures de Paris (Europe/Paris). Le nom est obligatoire ; les autres informations peuvent être complétées plus tard dans ce brouillon.</p>
- <form @submit.prevent="submit" novalidate :aria-busy="busy"><div class="event-grid"><div v-for="[id,label,type,max] in fields" :key="id"><label :for="id">{{ label }}{{ id==='nom'?' *':'' }}</label><input :id="id" v-model="form[id]" :type="type" :maxlength="max" :required="id==='nom'" :min="type==='number'?1:undefined" :disabled="busy || uncertain || imageLocked || status!=='brouillon'" :aria-invalid="!!errors[id]" :aria-describedby="errors[id]?id+'-error':undefined"><p v-if="errors[id]" :id="id+'-error'" class="error">{{ errors[id] }}</p></div></div><p><button :disabled="busy || imageLocked || status!=='brouillon'">{{ busy?'Enregistrement…':uncertain?'Vérifier et réessayer':creating?'Créer le brouillon':'Enregistrer le brouillon' }}</button></p></form><p v-if="!creating"><RouterLink :to="'/evenements/'+route.params.id+'/devis'">Préparer les prestations et le devis</RouterLink></p><EventImage v-if="!creating" :id="String(route.params.id)" :revision="revision" :alternative="imageAlt" :has-image="hasImage" :disabled="busy||uncertain||status!=='brouillon'" @locked="imageLocked=$event" @saved="revision=$event.revision;imageAlt=$event.alternative;hasImage=true" /></template>
+ <form class="work-card draft-form" @submit.prevent="submit" novalidate :aria-busy="busy"><div class="event-grid"><div v-for="[id,label,type,max] in fields" :key="id"><label :for="id">{{ label }}{{ id==='nom'?' *':'' }}</label><input :id="id" v-model="form[id]" :type="type" :maxlength="max" :required="id==='nom'" :min="type==='number'?1:undefined" :disabled="busy || uncertain || imageLocked || status!=='brouillon'" :aria-invalid="!!errors[id]" :aria-describedby="errors[id]?id+'-error':undefined"><p v-if="errors[id]" :id="id+'-error'" class="error">{{ errors[id] }}</p></div></div><p class="draft-actions"><button class="secondary save-draft" :disabled="busy || imageLocked || status!=='brouillon'">{{ busy?'Enregistrement…':uncertain?'Vérifier et réessayer':creating?'Créer le brouillon':'Enregistrer le brouillon' }}</button></p></form><p v-if="!creating" class="to-quote"><RouterLink class="quote-link" :to="'/evenements/'+route.params.id+'/devis'">Préparer les prestations et le devis <span aria-hidden="true">→</span></RouterLink></p><EventImage v-if="!creating" :id="String(route.params.id)" :revision="revision" :alternative="imageAlt" :has-image="hasImage" :disabled="busy||uncertain||status!=='brouillon'" @locked="imageLocked=$event" @saved="revision=$event.revision;imageAlt=$event.alternative;hasImage=true" /></template>
  </main></template>
-<style scoped>.event-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 24px}[aria-invalid="true"]{border:2px solid #B42318}@media(max-width:600px){.event-grid{grid-template-columns:1fr}}</style>
+<style scoped>
+/* Préparation de l'événement : titre souligné, statut en pastille, formulaire en carte sur deux colonnes. */
+.draft-title {
+  margin: 8px 0 16px;
+  font-family: Anton, Impact, 'Arial Narrow', sans-serif;
+  font-weight: 400;
+  font-size: clamp(34px, 4.6vw, 54px);
+  line-height: 1.1;
+  color: #111;
+  overflow-wrap: anywhere;
+}
+.draft-title::after {
+  content: '';
+  display: block;
+  width: 90px;
+  height: 6px;
+  margin-top: 10px;
+  border-radius: 3px;
+  background: #d4a600;
+}
+.draft-status {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+}
+.draft-form {
+  margin: 20px 0;
+}
+.event-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 28px;
+}
+.event-grid label {
+  margin-top: 16px;
+}
+.draft-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin: 24px 0 0;
+}
+.save-draft {
+  border: 2px solid #111 !important;
+  border-radius: 6px;
+  font-weight: 700;
+}
+.to-quote {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 0 8px;
+}
+.quote-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 12px 24px;
+  color: white;
+  background: #c8221a;
+  border-radius: 6px;
+  font-weight: 700;
+  text-decoration: none;
+}
+.quote-link:hover {
+  background: #a51b14;
+}
+[aria-invalid='true'] {
+  border: 2px solid #b42318;
+}
+@media (max-width: 600px) {
+  .event-grid {
+    grid-template-columns: 1fr;
+  }
+  .draft-actions,
+  .to-quote {
+    justify-content: stretch;
+  }
+  .save-draft,
+  .quote-link {
+    width: 100%;
+    justify-content: center;
+  }
+}
+</style>
