@@ -49,7 +49,7 @@ async function disconnect() {
     <!-- Pied de page : logo, plan du site et pages légales sur fond noir au bord déchiré -->
     <div class="footer-inner">
       <RouterLink class="footer-logo" to="/">Innov’Events</RouterLink>
-      <nav aria-label="Plan du site">
+      <nav aria-label="Plan de navigation">
         <RouterLink to="/">Accueil</RouterLink>
         <RouterLink to="/evenements-publics">Événements</RouterLink>
         <RouterLink to="/avis">Avis</RouterLink>
