@@ -68,3 +68,23 @@ footer > p { margin:40px 0 0; padding-top:20px; border-top:2px solid #F4EFE4; co
   .filters { grid-template-columns:1fr 1fr; }
 }
 @media(max-width:480px) { .filters { grid-template-columns:1fr; } nav { gap:12px 20px; } header nav { gap:12px 16px; } header nav .nav-quote, header nav .nav-account { padding-inline:12px; } }
+/* Pages en style affiche (contact, connexion, demande de devis) : papier crème, aplats déchirés, titre sur bande colorée. */
+.poster-page { position:relative; overflow:hidden; margin-bottom:-72px; padding:56px max(16px, calc((100% - 900px) / 2)) 120px; background:#F4EFE4; color:#111; }
+.poster-page > * { position:relative; z-index:1; }
+.poster-page .shape { position:absolute; z-index:0; pointer-events:none; }
+.shape.red { background:#D9342B; } .shape.blue { background:#1D3FBF; } .shape.yellow { background:#FFD836; }
+.shape.torn-a { clip-path:polygon(0 8%,18% 0,40% 10%,63% 2%,85% 12%,100% 4%,96% 30%,100% 58%,92% 82%,100% 100%,70% 92%,48% 100%,24% 90%,0 100%,6% 70%,0 44%,5% 22%); }
+.shape.torn-b { clip-path:polygon(10% 0,34% 6%,58% 0,80% 8%,100% 0,94% 26%,100% 50%,93% 74%,100% 96%,76% 100%,52% 93%,30% 100%,8% 94%,0 70%,6% 46%,0 20%); }
+.poster-title { display:inline-block; margin:0 0 24px; padding:14px 36px 10px; font-family:Anton, Impact, 'Arial Narrow', sans-serif; font-weight:400; font-size:clamp(52px,9vw,112px); line-height:.95; text-transform:uppercase; color:#111; background:#D9342B; transform:rotate(-2deg); clip-path:polygon(0 6%,22% 0,48% 5%,74% 0,100% 4%,98% 50%,100% 96%,72% 100%,46% 94%,20% 100%,2% 95%,0 50%); }
+.poster-title.yellow { padding:0 28px; background:linear-gradient(transparent 58%, #FFD836 58%); clip-path:none; transform:none; }
+.poster-lead { max-width:40em; font-size:1.2rem; font-weight:600; line-height:1.5; }
+.paper { margin-top:32px; padding:40px clamp(20px,5vw,56px); background:#FBF8F1; clip-path:polygon(0 1%,8% 0,20% 1.2%,35% 0,52% 1%,68% 0,84% 1.4%,100% 0,99.4% 25%,100% 50%,99.2% 75%,100% 100%,82% 99%,64% 100%,46% 98.8%,28% 100%,12% 99%,0 100%,.6% 75%,0 50%,.8% 25%); }
+.poster-page label { font-weight:700; }
+.poster-page input, .poster-page select, .poster-page textarea { border:2px solid #111; border-radius:6px; background:#FFFDF8; }
+.poster-page [aria-invalid="true"] { border-color:#B42318; box-shadow:0 0 0 2px #B42318; }
+.poster-page .req { color:#C8221A; }
+.poster-page a { color:#1D3FBF; }
+.poster-button { min-height:56px; padding:10px 40px; border-radius:0; background:#C8221A; color:white; font-family:Anton, Impact, 'Arial Narrow', sans-serif; font-size:1.6rem; letter-spacing:.03em; text-transform:uppercase; clip-path:polygon(0 8%,30% 0,64% 6%,100% 0,98% 50%,100% 94%,68% 100%,34% 94%,0 100%,2% 50%); }
+.poster-button:hover { background:#A51B14; }
+.ticket-stamp { position:absolute; z-index:1; display:inline-block; padding:12px 22px; border:3px dashed currentColor; outline:6px solid #F4EFE4; background:#F4EFE4; color:#C8221A; font-family:Anton, Impact, 'Arial Narrow', sans-serif; font-size:clamp(1.4rem,3vw,2.6rem); text-transform:uppercase; transform:rotate(14deg); }
+@media(max-width:700px) { .poster-page .shape, .ticket-stamp { display:none; } .poster-title { padding-inline:20px; } }

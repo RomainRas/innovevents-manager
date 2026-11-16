@@ -49,10 +49,19 @@ async function submit() {
 }
 </script>
 <template>
-  <main class="panel narrow-form">
-    <h1>Contact</h1>
+  <main class="poster-page">
+    <!-- Décor : aplats déchirés et enveloppe dessinée -->
+    <span class="shape yellow torn-a deco-a" aria-hidden="true"></span>
+    <span class="shape blue torn-b deco-b" aria-hidden="true"></span>
+    <span class="shape red torn-a deco-c" aria-hidden="true"></span>
+    <svg class="envelope" aria-hidden="true" viewBox="0 0 120 90" width="220" height="165">
+      <rect x="6" y="10" width="108" height="72" rx="4" fill="#FBF8F1" stroke="#1D3FBF" stroke-width="5" />
+      <path d="M8 14 60 52 112 14M8 80 48 44M112 80 72 44" fill="none" stroke="#1D3FBF" stroke-width="5" />
+      <circle cx="60" cy="50" r="10" fill="#C8221A" />
+    </svg>
+    <h1 class="poster-title">Contact</h1>
     <!-- Confirmation après envoi -->
-    <section v-if="sent" id="contact-success" tabindex="-1" role="status">
+    <section v-if="sent" id="contact-success" class="paper" tabindex="-1" role="status">
       <h2>Message envoyé</h2>
       <p>
         Merci, votre message a été transmis à l’équipe Innov’Events. Nous vous répondrons dans les meilleurs délais.
@@ -60,12 +69,12 @@ async function submit() {
       <RouterLink to="/">Retour à l’accueil</RouterLink>
     </section>
     <form v-else @submit.prevent="submit" novalidate :aria-busy="busy">
-      <p>
-        Un problème, une question ? Écrivez-nous. Les champs marqués * sont obligatoires. Indiquez votre adresse
-        électronique, ou à défaut votre nom d’utilisateur si vous avez un compte.
+      <p class="poster-lead">
+        Un problème, une question ? Écrivez-nous. Les champs marqués <span class="req">*</span> sont obligatoires.
+        Indiquez votre adresse électronique, ou à défaut votre nom d’utilisateur si vous avez un compte.
       </p>
       <div v-if="error" id="contact-errors" class="error" role="alert" tabindex="-1">{{ error }}</div>
-      <fieldset :disabled="busy">
+      <fieldset class="paper" :disabled="busy">
         <label for="contact-nom_utilisateur">Nom d’utilisateur (facultatif)</label>
         <input
           id="contact-nom_utilisateur"
@@ -87,7 +96,7 @@ async function submit() {
           :aria-describedby="errors.email ? 'err-email' : undefined"
         />
         <p v-if="errors.email" id="err-email" class="error">{{ errors.email }}</p>
-        <label for="contact-titre">Titre de la demande *</label>
+        <label for="contact-titre">Titre de la demande <span class="req">*</span></label>
         <input
           id="contact-titre"
           v-model="form.titre"
@@ -97,7 +106,7 @@ async function submit() {
           :aria-describedby="errors.titre ? 'err-titre' : undefined"
         />
         <p v-if="errors.titre" id="err-titre" class="error">{{ errors.titre }}</p>
-        <label for="contact-description">Description *</label>
+        <label for="contact-description">Description <span class="req">*</span></label>
         <textarea
           id="contact-description"
           v-model="form.description"
@@ -112,8 +121,43 @@ async function submit() {
           Vos coordonnées servent uniquement à répondre à votre message.
           <RouterLink to="/confidentialite">Politique de confidentialité</RouterLink>
         </p>
-        <button type="submit">{{ busy ? 'Envoi…' : 'Envoyer' }}</button>
+        <button class="poster-button" type="submit">{{ busy ? 'Envoi…' : 'Envoyer' }}</button>
       </fieldset>
     </form>
   </main>
 </template>
+<style scoped>
+/* Décor propre à la page Contact. */
+.deco-a {
+  top: 40px;
+  left: -60px;
+  width: 180px;
+  height: 260px;
+  transform: rotate(8deg);
+}
+.deco-b {
+  bottom: 40px;
+  left: -40px;
+  width: 360px;
+  height: 140px;
+  transform: rotate(-6deg);
+}
+.deco-c {
+  right: -50px;
+  bottom: 120px;
+  width: 140px;
+  height: 360px;
+  transform: rotate(-4deg);
+}
+.envelope {
+  position: absolute;
+  top: 70px;
+  right: max(16px, calc((100% - 1100px) / 2));
+  transform: rotate(8deg);
+}
+@media (max-width: 900px) {
+  .envelope {
+    display: none;
+  }
+}
+</style>

@@ -71,7 +71,7 @@ async function submit() {
       } catch {
         /* Garder la saisie. */
       }
-    // Même clé d'envoi mais contenu différent : on demande de renvoyer les informations d'origine.
+      // Même clé d'envoi mais contenu différent : on demande de renvoyer les informations d'origine.
     } else if (e.status === 409) {
       error.value =
         'Cette tentative contient des informations différentes. Réessayez avec les informations de votre premier envoi.'
@@ -90,24 +90,35 @@ async function submit() {
 }
 </script>
 <template>
-  <main class="panel">
-    <h1>Parlons de votre événement</h1>
-    <p>Décrivez votre projet pour que Chloé puisse vous recontacter et étudier votre demande de devis.</p>
+  <main class="poster-page quote-page">
+    <!-- Décor : aplats déchirés, étoiles et ticket « Devis » -->
+    <span class="shape blue torn-a deco-a" aria-hidden="true"></span>
+    <span class="shape blue torn-b deco-b" aria-hidden="true"></span>
+    <span class="shape yellow star deco-c" aria-hidden="true"></span>
+    <span class="shape red star deco-d" aria-hidden="true"></span>
+    <span class="shape yellow torn-b deco-e" aria-hidden="true"></span>
+    <span class="ticket-stamp" aria-hidden="true">★ Devis ★</span>
+    <div class="quote-head">
+      <h1 class="poster-title">Parlons de votre événement</h1>
+      <p class="poster-lead">
+        Décrivez votre projet pour que Chloé puisse vous recontacter et étudier votre demande de devis.
+      </p>
+    </div>
     <!-- Demande enregistrée : message de remerciement de l'agence -->
-    <section v-if="message" id="quote-success" tabindex="-1" role="status">
+    <section v-if="message" id="quote-success" class="paper" tabindex="-1" role="status">
       <h2>Votre demande est enregistrée</h2>
       <p class="preserve-text">{{ message }}</p>
       <RouterLink to="/">Retour à l’accueil</RouterLink>
     </section>
     <form v-else @submit.prevent="submit" novalidate :aria-busy="busy">
-      <p>Tous les champs sont obligatoires.</p>
+      <p class="all-required">Tous les champs sont obligatoires.</p>
       <div v-if="error" id="quote-errors" class="error" role="alert" tabindex="-1">{{ error }}</div>
       <!-- Rubriques du formulaire, générées depuis la liste groups -->
-      <fieldset v-for="group in groups" :key="group.title" :disabled="busy || uncertain">
+      <fieldset v-for="group in groups" :key="group.title" class="group" :disabled="busy || uncertain">
         <legend>{{ group.title }}</legend>
         <div class="quote-grid">
           <div v-for="[id, label, type, max, autocomplete] in group.fields" :key="id">
-            <label :for="id">{{ label }} *</label>
+            <label :for="id">{{ label }} <span class="req">*</span></label>
             <input
               :id="id"
               v-model="form[id]"
@@ -125,7 +136,7 @@ async function submit() {
           </div>
         </div>
       </fieldset>
-      <label for="besoin">Votre besoin en quelques mots *</label>
+      <label for="besoin">Votre besoin en quelques mots <span class="req">*</span></label>
       <textarea
         id="besoin"
         v-model="form.besoin"
@@ -139,8 +150,8 @@ async function submit() {
       />
       <p v-if="errors.besoin" id="besoin-error" class="error">{{ errors.besoin }}</p>
       <p v-if="busy" role="status">Enregistrement de votre demande…</p>
-      <p>
-        <button :disabled="busy">
+      <p class="submit">
+        <button class="poster-button" :disabled="busy">
           {{ busy ? 'Envoi…' : uncertain ? 'Vérifier et réessayer' : 'Envoyer ma demande' }}
         </button>
       </p>
@@ -148,40 +159,125 @@ async function submit() {
   </main>
 </template>
 <style scoped>
-fieldset {
+/* Demande de devis : titre sur bande rouge, rubriques en cartes de papier à bandeau coloré. */
+.quote-head {
+  text-align: center;
+}
+.quote-head .poster-lead {
+  margin: 0 auto;
+  font-weight: 400;
+}
+.all-required {
+  width: fit-content;
+  margin: 16px auto 8px;
+  padding: 2px 16px;
+  background: #ffd836;
+}
+.group {
+  margin: 32px 0;
+  padding: 0 32px 28px;
   border: 0;
-  padding: 0;
-  margin: 28px 0;
   min-width: 0;
+  background: #fbf8f1;
+  border-radius: 6px;
 }
 legend {
-  font-size: 22px;
-  font-weight: 700;
-  color: #142d43;
+  float: left;
+  width: calc(100% + 64px);
+  margin: 0 -32px 8px;
+  padding: 6px 32px;
+  font-family: Anton, Impact, 'Arial Narrow', sans-serif;
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 400;
+  text-transform: uppercase;
+  background: #a9b8f0;
+  clip-path: polygon(0 10%, 30% 0, 60% 8%, 100% 2%, 99% 92%, 70% 100%, 35% 92%, 0 100%);
+}
+.group:nth-of-type(2) legend {
+  background: #ffd836;
 }
 .quote-grid {
+  clear: both;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0 24px;
 }
 textarea {
-  width: 100%;
-  padding: 12px;
-  font: inherit;
-  border: 1px solid #718391;
-  border-radius: 4px;
   resize: vertical;
+}
+.submit {
+  margin-top: 32px;
+  text-align: center;
 }
 .preserve-text {
   white-space: pre-wrap;
   overflow-wrap: anywhere;
 }
-[aria-invalid='true'] {
-  border: 2px solid #b42318;
+.ticket-stamp {
+  top: 330px;
+  right: 24px;
+  z-index: 2;
+}
+.deco-a {
+  top: 60px;
+  left: -80px;
+  width: 260px;
+  height: 300px;
+  transform: rotate(-10deg);
+}
+.deco-b {
+  top: 130px;
+  right: -60px;
+  width: 340px;
+  height: 200px;
+  transform: rotate(-8deg);
+}
+.star {
+  clip-path: polygon(
+    50% 0,
+    61% 32%,
+    96% 22%,
+    70% 50%,
+    98% 78%,
+    62% 68%,
+    50% 100%,
+    38% 68%,
+    2% 78%,
+    30% 50%,
+    4% 22%,
+    39% 32%
+  );
+}
+.deco-c {
+  top: 420px;
+  left: -60px;
+  width: 200px;
+  height: 260px;
+}
+.deco-d {
+  top: 900px;
+  right: -40px;
+  width: 160px;
+  height: 200px;
+}
+.deco-e {
+  bottom: 40px;
+  right: -60px;
+  width: 300px;
+  height: 140px;
+  transform: rotate(-12deg);
 }
 @media (max-width: 600px) {
   .quote-grid {
     grid-template-columns: 1fr;
+  }
+  .group {
+    padding: 0 16px 20px;
+  }
+  legend {
+    width: calc(100% + 32px);
+    margin: 0 -16px 8px;
+    padding: 6px 16px;
   }
 }
 </style>
