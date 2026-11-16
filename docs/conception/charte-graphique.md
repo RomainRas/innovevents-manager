@@ -12,6 +12,14 @@ Pour une agence événementielle, j’ai voulu une identité qui évoque l’aff
 - [Maquette de la page d’accueil](../maquettes/accueil-affiche.webp).
 - [Maquettes de tous les écrans, site et application mobile](maquettes-affiche.md).
 
+## Évolution de l’identité visuelle
+
+Le sujet ne fournit aucune direction artistique : ni logo, ni palette, ni police. J’ai d’abord conçu une charte sobre en bleu nuit et turquoise, avec la police Inter, et réalisé les wireframes, les six maquettes principales et leurs états dans Figma sur cette base.
+
+Une fois les fonctionnalités en place, j’ai eu le temps de revenir sur l’identité. La première charte était correcte mais impersonnelle : elle aurait pu convenir à n’importe quel logiciel de gestion, alors qu’Innov’Events est une agence événementielle qui doit donner envie. J’ai donc cherché une direction plus vivante, inspirée de l’affiche de spectacle, et je l’ai appliquée à tout le site puis à l’application mobile.
+
+Les écrans actuels ne ressemblent donc plus aux premières maquettes. Ce qui n’a pas changé, c’est la structure : les wireframes, les contenus, les parcours, les règles et les états décrits dans la conception restent ceux de l’application. Seule l’apparence a évolué, en gardant les mêmes exigences d’accessibilité (contrastes AA, zones tactiles de 48 pixels, focus visible). Les maquettes présentées dans ce dossier sont celles de l’identité actuelle ; les fichiers de la première charte restent consultables dans Figma et dans l’historique du dépôt.
+
 ## Palette
 
 | Rôle | Valeur | Usage |

@@ -2,6 +2,8 @@
 
 L’identité d’Innov’Events s’inspire de l’affiche de spectacle : papier crème, aplats rouge #C8221A, bleu #1D3FBF et jaune #FFD836, encre #111, titres en Anton surlignés de jaune. La page d’accueil a été dessinée en premier ([maquette](../maquettes/accueil-affiche.webp)), puis chaque écran du site et de l’application mobile dans le même style.
 
+Cette identité remplace une première charte plus sobre (bleu nuit et turquoise), jugée trop impersonnelle pour une agence événementielle : le sujet ne fixant pas de direction artistique, j’ai pris le temps de la faire évoluer. Les raisons sont détaillées dans la [charte graphique](charte-graphique.md#évolution-de-lidentité-visuelle).
+
 Le site est présenté en largeur bureau (1440 pixels, images réduites à 1200) et l’application mobile en largeur téléphone. Les [wireframes](bilan-couverture-ecrans.md), états et [enchaînements](enchainement-ecrans.md) décrivent les parcours et contenus de ces écrans ; les règles de couleurs, de police et d’accessibilité sont dans la [charte graphique](charte-graphique.md).
 
 ## Site public (visiteur)

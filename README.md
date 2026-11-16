@@ -39,7 +39,7 @@ Tests unitaires (PHPUnit), fonctionnels (HTTP) et de bout en bout (Playwright), 
 - [Analyse des exigences](docs/conception/analyse-exigences.md), [utilisateurs et droits](docs/conception/utilisateurs-et-droits.md)
 - [Diagrammes : cas d’utilisation, séquence, architecture](docs/conception/diagrammes.md)
 - [MCD](docs/conception/mcd-relationnel.md), [MLD MySQL](docs/conception/mld-mysql.md), [dictionnaire des données](docs/conception/dictionnaire-donnees.md), [journaux MongoDB](docs/conception/modele-journaux-mongodb.md)
-- [Maquettes de tous les écrans](docs/conception/maquettes-affiche.md) (site et application mobile, `docs/maquettes/affiche/`)
+- [Maquettes de tous les écrans](docs/conception/maquettes-affiche.md) (site et application mobile, `docs/maquettes/affiche/`) ; l’identité visuelle a évolué en cours de projet, voir [pourquoi](docs/conception/charte-graphique.md#évolution-de-lidentité-visuelle)
 - [Charte graphique](docs/conception/charte-graphique.md), maquettes principales et wireframes (`docs/maquettes/`, `docs/conception/maquette-*`, `wireframe-*`), [enchaînement des écrans](docs/conception/enchainement-ecrans.md)
 - Scripts SQL écrits à la main : [création des tables](database/mysql/001_schema.sql), [jeu de données](database/mysql/002_demo.sql), migrations `database/mysql/003` à `015`
 

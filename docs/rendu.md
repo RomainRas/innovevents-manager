@@ -10,7 +10,7 @@ Romain Rascle — titre professionnel Concepteur Développeur d’Applications.
 | Application mobile (PWA, production) | https://innovevents.rascleromain.fr/mobile/ |
 | Dépôt GitHub (branches `dev` et `main`) | https://github.com/RomainRas/innovevents-manager |
 | Kanban (GitHub Projects) | https://github.com/users/RomainRas/projects/3 |
-| Maquettes (site et mobile) | [maquettes-affiche.md](conception/maquettes-affiche.md), images dans `docs/maquettes/affiche/` |
+| Maquettes (site et mobile) | [maquettes-affiche.md](conception/maquettes-affiche.md), images dans `docs/maquettes/affiche/` ; l’identité visuelle a évolué en cours de projet, voir [pourquoi](conception/charte-graphique.md#évolution-de-lidentité-visuelle) |
 | Wireframes Figma (exports SVG dans `docs/maquettes/wireframes/`) | https://www.figma.com/design/eAJJZyMSjoOff7mA1pNpCU |
 
 ## Comptes de démonstration
