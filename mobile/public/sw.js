@@ -2,9 +2,9 @@
 // - Coquille de l'application : servie depuis le cache si le réseau manque.
 // - Données de consultation (/api/mobile/events, event, client) : réseau d'abord, dernière réponse en secours hors ligne.
 // - Aucune écriture (POST) n'est mise en cache ni rejouée. Les données sont effacées à la déconnexion ou si la session expire.
-const SHELL = 'ie-mobile-shell-v1'
+const SHELL = 'ie-mobile-shell-v2'
 const DATA = 'ie-mobile-data'
-const SHELL_FILES = ['/mobile/', '/mobile/manifest.webmanifest', '/mobile/icon.svg', '/mobile/icon-192.png']
+const SHELL_FILES = ['/mobile/', '/mobile/manifest.webmanifest', '/mobile/icon.svg', '/mobile/icon-192.png', '/mobile/fonts/anton.woff2']
 const DATA_PATHS = /^\/api\/mobile\/(events|event|client)$/
 
 self.addEventListener('install', event => {

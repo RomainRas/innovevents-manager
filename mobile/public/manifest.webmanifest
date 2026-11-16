@@ -8,8 +8,8 @@
   "scope": "/mobile/",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#F3F6F8",
-  "theme_color": "#142D43",
+  "background_color": "#F4EFE4",
+  "theme_color": "#111111",
   "icons": [
     { "src": "/mobile/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
     { "src": "/mobile/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
