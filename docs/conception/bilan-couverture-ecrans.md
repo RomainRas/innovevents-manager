@@ -12,7 +12,7 @@ La page 16 demande trois wireframes et trois maquettes pour chacun des supports 
 Le présent bilan est documentaire : inventaire des fichiers et rapprochement avec le sujet. Il ne constitue ni une nouvelle revue visuelle de tous les écrans, ni un test de l’application.
 
 ## Représentations disponibles
-Les six wireframes et les six maquettes principales existent en première version. Les états complémentaires ne sont pas comptés comme de nouvelles maquettes principales.
+Les six wireframes et les six maquettes principales existent en première version. Les états complémentaires ne sont pas comptés comme de nouvelles maquettes principales. L’identité visuelle a ensuite évolué vers un style affiche, appliqué à tout le site et à l’application mobile : les écrans à jour sont rassemblés dans [maquettes-affiche.md](maquettes-affiche.md) ; les parcours, contenus et états décrits ici restent valables.
 
 | Ensemble | Preuve et état |
 | --- | --- |
@@ -22,7 +22,7 @@ Les six wireframes et les six maquettes principales existent en première versio
 | Mobile : événements à venir | [Maquette et wireframe associé](maquette-mobile-01-evenements-a-venir.md) |
 | Mobile : fiche événement | [Maquette, saisie de note et wireframe associé](maquette-mobile-02-fiche-evenement.md) ; [six états de note](etats-note-mobile.md) |
 | Mobile : fiche client | [Maquette et wireframe associé](maquette-mobile-03-fiche-client.md) |
-| Fondations graphiques | [Charte](charte-graphique.md), proposition bleu nuit, turquoise, corail et Inter ; pas une identité officielle fournie |
+| Fondations graphiques | [Charte](charte-graphique.md) : première proposition bleu nuit, turquoise, corail et Inter, puis style affiche (crème, rouge, bleu, jaune, Anton) retenu pour le site et le mobile ; pas une identité officielle fournie |
 | Navigation sélectionnée | [Enchaînements web et mobile](enchainement-ecrans.md), statiques ; pas encore un plan de toutes les pages |
 
 Figma conserve les sources modifiables ; les SVG sont sauvegardés dans docs/maquettes. Les anciennes mentions datées de « 5 sur 6 » décrivent des étapes antérieures : ce bilan donne l’état actuel. Aucune validation finale de l’ensemble n’est enregistrée.
