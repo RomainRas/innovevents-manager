@@ -131,97 +131,208 @@ async function requestDeletion() {
 }
 </script>
 <template>
-  <main class="panel narrow-form">
-    <p><RouterLink to="/espace">← Retour à mon espace</RouterLink></p>
-    <h1>Mes informations</h1>
-    <p v-if="loading" role="status">Chargement…</p>
-    <p v-if="error" id="profile-error" class="error" role="alert" tabindex="-1">{{ error }}</p>
-    <template v-if="profile">
-      <!-- Coordonnées modifiables -->
-      <form @submit.prevent="save" novalidate :aria-busy="busy === 'profile'">
-        <p>Les champs marqués * sont obligatoires.</p>
-        <p class="meta">
-          Adresse électronique de connexion : <strong>{{ profile.email }}</strong
-          >. Pour la changer, <RouterLink to="/contact">contactez-nous</RouterLink>.
-        </p>
-        <p v-if="notice" id="profile-notice" class="success" role="status" tabindex="-1">{{ notice }}</p>
-        <fieldset :disabled="!!busy">
-          <legend class="sr-only">Informations personnelles</legend>
-          <template v-for="f in fields" :key="f.key">
-            <template v-if="!f.client || profile.fiche_client">
-              <label :for="'profile-' + f.key">{{ f.label }}{{ f.required ? ' *' : '' }}</label>
-              <input
-                :id="'profile-' + f.key"
-                v-model="form[f.key]"
-                :type="f.type || 'text'"
-                :maxlength="f.max"
-                :required="f.required"
-                :autocomplete="f.auto"
-                :aria-invalid="!!errors[f.key]"
-                :aria-describedby="errors[f.key] ? 'profile-err-' + f.key : undefined"
-              />
-              <p v-if="errors[f.key]" :id="'profile-err-' + f.key" class="error">{{ errors[f.key] }}</p>
+  <main class="work-page">
+    <div class="work-card profile-card">
+      <p><RouterLink class="back-link" to="/espace">← Retour à mon espace</RouterLink></p>
+      <h1 class="profile-title">Mes informations</h1>
+      <p v-if="loading" role="status">Chargement…</p>
+      <p v-if="error" id="profile-error" class="error" role="alert" tabindex="-1">{{ error }}</p>
+      <template v-if="profile">
+        <!-- Coordonnées modifiables -->
+        <form @submit.prevent="save" novalidate :aria-busy="busy === 'profile'">
+          <p>Les champs marqués <span class="req">*</span> sont obligatoires.</p>
+          <p class="info">
+            <svg aria-hidden="true" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 11v6M12 7.5v.5" /></svg
+            ><span
+              >Adresse électronique de connexion : <strong>{{ profile.email }}</strong
+              >. Pour la changer, <RouterLink to="/contact">contactez-nous</RouterLink>.</span
+            >
+          </p>
+          <p v-if="notice" id="profile-notice" class="success" role="status" tabindex="-1">{{ notice }}</p>
+          <fieldset class="fields" :disabled="!!busy">
+            <legend class="sr-only">Informations personnelles</legend>
+            <template v-for="f in fields" :key="f.key">
+              <template v-if="!f.client || profile.fiche_client">
+                <label :for="'profile-' + f.key">{{ f.label }}<span v-if="f.required" class="req"> *</span></label>
+                <input
+                  :id="'profile-' + f.key"
+                  v-model="form[f.key]"
+                  :type="f.type || 'text'"
+                  :maxlength="f.max"
+                  :required="f.required"
+                  :autocomplete="f.auto"
+                  :aria-invalid="!!errors[f.key]"
+                  :aria-describedby="errors[f.key] ? 'profile-err-' + f.key : undefined"
+                />
+                <p v-if="errors[f.key]" :id="'profile-err-' + f.key" class="error">{{ errors[f.key] }}</p>
+              </template>
             </template>
-          </template>
-          <button type="submit">{{ busy === 'profile' ? 'Enregistrement…' : 'Enregistrer mes informations' }}</button>
-        </fieldset>
-      </form>
-
-      <!-- Demande de suppression du compte -->
-      <section class="danger" aria-labelledby="deletion-title">
-        <h2 id="deletion-title">Supprimer mon compte</h2>
-        <div v-if="deletion" id="deletion-status" role="status" tabindex="-1">
-          <p v-if="deletion.statut === 'en_attente'">
-            <strong>Demande envoyée le {{ day(deletion.demandee_le) }}.</strong> Innov’Events traite votre demande de
-            suppression totale de vos informations et de votre compte, puis vous en informe par courriel.
-          </p>
-          <p v-else>Votre demande du {{ day(deletion.demandee_le) }} a été traitée.</p>
-        </div>
-        <template v-else>
-          <p>
-            Vous pouvez demander la suppression totale de vos informations personnelles et de votre compte. L’équipe
-            Innov’Events traite la demande et vous confirme la suppression par courriel. Les pièces que la loi impose de
-            conserver (factures) sont gardées pendant la durée légale.
-          </p>
-          <p v-if="deletionError" id="deletion-error" class="error" role="alert" tabindex="-1">{{ deletionError }}</p>
-          <fieldset :disabled="!!busy">
-            <legend class="sr-only">Demande de suppression</legend>
-            <label for="deletion-reason">Motif (facultatif)</label>
-            <textarea id="deletion-reason" v-model="reason" rows="3" maxlength="2000"></textarea>
-            <p class="check">
-              <input
-                id="deletion-confirm"
-                v-model="confirmDeletion"
-                type="checkbox"
-                :aria-invalid="!!deletionFieldError"
-                :aria-describedby="deletionFieldError ? 'deletion-confirm-error' : undefined"
-              />
-              <label for="deletion-confirm"
-                >Je demande la suppression totale de mes informations et de mon compte.</label
-              >
-            </p>
-            <p v-if="deletionFieldError" id="deletion-confirm-error" class="error">{{ deletionFieldError }}</p>
-            <button type="button" class="danger-button" @click="requestDeletion">
-              {{ busy === 'deletion' ? 'Envoi…' : 'Envoyer la demande de suppression' }}
+            <button type="submit" class="save">
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M5 3h11l3 3v15H5z" />
+                <path d="M8 3v6h8V3M8 21v-7h8v7" /></svg
+              >{{ busy === 'profile' ? 'Enregistrement…' : 'Enregistrer mes informations' }}
             </button>
           </fieldset>
-        </template>
-      </section>
-    </template>
+        </form>
+
+        <!-- Demande de suppression du compte -->
+        <section class="danger" aria-labelledby="deletion-title">
+          <h2 id="deletion-title">
+            <svg aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3" /></svg
+            >Supprimer mon compte
+          </h2>
+          <div v-if="deletion" id="deletion-status" role="status" tabindex="-1">
+            <p v-if="deletion.statut === 'en_attente'">
+              <strong>Demande envoyée le {{ day(deletion.demandee_le) }}.</strong> Innov’Events traite votre demande de
+              suppression totale de vos informations et de votre compte, puis vous en informe par courriel.
+            </p>
+            <p v-else>Votre demande du {{ day(deletion.demandee_le) }} a été traitée.</p>
+          </div>
+          <template v-else>
+            <p>
+              Vous pouvez demander la suppression totale de vos informations personnelles et de votre compte. L’équipe
+              Innov’Events traite la demande et vous confirme la suppression par courriel. Les pièces que la loi impose
+              de conserver (factures) sont gardées pendant la durée légale.
+            </p>
+            <p v-if="deletionError" id="deletion-error" class="error" role="alert" tabindex="-1">{{ deletionError }}</p>
+            <fieldset :disabled="!!busy">
+              <legend class="sr-only">Demande de suppression</legend>
+              <label for="deletion-reason">Motif (facultatif)</label>
+              <textarea id="deletion-reason" v-model="reason" rows="3" maxlength="2000"></textarea>
+              <p class="check">
+                <input
+                  id="deletion-confirm"
+                  v-model="confirmDeletion"
+                  type="checkbox"
+                  :aria-invalid="!!deletionFieldError"
+                  :aria-describedby="deletionFieldError ? 'deletion-confirm-error' : undefined"
+                />
+                <label for="deletion-confirm"
+                  >Je demande la suppression totale de mes informations et de mon compte.</label
+                >
+              </p>
+              <p v-if="deletionFieldError" id="deletion-confirm-error" class="error">{{ deletionFieldError }}</p>
+              <button type="button" class="danger-button" @click="requestDeletion">
+                <svg aria-hidden="true" viewBox="0 0 24 24">
+                  <path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3" />
+                </svg>
+                {{ busy === 'deletion' ? 'Envoi…' : 'Envoyer la demande de suppression' }}
+              </button>
+            </fieldset>
+          </template>
+        </section>
+      </template>
+    </div>
   </main>
 </template>
 <style scoped>
-form button[type='submit'] {
+/* Mes informations : libellés à gauche des champs, encadré d'information bleu, zone de suppression rouge. */
+.profile-card {
+  max-width: 1100px;
+}
+.profile-title {
+  margin: 4px 0 16px;
+  font-family: Anton, Impact, 'Arial Narrow', sans-serif;
+  font-weight: 400;
+  font-size: clamp(40px, 5vw, 56px);
+  line-height: 1.1;
+  color: #111;
+}
+.profile-title::after {
+  content: '';
+  display: block;
+  width: 90px;
+  height: 5px;
+  margin-top: 6px;
+  border-radius: 3px;
+  background: #ffd836;
+  transform: rotate(-3deg);
+}
+.info {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 18px;
+  border: 1px solid #b8c6ef;
+  border-radius: 6px;
+  background: #e3e9fa;
+}
+svg {
+  flex: none;
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.info svg {
+  color: #1d3fbf;
+}
+.fields {
+  display: grid;
+  grid-template-columns: minmax(150px, 220px) minmax(0, 1fr);
+  gap: 12px 24px;
+  align-items: center;
   margin-top: 24px;
 }
+.fields > legend + * {
+  grid-column: auto;
+}
+.fields label {
+  margin: 0;
+}
+.fields .error {
+  grid-column: 2;
+  margin: -6px 0 0;
+}
+.fields input {
+  min-height: 44px;
+}
+.save {
+  grid-column: 1 / -1;
+  justify-self: center;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px !important;
+  background: #1d3fbf !important;
+}
+.save:hover {
+  background: #142e8f !important;
+}
 .danger {
-  border-top: 1px solid #cbd5e1;
-  margin-top: 32px;
-  padding-top: 8px;
+  margin-top: 36px;
+  padding: 20px 24px;
+  border: 1px solid #c8221a;
+  border-radius: 6px;
+  background: #fbe4e1;
+}
+.danger h2 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 8px;
+  font-family: Anton, Impact, 'Arial Narrow', sans-serif;
+  font-weight: 400;
+  font-size: 2rem;
+  color: #b42318;
+}
+.danger h2 svg {
+  width: 36px;
+  height: 36px;
+}
+.danger fieldset > label {
+  margin-top: 12px;
 }
 .check {
   display: flex;
-  gap: 8px;
+  gap: 10px;
   align-items: flex-start;
   margin: 16px 0;
 }
@@ -233,31 +344,31 @@ form button[type='submit'] {
 }
 .check label {
   margin: 0;
-  font-weight: 400;
+  font-weight: 700;
 }
 .danger-button {
-  background: #b42318;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #b42318 !important;
 }
 .danger-button:hover {
-  background: #8f1c13;
+  background: #8f1c13 !important;
 }
 .success {
   color: #0b6b3a;
   font-weight: 600;
 }
-textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #718391;
-  border-radius: 4px;
-  font: inherit;
-}
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  white-space: nowrap;
+@media (max-width: 700px) {
+  .fields {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 6px;
+  }
+  .fields .error {
+    grid-column: 1;
+  }
+  .fields input {
+    margin-bottom: 10px;
+  }
 }
 </style>

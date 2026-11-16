@@ -97,3 +97,17 @@ footer > p { margin:40px 0 0; padding-top:20px; border-top:2px solid #F4EFE4; co
 .work-page .hint { color:#4A4A4A; font-size:.95rem; }
 .work-page button:not(.secondary) { background:#C8221A; border-radius:6px; font-weight:700; font-size:1.1rem; padding-inline:36px; }
 .work-page button:not(.secondary):hover { background:#A51B14; }
+/* Blocs des espaces personnels : pictogramme sur pastille, titre en Anton souligné d'une barre colorée. */
+.block-head { display:flex; align-items:center; gap:20px; margin:44px 0 18px; }
+.block-icon { flex:none; display:grid; place-items:center; width:60px; height:60px; border-radius:12px; background:#EFE8D8; }
+.block-icon svg { width:30px; height:30px; fill:none; stroke:#111; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+.block-head h2 { margin:0; font-family:Anton, Impact, 'Arial Narrow', sans-serif; font-weight:400; font-size:clamp(28px,3.6vw,40px); line-height:1.1; color:#111; }
+.block-head h2::after { content:''; display:block; width:56px; height:5px; margin-top:8px; border-radius:3px; background:var(--bar, #C8221A); }
+.bar-blue { --bar:#1D3FBF; } .bar-yellow { --bar:#FFD836; }
+.row-list { margin:0 0 0 80px; padding:0; list-style:none; border:1px solid #D8CFBD; border-radius:8px; background:#FBF8F1; }
+.row-list > li { margin:0; padding:14px 20px; border-top:1px solid #E5DCCB; }
+.row-list > li:first-child { border-top:0; }
+.empty-box { margin:0 0 0 80px; padding:14px 20px; border:1px solid #D8CFBD; border-radius:8px; background:#EFE8D8; }
+@media(max-width:700px) { .row-list, .empty-box { margin-left:0; } .block-head { gap:14px; } .block-icon { width:48px; height:48px; } }
+.sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+.req { color:#C8221A; }

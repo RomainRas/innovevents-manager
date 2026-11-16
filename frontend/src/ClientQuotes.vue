@@ -118,11 +118,11 @@ async function download(q) {
   }
 }
 </script>
-<template><section aria-labelledby="quotes-title"><h2 id="quotes-title">Vos devis</h2>
+<template><section aria-labelledby="quotes-title"><div class="block-head bar-blue"><span class="block-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6M9 13h8M9 17h8M9 9h3"/></svg></span><h2 id="quotes-title">Vos devis</h2></div>
 <p v-if="loading" role="status">Chargement…</p><p v-if="error" id="quotes-error" tabindex="-1" role="alert" class="error">{{ error }}</p>
 <p v-if="notice" id="quotes-result" tabindex="-1" role="status" class="success">{{ notice }}</p>
 <p v-if="uncertain"><button type="button" :disabled="!!busy" @click="decide">{{ busy?'Vérification…':'Vérifier ma réponse' }}</button></p>
-<p v-if="!loading&&!error&&!quotes.length">Aucun devis ne vous a encore été transmis.</p>
+<p v-if="!loading&&!error&&!quotes.length" class="empty-box">Aucun devis ne vous a encore été transmis.</p>
 <article v-for="q in quotes" :key="q.version_id" class="quote" :class="{old:q.remplace}" :aria-labelledby="'quote-'+q.version_id">
  <h3 :id="'quote-'+q.version_id">{{ q.evenement.nom }}</h3>
  <p>Devis {{ q.reference }}, version {{ q.version }} — transmis le {{ day(q.transmis_le) }}<br><strong>Statut : {{ labels[q.statut]||q.statut }}</strong><span v-if="q.remplace"> — remplacé par une version plus récente</span></p>
@@ -148,4 +148,4 @@ async function download(q) {
   <p class="actions"><button type="button" :disabled="!!busy" @click="decide">{{ busy?'Enregistrement…':confirms[dialog.choice] }}</button><button type="button" class="secondary" :disabled="!!busy" @click="cancel">Annuler</button></p>
  </div>
 </article></section></template>
-<style scoped>.quote{border:1px solid #CBD5E1;border-radius:8px;padding:16px;margin:16px 0}.quote.old{opacity:.8}h3{margin-top:0;overflow-wrap:anywhere}table{width:100%;border-collapse:collapse;margin:16px 0}caption{text-align:left;font-weight:700;margin-bottom:8px}th,td{text-align:left;padding:8px 4px;border-bottom:1px solid #E2E8F0;overflow-wrap:anywhere}td:last-child{text-align:right;white-space:nowrap}tfoot th{font-weight:600}.actions{display:flex;flex-wrap:wrap;gap:12px}.secondary{background:white;color:#142D43;border:1px solid #142D43}.secondary:hover{background:#E6EEF3}.dialog{border:2px solid #087F8C;border-radius:8px;padding:16px;margin-top:16px}h4{margin:0 0 8px;font-size:1.1rem}textarea{width:100%;padding:12px;border:1px solid #718391;border-radius:4px;font:inherit}[aria-invalid=true]{border:2px solid #B42318}.help{color:#4A5B68;font-size:.95rem}.success{color:#0B6B3A;font-weight:600}p{overflow-wrap:anywhere}</style>
+<style scoped>.quote{border:1px solid #D8CFBD;border-radius:8px;padding:20px;margin:16px 0 16px 80px;background:#FBF8F1}@media(max-width:700px){.quote{margin-left:0}}.quote.old{opacity:.8}h3{margin-top:0;overflow-wrap:anywhere}table{width:100%;border-collapse:collapse;margin:16px 0}caption{text-align:left;font-weight:700;margin-bottom:8px}th,td{text-align:left;padding:8px 4px;border-bottom:1px solid #D8CFBD;overflow-wrap:anywhere}td:last-child{text-align:right;white-space:nowrap}tfoot th{font-weight:600}.actions{display:flex;flex-wrap:wrap;gap:12px}.secondary{background:#FBF8F1;color:#111;border:2px solid #111}.secondary:hover{background:#EFE8D8}.dialog{border:2px solid #1D3FBF;border-radius:8px;padding:16px;margin-top:16px}h4{margin:0 0 8px;font-size:1.1rem}textarea{width:100%;padding:12px;border:1px solid #6E6658;border-radius:6px;background:#FFFDF8;font:inherit}[aria-invalid=true]{border:2px solid #B42318}.help{color:#4A4A4A;font-size:.95rem}.success{color:#0B6B3A;font-weight:600}p{overflow-wrap:anywhere}</style>
