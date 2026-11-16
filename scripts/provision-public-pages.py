@@ -1,4 +1,4 @@
-"""Migrations 011 et 016 : vues publiques (événements publiés, avis validés), courriel de contact et démonstration publiée.
+"""Migrations 011, 016 et 017 : vues publiques (événements publiés, avis validés), courriel de contact et démonstration publiée.
 Aucun nouveau compte : la lecture publique passe par le compte en lecture seule existant, limitée aux vues dans le code."""
 
 from pathlib import Path
@@ -44,6 +44,8 @@ if (
     sql((ROOT / 'database/mysql/011_public_pages.sql').read_text(encoding='utf-8'))
 # Photos d'ambiance de la démonstration (016) : rejouable, n'écrase jamais une image envoyée par Chloé.
 sql((ROOT / 'database/mysql/016_demo_photos.sql').read_text(encoding='utf-8'))
+# Avis illustrés (017) : la vue des avis publics expose l'événement et la présence de sa photo.
+sql((ROOT / 'database/mysql/017_review_photos.sql').read_text(encoding='utf-8'))
 print(
     'Pages publiques : vues et démonstration prêtes ('
     + sql('SELECT COUNT(*) FROM v_evenements_publics;')

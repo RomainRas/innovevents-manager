@@ -150,7 +150,8 @@ try:
         code == 200
         and len(data['reviews']) >= 4
         and all(
-            set(r) == {'id', 'contenu', 'publie_le', 'evenement', 'type_evenement', 'auteur'} for r in data['reviews']
+            set(r) == {'id', 'contenu', 'publie_le', 'evenement_id', 'evenement', 'type_evenement', 'image', 'auteur'}
+            for r in data['reviews']
         )
     )
     results['review_author_reduced'] = all(

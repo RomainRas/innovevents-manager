@@ -9,7 +9,7 @@ use InnovEvents\Security\LoginLimiter;
 
 /**
  * Pages publiques sans authentification : événements publiés, avis validés et formulaire de contact.
- * Les lectures passent uniquement par les vues v_evenements_publics et v_avis_publics (migration 011),
+ * Les lectures passent uniquement par les vues v_evenements_publics et v_avis_publics (migrations 011 et 017),
  * qui excluent les brouillons, les événements sans accord du client, le client et les montants.
  */
 final class PublicSite
@@ -108,11 +108,13 @@ final class PublicSite
     public function reviews(): array
     {
         $rows = Connections::mysql()
-            ->query('SELECT id, contenu, publie_le, evenement, type_evenement, auteur FROM v_avis_publics ORDER BY publie_le DESC, id DESC LIMIT 100')
+            ->query('SELECT id, contenu, publie_le, evenement_id, evenement, type_evenement, image, auteur FROM v_avis_publics ORDER BY publie_le DESC, id DESC LIMIT 100')
             ->fetchAll();
 
         foreach ($rows as &$row) {
             $row['id'] = (int) $row['id'];
+            $row['evenement_id'] = (int) $row['evenement_id'];
+            $row['image'] = (bool) $row['image'];
             $row['publie_le'] = (new \DateTimeImmutable($row['publie_le'], new \DateTimeZone('UTC')))
                 ->setTimezone(new \DateTimeZone('Europe/Paris'))
                 ->format('Y-m-d');
