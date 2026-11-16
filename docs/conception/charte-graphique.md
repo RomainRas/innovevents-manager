@@ -105,3 +105,28 @@ Première maquette web Demande de devis réalisée en v1. Il restera à formalis
 ## Complément événementiel
 
 À la suite des échanges sur l’identité de l’agence, l’accent corail #F3A48B apporte une touche chaleureuse aux pages publiques. Il complète le bleu nuit et le turquoise ; il ne remplace pas la couleur d’action principale. Sur fond corail, utiliser le texte bleu nuit, sans blanc. L’accent est ajouté aux variables Figma et à la planche. La première maquette de demande de devis applique ces règles sans image d’ambiance ; les images restent à préparer pour les écrans où elles servent le contenu.
+
+## Page d’accueil : version affiche
+
+Pour donner plus de caractère à la vitrine, j’ai réalisé une maquette de la page d’accueil dans un style affiche : papier crème, aplats rouge, bleu et jaune, photos inclinées, titres condensés en majuscules ([maquette](../maquettes/accueil-affiche.webp)). Ce style reste propre à l’accueil ; les autres pages, l’espace client, l’espace équipe et l’application mobile gardent la charte bleu nuit et turquoise.
+
+| Rôle | Valeur | Usage |
+| --- | --- | --- |
+| Papier | #F4EFE4 | Fond de la page, étiquettes et boutons |
+| Rouge | #C8221A | Bandeau d’ouverture, astérisques, décor |
+| Bleu | #1D3FBF | Aplats « Nos univers » et sous la photo |
+| Jaune | #FFD836 | Surlignages et bandeau d’appel au devis |
+| Encre | #111111 | Titres et texte sur fond clair |
+
+Titres : police Anton (licence SIL OFL), servie par le site lui-même (`frontend/public/fonts/`, 18 Ko, licence jointe) ; aucun appel à un service de polices extérieur. Le texte courant reste en Inter ou en police du système.
+
+| Association | Rapport calculé |
+| --- | --- |
+| Blanc / #C8221A | 5.68:1 |
+| Encre / #C8221A | 3.33:1, réservé aux très grands titres (plus de 40 px) |
+| Blanc / #1D3FBF | 8.35:1 |
+| Encre / #FFD836 | 13.6:1 |
+| Encre / #F4EFE4 | 16.47:1 |
+| #C8221A / #F4EFE4 | 4.95:1 |
+
+Les trois photos d’ambiance (soirée dansante, séminaire, dîner de gala) sont réduites et converties en WebP (66 à 119 Ko) et chacune a un texte alternatif. Le ticket « Programme événement » est un décor masqué aux lecteurs d’écran. La page a été vérifiée à 1440 et 390 pixels de large, sans défilement horizontal, et le test des pages publiques passe.

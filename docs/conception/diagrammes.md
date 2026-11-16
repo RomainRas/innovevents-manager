@@ -159,7 +159,7 @@ flowchart TB
 
 - Pas de framework CSS ni de bibliothèque d’interface : feuilles de style légères ; le site compilé pèse environ 200 Ko de JavaScript (65 Ko compressés).
 - Compression zstd/gzip, mise en cache longue des fichiers versionnés, cache d’une heure pour les images publiques.
-- Images ré-encodées à l’envoi (JPEG ou PNG, 5 Mo au plus), ce qui retire aussi leurs métadonnées ; aucune vidéo ; aucune police téléchargée (police déjà installée sur l’appareil ou police du système).
+- Images ré-encodées à l’envoi (JPEG ou PNG, 5 Mo au plus), ce qui retire aussi leurs métadonnées ; aucune vidéo ; une seule police servie par le site (Anton, 18 Ko, titres de l’accueil), les autres textes utilisant la police du système ; photos de l’accueil en WebP (66 à 119 Ko), chargées à l’approche pour celles du bas de page.
 - Listes limitées côté serveur (200 éléments au plus), aucune requête répétée en arrière-plan.
 - L’application mobile n’interroge le serveur qu’à l’ouverture d’un écran et réutilise les données en cache hors ligne.
 - Un seul serveur virtuel ; les services inutiles en production (outils de test) ne sont pas installés.
