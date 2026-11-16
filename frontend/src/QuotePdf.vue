@@ -52,7 +52,7 @@ async function generate() {
     } else if (e.status === 401 || e.status === 403) {
       error.value = 'Votre session ou vos droits ne permettent plus cette action.'
       uncertain.value = false
-    // Réponse perdue : le formulaire reste bloqué jusqu'à une nouvelle tentative, qui retrouve le PDF déjà créé.
+      // Réponse perdue : le formulaire reste bloqué jusqu'à une nouvelle tentative, qui retrouve le PDF déjà créé.
     } else {
       error.value = 'Génération non confirmée. Réessayez pour retrouver le PDF.'
       uncertain.value = true
@@ -101,7 +101,7 @@ async function download() {
 </script>
 <template>
   <section>
-    <h2>Devis PDF</h2>
+    <h2 class="hl">Devis PDF</h2>
     <p>Le PDF utilise les informations enregistrées. Le télécharger ne l’envoie pas au client.</p>
     <p v-if="error" id="pdf-error" tabindex="-1" role="alert" class="error">{{ error }}</p>
     <p v-if="notice" id="pdf-result" tabindex="-1" role="status">{{ notice }}</p>

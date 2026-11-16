@@ -1,21 +1,21 @@
 /* Police des titres de l'accueil (Anton, licence SIL OFL, servie localement). */
 @font-face { font-family:Anton; src:url('/fonts/anton.woff2') format('woff2'); font-display:swap; }
-:root { font-family: Inter, system-ui, sans-serif; color:#172B3A; background:#F4F7FA; }
+:root { font-family: Inter, system-ui, sans-serif; color:#172B3A; background:#F4EFE4; }
 body { margin:0; } * { box-sizing:border-box; }
 header { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px; padding:18px max(16px,4vw); background:#F4EFE4; border-bottom:3px solid #111; }
 nav { display:flex; flex-wrap:wrap; align-items:center; gap:24px; }
-a { color:#142D43; text-underline-offset:4px; }
+a { color:#111111; text-underline-offset:4px; }
 .panel { max-width:800px; margin:40px auto; padding:32px; background:white; border-radius:8px; }
-.narrow { max-width:480px; } h1 { font-size:clamp(28px,4vw,36px); color:#142D43; }
+.narrow { max-width:480px; } h1 { font-size:clamp(28px,4vw,36px); color:#111111; }
 p,li { line-height:1.6; } li { margin-block:16px; overflow-wrap:anywhere; }
 label { display:block; font-weight:600; margin:24px 0 8px; }
 input { width:100%; min-height:48px; padding:12px; border:1px solid #718391; border-radius:4px; font:inherit; }
-button { min-height:48px; padding:12px 20px; border:0; border-radius:4px; color:white; background:#087F8C; font:inherit; cursor:pointer; }
-button:hover { background:#06616B; } button:disabled { opacity:.65; cursor:wait; }
-:focus-visible { outline:2px solid #142D43; outline-offset:3px; } .error { color:#B42318; }
+button { min-height:48px; padding:12px 20px; border:0; border-radius:4px; color:white; background:#C8221A; font:inherit; cursor:pointer; }
+button:hover { background:#A51B14; } button:disabled { opacity:.65; cursor:wait; }
+:focus-visible { outline:2px solid #111111; outline-offset:3px; } .error { color:#B42318; }
 @media(max-width:840px) { .panel { margin:24px 16px; padding:24px; } }
 /* Pages publiques : accueil, événements, avis, contact, pages légales. */
-.skip-link { position:absolute; left:16px; top:-60px; padding:12px 16px; background:#142D43; color:white; z-index:10; border-radius:4px; }
+.skip-link { position:absolute; left:16px; top:-60px; padding:12px 16px; background:#111111; color:white; z-index:10; border-radius:4px; }
 .skip-link:focus { top:12px; }
 #contenu:focus { outline:none; }
 /* En-tête et pied de page en style affiche : logo en Anton surligné de jaune, page active soulignée de rouge. */
@@ -31,9 +31,9 @@ header nav .nav-account { display:inline-flex; align-items:center; gap:8px; min-
 header nav .nav-account:hover, header nav button.nav-account:hover { background:#FFD836; box-shadow:none; }
 select, textarea { width:100%; min-height:48px; padding:12px; border:1px solid #718391; border-radius:4px; font:inherit; background:white; color:inherit; }
 fieldset { border:0; padding:0; margin:0; min-width:0; }
-.button { display:inline-block; min-height:48px; padding:12px 20px; border-radius:4px; color:white; background:#087F8C; text-decoration:none; font-weight:600; }
-.button:hover { background:#06616B; }
-button.secondary { color:#142D43; background:white; border:1px solid #142D43; } button.secondary:hover { background:#EEF3F6; }
+.button { display:inline-block; min-height:48px; padding:12px 20px; border-radius:4px; color:white; background:#C8221A; text-decoration:none; font-weight:600; }
+.button:hover { background:#A51B14; }
+button.secondary { color:#111111; background:white; border:2px solid #111111; } button.secondary:hover { background:#EFE8D8; }
 .panel.wide { max-width:1100px; } .narrow-form { max-width:640px; }
 .meta { color:#4A5B68; font-size:.95rem; } .tag { display:inline-block; margin:0; padding:2px 10px; border-radius:999px; background:#E3F2F3; color:#05545C; font-size:.9rem; font-weight:600; }
 .notice { padding:12px 16px; background:#FFF6E0; border-left:4px solid #B7791F; border-radius:4px; }
@@ -45,8 +45,8 @@ button.secondary { color:#142D43; background:white; border:1px solid #142D43; } 
 .event-cards article img { border-radius:0; } .event-cards article div { padding:16px 20px; } .event-cards h2 { font-size:1.25rem; margin:8px 0; }
 .event-cards p { margin:4px 0; }
 .event-detail dl { display:grid; grid-template-columns:max-content 1fr; gap:8px 24px; } .event-detail dt { font-weight:700; } .event-detail dd { margin:0; }
-.quote-callout { margin-top:32px; padding:24px; border:2px solid #087F8C; border-radius:8px; }
-figure { margin:0; } .reviews { list-style:none; padding:0; } .reviews li { margin:0 0 24px; padding:24px; background:#F4F7FA; border-left:4px solid #087F8C; border-radius:4px; }
+.quote-callout { margin-top:32px; padding:24px; border:2px solid #C8221A; border-radius:8px; }
+figure { margin:0; } .reviews { list-style:none; padding:0; } .reviews li { margin:0 0 24px; padding:24px; background:#F4EFE4; border-left:4px solid #C8221A; border-radius:4px; }
 .reviews blockquote { margin:0 0 12px; font-size:1.1rem; } .reviews blockquote p { margin:0; }
 /* Pied de page : fond noir au bord supérieur déchiré, logo étoilé souligné de rouge, deux colonnes de liens. */
 footer { position:relative; margin-top:72px; padding:56px max(16px,4vw) 32px; background:#111; color:#F4EFE4; }

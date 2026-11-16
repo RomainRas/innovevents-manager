@@ -100,57 +100,69 @@ async function save() {
   }
 }
 </script>
-<template><main class="work-page quote-draft"><RouterLink class="back-link" :to="'/evenements/'+route.params.id">← Retour à l’événement</RouterLink><h1 class="list-title">Préparer le devis</h1><p v-if="loading" role="status">Chargement…</p><p v-if="error" id="quote-error" role="alert" tabindex="-1" class="error">{{ error }}</p><p v-if="notice" id="quote-result" role="status" tabindex="-1">{{ notice }}</p>
+<template><main class="poster-page quote-poster"><span class="shape red torn-a deco-a" aria-hidden="true"></span><span class="shape yellow torn-b deco-b" aria-hidden="true"></span><span class="shape yellow torn-a deco-c" aria-hidden="true"></span><span class="shape blue torn-b deco-d" aria-hidden="true"></span><div class="paper sheet"><RouterLink class="back-link" :to="'/evenements/'+route.params.id">← Retour à l’événement</RouterLink><h1 class="poster-title yellow">Préparer le devis</h1><p v-if="loading" role="status">Chargement…</p><p v-if="error" id="quote-error" role="alert" tabindex="-1" class="error">{{ error }}</p><p v-if="notice" id="quote-result" role="status" tabindex="-1">{{ notice }}</p>
 <template v-if="event"><p class="quote-event">{{ event.nom }} <span v-if="reference" class="status-pill">{{ reference }}</span></p><p class="tva-info">Montants en euros. La TVA est calculée sur le total HT, puis arrondie au centime. Renseignez le taux applicable : aucun taux n’est présélectionné.</p><p v-if="!editable&&!reference" class="notice">Aucun devis n’a été préparé pour cet événement. Le devis se prépare tant que l’événement est en brouillon ; celui-ci est au statut « {{ statusLabel }} ».</p><p v-else-if="!editable">Ce devis n’est plus modifiable dans cet écran.</p>
-<form v-if="editable||reference" class="work-card quote-form" @submit.prevent="save" novalidate :aria-busy="busy"><fieldset :disabled="busy||uncertain||pdfLocked||sendLocked||!editable"><legend>Prestations</legend><p v-if="errors.prestations" id="prestations" tabindex="-1" class="error">{{ errors.prestations }}</p>
+<form v-if="editable||reference" class="quote-form" @submit.prevent="save" novalidate :aria-busy="busy"><fieldset :disabled="busy||uncertain||pdfLocked||sendLocked||!editable"><legend>Prestations</legend><p v-if="errors.prestations" id="prestations" tabindex="-1" class="error">{{ errors.prestations }}</p>
 <div v-for="(line,i) in lines" :key="i" class="line"><label :for="'libelle-'+i">Prestation {{ i+1 }} — libellé</label><input :id="'libelle-'+i" v-model="line.libelle" maxlength="255" required :aria-invalid="!!errors['libelle-'+i]" :aria-describedby="errors['libelle-'+i]?'libelle-error-'+i:undefined" @input="changed"><p v-if="errors['libelle-'+i]" :id="'libelle-error-'+i" class="error">{{ errors['libelle-'+i] }}</p>
 <label :for="'montant-'+i">Montant HT {{ i+1 }} (€)</label><input :id="'montant-'+i" v-model="line.montant_ht" inputmode="decimal" required :aria-invalid="!!errors['montant-'+i]" :aria-describedby="errors['montant-'+i]?'montant-error-'+i:undefined" @input="changed"><p v-if="errors['montant-'+i]" :id="'montant-error-'+i" class="error">{{ errors['montant-'+i] }}</p><button type="button" class="remove" :disabled="lines.length===1" :aria-label="'Supprimer la prestation '+(i+1)" @click="lines.splice(i,1);changed()">Supprimer</button></div>
 <p class="add-line"><button type="button" class="secondary" :disabled="lines.length>=100" @click="lines.push({libelle:'',montant_ht:''});changed()">Ajouter une prestation</button></p><label for="taux_tva">Taux de TVA (%)</label><input id="taux_tva" v-model="rate" inputmode="decimal" required :aria-invalid="!!errors.taux_tva" :aria-describedby="errors.taux_tva?'taux-error':undefined" @input="changed"><p v-if="errors.taux_tva" id="taux-error" class="error">{{ errors.taux_tva }}</p></fieldset>
 <p class="save-quote"><button :disabled="busy||pdfLocked||sendLocked||!editable">{{ busy?'Enregistrement…':uncertain?'Vérifier et réessayer':'Calculer et enregistrer' }}</button></p></form>
-<section v-if="totals" class="totals" aria-labelledby="totals-title"><h2 id="totals-title">Totaux enregistrés</h2><dl><dt>Total HT</dt><dd>{{ totals.total_ht }} €</dd><dt>TVA</dt><dd>{{ totals.total_tva }} €</dd><dt>Total TTC</dt><dd>{{ totals.total_ttc }} €</dd></dl></section><p v-else-if="editable||reference">Les totaux seront affichés après validation et enregistrement.</p>
-<QuotePdf v-if="totals && revision>0 && editable" :key="revision" :event-id="String(route.params.id)" :revision="revision" :disabled="busy||uncertain||sendLocked||!editable" @locked="pdfLocked=$event" @generated="pdfKey++" />
-<QuoteTransmission v-if="totals && revision>0" :key="revision+'-'+pdfKey+'-'+counterKey" :event-id="String(route.params.id)" :disabled="busy||uncertain||pdfLocked" @locked="sendLocked=$event" @sent="editable=false" @counter="counterCreated" /></template></main></template>
+<div class="results"><section v-if="totals" class="totals" aria-labelledby="totals-title"><h2 id="totals-title" class="hl">Totaux enregistrés</h2><dl><dt>Total HT</dt><dd>{{ totals.total_ht }} €</dd><dt>TVA</dt><dd>{{ totals.total_tva }} €</dd><dt>Total TTC</dt><dd>{{ totals.total_ttc }} €</dd></dl></section><p v-else-if="editable||reference">Les totaux seront affichés après validation et enregistrement.</p>
+<QuotePdf v-if="totals && revision>0 && editable" :key="revision" :event-id="String(route.params.id)" :revision="revision" :disabled="busy||uncertain||sendLocked||!editable" @locked="pdfLocked=$event" @generated="pdfKey++" /></div>
+<QuoteTransmission v-if="totals && revision>0" :key="revision+'-'+pdfKey+'-'+counterKey" :event-id="String(route.params.id)" :disabled="busy||uncertain||pdfLocked" @locked="sendLocked=$event" @sent="editable=false" @counter="counterCreated" /></template></div></main></template>
 <style scoped>
-/* Préparation du devis : encadré TVA, prestations en lignes libellé + montant, totaux dans un encadré. */
+/* Préparation du devis en style affiche : feuille déchirée sur aplats, titres surlignés de jaune. */
+.sheet {
+  position: relative;
+  z-index: 1;
+  max-width: 1000px;
+  margin: 0 auto;
+  font-family: Georgia, 'Times New Roman', serif;
+}
+.sheet .back-link {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 700;
+  color: #1d3fbf;
+}
+.sheet .poster-title {
+  display: block;
+  width: fit-content;
+  margin: 8px auto 24px;
+  font-size: clamp(40px, 6vw, 68px);
+}
 .quote-event {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px 14px;
-  margin: 0 0 14px;
-  font-family: Anton, Impact, 'Arial Narrow', sans-serif;
-  font-size: 1.8rem;
+  margin: 0 0 6px;
+  font-weight: 700;
 }
 .quote-event .status-pill {
   font-family: system-ui, sans-serif;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
 }
 .tva-info {
-  padding: 14px 18px;
-  background: #e3e9fa;
-  border: 1px solid #b8c6ef;
-  border-radius: 6px;
+  margin: 0 0 18px;
+}
+.quote-form {
+  margin: 0;
 }
 fieldset {
   min-width: 0;
-  margin: 0;
-  padding: 0;
-  border: 0;
+  margin: 0 0 18px;
+  padding: 10px 24px 18px;
+  border: 2px solid #111;
+  border-radius: 6px;
 }
 legend {
-  margin-bottom: 8px;
-  font-family: Anton, Impact, 'Arial Narrow', sans-serif;
-  font-size: 1.8rem;
+  padding: 0 8px;
+  font-weight: 700;
+  font-size: 1.25rem;
 }
 .line {
   display: grid;
   grid-template-columns: minmax(0, 2fr) minmax(140px, 1fr) auto;
   gap: 4px 16px;
   align-items: end;
-  padding: 12px 0;
-  border-bottom: 1px solid #d8cfbd;
+  padding: 8px 0;
 }
-/* Libellé et montant côte à côte ; erreurs dessous ; suppression à droite. */
 .line label[for^='libelle'] {
   grid-area: 1 / 1;
 }
@@ -179,63 +191,128 @@ legend {
 .remove {
   grid-area: 2 / 3;
   min-height: 44px;
-  color: #c8221a !important;
-  background: #fffdf8 !important;
-  border: 2px solid #c8221a !important;
-  border-radius: 6px;
+  color: #111 !important;
+  background: #efe8d8 !important;
+  border: 1px solid #111 !important;
+  border-radius: 4px;
+  font-family: Georgia, 'Times New Roman', serif;
 }
 .add-line .secondary {
-  border: 2px solid #1d3fbf !important;
-  color: #1d3fbf !important;
-  border-radius: 6px;
+  color: #111 !important;
+  background: #ffd836 !important;
+  border: 0 !important;
+  border-radius: 0;
+  font-family: Anton, Impact, 'Arial Narrow', sans-serif;
+  font-size: 1.15rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
 }
 #taux_tva {
-  max-width: 220px;
+  max-width: 260px;
 }
 .save-quote {
   display: flex;
   justify-content: flex-end;
 }
-.totals {
-  max-width: 520px;
-  margin: 0 0 24px auto;
-  padding: 16px 22px;
-  background: #fbf8f1;
-  border: 2px solid #111;
-  border-radius: 8px;
-}
-.totals h2 {
-  margin: 0 0 8px;
+.save-quote button,
+.sheet :deep(section button:not(.secondary)) {
+  border-radius: 0;
   font-family: Anton, Impact, 'Arial Narrow', sans-serif;
-  font-weight: 400;
-  font-size: 1.5rem;
+  font-size: 1.35rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+/* Totaux à gauche, PDF à droite, séparés par un filet ; transmission en dessous. */
+.results {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
+  gap: 24px 40px;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 2px solid #111;
+}
+.results > :nth-child(2) {
+  padding-left: 32px;
+  border-left: 2px solid #111;
+}
+.results > :only-child {
+  grid-column: 1 / -1;
 }
 .totals dl {
   display: grid;
   grid-template-columns: 1fr auto;
+  gap: 8px 24px;
   margin: 0;
 }
-.totals dt,
-.totals dd {
-  margin: 0;
-  padding: 8px 0;
-  border-bottom: 1px solid #d8cfbd;
+.totals dt {
+  font-weight: 700;
 }
 .totals dd {
+  margin: 0;
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
-.totals dt:last-of-type,
-.totals dd:last-of-type {
-  border-bottom: 0;
-  font-size: 1.3rem;
-  font-weight: 800;
-  color: #c8221a;
+.sheet :deep(.hl) {
+  width: fit-content;
+  margin: 0 0 14px;
+  padding: 0 8px;
+  font-family: Anton, Impact, 'Arial Narrow', sans-serif;
+  font-weight: 400;
+  font-size: clamp(28px, 3.4vw, 40px);
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: #111;
+  background: linear-gradient(transparent 55%, #ffd836 55%);
+}
+.sheet :deep(section[aria-labelledby='send-title']) {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 2px solid #111;
 }
 [aria-invalid='true'] {
   border: 2px solid #b42318;
 }
+.deco-a {
+  top: -20px;
+  left: -60px;
+  width: 520px;
+  height: 380px;
+  transform: rotate(-6deg);
+}
+.deco-b {
+  bottom: 40px;
+  left: -80px;
+  width: 380px;
+  height: 180px;
+  transform: rotate(8deg);
+}
+.deco-c {
+  top: 460px;
+  right: -60px;
+  width: 360px;
+  height: 140px;
+  transform: rotate(-24deg);
+}
+.deco-d {
+  bottom: 20px;
+  right: -60px;
+  width: 520px;
+  height: 360px;
+  transform: rotate(-14deg);
+}
+@media (max-width: 800px) {
+  .results {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .results > :nth-child(2) {
+    padding-left: 0;
+    border-left: 0;
+  }
+}
 @media (max-width: 700px) {
+  fieldset {
+    padding: 8px 14px 14px;
+  }
   .line {
     grid-template-columns: minmax(0, 1fr);
   }

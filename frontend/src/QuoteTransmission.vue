@@ -132,7 +132,7 @@ async function send() {
 
 <template>
   <section aria-labelledby="send-title">
-    <h2 id="send-title">Transmission au client</h2>
+    <h2 id="send-title" class="hl">Transmission au client</h2>
     <p v-if="loading" role="status">Chargement…</p>
     <p v-if="error" id="send-error" tabindex="-1" role="alert" class="error">{{ error }}</p>
     <p v-if="notice" id="send-result" tabindex="-1" role="status">{{ notice }}</p>
@@ -208,14 +208,14 @@ async function send() {
 
 <style scoped>
 .actions { display: flex; flex-wrap: wrap; gap: 12px }
-.secondary { background: white; color: #142D43; border: 1px solid #142D43 }
-.secondary:hover { background: #E6EEF3 }
-.confirm { border: 1px solid #CBD5E1; border-radius: 8px; padding: 16px; margin: 16px 0 }
+.secondary { background: #FFFDF8; color: #111; border: 2px solid #111 }
+.secondary:hover { background: #EFE8D8 }
+.confirm { border: 2px solid #111; background: #FFFDF8; border-radius: 8px; padding: 16px; margin: 16px 0 }
 dt { font-weight: 700 }
 dd { margin: 4px 0 12px; overflow-wrap: anywhere }
 .check { display: flex; gap: 12px; align-items: flex-start }
 .check input { width: 24px; min-height: 24px; margin-top: 4px; flex: none }
 .check label { margin: 0; font-weight: 400 }
 .history li, .decisions li { margin-block: 8px }
-.decisions { border-left: 4px solid #087F8C; padding-left: 12px }
+.decisions { border-left: 4px solid #1D3FBF; padding-left: 12px }
 </style>
