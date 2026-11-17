@@ -3,6 +3,7 @@
 import { ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { login, refresh } from './auth'
+import { returnTarget } from './navigation'
 
 const email = ref(''),
   password = ref(''),
@@ -11,35 +12,14 @@ const email = ref(''),
 const route = useRoute(),
   router = useRouter()
 
-// Pages de retour acceptées (liste fermée) : un lien piégé ne peut pas rediriger vers un autre site.
-const destinations = [
-  '/espace',
-  '/journaux',
-  '/prospects',
-  '/parametres-demandes',
-  '/mot-de-passe',
-  '/devis',
-  '/espace/informations',
-  '/moderation-avis',
-  '/comptes',
-]
 
 async function submit() {
   busy.value = true
   error.value = ''
   try {
     await login(email.value, password.value)
-    const retour = route.query.retour
-    // Retour demandé accepté seulement s'il est dans la liste ou s'il correspond à une fiche (identifiant numérique).
-    const target =
-      typeof retour === 'string' &&
-      (destinations.includes(retour) ||
-        /^\/prospects\/[1-9][0-9]{0,17}(\/(convertir|evenement))?$/.test(retour) ||
-        /^\/(clients|evenements)\/[1-9][0-9]{0,17}(\/devis)?$/.test(retour) ||
-        /^\/equipe\/(clients|evenements)(\/[1-9][0-9]{0,17})?$/.test(retour))
-        ? retour
-        : '/espace'
-    await router.replace(target)
+    // Retour demandé accepté seulement s'il est dans la liste fermée ou s'il correspond à une fiche (navigation.js).
+    await router.replace(returnTarget(route.query.retour))
   } catch (e) {
     // Mot de passe effacé immédiatement, sans attendre le rafraîchissement de la session.
     password.value = ''

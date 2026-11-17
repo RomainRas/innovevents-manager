@@ -53,4 +53,4 @@ Pour l’application mobile : ouvrir le lien sur un téléphone (ou avec l’ém
 
 ## Résultats de tests
 
-30 suites sur 30 réussies (48 tests unitaires, 20 suites fonctionnelles, tests de bout en bout dont application mobile sur téléphone émulé). Couverture du code PHP : 98,3 % des lignes, 92,1 % des méthodes. Détail et interprétation : [plan de tests](plan-de-tests.md).
+31 suites sur 31 réussies (48 tests unitaires PHPUnit, 31 tests unitaires du front avec Vitest, 20 suites fonctionnelles, tests de bout en bout dont application mobile sur téléphone émulé). Couverture du code PHP : 93,2 % des lignes. Détail et interprétation : [plan de tests](plan-de-tests.md).

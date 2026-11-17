@@ -33,7 +33,7 @@ if [ "$(docker compose exec -T mysql sh /opt/innovevents/client.sh --batch --ski
 fi
 
 echo "4/5 Migrations et comptes limités"
-for script in provision-api-accounts provision-mail provision-quotes provision-prospects provision-conversion provision-events provision-event-images provision-quote-drafts provision-quote-pdf provision-quote-send provision-quote-decisions provision-public-pages provision-client-space provision-admin-accounts provision-team-space provision-records; do
+for script in provision-api-accounts provision-mail provision-quotes provision-prospects provision-conversion provision-events provision-event-images provision-quote-drafts provision-quote-pdf provision-quote-send provision-quote-decisions provision-public-pages provision-client-space provision-admin-accounts provision-team-space provision-records provision-log-retention; do
   python3 -X utf8 "scripts/$script.py"
 done
 

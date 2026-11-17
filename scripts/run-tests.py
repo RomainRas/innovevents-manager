@@ -84,7 +84,7 @@ def wait_api():
 
 def summary(output):
     for line in reversed(output.splitlines()):
-        if 'contrôles réussis' in line or line.startswith('OK (') or line.startswith('Tests:'):
+        if 'contrôles réussis' in line or line.startswith(('OK (', 'Tests:')) or line.strip().startswith('Tests '):
             return line.strip()
     return ''
 
@@ -121,6 +121,18 @@ try:
         }
     )
     print(('OK  ' if r.returncode == 0 else 'ÉCHEC ') + 'PHPUnit', summary(r.stdout), flush=True)
+    # Tests unitaires du front (Vitest) : modules et composants Vue, dans le conteneur du serveur Vite.
+    r = compose('exec', '-T', '-e', 'NO_COLOR=1', 'web', 'npx', 'vitest', 'run', check=False)
+    results.append(
+        {
+            'fichier': 'frontend/tests (Vitest)',
+            'type': 'unitaire',
+            'fonctionnalite': 'Front : navigation et retour après connexion, appels API, formats, notes globales',
+            'reussi': r.returncode == 0,
+            'resume': summary(r.stdout),
+        }
+    )
+    print(('OK  ' if r.returncode == 0 else 'ÉCHEC ') + 'Vitest', summary(r.stdout), flush=True)
     for path, kind, feature in SUITES:
         reset_limiter()
         command = [PYTHON, '-X', 'utf8', path] if path.endswith('.py') else [NODE, path]

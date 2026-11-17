@@ -46,10 +46,10 @@ Côté application : HTTPS forcé avec HSTS, cookie de session `Secure`/`HttpOnl
 2. construction des images `api` (PHP-FPM), `mobile` (compilation de la PWA) et `caddy` (compilation Vue) ;
 3. démarrage et contrôle de santé de MySQL et MongoDB ;
 4. création unique du jeu de démonstration (`prepare_demo_backup.py`, avec sauvegarde et restauration vérifiées) ;
-5. migrations et comptes limités (`provision-*.py`, déjà utilisés en local) ;
+5. migrations et comptes limités (`provision-*.py`, déjà utilisés en local), dont la conservation d’un an des journaux de connexion dans MongoDB (`provision-log-retention.py`) ;
 6. démarrage de l'application, contrôle de santé et nettoyage des anciennes images.
 
-**Déploiement automatique :** `.github/workflows/ci-deploy.yml` exécute les contrôles à chaque push sur `dev` et `main` : syntaxe PHP dans l'image de production, tests de calcul, **tests unitaires PHPUnit avec couverture**, **audit de sécurité des dépendances** (Composer et npm, voir [veille](veille.md)), compilation Vue, compilation de l'application mobile, configuration Compose et analyse des scripts shell. Un seul contrôle en échec bloque le déploiement. Sur `main`, après succès, il envoie le code au serveur par SSH avec une clé dédiée et lance `deploy.sh`, puis vérifie `/api/health`. Secrets GitHub requis : `DEPLOY_SSH_KEY`, `DEPLOY_HOST`, `DEPLOY_KNOWN_HOSTS` ; variable `SITE_URL`.
+**Déploiement automatique :** `.github/workflows/ci-deploy.yml` exécute les contrôles à chaque push sur `dev` et `main` : syntaxe PHP dans l'image de production, tests de calcul, **tests unitaires PHPUnit avec couverture**, **tests unitaires du front (Vitest)**, **audit de sécurité des dépendances** (Composer et npm, voir [veille](veille.md)), compilation Vue, compilation de l'application mobile, configuration Compose et analyse des scripts shell. Un seul contrôle en échec bloque le déploiement. Sur `main`, après succès, il envoie le code au serveur par SSH avec une clé dédiée et lance `deploy.sh`, puis vérifie `/api/health`. Secrets GitHub requis : `DEPLOY_SSH_KEY`, `DEPLOY_HOST`, `DEPLOY_KNOWN_HOSTS` ; variable `SITE_URL`.
 
 ## Reproduire le déploiement sur un nouveau serveur
 

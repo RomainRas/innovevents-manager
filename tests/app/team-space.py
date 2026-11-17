@@ -1,5 +1,5 @@
-"""Contrôles HTTP de l'espace employé : consultation des clients et événements, notes collaboratives, statut des tâches.
-Les notes créées, le compte employé temporaire et les statuts de tâches modifiés sont restaurés en fin d'essai."""
+"""Contrôles HTTP de l'espace employé : consultation des clients et événements, notes collaboratives, notes globales, statut des tâches.
+Les notes créées (y compris les notes globales), le compte employé temporaire et les statuts de tâches modifiés sont restaurés en fin d'essai."""
 
 from pathlib import Path
 import http.cookiejar, json, os, secrets, subprocess, urllib.parse, urllib.request, urllib.error
@@ -227,6 +227,52 @@ try:
     results['task_unassigned'] = jose.call('/api/team/task-status', {'id': unassigned, 'statut': 'en_cours'})[0] == 403
     results['task_unknown'] = jose.call('/api/team/task-status', {'id': '999999999', 'statut': 'en_cours'})[0] == 404
 
+    # Notes globales : lues par toute l'équipe, rédigées, modifiées et supprimées par l'administratrice seule.
+    code, data = chloe.call('/api/team/global-note-save', {'contenu': 'Note globale : fermeture des bureaux vendredi.'})
+    created = [n for n in data.get('notes', []) if n['contenu'] == 'Note globale : fermeture des bureaux vendredi.']
+    gnote = created[0]['id'] if created else None
+    results['global_note_admin_creates'] = (
+        code == 200 and gnote is not None and created[0]['modifiable'] and created[0]['auteur'].startswith('Chloé ')
+        and sql(f'SELECT auteur_id FROM notes_globales WHERE id={gnote};')
+        == sql("SELECT id FROM utilisateurs WHERE email_normalise='chloe@example.invalid';")
+    )
+    code, data = jose.call('/api/team/notes')
+    seen = [n for n in data.get('notes', []) if n['id'] == gnote]
+    results['global_note_team_reads'] = code == 200 and len(seen) == 1 and seen[0]['modifiable'] is False
+    results['global_note_employee_denied'] = (
+        jose.call('/api/team/global-note-save', {'contenu': 'Note globale employé'})[0] == 403
+        and jose.call('/api/team/global-note-save', {'id': gnote, 'contenu': 'Modifiée par José'})[0] == 403
+        and jose.call('/api/team/global-note-delete', {'id': gnote})[0] == 403
+        and alice.call('/api/team/notes')[0] == 403
+        and anonymous.call('/api/team/notes')[0] == 401
+    )
+    results['global_note_csrf_required'] = (
+        chloe.call('/api/team/global-note-save', {'contenu': 'Note globale sans jeton'}, csrf=False)[0] == 403
+    )
+    results['global_note_validation'] = (
+        chloe.call('/api/team/global-note-save', {'contenu': '   '})[0] == 422
+        and chloe.call('/api/team/global-note-save', {'contenu': 'x' * 5001})[0] == 422
+        and chloe.call('/api/team/global-note-save', {'contenu': 'Bip\x07'})[0] == 422
+        and chloe.call('/api/team/global-note-save', {'id': 'abc', 'contenu': 'Texte'})[0] == 422
+    )
+    injection = "Note globale '); DROP TABLE notes_globales; -- <script>alert(1)</script>"
+    code, data = chloe.call('/api/team/global-note-save', {'id': gnote, 'contenu': injection})
+    results['global_note_admin_edits'] = (
+        code == 200
+        and any(n['id'] == gnote and n['contenu'] == injection and n['modifiee'] for n in data['notes'])
+        and sql("SELECT COUNT(*) FROM information_schema.TABLES WHERE TABLE_SCHEMA='innovevents_demo' AND TABLE_NAME='notes_globales';") == '1'
+    )
+    results['global_note_unknown'] = (
+        chloe.call('/api/team/global-note-save', {'id': '999999999', 'contenu': 'Texte'})[0] == 404
+        and chloe.call('/api/team/global-note-delete', {'id': '999999999'})[0] == 404
+    )
+    code, data = chloe.call('/api/team/global-note-delete', {'id': gnote})
+    results['global_note_admin_deletes'] = (
+        code == 200
+        and gnote not in [n['id'] for n in data['notes']]
+        and sql(f'SELECT COUNT(*) FROM notes_globales WHERE id={gnote};') == '0'
+    )
+
     # Le compte MySQL de l'équipe ne peut modifier ni les clients ni les événements.
     grants = sql(
         "SELECT GROUP_CONCAT(DISTINCT CONCAT(TABLE_NAME,':',PRIVILEGE_TYPE)) FROM (SELECT TABLE_NAME,PRIVILEGE_TYPE FROM information_schema.TABLE_PRIVILEGES WHERE GRANTEE=\"'ecf_team'@'%'\" UNION SELECT TABLE_NAME,PRIVILEGE_TYPE FROM information_schema.COLUMN_PRIVILEGES WHERE GRANTEE=\"'ecf_team'@'%'\") x;"
@@ -239,6 +285,7 @@ finally:
     sql(
         f"DELETE FROM notes_evenement WHERE evenement_id={event} AND (contenu LIKE 'Le traiteur%' OR contenu LIKE 'Traiteur%' OR contenu LIKE 'éééé%');"
     )
+    sql("DELETE FROM notes_globales WHERE contenu LIKE 'Note globale%' OR contenu LIKE 'Modifiée par José%';")
     for pair in before.split(','):
         i, s = pair.split(':')
         sql(f"UPDATE taches SET statut='{s}' WHERE id={i};")
@@ -248,4 +295,4 @@ finally:
 for k, v in results.items():
     print(('OK  ' if v else 'ÉCHEC ') + k)
 print(f"{sum(map(bool,results.values()))}/{len(results)} contrôles réussis")
-raise SystemExit(0 if all(results.values()) and len(results) >= 36 else 1)
+raise SystemExit(0 if all(results.values()) and len(results) >= 44 else 1)

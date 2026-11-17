@@ -40,6 +40,9 @@ jobs:
           docker run --rm -v "$PWD/backend:/app" -w /app innovevents-api-dev:ci sh -c \
             'composer install --no-interaction --no-progress --prefer-dist >/dev/null && php -d pcov.enabled=1 vendor/bin/phpunit --no-progress --coverage-text=php://stdout --only-summary-for-coverage-text'
 
+      - name: Tests unitaires du front (Vitest)
+        run: docker run --rm -v "$PWD/frontend:/app" -w /app node:24-bookworm-slim sh -c 'npm ci --no-audit --no-fund >/dev/null && npx vitest run'
+
       - name: Audit de sécurité des dépendances (veille automatisée)
         run: |
           docker run --rm -v "$PWD/backend:/app" -w /app innovevents-api-dev:ci composer audit --locked --no-dev

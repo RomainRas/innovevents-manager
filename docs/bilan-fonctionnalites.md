@@ -22,9 +22,11 @@
 | Espace client : devis, trois prochains événements, informations, demande de suppression, avis après l’événement | Réalisé | `/espace`, `/espace/informations` | Changement d’adresse de connexion par le formulaire de contact |
 | Employé : clients (recherche, fiche, historique), événements, notes, tâches assignées, modération des avis | Réalisé | `/equipe/*`, `/moderation-avis` | Notes : chacun modifie les siennes, l’administratrice toutes (règle choisie, le sujet ne précise pas) |
 | Administratrice : tableau de bord (3 événements, 5 notes, indicateurs) | Réalisé | `/espace` | — |
+| Administratrice : notes globales (création, modification, suppression), lues par l’équipe | Réalisé | `/espace`, « Notes de l’équipe » | 20 dernières notes affichées |
 | Administratrice : gestion des clients et des événements, statuts | Réalisé | `/equipe/*` | Suppression refusée si elle effacerait un devis, un compte ou un historique (on annule l’événement) |
 | Administratrice : comptes employés et clients (créer, suspendre, supprimer) | Réalisé | `/comptes` | Suppression = anonymisation (historique commercial conservé) |
 | Journalisation MongoDB des actions exigées | Réalisé, livraison vérifiée par les tests | Collection `logs`, `/journaux` | Consultation limitée aux 20 dernières entrées |
+| RGPD : adresses IP des journaux de connexion | Réalisé : suppression automatique au bout d’un an (index TTL MongoDB), durée indiquée dans la politique de confidentialité | `database/mongodb/002_logs_retention.js` | Les autres journaux (clients, événements, devis) suivent l’historique commercial |
 
 ## 2. Application mobile
 

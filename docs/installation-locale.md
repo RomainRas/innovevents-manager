@@ -58,7 +58,7 @@ py -3 -X utf8 scripts/run-tests.py
 py -3 -X utf8 scripts/run-tests.py --coverage
 ```
 
-Tous les tests (unitaires PHPUnit, fonctionnels HTTP, de bout en bout Playwright) s’exécutent contre l’application locale ; chacun restaure ses données. Résultats : `tmp/tests/resultats.json` ; couverture : `tmp/coverage/html/index.html`. Si Playwright n’est pas installé globalement, indiquer son dossier dans `PLAYWRIGHT_MODULE`. Détail : [plan de tests](plan-de-tests.md).
+Tous les tests (unitaires PHPUnit et Vitest, fonctionnels HTTP, de bout en bout Playwright) s’exécutent contre l’application locale ; chacun restaure ses données. Résultats : `tmp/tests/resultats.json` ; couverture : `tmp/coverage/html/index.html`. Si Playwright n’est pas installé globalement, indiquer son dossier dans `PLAYWRIGHT_MODULE`. Détail : [plan de tests](plan-de-tests.md).
 
 ## Arrêter
 

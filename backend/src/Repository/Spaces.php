@@ -24,14 +24,6 @@ final class Spaces
         return $query->fetchAll();
     }
 
-    /** Les 20 dernières notes globales de l'équipe (employés et administratrice). */
-    public function notes(): array
-    {
-        return Connections::mysql()
-            ->query('SELECT id, contenu FROM notes_globales ORDER BY cree_le DESC, id DESC LIMIT 20')
-            ->fetchAll();
-    }
-
     /** Les 20 dernières entrées du journal MongoDB, pour la page « Journaux » de l'administratrice. */
     public function logs(): array
     {

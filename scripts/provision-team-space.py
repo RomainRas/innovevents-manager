@@ -1,4 +1,4 @@
-"""Migration 014 et compte limité : consultation des clients et événements, notes collaboratives et tâches de l'équipe."""
+"""Migration 014 et compte limité : consultation des clients et événements, notes collaboratives, notes globales et tâches de l'équipe."""
 
 from pathlib import Path
 import os, secrets, subprocess
@@ -57,6 +57,9 @@ q += f" GRANT SELECT (id,prenom,nom,role) ON {D}.utilisateurs TO {U};"
 q += f" GRANT SELECT, DELETE ON {D}.notes_evenement TO {U};"
 q += f" GRANT INSERT (evenement_id,auteur_id,contenu) ON {D}.notes_evenement TO {U};"
 q += f" GRANT UPDATE (contenu) ON {D}.notes_evenement TO {U};"
+q += f" GRANT SELECT, DELETE ON {D}.notes_globales TO {U};"
+q += f" GRANT INSERT (auteur_id,contenu) ON {D}.notes_globales TO {U};"
+q += f" GRANT UPDATE (contenu) ON {D}.notes_globales TO {U};"
 q += f" GRANT SELECT ON {D}.taches TO {U};"
 q += f" GRANT UPDATE (statut) ON {D}.taches TO {U};"
 sql(q)

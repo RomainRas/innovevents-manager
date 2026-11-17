@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
-    "build": "vite build"
+    "build": "vite build",
+    "test": "vitest run"
   },
   "engines": {
     "node": ">=24 <25"
@@ -16,6 +17,8 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "6.0.10",
-    "vite": "8.3.7"
+    "happy-dom": "21.0.4",
+    "vite": "8.3.7",
+    "vitest": "5.1.0"
   }
 }

@@ -1,5 +1,5 @@
 // mongosh : initialisation unique dans une base vide innovevents_*.
-// Ne supprime ni ne modifie une collection existante. Pas de durée TTL inventée.
+// Ne supprime ni ne modifie une collection existante. La conservation des journaux de connexion est fixée par 002_logs_retention.js.
 ;(() => {
   'use strict'
   if (!/^innovevents_[a-z0-9_]+$/.test(db.getName())) {

@@ -192,7 +192,8 @@ const updated = '14 novembre 2026'
         <h2>Durées de conservation</h2>
         <p>
           Prospects sans suite : 3 ans après le dernier contact. Clients : durée de la relation commerciale, puis durées
-          légales (10 ans pour les pièces comptables). Messages de contact : le temps de traiter la demande.
+          légales (10 ans pour les pièces comptables). Messages de contact : le temps de traiter la demande. Journaux de
+          connexion (adresse IP, adresse électronique saisie en cas d’échec) : 1 an, puis suppression automatique.
         </p>
         <h2>Cookies</h2>
         <p>

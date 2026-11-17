@@ -30,6 +30,7 @@ import TeamEvents from './TeamEvents.vue'
 import TeamEvent from './TeamEvent.vue'
 import EventForm from './EventForm.vue'
 import { auth, refresh } from './auth'
+import { accessRedirect } from './navigation'
 import './style.css'
 
 // Routes du site. meta.private : page réservée aux comptes connectés (les droits par rôle sont vérifiés par l'API).
@@ -92,10 +93,10 @@ const router = createRouter({
 router.beforeEach(async to => {
   try {
     await refresh()
-    if (to.meta.private && !auth.user) return { path: '/connexion', query: { retour: to.path } }
-    if (to.meta.private && auth.user?.password_change_required && to.path !== '/mot-de-passe') return '/mot-de-passe'
+    return accessRedirect(to, auth.user)
   } catch {
-    if (to.meta.private) return { path: '/connexion', query: { retour: to.path } }
+    // Session illisible : traitée comme une absence de compte.
+    return accessRedirect(to, null)
   }
 })
 

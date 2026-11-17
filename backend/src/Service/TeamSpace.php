@@ -285,6 +285,68 @@ final class TeamSpace
         return $this->eventDetail(['id' => (string) $note['evenement_id']]);
     }
 
+    /** Notes globales de l'équipe (les 20 plus récentes) : lues par toute l'équipe, rédigées par l'administratrice. */
+    public function globalNotes(): array
+    {
+        $user = (new Authentication())->requireUser(self::ROLES);
+        return ['notes' => $this->globalNoteRows(Connections::team(), $user)];
+    }
+
+    /** Ajoute une note globale (sans « id ») ou modifie une note existante (avec « id ») ; administratrice seulement. */
+    public function saveGlobalNote(array $input): array
+    {
+        $user = (new Authentication())->requireUser(['administrateur']);
+        $text = self::content($input['contenu'] ?? null);
+        $db = Connections::team();
+
+        if (($input['id'] ?? null) !== null && ($input['id'] ?? '') !== '') {
+            $id = $this->existingGlobalNote($db, self::id($input['id']));
+            $db->prepare('UPDATE notes_globales SET contenu = ? WHERE id = ?')->execute([$text, $id]);
+        } else {
+            $db->prepare('INSERT INTO notes_globales(auteur_id, contenu) VALUES(?, ?)')->execute([$user['id'], $text]);
+        }
+
+        return ['notes' => $this->globalNoteRows($db, $user)];
+    }
+
+    /** Supprime une note globale ; administratrice seulement. */
+    public function deleteGlobalNote(array $input): array
+    {
+        $user = (new Authentication())->requireUser(['administrateur']);
+        $db = Connections::team();
+        $id = $this->existingGlobalNote($db, self::id($input['id'] ?? null));
+        $db->prepare('DELETE FROM notes_globales WHERE id = ?')->execute([$id]);
+
+        return ['notes' => $this->globalNoteRows($db, $user)];
+    }
+
+    /** Identifiant d'une note globale existante, sinon 404. */
+    private function existingGlobalNote(\PDO $db, string $id): string
+    {
+        $query = $db->prepare('SELECT id FROM notes_globales WHERE id = ?');
+        $query->execute([$id]);
+        if ($query->fetchColumn() === false) {
+            throw new HttpError(404, 'note_not_found');
+        }
+        return $id;
+    }
+
+    /** Notes globales avec leur auteur ; « modifiable » indique à l'interface si elle affiche les boutons. */
+    private function globalNoteRows(\PDO $db, array $user): array
+    {
+        $rows = $db->query('SELECT n.id, n.contenu, n.cree_le, n.modifie_le, u.prenom, u.nom FROM notes_globales n JOIN utilisateurs u ON u.id = n.auteur_id ORDER BY n.cree_le DESC, n.id DESC LIMIT 20')->fetchAll();
+        $admin = $user['role'] === 'administrateur';
+
+        return array_map(fn(array $n) => [
+            'id'         => $n['id'],
+            'contenu'    => $n['contenu'],
+            'cree_le'    => $n['cree_le'],
+            'modifiee'   => $n['modifie_le'] !== $n['cree_le'],
+            'auteur'     => $n['prenom'] . ' ' . mb_substr($n['nom'], 0, 1) . '.',
+            'modifiable' => $admin,
+        ], $rows);
+    }
+
     /** Seule la personne assignée fait avancer sa tâche : à faire → en cours → terminé, une étape à la fois. */
     public function taskStatus(array $input): array
     {

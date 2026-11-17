@@ -7,6 +7,7 @@ import { auth, request, refresh } from './auth'
 import ClientQuotes from './ClientQuotes.vue'
 import ClientReviews from './ClientReviews.vue'
 import AdminDashboard from './AdminDashboard.vue'
+import GlobalNotes from './GlobalNotes.vue'
 import Icon from './Icon.vue'
 
 const rows = ref([]),
@@ -30,11 +31,14 @@ const shortcuts = [
   ['/parametres-demandes', 'Modifier le remerciement des demandes', 'pen', 'red'],
 ]
 
-// Données du tableau de bord selon le rôle ; une session expirée renvoie vers la connexion.
+// Événements du client ; une session expirée renvoie vers la connexion. Les notes de l'équipe se chargent dans GlobalNotes.
 onMounted(async () => {
+  if (!isClient.value) {
+    loading.value = false
+    return
+  }
   try {
-    const data = await request(auth.user?.role === 'client' ? '/api/me/events' : '/api/team/notes')
-    rows.value = data.events || data.notes
+    rows.value = (await request('/api/me/events')).events
   } catch (e) {
     if (e.status === 401) {
       await refresh()
@@ -133,15 +137,8 @@ onMounted(async () => {
     <!-- Équipe : notes de l'équipe sur fond sombre ; journaux pour l'administratrice -->
     <template v-else>
       <h2 class="slash-title">Notes de l’équipe</h2>
-      <p v-if="loading" role="status">Chargement…</p>
-      <p v-if="error" role="alert" class="error">{{ error }}</p>
       <div class="team-notes" :class="{ solo: !isAdmin }">
-        <ul v-if="!loading && !error" class="notes-box">
-          <li v-for="row in rows" :key="row.id">
-            <Icon name="info" class="note-icon" /><span>{{ row.contenu }}</span>
-          </li>
-          <li v-if="!rows.length"><Icon name="info" class="note-icon" /><span>Aucune note pour le moment.</span></li>
-        </ul>
+        <GlobalNotes :admin="isAdmin" />
         <RouterLink v-if="isAdmin" to="/journaux" class="card blue logs"
           ><span class="card-icon"><Icon name="server" /></span><span class="card-label">Consulter les journaux</span
           ><Icon name="arrow" class="card-arrow"
@@ -257,36 +254,7 @@ onMounted(async () => {
   display: grid;
   grid-template-columns: minmax(0, 3fr) minmax(220px, 1fr);
   gap: 20px;
-  align-items: center;
-}
-.notes-box {
-  margin: 0;
-  padding: 8px 24px;
-  list-style: none;
-  color: white;
-  background: #172033;
-  border-radius: 8px;
-}
-.notes-box li {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  margin: 0;
-  padding: 14px 0;
-  border-top: 1px solid #3b4558;
-}
-.notes-box li:first-child {
-  border-top: 0;
-}
-.note-icon {
-  width: 32px;
-  height: 32px;
-}
-.notes-box span {
-  padding-left: 20px;
-  border-left: 1px solid #8a93a5;
-  white-space: pre-line;
-  overflow-wrap: anywhere;
+  align-items: start;
 }
 @media (max-width: 800px) {
   .team-notes {

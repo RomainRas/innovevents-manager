@@ -3,7 +3,8 @@ const { chromium } = require(process.env.PLAYWRIGHT_MODULE || 'playwright'),
   fs = require('fs'),
   { execFileSync } = require('child_process')
 // Parcours navigateur de José (390 px) : recherche client, fiche et historique, fiche événement, note (ajout, erreur,
-// modification, suppression avec annulation), tâche assignée ; Chloé (1280 px) : liste filtrée et note d'un collègue modifiable.
+// modification, suppression avec annulation), tâche assignée ; Chloé (1280 px) : liste filtrée, note d'un collègue modifiable,
+// notes globales (publication, modification, suppression) ; José lit les notes globales sans pouvoir les modifier.
 const compose = ['compose', '-f', 'compose.yaml', '-f', 'compose.app.yaml'],
   docker = process.env.DOCKER_BIN || 'docker'
 // Exécute une requête SQL de test dans le conteneur MySQL.
@@ -26,7 +27,8 @@ const sql = q =>
 ;(async () => {
   const password = fs.readFileSync('.secrets/demo-password.txt', 'utf8').trim(),
     results = {},
-    note = `Note navigateur ${Date.now()}`
+    note = `Note navigateur ${Date.now()}`,
+    globalNote = `Note globale navigateur ${Date.now()}`
   const sound = sql(
     "SELECT t.id FROM taches t JOIN evenements e ON e.id=t.evenement_id WHERE e.nom='Lancement produit Horizon' AND t.titre='Réserver la sonorisation';",
   )
@@ -156,17 +158,65 @@ const sql = q =>
     await page.getByText('Note supprimée.').waitFor()
     results.note_deleted = (await page.getByRole('listitem').filter({ hasText: note }).count()) === 0
     results.event_1280_no_overflow = !(await overflow(page))
+
+    // Notes globales dans « Mon espace » : Chloé publie (après une erreur), modifie ; José lit sans pouvoir modifier ;
+    // Chloé supprime. Vérifié à 1280 puis 390 px.
+    await page.goto('http://127.0.0.1:5173/espace')
+    await page.getByRole('heading', { name: 'Notes de l’équipe' }).waitFor()
+    await page.getByRole('button', { name: 'Publier la note' }).click()
+    results.global_empty_error =
+      (await page.getByText('Rédigez la note avant de l’enregistrer.').isVisible()) &&
+      (await focusOn(page, 'global-note-new'))
+    await page.getByLabel('Nouvelle note pour toute l’équipe').fill(globalNote)
+    await page.getByRole('button', { name: 'Publier la note' }).click()
+    await page.getByText('Note publiée pour toute l’équipe.').waitFor()
+    const globalItem = page.locator('.notes-box li').filter({ hasText: globalNote })
+    results.global_published = (await globalItem.count()) === 1 && (await focusOn(page, 'global-notice'))
+    await globalItem.getByRole('button', { name: 'Modifier' }).click()
+    results.global_edit_focus = (await focused(page)).startsWith('global-note-edit-')
+    await page.getByLabel('Modifier la note').fill(globalNote + ' (mise à jour)')
+    await page.locator('.notes-box').getByRole('button', { name: 'Enregistrer' }).click()
+    await page.getByText('Note modifiée.').waitFor()
+    results.global_edited =
+      (await page.locator('.notes-box li').filter({ hasText: globalNote + ' (mise à jour)' }).count()) === 1 &&
+      (await page.locator('.notes-box li').filter({ hasText: '(modifiée)' }).count()) >= 1
+    await page.screenshot({ path: 'tmp/team-space/notes-globales-1280.png', fullPage: true })
+
+    const joseContext = await browser.newContext({ viewport: { width: 390, height: 844 } }),
+      josePage = await joseContext.newPage()
+    josePage.on('pageerror', e => errors.push(e.message))
+    await josePage.goto('http://127.0.0.1:5173/connexion?retour=/espace')
+    await login(josePage, 'jose@example.invalid')
+    const joseSees = josePage.locator('.notes-box li').filter({ hasText: globalNote + ' (mise à jour)' })
+    await joseSees.waitFor()
+    results.global_employee_reads = (await joseSees.count()) === 1
+    results.global_employee_read_only =
+      (await josePage.getByRole('button', { name: 'Publier la note' }).count()) === 0 &&
+      (await joseSees.getByRole('button').count()) === 0
+    results.global_390_no_overflow = !(await overflow(josePage))
+    await joseContext.close()
+
+    await page.setViewportSize({ width: 390, height: 844 })
+    results.global_admin_390_no_overflow = !(await overflow(page))
+    await page.screenshot({ path: 'tmp/team-space/notes-globales-390.png', fullPage: true })
+    const editedItem = page.locator('.notes-box li').filter({ hasText: globalNote })
+    await editedItem.getByRole('button', { name: 'Supprimer…' }).click()
+    await editedItem.getByRole('button', { name: 'Supprimer la note' }).click()
+    await page.getByText('Note supprimée.').waitFor()
+    results.global_deleted = (await page.locator('.notes-box li').filter({ hasText: globalNote }).count()) === 0
+
     if (errors.length) throw Error(errors.join('\n'))
     await context.close()
   } finally {
     // Le navigateur est toujours fermé, même en cas d'échec.
     await browser.close()
     sql(`DELETE FROM notes_evenement WHERE contenu LIKE 'Note navigateur %';`)
+    sql(`DELETE FROM notes_globales WHERE contenu LIKE 'Note globale navigateur %';`)
     if (/^\d+$/.test(sound) && /^[a-z_]+$/.test(before)) sql(`UPDATE taches SET statut='${before}' WHERE id=${sound};`)
     execFileSync(docker, [...compose, 'exec', '-T', 'api', 'rm', '-f', '/var/lib/innovevents/login-rate.json'])
     console.log(JSON.stringify(results, null, 1))
   }
-  if (!Object.values(results).every(Boolean) || Object.keys(results).length < 18) process.exitCode = 1
+  if (!Object.values(results).every(Boolean) || Object.keys(results).length < 27) process.exitCode = 1
 })().catch(e => {
   console.error(e)
   process.exit(1)

@@ -7,13 +7,13 @@ Exigence : environnement de test complet, une fonctionnalité vérifiée en int�
 | Élément | Choix |
 | --- | --- |
 | Application testée | L’application complète en local (`compose.yaml` + `compose.app.yaml`) : MySQL, MongoDB, API PHP, traitements de fond, Mailpit, site et application mobile. Bases de démonstration distinctes de la production. |
-| Tests unitaires | PHPUnit 12 (`backend/tests/Unit`, configuration `backend/phpunit.xml.dist`), sans base de données. |
+| Tests unitaires | Serveur : PHPUnit 12 (`backend/tests/Unit`, configuration `backend/phpunit.xml.dist`), sans base de données. Front : Vitest (`frontend/tests`, navigateur simulé par happy-dom), sur les modules et composants Vue, sans serveur (appels à l’API simulés). |
 | Tests fonctionnels | Scripts Python (`tests/app/*.py`) qui appellent l’API HTTP comme le navigateur (cookies de session, jeton CSRF), vérifient les réponses, la base (MySQL) et le journal (MongoDB), puis **restaurent les données**. |
 | Tests de bout en bout | Playwright / Chromium (`tests/app/*-browser.cjs`) : parcours réels dans le navigateur, à 1280 px et 390 px, téléphone émulé pour l’application mobile ; vérifient aussi le focus clavier, les messages d’erreur et l’absence de débordement horizontal. |
 | Courriels | Mailpit capte tous les envois ; les tests lisent les courriels reçus (identifiants, notifications). |
 | Couverture | PCOV + php-code-coverage : chaque requête traitée par l’API pendant les tests fonctionnels et de bout en bout enregistre les lignes exécutées, fusionnées avec celles des tests unitaires par phpcov. |
 | Lanceur unique | `py -3 -X utf8 scripts/run-tests.py [--coverage]` : exécute toutes les suites dans l’ordre, remet à zéro le limiteur de connexion local entre deux suites, écrit `tmp/tests/resultats.json` et le rapport `tmp/coverage/html/index.html`. |
-| Intégration continue | À chaque push sur `dev` et `main` (GitHub Actions) : syntaxe PHP, tests unitaires PHPUnit avec couverture, calculs de devis, audit de sécurité des dépendances, compilations du site et de l’application mobile, configuration Compose, scripts shell. Le déploiement n’a lieu que si tout réussit. |
+| Intégration continue | À chaque push sur `dev` et `main` (GitHub Actions) : syntaxe PHP, tests unitaires PHPUnit avec couverture, tests unitaires du front (Vitest), calculs de devis, audit de sécurité des dépendances, compilations du site et de l’application mobile, configuration Compose, scripts shell. Le déploiement n’a lieu que si tout réussit. |
 
 ## Fonctionnalité vérifiée en intégralité : gestion des événements par l’administratrice
 
@@ -27,7 +27,7 @@ Exigence : environnement de test complet, une fonctionnalité vérifiée en int�
 
 | Fonctionnalité | Unitaire | Fonctionnel | Bout en bout |
 | --- | --- | --- | --- |
-| Connexion, sessions, journal des connexions | — | `authentication.py`, `auth-outage.py` (panne MongoDB) | `auth-browser.cjs` |
+| Connexion, sessions, journal des connexions | `auth.test.js`, `navigation.test.js` (Vitest : jeton CSRF, erreurs, accès aux pages privées, retour après connexion sans redirection vers un autre site) | `authentication.py`, `auth-outage.py` (panne MongoDB) | `auth-browser.cjs` |
 | Création de compte, mot de passe oublié et changement | — | `accounts.py` | `accounts-browser.cjs` |
 | File des courriels, reprise après incident | — | `mail-recovery.py` | — |
 | Demande de devis publique | — | `quote-requests.py` | `quote-browser.cjs` |
@@ -42,7 +42,8 @@ Exigence : environnement de test complet, une fonctionnalité vérifiée en int�
 | Pages publiques, avis validés, contact | — | `public-pages.py` | `public-pages-browser.cjs` |
 | Espace client : informations, suppression, avis, modération | — | `client-space.py` | `client-space-browser.cjs` |
 | Tableau de bord et comptes (administratrice) | — | `admin-accounts.py` | `admin-accounts-browser.cjs` |
-| Espace employé : clients, événements, notes, tâches | — | `team-space.py` | `team-space-browser.cjs` |
+| Espace employé : clients, événements, notes, tâches | `formats.test.js` (Vitest : dates, statuts) | `team-space.py` | `team-space-browser.cjs` |
+| Notes globales (administratrice) | `GlobalNotes.test.js`, `noteRules.test.js` (Vitest) | `team-space.py` | `team-space-browser.cjs` |
 | Gestion des fiches clients et des événements | `EventValidationTest`, `ClientValidationTest` | `admin-records.py` | `admin-records-browser.cjs` |
 | Application mobile | — | `mobile.py` | `mobile-browser.cjs` (téléphone émulé, hors ligne) |
 | Base de données (contraintes, droits) | — | `tests/database/*`, `backend/tests/*-permissions.php` | — |
@@ -51,29 +52,31 @@ Chaque suite fonctionnelle contrôle aussi la sécurité de sa fonctionnalité :
 
 ## Résultats
 
-Exécution complète (`scripts/run-tests.py --coverage`, environ 60 minutes) : **30 suites sur 30 réussies**.
+Exécution complète (`scripts/run-tests.py --coverage`, environ 60 minutes) : **31 suites sur 31 réussies**.
 
 | Niveau | Suites | Résultat |
 | --- | --- | --- |
-| Unitaire (PHPUnit) | 1 suite, 48 tests, 81 assertions | Réussi |
-| Fonctionnel (HTTP) | 20 suites (dont 8 qui lancent aussi leur parcours navigateur) | Toutes réussies ; détail des contrôles par suite dans les documents de chaque fonctionnalité (ex. 39/39 comptes, 36/36 gestion des fiches, 36/36 espace employé, 32/32 espace client, 31/31 pages publiques, 22/22 mobile) |
+| Unitaire, serveur (PHPUnit) | 1 suite, 48 tests, 81 assertions | Réussi |
+| Unitaire, front (Vitest) | 5 fichiers, 31 tests : navigation et retour après connexion, appels à l’API et jeton CSRF, formats et libellés, règle des notes, composant des notes globales | Réussi |
+| Fonctionnel (HTTP) | 20 suites (dont 8 qui lancent aussi leur parcours navigateur) | Toutes réussies ; détail des contrôles par suite dans les documents de chaque fonctionnalité (ex. 39/39 comptes, 36/36 gestion des fiches, 44/44 espace employé, 32/32 espace client, 31/31 pages publiques, 22/22 mobile) |
 | Bout en bout (Playwright) | 9 suites autonomes + 8 lancées par les suites fonctionnelles | Toutes réussies |
 
 **Couverture du code PHP (`backend/src`)** :
 
 | Mesure | Résultat |
 | --- | --- |
-| Lignes | **98,31 %** (1 341 / 1 364) |
-| Méthodes | **92,07 %** (151 / 164) |
-| Classes entièrement couvertes | 70,97 % (22 / 31) |
+| Lignes | **93,24 %** (2 524 / 2 707) |
+| Méthodes entièrement couvertes | 54,60 % (95 / 174) |
+| Classes entièrement couvertes | 19,35 % (6 / 31) |
 
 Preuve : `docs/preuves/tests.json` ; rapport détaillé régénérable par `scripts/run-tests.py --coverage`.
 
 ## Lecture de la couverture
 
-- **Le pourcentage de lignes est optimiste** : le code PHP est écrit de façon compacte (plusieurs instructions par ligne) et une ligne compte comme couverte dès qu’une partie s’exécute. Le **taux de méthodes (92 %)** est l’indicateur le plus représentatif.
-- **Ce qui n’est pas couvert** (13 méthodes) : surtout des branches défensives difficiles à provoquer volontairement — configuration manquante (`Connections`, adresse de l’agence invalide), course entre deux requêtes simultanées, échecs d’écriture de fichiers d’image — et `MailQueue::decode`, exécutée par le traitement de fond `mail_worker`, un processus séparé que la mesure ne suit pas (son comportement est néanmoins vérifié par `mail-recovery.py` et `quote-resilience.py`, qui contrôlent les courriels réellement reçus).
-- **Hors mesure** : le code JavaScript (site et application mobile), vérifié par les tests de bout en bout mais sans pourcentage ; les traitements de fond (`backend/bin/`).
+- **Le taux de lignes (93 %) est l’indicateur représentatif** : le code PHP est aéré, une instruction par ligne, et chaque ligne exécutée par un test est comptée.
+- **Le taux de méthodes est sévère** : une méthode ne compte que si **toutes** ses lignes sont exécutées, y compris ses branches d’erreur. Une méthode testée dans tous ses cas normaux mais dont un refus défensif n’est jamais déclenché compte donc comme non couverte. Une première mesure, faite avant que le code soit commenté et aéré (1 364 lignes plus compactes), donnait 98 % des lignes et 92 % des méthodes ; je publie la mesure du code actuel.
+- **Ce qui n’est pas couvert** (183 lignes) : surtout des branches défensives difficiles à provoquer volontairement — configuration manquante (`Connections`, adresse de l’agence invalide), course entre deux requêtes simultanées, échecs d’écriture de fichiers d’image — et `MailQueue::decode`, exécutée par le traitement de fond `mail_worker`, un processus séparé que la mesure ne suit pas (son comportement est néanmoins vérifié par `mail-recovery.py` et `quote-resilience.py`, qui contrôlent les courriels réellement reçus).
+- **Hors mesure** : le code JavaScript n’a pas de pourcentage. Le front est vérifié par les tests unitaires Vitest (modules et composants) et par les tests de bout en bout, l’application mobile par ses tests de bout en bout. Les traitements de fond (`backend/bin/`) sont vérifiés par les suites fonctionnelles, sans mesure.
 - Les tests ne s’exécutent jamais contre la production : la base de démonstration locale est restaurée par chaque suite.
 
 ## Problèmes trouvés grâce aux tests (exemples)

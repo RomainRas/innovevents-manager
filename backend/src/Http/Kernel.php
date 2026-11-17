@@ -24,7 +24,7 @@ use InnovEvents\Service\Authentication;
 final class Kernel
 {
     /** Écritures qui acceptent un corps JSON plus grand (64 Ko au lieu de 8 Ko) : listes de prestations, notes longues. */
-    private const LARGE_BODIES = ['/api/quote-requests', '/api/admin/quote-draft-save', '/api/team/note-save', '/api/mobile/note'];
+    private const LARGE_BODIES = ['/api/quote-requests', '/api/admin/quote-draft-save', '/api/team/note-save', '/api/team/global-note-save', '/api/mobile/note'];
 
     /** Écritures sans corps JSON : la déconnexion (aucune donnée) et l'envoi d'image (formulaire multipart). */
     private const NO_JSON_BODY = ['/api/auth/logout', '/api/admin/event-image-upload'];
@@ -84,10 +84,9 @@ final class Kernel
             '/api/me/review'           => ['POST', fn($data) => (new Service\ClientSpace())->submitReview($data)],
 
             // --- Espace équipe (employés et administratrice) -------------------------------------------------
-            '/api/team/notes' => ['GET', function () use ($auth) {
-                $auth->requireUser(['employe', 'administrateur']);
-                return ['notes' => (new Spaces())->notes()];
-            }],
+            '/api/team/notes'              => ['GET', fn() => (new Service\TeamSpace())->globalNotes()],
+            '/api/team/global-note-save'   => ['POST', fn($data) => (new Service\TeamSpace())->saveGlobalNote($data)],
+            '/api/team/global-note-delete' => ['POST', fn($data) => (new Service\TeamSpace())->deleteGlobalNote($data)],
             '/api/team/clients'           => ['GET', fn() => (new Service\TeamSpace())->clients($_GET)],
             '/api/team/client'            => ['GET', fn() => (new Service\TeamSpace())->client($_GET)],
             '/api/team/events'            => ['GET', fn() => (new Service\TeamSpace())->events($_GET)],

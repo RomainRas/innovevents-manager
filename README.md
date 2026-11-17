@@ -16,7 +16,7 @@ Vue 3 + Vite (site et application mobile), PHP 8.4 natif avec PDO (API), MySQL 8
 
 ```text
 backend/     API PHP : point d’entrée public/, src/ (Http, Service, Repository, Security, Infrastructure), tests PHPUnit, images de démonstration
-frontend/    Site web Vue 3 : pages, composants, styles, police et images servies par le site
+frontend/    Site web Vue 3 : pages, composants, styles, police et images servies par le site, tests unitaires Vitest (tests/)
 mobile/      Application mobile PWA (Vue 3) : écrans, manifeste, service worker, icônes
 database/    Scripts SQL MySQL écrits à la main (schéma, données de démonstration, migrations) et MongoDB
 docker/      Images et configuration : PHP, Caddy, MySQL, MongoDB, application mobile
@@ -66,7 +66,7 @@ Puis http://127.0.0.1:5173 (site), http://127.0.0.1:5173/mobile/ (mobile), http:
 py -3 -X utf8 scripts/run-tests.py --coverage
 ```
 
-Tests unitaires (PHPUnit), fonctionnels (HTTP) et de bout en bout (Playwright), couverture du code : [plan de tests et résultats](docs/plan-de-tests.md).
+Tests unitaires (PHPUnit pour le serveur, Vitest pour le front), fonctionnels (HTTP) et de bout en bout (Playwright), couverture du code : [plan de tests et résultats](docs/plan-de-tests.md).
 
 ## Documentation
 
