@@ -5,7 +5,7 @@ Tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5).
 ## Travail réalisé et fichiers
 
 - [Planche Figma](https://www.figma.com/design/eAJJZyMSjoOff7mA1pNpCU?node-id=67-569), 1440 × 1172 pixels.
-- [Export SVG](../maquettes/web-01-etats-formulaire.svg).
+- [Export SVG](../maquettes/etats/web-01-etats-formulaire.svg).
 - [Maquette principale](maquette-web-01-demande-devis.md) et [wireframe avec règles et sources](wireframe-web-01-demande-devis.md).
 - [Composant Message de formulaire](https://www.figma.com/design/eAJJZyMSjoOff7mA1pNpCU?node-id=66-295), dans la page Charte graphique.
 

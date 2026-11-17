@@ -3,7 +3,7 @@ Tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5).
 
 ## Livrable et périmètre
 - [Planche Figma](https://www.figma.com/design/eAJJZyMSjoOff7mA1pNpCU?node-id=80-763), 1440 × 1532.
-- [SVG avec texte](../maquettes/web-formulaires-reprise-erreurs-focus.svg).
+- [SVG avec texte](../maquettes/etats/web-formulaires-reprise-erreurs-focus.svg).
 - Complète [WEB01](maquette-web-01-demande-devis.md), [WEB02](maquette-web-02-preparation-devis.md) et les [états de préparation/transmission](etats-preparation-transmission-devis.md).
 
 Quatre extraits présentent un résultat incertain après demande, une date de fin incohérente, des erreurs de prestation et un exemple de focus visible. Ils ne sont pas de nouvelles maquettes principales et ne remplacent pas les formulaires complets.

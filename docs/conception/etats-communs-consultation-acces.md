@@ -4,7 +4,7 @@ Tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5).
 ## Travail réalisé et sauvegardes
 Une planche de six extraits réutilisables complète les écrans principaux :
 - [Planche Figma](https://www.figma.com/design/eAJJZyMSjoOff7mA1pNpCU?node-id=77-733), 1440 × 1400.
-- [Export SVG](../maquettes/etats-communs-consultation-acces.svg).
+- [Export SVG](../maquettes/etats/etats-communs-consultation-acces.svg).
 - [Bilan de couverture](bilan-couverture-ecrans.md).
 
 Ces états sont des choix de conception, pas six maquettes supplémentaires imposées par le sujet. Ils réutilisent les messages, boutons, variables et styles déjà présents. Les exemples portent sur les événements ; leurs libellés doivent être adaptés aux devis, clients, notes et autres listes.

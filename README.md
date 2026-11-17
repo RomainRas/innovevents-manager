@@ -27,6 +27,31 @@ output/pdf/  Dossier visuel de conception en PDF
 compose*.yaml  Environnements Docker : bases, application locale, couverture, production
 ```
 
+Les visuels de conception sont rangés dans `docs/maquettes/` : `charte/` (planche de la charte et maquette d’accueil de référence), `wireframes/`, `site/` et `mobile/` (maquettes de chaque écran), `etats/` (états des écrans principaux) et `enchainement/` (enchaînement des écrans).
+
+## Git : branches et commits
+
+**Branches.** Tout le travail part de `dev` (développement). Une fois une fonctionnalité développée et testée, `dev` est fusionnée dans `main` (production). Chaque envoi sur `dev` ou `main` lance les contrôles de l’intégration continue ; sur `main`, s’ils réussissent, l’application est déployée automatiquement ([déploiement](docs/deploiement.md)). Les mises à jour proposées par Dependabot visent `dev`, jamais directement `main`.
+
+**Messages de commit.** J’utilise la convention [Conventional Commits](https://www.conventionalcommits.org/fr/v1.0.0/) : un type standard, une portée facultative, puis une description en français.
+
+```text
+feat(pdf): générer et télécharger les devis courants avec journalisation
+```
+
+| Type | Usage |
+| --- | --- |
+| `feat` | Nouvelle fonctionnalité |
+| `fix` | Correction d’un défaut |
+| `test` | Ajout ou correction de tests |
+| `docs` | Documentation et conception |
+| `design` | Wireframes, maquettes et visuels |
+| `style` | Apparence de l’interface, sans changement de comportement |
+| `database` | Scripts SQL et migrations |
+| `chore` | Outillage, configuration, Docker, intégration continue |
+
+Au début du projet, les livrables de conception (wireframes, notes, états) ont été ajoutés un fichier par commit ; leurs messages citent le nom du fichier ajouté. Le suivi des tâches se fait dans le [kanban GitHub Projects](https://github.com/users/RomainRas/projects/3), relié aux tickets du dépôt.
+
 ## Démarrage local
 
 ```powershell
@@ -55,7 +80,7 @@ Tests unitaires (PHPUnit), fonctionnels (HTTP) et de bout en bout (Playwright), 
 - [Diagrammes : cas d’utilisation, séquence, architecture](docs/conception/diagrammes.md)
 - [MCD](docs/conception/mcd-relationnel.md), [MLD MySQL](docs/conception/mld-mysql.md), [dictionnaire des données](docs/conception/dictionnaire-donnees.md), [journaux MongoDB](docs/conception/modele-journaux-mongodb.md)
 - [Charte graphique](docs/conception/charte-graphique.md) ; l’identité visuelle a évolué en cours de projet, voir [pourquoi](docs/conception/charte-graphique.md#évolution-de-lidentité-visuelle)
-- [Maquettes de tous les écrans](docs/conception/maquettes-affiche.md) (site et application mobile), maquettes principales et wireframes (`docs/conception/maquette-*`, `wireframe-*`), [enchaînement des écrans](docs/conception/enchainement-ecrans.md)
+- [Maquettes de tous les écrans](docs/conception/maquettes-ecrans.md) (site et application mobile), maquettes principales et wireframes (`docs/conception/maquette-*`, `wireframe-*`), [enchaînement des écrans](docs/conception/enchainement-ecrans.md)
 - Dossier visuel en PDF : [conception](output/pdf/innov-events-conception.pdf) (charte, wireframes, maquettes) et [annexe](output/pdf/innov-events-annexes-conception.pdf) (tous les écrans)
 - Scripts SQL écrits à la main : [création des tables](database/mysql/001_schema.sql), [jeu de données](database/mysql/002_demo.sql), migrations `database/mysql/003` à `017`
 

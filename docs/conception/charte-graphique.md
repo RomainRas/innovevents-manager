@@ -9,8 +9,8 @@ L’[énoncé](../enonce/enonce-ecf-cda.pdf), pages 4, 6 et 16, a été relu dir
 Pour une agence événementielle, j’ai voulu une identité qui évoque l’affiche de spectacle : papier crème, aplats de couleurs franches rouge, bleu et jaune, photos inclinées, titres condensés en majuscules. Il s’agit de l’identité conçue pour le projet ECF, sans prétendre reproduire une marque commerciale officielle.
 
 - [Planche de la charte](../maquettes/charte/charte-graphique.webp) : palette, typographie, composants et contrastes.
-- [Maquette de la page d’accueil](../maquettes/accueil-affiche.webp).
-- [Maquettes de tous les écrans, site et application mobile](maquettes-affiche.md).
+- [Maquette de la page d’accueil](../maquettes/charte/accueil-reference.webp).
+- [Maquettes de tous les écrans, site et application mobile](maquettes-ecrans.md).
 
 ## Évolution de l’identité visuelle
 

@@ -2,10 +2,10 @@
 
 Tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5).
 
-<img src="../maquettes/affiche/mobile-02-evenements-a-venir.webp" alt="Maquette mobile : événements à venir" width="300">
+<img src="../maquettes/mobile/mobile-02-evenements-a-venir.webp" alt="Maquette mobile : événements à venir" width="300">
 
 - [Wireframe et règles](wireframe-mobile-01-evenements-a-venir.md).
-- [Charte graphique](charte-graphique.md) et [toutes les maquettes](maquettes-affiche.md).
+- [Charte graphique](charte-graphique.md) et [toutes les maquettes](maquettes-ecrans.md).
 
 Écran d’ouverture de l’application mobile de Chloé et José. Il représente l’application de l’équipe, pas une déclinaison responsive du site public.
 

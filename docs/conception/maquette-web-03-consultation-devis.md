@@ -2,12 +2,12 @@
 
 Tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5).
 
-<img src="../maquettes/affiche/web-40-client-consultation-devis.webp" alt="Maquette de la consultation des devis par le client, bureau" width="900">
+<img src="../maquettes/site/web-40-client-consultation-devis.webp" alt="Maquette de la consultation des devis par le client, bureau" width="900">
 
-<img src="../maquettes/affiche/web-40-client-consultation-devis-petit-ecran.webp" alt="Maquette de la consultation des devis par le client, petit écran" width="300">
+<img src="../maquettes/site/web-40-client-consultation-devis-petit-ecran.webp" alt="Maquette de la consultation des devis par le client, petit écran" width="300">
 
 - [Wireframe, sources et règles](wireframe-web-03-consultation-devis.md).
-- [Charte graphique](charte-graphique.md) et [toutes les maquettes](maquettes-affiche.md).
+- [Charte graphique](charte-graphique.md) et [toutes les maquettes](maquettes-ecrans.md).
 
 Le client connecté consulte les devis qui lui sont transmis et choisit sa réponse.
 

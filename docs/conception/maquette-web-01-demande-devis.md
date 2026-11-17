@@ -2,12 +2,12 @@
 
 Tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5).
 
-<img src="../maquettes/affiche/web-05-visiteur-demande-de-devis.webp" alt="Maquette de la demande de devis, bureau" width="900">
+<img src="../maquettes/site/web-05-visiteur-demande-de-devis.webp" alt="Maquette de la demande de devis, bureau" width="900">
 
-<img src="../maquettes/affiche/web-05-visiteur-demande-de-devis-petit-ecran.webp" alt="Maquette de la demande de devis, petit écran" width="300">
+<img src="../maquettes/site/web-05-visiteur-demande-de-devis-petit-ecran.webp" alt="Maquette de la demande de devis, petit écran" width="300">
 
 - [Wireframe et règles du formulaire](wireframe-web-01-demande-devis.md).
-- [Charte graphique](charte-graphique.md) et [toutes les maquettes](maquettes-affiche.md).
+- [Charte graphique](charte-graphique.md) et [toutes les maquettes](maquettes-ecrans.md).
 
 ## Exigences conservées
 

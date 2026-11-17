@@ -40,7 +40,7 @@
 
 | Exigence | État | Où |
 | --- | --- | --- |
-| 3 maquettes et 3 wireframes web et mobile, charte graphique, enchaînement | Réalisé | `docs/maquettes/`, `docs/conception/`, [maquettes de tous les écrans](conception/maquettes-affiche.md) |
+| 3 maquettes et 3 wireframes web et mobile, charte graphique, enchaînement | Réalisé | `docs/maquettes/`, `docs/conception/`, [maquettes de tous les écrans](conception/maquettes-ecrans.md) |
 | Diagrammes de cas d’utilisation et de séquence, architecture | Réalisé | [diagrammes.md](conception/diagrammes.md) |
 | Script SQL de création écrit à la main, jeu de données, MCD | Réalisé | `database/mysql/001_schema.sql`, `002_demo.sql`, [MCD](conception/mcd-relationnel.md) |
 | Base restaurable en cas d’incident | Réalisé (sauvegarde et restauration vérifiées) | [sauvegarde-restauration](demo-sauvegarde-restauration.md) |

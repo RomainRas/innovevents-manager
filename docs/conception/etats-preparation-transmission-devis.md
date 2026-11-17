@@ -4,8 +4,8 @@ Complément de WEB02, tâche [#5](https://github.com/RomainRas/innovevents-manag
 ## Travail réalisé
 Deux planches de six extraits complètent la [maquette principale](maquette-web-02-preparation-devis.md). Elles réutilisent les messages et boutons existants, les styles Inter et les fondations de la charte. Elles ne remplacent pas le formulaire et ne comptent pas comme de nouvelles maquettes principales.
 
-- [Préparation et génération dans Figma](https://www.figma.com/design/eAJJZyMSjoOff7mA1pNpCU?node-id=75-661), 1440 × 1544 : [SVG](../maquettes/web-02-etats-generation-pdf.svg).
-- [Transmission dans Figma](https://www.figma.com/design/eAJJZyMSjoOff7mA1pNpCU?node-id=75-823), 1440 × 1664 : [SVG](../maquettes/web-02-etats-transmission.svg).
+- [Préparation et génération dans Figma](https://www.figma.com/design/eAJJZyMSjoOff7mA1pNpCU?node-id=75-661), 1440 × 1544 : [SVG](../maquettes/etats/web-02-etats-generation-pdf.svg).
+- [Transmission dans Figma](https://www.figma.com/design/eAJJZyMSjoOff7mA1pNpCU?node-id=75-823), 1440 × 1664 : [SVG](../maquettes/etats/web-02-etats-transmission.svg).
 
 ## Exigences et choix
 L’[énoncé](../enonce/enonce-ecf-cda.pdf), pages 9–10, exige les prestations avec libellé et montant HT, le calcul automatique TVA/TTC, la génération du PDF, le téléchargement pour envoi manuel ou l’envoi par la plateforme, puis le passage à « étude côté client ». La création du compte client s’il n’existe pas reste également à développer ; ces extraits ne représentent pas ce traitement.

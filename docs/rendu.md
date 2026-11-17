@@ -10,7 +10,7 @@ Romain Rascle — titre professionnel Concepteur Développeur d’Applications.
 | Application mobile (PWA, production) | https://innovevents.rascleromain.fr/mobile/ |
 | Dépôt GitHub (branches `dev` et `main`) | https://github.com/RomainRas/innovevents-manager |
 | Kanban (GitHub Projects) | https://github.com/users/RomainRas/projects/3 |
-| Maquettes (site et mobile) | [maquettes-affiche.md](conception/maquettes-affiche.md), images dans `docs/maquettes/affiche/` ; l’identité visuelle a évolué en cours de projet, voir [pourquoi](conception/charte-graphique.md#évolution-de-lidentité-visuelle) |
+| Maquettes (site et mobile) | [maquettes-ecrans.md](conception/maquettes-ecrans.md), images dans `docs/maquettes/site/` et `docs/maquettes/mobile/` ; l’identité visuelle a évolué en cours de projet, voir [pourquoi](conception/charte-graphique.md#évolution-de-lidentité-visuelle) |
 | Wireframes Figma (exports SVG dans `docs/maquettes/wireframes/`) | https://www.figma.com/design/eAJJZyMSjoOff7mA1pNpCU |
 
 ## Comptes de démonstration
@@ -32,10 +32,10 @@ Pour l’application mobile : ouvrir le lien sur un téléphone (ou avec l’ém
 | Exigence de l’énoncé | Document |
 | --- | --- |
 | Gestion de projet : kanban partagé | Lien ci-dessus ; historique des branches et commits sur GitHub |
-| Maquettes et wireframes (3 web, 3 mobile), charte graphique, enchaînement | [maquettes](conception/maquettes-affiche.md), `docs/maquettes/`, [charte](conception/charte-graphique.md), [enchaînement](conception/enchainement-ecrans.md), `docs/conception/maquette-*` et `wireframe-*` |
+| Maquettes et wireframes (3 web, 3 mobile), charte graphique, enchaînement | [maquettes](conception/maquettes-ecrans.md), `docs/maquettes/`, [charte](conception/charte-graphique.md), [enchaînement](conception/enchainement-ecrans.md), `docs/conception/maquette-*` et `wireframe-*` |
 | Diagrammes de cas d’utilisation et de séquence | [diagrammes.md](conception/diagrammes.md) |
 | Architecture logicielle, rôle sécurité des couches, éco-conception | [diagrammes.md § 3](conception/diagrammes.md), [choix technologiques](conception/choix-technologiques.md) |
-| Script SQL écrit à la main, jeu de données, MCD | `database/mysql/001_schema.sql`, `002_demo.sql` (migrations `003` à `015`), [MCD](conception/mcd-relationnel.md), [MLD](conception/mld-mysql.md), [journaux MongoDB](conception/modele-journaux-mongodb.md) |
+| Script SQL écrit à la main, jeu de données, MCD | `database/mysql/001_schema.sql`, `002_demo.sql` (migrations `003` à `017`), [MCD](conception/mcd-relationnel.md), [MLD](conception/mld-mysql.md), [journaux MongoDB](conception/modele-journaux-mongodb.md) |
 | Base restaurable en cas d’incident | [sauvegarde et restauration](demo-sauvegarde-restauration.md) |
 | Tests unitaires, fonctionnels, de bout en bout, couverture, tableau par fonctionnalité | [plan de tests](plan-de-tests.md) |
 | Déploiement documenté et reproductible | [déploiement](deploiement.md) |

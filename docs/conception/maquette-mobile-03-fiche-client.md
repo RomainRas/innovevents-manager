@@ -2,10 +2,10 @@
 
 Tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5).
 
-<img src="../maquettes/affiche/mobile-04-fiche-client.webp" alt="Maquette mobile : fiche client" width="300">
+<img src="../maquettes/mobile/mobile-04-fiche-client.webp" alt="Maquette mobile : fiche client" width="300">
 
 - [Wireframe, sources et règles détaillées](wireframe-mobile-03-fiche-client.md).
-- [Charte graphique](charte-graphique.md) et [toutes les maquettes](maquettes-affiche.md).
+- [Charte graphique](charte-graphique.md) et [toutes les maquettes](maquettes-ecrans.md).
 
 Consultation des coordonnées et accès aux applications de contact du téléphone, depuis la fiche événement.
 

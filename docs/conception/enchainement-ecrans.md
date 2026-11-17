@@ -6,8 +6,8 @@ Tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5).
 
 Deux planches éditables sont présentes dans la page « 06 — Enchaînement des écrans » du fichier Figma :
 
-- [Parcours web](https://www.figma.com/design/eAJJZyMSjoOff7mA1pNpCU?node-id=60-286), 1600 × 1360 pixels ; [export SVG](../maquettes/enchainement-web.svg).
-- [Parcours mobile](https://www.figma.com/design/eAJJZyMSjoOff7mA1pNpCU?node-id=60-287), 1600 × 1280 pixels ; [export SVG](../maquettes/enchainement-mobile.svg).
+- [Parcours web](https://www.figma.com/design/eAJJZyMSjoOff7mA1pNpCU?node-id=60-286), 1600 × 1360 pixels ; [export SVG](../maquettes/enchainement/enchainement-web.svg).
+- [Parcours mobile](https://www.figma.com/design/eAJJZyMSjoOff7mA1pNpCU?node-id=60-287), 1600 × 1280 pixels ; [export SVG](../maquettes/enchainement/enchainement-mobile.svg).
 
 Les schémas relient les six maquettes principales, leur état complémentaire de note et les étapes nécessaires à la compréhension du parcours. Ils ne constituent ni un inventaire complet des pages de l’application ni un prototype interactif.
 

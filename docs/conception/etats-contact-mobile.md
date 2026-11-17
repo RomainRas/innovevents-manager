@@ -3,7 +3,7 @@ Complément de MOB03 ; tâche [#5](https://github.com/RomainRas/innovevents-mana
 
 ## Réalisation et fichiers
 - [Planche Figma](https://www.figma.com/design/eAJJZyMSjoOff7mA1pNpCU?node-id=78-382), 1362 × 1128, avec six extraits de 390 pixels de large.
-- [SVG](../maquettes/mobile-03-etats-contact.svg).
+- [SVG](../maquettes/etats/mobile-03-etats-contact.svg).
 - [Fiche client principale](maquette-mobile-03-fiche-client.md).
 
 Trois cas de coordonnées absentes et trois cas d’ouverture impossible sont représentés. Les messages et boutons réutilisent les composants, styles et variables existants. Ces extraits complètent la fiche client ; ils ne comptent pas comme six maquettes principales supplémentaires.

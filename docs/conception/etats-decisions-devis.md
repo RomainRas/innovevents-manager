@@ -6,8 +6,8 @@ Tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5).
 
 Deux planches complètent la [maquette WEB03](maquette-web-03-consultation-devis.md) :
 
-- [Confirmations et résultats](https://www.figma.com/design/eAJJZyMSjoOff7mA1pNpCU?node-id=69-599), 1440 × 1092 pixels ; [SVG](../maquettes/web-03-confirmations-resultats.svg).
-- [Modification et incidents](https://www.figma.com/design/eAJJZyMSjoOff7mA1pNpCU?node-id=69-600), 1440 × 1544 pixels ; [SVG](../maquettes/web-03-modification-incidents.svg).
+- [Confirmations et résultats](https://www.figma.com/design/eAJJZyMSjoOff7mA1pNpCU?node-id=69-599), 1440 × 1092 pixels ; [SVG](../maquettes/etats/web-03-confirmations-resultats.svg).
+- [Modification et incidents](https://www.figma.com/design/eAJJZyMSjoOff7mA1pNpCU?node-id=69-600), 1440 × 1544 pixels ; [SVG](../maquettes/etats/web-03-modification-incidents.svg).
 
 Dix extraits représentent des dialogues et états de la même page. Ils ne comptent pas comme dix nouvelles maquettes principales. Les repères entre crochets seront remplacés par les données du devis ; aucun montant ni client réel n’est inventé.
 

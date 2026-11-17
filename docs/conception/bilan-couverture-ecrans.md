@@ -12,7 +12,7 @@ La page 16 demande trois wireframes et trois maquettes pour chacun des supports 
 Le présent bilan est documentaire : inventaire des fichiers et rapprochement avec le sujet. Il ne constitue ni une nouvelle revue visuelle de tous les écrans, ni un test de l’application.
 
 ## Représentations disponibles
-Les six wireframes et les six maquettes principales existent. Les états complémentaires ne sont pas comptés comme de nouvelles maquettes principales. Les maquettes de tous les autres écrans du site et de l’application mobile sont rassemblées dans [maquettes-affiche.md](maquettes-affiche.md).
+Les six wireframes et les six maquettes principales existent. Les états complémentaires ne sont pas comptés comme de nouvelles maquettes principales. Les maquettes de tous les autres écrans du site et de l’application mobile sont rassemblées dans [maquettes-ecrans.md](maquettes-ecrans.md).
 
 | Ensemble | Preuve et état |
 | --- | --- |
@@ -25,7 +25,7 @@ Les six wireframes et les six maquettes principales existent. Les états complé
 | Fondations graphiques | [Charte](charte-graphique.md) : style affiche (crème, rouge, bleu, jaune, encre, Anton) pour le site et le mobile ; pas une identité officielle fournie |
 | Navigation sélectionnée | [Enchaînements web et mobile](enchainement-ecrans.md), statiques ; pas encore un plan de toutes les pages |
 
-Les maquettes sont dans `docs/maquettes/affiche/`, les wireframes en SVG dans `docs/maquettes/wireframes/` (sources dans Figma).
+Les maquettes sont dans `docs/maquettes/site/` et `docs/maquettes/mobile/`, les wireframes en SVG dans `docs/maquettes/wireframes/` (sources dans Figma).
 
 ## Couverture des fonctions et pages du projet
 « À concevoir » signifie qu’aucune représentation dédiée n’est recensée dans les livrables actuels. Une fonctionnalité décrite dans l’analyse n’est pas pour autant dessinée ou développée. Les regroupements ci-dessous sont une organisation proposée, pas un découpage de pages imposé.
@@ -85,7 +85,7 @@ Les deux PDF de conception sont disponibles ([relecture et exports](relecture-et
 
 
 ## Mise à jour — Adaptation web
-Les trois écrans web principaux ont leur version à 390 pixels. Voir [adaptation web aux petits écrans](adaptation-web-petits-ecrans.md) pour la réorganisation et les contrôles de largeur. Les autres écrans du site sont présentés dans [maquettes-affiche.md](maquettes-affiche.md).
+Les trois écrans web principaux ont leur version à 390 pixels. Voir [adaptation web aux petits écrans](adaptation-web-petits-ecrans.md) pour la réorganisation et les contrôles de largeur. Les autres écrans du site sont présentés dans [maquettes-ecrans.md](maquettes-ecrans.md).
 
 ## Mise à jour — Relecture et exports
 

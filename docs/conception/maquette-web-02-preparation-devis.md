@@ -2,12 +2,12 @@
 
 Tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5).
 
-<img src="../maquettes/affiche/web-26-chloe-preparation-devis.webp" alt="Maquette de la préparation du devis, bureau" width="900">
+<img src="../maquettes/site/web-26-chloe-preparation-devis.webp" alt="Maquette de la préparation du devis, bureau" width="900">
 
-<img src="../maquettes/affiche/web-26-chloe-preparation-devis-petit-ecran.webp" alt="Maquette de la préparation du devis, petit écran" width="300">
+<img src="../maquettes/site/web-26-chloe-preparation-devis-petit-ecran.webp" alt="Maquette de la préparation du devis, petit écran" width="300">
 
 - [Wireframe, exigences et choix détaillés](wireframe-web-02-preparation-devis.md).
-- [Charte graphique](charte-graphique.md) et [toutes les maquettes](maquettes-affiche.md).
+- [Charte graphique](charte-graphique.md) et [toutes les maquettes](maquettes-ecrans.md).
 
 Écran destiné à Chloé dans son espace d’administration.
 

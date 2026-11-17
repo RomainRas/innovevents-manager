@@ -6,7 +6,7 @@ Les trois écrans web principaux ont une version à 390 pixels de large. Elles r
 
 | Demande de devis | Préparation du devis | Consultation du devis |
 | --- | --- | --- |
-| <img src="../maquettes/affiche/web-05-visiteur-demande-de-devis-petit-ecran.webp" alt="Demande de devis à 390 pixels" width="240"> | <img src="../maquettes/affiche/web-26-chloe-preparation-devis-petit-ecran.webp" alt="Préparation du devis à 390 pixels" width="240"> | <img src="../maquettes/affiche/web-40-client-consultation-devis-petit-ecran.webp" alt="Consultation du devis à 390 pixels" width="240"> |
+| <img src="../maquettes/site/web-05-visiteur-demande-de-devis-petit-ecran.webp" alt="Demande de devis à 390 pixels" width="240"> | <img src="../maquettes/site/web-26-chloe-preparation-devis-petit-ecran.webp" alt="Préparation du devis à 390 pixels" width="240"> | <img src="../maquettes/site/web-40-client-consultation-devis-petit-ecran.webp" alt="Consultation du devis à 390 pixels" width="240"> |
 
 ## Sources et choix
 La page 4 de l’[énoncé](../enonce/enonce-ecf-cda.pdf) demande un menu accessible sur les pages et une interface adaptée au support ; la page 6 précise les exigences d’accessibilité. Les pages 8–10 définissent les formulaires et actions concernés. La largeur de 390 pixels et l’organisation ci-dessous sont des choix de conception, pas des dimensions imposées par le sujet.

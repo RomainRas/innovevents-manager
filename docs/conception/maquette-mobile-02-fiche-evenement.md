@@ -2,10 +2,10 @@
 
 Tâche [#5](https://github.com/RomainRas/innovevents-manager/issues/5).
 
-<img src="../maquettes/affiche/mobile-03-fiche-evenement.webp" alt="Maquette mobile : fiche événement" width="300">
+<img src="../maquettes/mobile/mobile-03-fiche-evenement.webp" alt="Maquette mobile : fiche événement" width="300">
 
 - [Wireframe et règles détaillées](wireframe-mobile-02-fiche-evenement.md).
-- [Charte graphique](charte-graphique.md) et [toutes les maquettes](maquettes-affiche.md).
+- [Charte graphique](charte-graphique.md) et [toutes les maquettes](maquettes-ecrans.md).
 
 ## Correspondance avec le sujet
 

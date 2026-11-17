@@ -2,7 +2,7 @@
 Tâche #5.
 
 [Planche Figma](https://www.figma.com/design/eAJJZyMSjoOff7mA1pNpCU?node-id=72-349) — 1362 × 1100 pixels.
-[Export SVG](../maquettes/mobile-02-etats-note.svg).
+[Export SVG](../maquettes/etats/mobile-02-etats-note.svg).
 [Source et règles du wireframe](wireframe-mobile-02-fiche-evenement.md).
 [Maquette principale](maquette-mobile-02-fiche-evenement.md).
 

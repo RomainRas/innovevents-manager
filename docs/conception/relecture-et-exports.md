@@ -9,7 +9,7 @@ La charte, la maquette de l’accueil, les six wireframes, les six maquettes pri
 - [Dossier visuel de conception](../../output/pdf/innov-events-conception.pdf) : 18 pages ; 2 005 730 octets. Couverture, sommaire, charte, accueil, six wireframes, six maquettes et deux enchaînements.
 - [Annexe — petits écrans et autres écrans](../../output/pdf/innov-events-annexes-conception.pdf) : 46 pages ; 6 344 820 octets.
 - [Mode d’emploi des exports](../../output/pdf/README.md).
-- [Toutes les maquettes](maquettes-affiche.md), images dans `docs/maquettes/affiche/` ; wireframes en SVG dans `docs/maquettes/wireframes/`, sources dans [Figma](https://www.figma.com/design/eAJJZyMSjoOff7mA1pNpCU).
+- [Toutes les maquettes](maquettes-ecrans.md), images dans `docs/maquettes/site/` et `docs/maquettes/mobile/` ; wireframes en SVG dans `docs/maquettes/wireframes/`, sources dans [Figma](https://www.figma.com/design/eAJJZyMSjoOff7mA1pNpCU).
 
 Chaque visuel est entier sur une page de hauteur adaptée. Utiliser le zoom ou l’affichage à la largeur pour les vues longues.
 
