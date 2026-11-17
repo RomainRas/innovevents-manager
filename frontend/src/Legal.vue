@@ -217,7 +217,7 @@ const updated = '14 novembre 2026'
 }
 .sheet {
   padding: 32px clamp(20px, 4vw, 40px) 40px;
-  background: #fbf8f1;
+  background: var(--creme);
 }
 .legal-notice {
   display: flex;
@@ -235,25 +235,25 @@ const updated = '14 novembre 2026'
 }
 .legal-notice span {
   padding-left: 20px;
-  border-left: 2px solid #111;
+  border-left: 2px solid var(--encre);
 }
 h1 {
   margin: 0 0 32px;
   padding-bottom: 14px;
-  border-bottom: 8px solid #c8221a;
-  font-family: Anton, Impact, 'Arial Narrow', sans-serif;
+  border-bottom: 8px solid var(--rouge);
+  font-family: var(--police-titre);
   font-weight: 400;
   font-size: clamp(44px, 7vw, 76px);
   line-height: 1.05;
   text-transform: uppercase;
-  color: #111;
+  color: var(--encre);
 }
 h2 {
   display: flex;
   align-items: center;
   gap: 20px;
   margin: 40px 0 12px;
-  font-family: Anton, Impact, 'Arial Narrow', sans-serif;
+  font-family: var(--police-titre);
   font-weight: 400;
   font-size: clamp(26px, 3.4vw, 36px);
   line-height: 1.1;
@@ -264,13 +264,13 @@ h2::after {
   content: '';
   flex: 1;
   min-width: 40px;
-  border-top: 5px solid #1d3fbf;
+  border-top: 5px solid var(--bleu);
 }
 h2:nth-of-type(3n + 2)::after {
-  border-color: #ffd836;
+  border-color: var(--jaune);
 }
 h2:nth-of-type(3n)::after {
-  border-color: #c8221a;
+  border-color: var(--rouge);
 }
 @media (max-width: 600px) {
   .legal-notice {

@@ -388,12 +388,12 @@ async function advance(t) {
 /* Fiche événement (équipe) : grand titre, informations à pastilles colorées, tâches et notes en cartes. */
 .event-title {
   margin: 8px 0 24px;
-  font-family: Anton, Impact, 'Arial Narrow', sans-serif;
+  font-family: var(--police-titre);
   font-weight: 400;
   font-size: clamp(40px, 5.5vw, 72px);
   line-height: 1;
   text-transform: uppercase;
-  color: #111;
+  color: var(--encre);
   overflow-wrap: anywhere;
 }
 .event-title::after {
@@ -403,7 +403,7 @@ async function advance(t) {
   max-width: 60%;
   height: 8px;
   margin-top: 12px;
-  background: #ffd836;
+  background: var(--jaune);
   transform: rotate(-1.5deg);
 }
 .facts {
@@ -411,8 +411,8 @@ async function advance(t) {
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   gap: 0;
   margin: 0 0 24px;
-  background: #fbf8f1;
-  border: 2px solid #111;
+  background: var(--creme);
+  border: 2px solid var(--encre);
 }
 .facts div {
   display: grid;
@@ -420,7 +420,7 @@ async function advance(t) {
   gap: 0 14px;
   align-items: center;
   padding: 14px 18px;
-  border-bottom: 1px solid #d8cfbd;
+  border-bottom: 1px solid var(--filet);
 }
 .tile {
   grid-row: span 2;
@@ -428,17 +428,17 @@ async function advance(t) {
   place-items: center;
   width: 46px;
   height: 42px;
-  color: #111;
+  color: var(--encre);
   clip-path: polygon(4% 8%, 96% 0, 100% 92%, 0 100%);
 }
 .tile.red {
   background: #d9342b;
 }
 .tile.blue {
-  background: #1d3fbf;
+  background: var(--bleu);
 }
 .tile.yellow {
-  background: #ffd836;
+  background: var(--jaune);
 }
 .tile :deep(.icon) {
   stroke-width: 2.2;
@@ -451,7 +451,7 @@ dd {
   overflow-wrap: anywhere;
 }
 dd a {
-  color: #1d3fbf;
+  color: var(--bleu);
 }
 .list {
   list-style: none;
@@ -461,13 +461,13 @@ dd a {
 .list li {
   margin: 0 0 12px;
   padding: 16px 20px;
-  background: #fbf8f1;
-  border: 1px solid #d8cfbd;
-  border-left: 5px solid #d8cfbd;
+  background: var(--creme);
+  border: 1px solid var(--filet);
+  border-left: 5px solid var(--filet);
   border-radius: 8px;
 }
 .list li.mine {
-  border-left-color: #1d3fbf;
+  border-left-color: var(--bleu);
 }
 h3 {
   margin: 0 0 4px;
@@ -479,30 +479,26 @@ h3 {
   margin-left: 6px;
   padding: 2px 10px;
   border-radius: 999px;
-  background: #e5dccb;
+  background: var(--filet-clair);
   font-size: 0.85rem;
   font-weight: 600;
 }
 .badge.en_cours {
   background: #fff1a8;
-  color: #111;
+  color: var(--encre);
 }
 .badge.termine {
   background: #d9f0e1;
-  color: #0b6b3a;
+  color: var(--succes);
 }
 .text {
   white-space: pre-line;
   overflow-wrap: anywhere;
 }
 .meta {
-  color: #4a4a4a;
-  font-size: 0.95rem;
   margin: 4px 0;
 }
 .actions {
-  display: flex;
-  flex-wrap: wrap;
   gap: 10px;
   margin: 10px 0 0;
 }
@@ -510,13 +506,13 @@ h3 {
   border-radius: 6px;
 }
 .actions .secondary {
-  border: 2px solid #111;
+  border: 2px solid var(--encre);
 }
 .note-form {
   margin-bottom: 20px;
   padding: 18px 20px;
-  background: #fbf8f1;
-  border: 1px solid #d8cfbd;
+  background: var(--creme);
+  border: 1px solid var(--filet);
   border-radius: 8px;
 }
 .note-form label {
@@ -529,18 +525,5 @@ form button {
 .dialog {
   margin-top: 10px;
   padding: 12px 16px;
-  border: 2px solid #b42318;
-  border-radius: 8px;
-  background: #fbe4e1;
-}
-.danger-button {
-  background: #b42318 !important;
-}
-.danger-button:hover {
-  background: #8f1c13 !important;
-}
-.success {
-  color: #0b6b3a;
-  font-weight: 600;
 }
 </style>

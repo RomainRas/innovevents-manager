@@ -171,14 +171,14 @@ async function submit() {
   width: fit-content;
   margin: 16px auto 8px;
   padding: 2px 16px;
-  background: #ffd836;
+  background: var(--jaune);
 }
 .group {
   margin: 32px 0;
   padding: 0 32px 28px;
   border: 0;
   min-width: 0;
-  background: #fbf8f1;
+  background: var(--creme);
   border-radius: 6px;
 }
 legend {
@@ -186,7 +186,7 @@ legend {
   width: calc(100% + 64px);
   margin: 0 -32px 8px;
   padding: 6px 32px;
-  font-family: Anton, Impact, 'Arial Narrow', sans-serif;
+  font-family: var(--police-titre);
   font-size: clamp(28px, 4vw, 40px);
   font-weight: 400;
   text-transform: uppercase;
@@ -194,16 +194,13 @@ legend {
   clip-path: polygon(0 10%, 30% 0, 60% 8%, 100% 2%, 99% 92%, 70% 100%, 35% 92%, 0 100%);
 }
 .group:nth-of-type(2) legend {
-  background: #ffd836;
+  background: var(--jaune);
 }
 .quote-grid {
   clear: both;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0 24px;
-}
-textarea {
-  resize: vertical;
 }
 .submit {
   margin-top: 32px;

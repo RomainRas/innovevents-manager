@@ -105,11 +105,11 @@ async function submit() {
 /* Préparation de l'événement : titre souligné, statut en pastille, formulaire en carte sur deux colonnes. */
 .draft-title {
   margin: 8px 0 16px;
-  font-family: Anton, Impact, 'Arial Narrow', sans-serif;
+  font-family: var(--police-titre);
   font-weight: 400;
   font-size: clamp(34px, 4.6vw, 54px);
   line-height: 1.1;
-  color: #111;
+  color: var(--encre);
   overflow-wrap: anywhere;
 }
 .draft-title::after {
@@ -144,7 +144,7 @@ async function submit() {
   margin: 24px 0 0;
 }
 .save-draft {
-  border: 2px solid #111 !important;
+  border: 2px solid var(--encre) !important;
   border-radius: 6px;
   font-weight: 700;
 }
@@ -160,16 +160,13 @@ async function submit() {
   min-height: 48px;
   padding: 12px 24px;
   color: white;
-  background: #c8221a;
+  background: var(--rouge);
   border-radius: 6px;
   font-weight: 700;
   text-decoration: none;
 }
 .quote-link:hover {
-  background: #a51b14;
-}
-[aria-invalid='true'] {
-  border: 2px solid #b42318;
+  background: var(--rouge-fonce);
 }
 @media (max-width: 600px) {
   .event-grid {

@@ -73,18 +73,18 @@ onMounted(async () => {
   gap: 12px 24px;
   padding-bottom: 18px;
   border-bottom: 6px solid;
-  border-image: linear-gradient(90deg, #c8221a 0 37%, #1d3fbf 37% 67%, #ffd836 67%) 1;
+  border-image: linear-gradient(90deg, var(--rouge) 0 37%, var(--bleu) 37% 67%, var(--jaune) 67%) 1;
 }
 .logs-title {
   margin: 0;
   padding-left: 22px;
-  border-left: 10px solid #c8221a;
-  font-family: Anton, Impact, 'Arial Narrow', sans-serif;
+  border-left: 10px solid var(--rouge);
+  font-family: var(--police-titre);
   font-weight: 400;
   font-size: clamp(34px, 4.5vw, 52px);
   line-height: 1.1;
   text-transform: uppercase;
-  color: #111;
+  color: var(--encre);
 }
 .lead {
   margin: 4px 0 0 32px;
@@ -97,7 +97,7 @@ onMounted(async () => {
   margin: 0;
   padding: 10px 16px;
   border-radius: 6px;
-  background: #efe8d8;
+  background: var(--creme-fonce);
 }
 .counter svg {
   width: 24px;
@@ -114,11 +114,11 @@ table {
 thead th {
   padding: 12px 16px;
   text-align: left;
-  font-family: Anton, Impact, 'Arial Narrow', sans-serif;
+  font-family: var(--police-titre);
   font-weight: 400;
   font-size: 1.15rem;
   text-transform: uppercase;
-  background: #efe8d8;
+  background: var(--creme-fonce);
 }
 td {
   padding: 8px 16px;
@@ -126,7 +126,7 @@ td {
   overflow-wrap: anywhere;
 }
 tbody tr:nth-child(even) {
-  background: #f4efe4;
+  background: var(--papier);
 }
 .action {
   display: inline-block;
@@ -135,8 +135,8 @@ tbody tr:nth-child(even) {
   font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 0.03em;
-  color: #111;
-  background: #ffd836;
+  color: var(--encre);
+  background: var(--jaune);
 }
 .action.green {
   color: white;
@@ -144,7 +144,7 @@ tbody tr:nth-child(even) {
 }
 .action.red {
   color: white;
-  background: #b42318;
+  background: var(--erreur);
 }
 .error:empty {
   display: none;
@@ -157,7 +157,7 @@ tbody tr:nth-child(even) {
     display: grid;
     gap: 4px;
     padding: 10px 0;
-    border-bottom: 1px solid #d8cfbd;
+    border-bottom: 1px solid var(--filet);
   }
   td {
     padding: 0 8px;

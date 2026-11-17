@@ -197,7 +197,7 @@ onMounted(load)
 /* Fiche d'une demande : bandeau de statut, cartes d'informations à liseré, colonne d'actions. */
 .lead {
   margin: -8px 0 20px;
-  color: #4a4a4a;
+  color: var(--texte-secondaire);
 }
 .status-band {
   display: flex;
@@ -207,7 +207,7 @@ onMounted(load)
   margin: 0 0 24px;
   padding: 16px 22px;
   background: #fbf0cf;
-  border-left: 6px solid #ffd836;
+  border-left: 6px solid var(--jaune);
   border-radius: 6px;
   font-size: 1.05rem;
 }
@@ -224,19 +224,19 @@ onMounted(load)
 .actions-card {
   margin: 0 0 20px;
   padding: 4px 22px 18px;
-  background: #fbf8f1;
-  border: 1px solid #d8cfbd;
-  border-left: 6px solid var(--accent, #c8221a);
+  background: var(--creme);
+  border: 1px solid var(--filet);
+  border-left: 6px solid var(--accent, var(--rouge));
   border-radius: 8px;
 }
 .info-card.blue {
-  --accent: #1d3fbf;
+  --accent: var(--bleu);
 }
 .info-card.yellow {
-  --accent: #ffd836;
+  --accent: var(--jaune);
 }
 .actions-card {
-  border-left: 1px solid #d8cfbd;
+  border-left: 1px solid var(--filet);
 }
 h2 {
   display: flex;
@@ -244,11 +244,11 @@ h2 {
   gap: 12px;
   margin: 14px 0 10px;
   padding-bottom: 10px;
-  border-bottom: 1px solid #d8cfbd;
-  font-family: Anton, Impact, 'Arial Narrow', sans-serif;
+  border-bottom: 1px solid var(--filet);
+  font-family: var(--police-titre);
   font-weight: 400;
   font-size: 1.6rem;
-  color: #111;
+  color: var(--encre);
 }
 dl {
   display: grid;
@@ -259,10 +259,10 @@ dt,
 dd {
   margin: 0;
   padding: 9px 0;
-  border-bottom: 1px solid #e5dccb;
+  border-bottom: 1px solid var(--filet-clair);
 }
 dt {
-  color: #4a4a4a;
+  color: var(--texte-secondaire);
 }
 dd {
   font-weight: 600;
@@ -270,7 +270,7 @@ dd {
   overflow-wrap: anywhere;
 }
 dd a {
-  color: #1d3fbf;
+  color: var(--bleu);
 }
 .need,
 .message {
@@ -280,7 +280,7 @@ dd a {
 }
 .action {
   padding: 14px 0;
-  border-top: 1px solid #d8cfbd;
+  border-top: 1px solid var(--filet);
 }
 .action:first-of-type {
   border-top: 0;
@@ -294,16 +294,13 @@ h3 {
 }
 .action p {
   margin: 0 0 12px;
-  color: #4a4a4a;
+  color: var(--texte-secondaire);
 }
 .action .open-link {
   width: 100%;
   justify-content: center;
-  border-color: #1d3fbf;
-  color: #1d3fbf;
-}
-textarea {
-  resize: vertical;
+  border-color: var(--bleu);
+  color: var(--bleu);
 }
 .confirmation {
   display: flex;
@@ -318,7 +315,7 @@ textarea {
 }
 form button {
   margin-top: 8px;
-  background: #172033 !important;
+  background: var(--nuit) !important;
 }
 @media (max-width: 900px) {
   .layout {

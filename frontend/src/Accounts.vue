@@ -330,11 +330,11 @@ async function confirmDelete() {
   align-items: center;
   gap: 16px;
   margin: 8px 0 24px;
-  font-family: Anton, Impact, 'Arial Narrow', sans-serif;
+  font-family: var(--police-titre);
   font-weight: 400;
   font-size: clamp(34px, 4.5vw, 52px);
   line-height: 1.1;
-  color: #111;
+  color: var(--encre);
 }
 .accounts-title :deep(.icon) {
   width: 44px;
@@ -343,19 +343,19 @@ async function confirmDelete() {
 .box {
   margin: 0 0 28px;
   padding: 0 24px 24px;
-  background: #fbf8f1;
-  border: 1px solid #172033;
+  background: var(--creme);
+  border: 1px solid var(--nuit);
   border-radius: 10px;
   overflow: hidden;
 }
 .box-head {
   margin: 0 -24px 16px;
   padding: 14px 24px;
-  background: #efe8d8;
-  font-family: Anton, Impact, 'Arial Narrow', sans-serif;
+  background: var(--creme-fonce);
+  font-family: var(--police-titre);
   font-weight: 400;
   font-size: 1.8rem;
-  color: #111;
+  color: var(--encre);
 }
 legend {
   font-weight: 700;
@@ -381,7 +381,7 @@ legend {
   min-height: 0;
   margin: 0;
   flex: none;
-  accent-color: #1d3fbf;
+  accent-color: var(--bleu);
 }
 .check {
   display: flex;
@@ -403,7 +403,7 @@ legend {
   align-items: center;
   gap: 10px;
   margin-top: 16px;
-  background: #1d3fbf !important;
+  background: var(--bleu) !important;
   border-radius: 6px;
 }
 .send:hover {
@@ -428,8 +428,8 @@ legend {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  color: #111 !important;
-  background: #ffd836 !important;
+  color: var(--encre) !important;
+  background: var(--jaune) !important;
   border-radius: 6px;
 }
 .search-button:hover {
@@ -447,7 +447,7 @@ legend {
   align-items: center;
   margin: 0;
   padding: 14px 4px;
-  border-top: 1px solid #d8cfbd;
+  border-top: 1px solid var(--filet);
 }
 .accounts li > :not(.avatar):not(.actions) {
   grid-column: 2;
@@ -460,10 +460,10 @@ legend {
   grid-column: 1 / -1;
 }
 .accounts li.suspended {
-  background: #efe8d8;
+  background: var(--creme-fonce);
 }
 .accounts li.pending {
-  border-left: 4px solid #b42318;
+  border-left: 4px solid var(--erreur);
   padding-left: 12px;
 }
 .avatar {
@@ -478,8 +478,8 @@ legend {
   background: #dde4fb;
 }
 .avatar.client {
-  color: #8f1c13;
-  background: #fbe4e1;
+  color: var(--erreur-fonce);
+  background: var(--erreur-fond);
 }
 h3 {
   margin: 0;
@@ -499,22 +499,18 @@ h4 {
   font-weight: 600;
 }
 .badge.warn {
-  background: #fbe4e1;
-  color: #8f1c13;
+  background: var(--erreur-fond);
+  color: var(--erreur-fonce);
 }
 .meta {
   margin: 0;
-  color: #4a4a4a;
-  font-size: 0.95rem;
   overflow-wrap: anywhere;
 }
 .alert {
   margin: 4px 0 0;
-  color: #8f1c13;
+  color: var(--erreur-fonce);
 }
 .actions {
-  display: flex;
-  flex-wrap: wrap;
   gap: 10px;
   margin: 0;
 }
@@ -524,24 +520,13 @@ h4 {
   border-radius: 6px;
 }
 .actions .secondary {
-  border: 2px solid #172033;
-}
-.dialog {
-  border: 2px solid #b42318;
-  border-radius: 8px;
-  padding: 16px;
-  margin-top: 12px;
-  background: #fbe4e1;
+  border: 2px solid var(--nuit);
 }
 .danger-button {
-  background: #c8221a;
+  background: var(--rouge);
 }
 .danger-button:hover {
-  background: #8f1c13;
-}
-.success {
-  color: #0b6b3a;
-  font-weight: 600;
+  background: var(--erreur-fonce);
 }
 @media (max-width: 800px) {
   .filters {

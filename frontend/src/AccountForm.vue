@@ -252,7 +252,7 @@ async function submit() {
   right: max(0px, calc((100% - 760px) / 2 - 170px));
   width: 110px;
   height: 110px;
-  background: #ffd836;
+  background: var(--jaune);
   clip-path: polygon(
     50% 0,
     60% 34%,

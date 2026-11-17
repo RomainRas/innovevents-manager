@@ -100,9 +100,6 @@ async function submit() {
   gap: 0 16px;
 }
 .actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
   margin-top: 16px;
 }
 .sr-only {

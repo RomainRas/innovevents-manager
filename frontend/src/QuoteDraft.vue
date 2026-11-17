@@ -126,7 +126,7 @@ async function save() {
 .sheet .back-link {
   font-family: Georgia, 'Times New Roman', serif;
   font-weight: 700;
-  color: #1d3fbf;
+  color: var(--bleu);
 }
 .sheet .poster-title {
   display: block;
@@ -139,14 +139,14 @@ async function save() {
   font-size: 1.1rem;
 }
 .quote-client a {
-  color: #1d3fbf;
+  color: var(--bleu);
   font-weight: 700;
 }
 .missing {
   margin: 0 0 18px;
   padding: 12px 18px;
-  background: #fbe4e1;
-  border-left: 5px solid #c8221a;
+  background: var(--erreur-fond);
+  border-left: 5px solid var(--rouge);
   border-radius: 4px;
 }
 .missing p,
@@ -157,7 +157,7 @@ async function save() {
   margin: 4px 0;
 }
 .missing a {
-  color: #8f1c13;
+  color: var(--erreur-fonce);
   font-weight: 700;
 }
 .quote-event {
@@ -178,7 +178,7 @@ fieldset {
   min-width: 0;
   margin: 0 0 18px;
   padding: 10px 24px 18px;
-  border: 2px solid #111;
+  border: 2px solid var(--encre);
   border-radius: 6px;
 }
 legend {
@@ -221,18 +221,18 @@ legend {
 .remove {
   grid-area: 2 / 3;
   min-height: 44px;
-  color: #111 !important;
-  background: #efe8d8 !important;
-  border: 1px solid #111 !important;
+  color: var(--encre) !important;
+  background: var(--creme-fonce) !important;
+  border: 1px solid var(--encre) !important;
   border-radius: 4px;
   font-family: Georgia, 'Times New Roman', serif;
 }
 .add-line .secondary {
-  color: #111 !important;
-  background: #ffd836 !important;
+  color: var(--encre) !important;
+  background: var(--jaune) !important;
   border: 0 !important;
   border-radius: 0;
-  font-family: Anton, Impact, 'Arial Narrow', sans-serif;
+  font-family: var(--police-titre);
   font-size: 1.15rem;
   letter-spacing: 0.03em;
   text-transform: uppercase;
@@ -247,7 +247,7 @@ legend {
 .save-quote button,
 .sheet :deep(section button:not(.secondary)) {
   border-radius: 0;
-  font-family: Anton, Impact, 'Arial Narrow', sans-serif;
+  font-family: var(--police-titre);
   font-size: 1.35rem;
   letter-spacing: 0.03em;
   text-transform: uppercase;
@@ -259,11 +259,11 @@ legend {
   gap: 24px 40px;
   margin-top: 24px;
   padding-top: 24px;
-  border-top: 2px solid #111;
+  border-top: 2px solid var(--encre);
 }
 .results > :nth-child(2) {
   padding-left: 32px;
-  border-left: 2px solid #111;
+  border-left: 2px solid var(--encre);
 }
 .results > :only-child {
   grid-column: 1 / -1;
@@ -286,21 +286,18 @@ legend {
   width: fit-content;
   margin: 0 0 14px;
   padding: 0 8px;
-  font-family: Anton, Impact, 'Arial Narrow', sans-serif;
+  font-family: var(--police-titre);
   font-weight: 400;
   font-size: clamp(28px, 3.4vw, 40px);
   line-height: 1.1;
   text-transform: uppercase;
-  color: #111;
-  background: linear-gradient(transparent 55%, #ffd836 55%);
+  color: var(--encre);
+  background: linear-gradient(transparent 55%, var(--jaune) 55%);
 }
 .sheet :deep(section[aria-labelledby='send-title']) {
   margin-top: 24px;
   padding-top: 24px;
-  border-top: 2px solid #111;
-}
-[aria-invalid='true'] {
-  border: 2px solid #b42318;
+  border-top: 2px solid var(--encre);
 }
 .deco-a {
   top: -20px;

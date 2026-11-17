@@ -102,8 +102,8 @@ onMounted(load)
   margin: 0;
   padding: 0;
   list-style: none;
-  background: #fbf8f1;
-  border: 1px solid #d8cfbd;
+  background: var(--creme);
+  border: 1px solid var(--filet);
   border-radius: 10px;
 }
 .event-rows li {
@@ -113,7 +113,7 @@ onMounted(load)
   align-items: center;
   margin: 0;
   padding: 10px 18px;
-  border-top: 1px solid #e5dccb;
+  border-top: 1px solid var(--filet-clair);
 }
 .event-rows li:first-child {
   border-top: 0;
@@ -133,7 +133,7 @@ h2 {
   overflow-wrap: anywhere;
 }
 h2 a {
-  color: #111;
+  color: var(--encre);
   text-decoration: none;
 }
 h2 a:hover {
@@ -148,7 +148,7 @@ h2 a:hover {
 }
 .cell + .cell {
   padding-left: 14px;
-  border-left: 1px solid #d8cfbd;
+  border-left: 1px solid var(--filet);
 }
 .cell .icon {
   width: 18px;
@@ -160,17 +160,13 @@ h2 a:hover {
   min-height: 48px;
   padding: 12px 22px;
   border-radius: 6px;
-  background: #c8221a;
+  background: var(--rouge);
   color: #fff;
   font-weight: 700;
   text-decoration: none;
 }
 .button-link:hover {
-  background: #a51b14;
-}
-.success {
-  color: #0b6b3a;
-  font-weight: 600;
+  background: var(--rouge-fonce);
 }
 @media (max-width: 1000px) {
   .event-rows li {

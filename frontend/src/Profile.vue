@@ -236,11 +236,11 @@ async function requestDeletion() {
 }
 .profile-title {
   margin: 4px 0 16px;
-  font-family: Anton, Impact, 'Arial Narrow', sans-serif;
+  font-family: var(--police-titre);
   font-weight: 400;
   font-size: clamp(40px, 5vw, 56px);
   line-height: 1.1;
-  color: #111;
+  color: var(--encre);
 }
 .profile-title::after {
   content: '';
@@ -249,7 +249,7 @@ async function requestDeletion() {
   height: 5px;
   margin-top: 6px;
   border-radius: 3px;
-  background: #ffd836;
+  background: var(--jaune);
   transform: rotate(-3deg);
 }
 .info {
@@ -272,7 +272,7 @@ svg {
   stroke-linejoin: round;
 }
 .info svg {
-  color: #1d3fbf;
+  color: var(--bleu);
 }
 .fields {
   display: grid;
@@ -301,7 +301,7 @@ svg {
   align-items: center;
   gap: 12px;
   margin-top: 16px !important;
-  background: #1d3fbf !important;
+  background: var(--bleu) !important;
 }
 .save:hover {
   background: #142e8f !important;
@@ -309,19 +309,19 @@ svg {
 .danger {
   margin-top: 36px;
   padding: 20px 24px;
-  border: 1px solid #c8221a;
+  border: 1px solid var(--rouge);
   border-radius: 6px;
-  background: #fbe4e1;
+  background: var(--erreur-fond);
 }
 .danger h2 {
   display: flex;
   align-items: center;
   gap: 12px;
   margin: 0 0 8px;
-  font-family: Anton, Impact, 'Arial Narrow', sans-serif;
+  font-family: var(--police-titre);
   font-weight: 400;
   font-size: 2rem;
-  color: #b42318;
+  color: var(--erreur);
 }
 .danger h2 svg {
   width: 36px;
@@ -350,14 +350,6 @@ svg {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: #b42318 !important;
-}
-.danger-button:hover {
-  background: #8f1c13 !important;
-}
-.success {
-  color: #0b6b3a;
-  font-weight: 600;
 }
 @media (max-width: 700px) {
   .fields {

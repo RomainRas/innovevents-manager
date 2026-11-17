@@ -189,7 +189,7 @@ watch(() => route.query, load, { immediate: true })
   gap: 24px 32px;
   align-items: center;
   padding-bottom: 24px;
-  border-bottom: 2px solid #111;
+  border-bottom: 2px solid var(--encre);
 }
 .events-head .poster-title {
   margin: 0;
@@ -199,7 +199,7 @@ watch(() => route.query, load, { immediate: true })
 .intro {
   margin: 0;
   padding-left: 20px;
-  border-left: 2px solid #111;
+  border-left: 2px solid var(--encre);
   font-family: Georgia, 'Times New Roman', serif;
   font-style: italic;
   font-size: 1.2rem;
@@ -235,14 +235,14 @@ watch(() => route.query, load, { immediate: true })
   gap: 12px 20px;
   margin: 0;
   padding: 20px 0;
-  border-bottom: 2px solid #111;
+  border-bottom: 2px solid var(--encre);
 }
 .filter-bar > div:not(.filter-actions) {
   flex: 1 1 160px;
 }
 .filter-bar label {
   margin: 0 0 6px;
-  font-family: Anton, Impact, 'Arial Narrow', sans-serif;
+  font-family: var(--police-titre);
   font-weight: 400;
   font-size: 1.05rem;
 }
@@ -252,34 +252,34 @@ watch(() => route.query, load, { immediate: true })
   margin: 0;
 }
 .filter-actions button {
-  font-family: Anton, Impact, 'Arial Narrow', sans-serif;
+  font-family: var(--police-titre);
   font-weight: 400;
   font-size: 1.15rem;
 }
 .filter-actions button[type='submit'] {
-  background: #c8221a;
+  background: var(--rouge);
   clip-path: polygon(0 6%, 100% 0, 97% 100%, 3% 94%);
 }
 .filter-actions button[type='submit']:hover {
-  background: #a51b14;
+  background: var(--rouge-fonce);
 }
 .filter-actions .secondary {
-  background: #fbf8f1;
-  border: 2px solid #111;
+  background: var(--creme);
+  border: 2px solid var(--encre);
 }
 .count {
   display: flex;
   align-items: center;
   gap: 24px;
   margin: 24px 0;
-  font-family: Anton, Impact, 'Arial Narrow', sans-serif;
+  font-family: var(--police-titre);
   font-size: 1.6rem;
   font-style: italic;
 }
 .count::after {
   content: '';
   flex: 1;
-  border-top: 2px solid #111;
+  border-top: 2px solid var(--encre);
 }
 /* Cartes : photo, bandeau de statut incliné, titre en Anton, liseré coloré en bas. */
 .event-cards {
@@ -301,23 +301,23 @@ watch(() => route.query, load, { immediate: true })
   flex-direction: column;
   border: 0;
   border-radius: 0;
-  border-bottom: 5px solid #c8221a;
-  background: #fbf8f1;
-  box-shadow: 0 2px 0 #d8cfbd;
+  border-bottom: 5px solid var(--rouge);
+  background: var(--creme);
+  box-shadow: 0 2px 0 var(--filet);
   overflow: visible;
 }
 .event-cards li:nth-child(even) article {
-  border-bottom-color: #1d3fbf;
+  border-bottom-color: var(--bleu);
 }
 .event-cards article:focus-within {
-  outline: 3px solid #111;
+  outline: 3px solid var(--encre);
   outline-offset: 3px;
 }
 .photo {
   position: relative;
   padding: 0;
   aspect-ratio: 16 / 10;
-  background: #111;
+  background: var(--encre);
 }
 .photo img {
   width: 100%;
@@ -331,41 +331,41 @@ watch(() => route.query, load, { immediate: true })
   left: -6px;
   margin: 0;
   padding: 4px 14px;
-  font-family: Anton, Impact, 'Arial Narrow', sans-serif;
+  font-family: var(--police-titre);
   font-size: 1.1rem;
   text-transform: uppercase;
   color: white;
-  background: #c8221a;
+  background: var(--rouge);
   transform: rotate(-4deg);
 }
 .status.yellow {
-  color: #111;
-  background: #ffd836;
+  color: var(--encre);
+  background: var(--jaune);
 }
 .status.blue {
-  background: #1d3fbf;
+  background: var(--bleu);
 }
 .status.grey {
-  background: #4a4a4a;
+  background: var(--texte-secondaire);
 }
 .body {
   padding: 18px 20px 20px;
 }
 .event-cards h2 {
   margin: 0 0 14px;
-  font-family: Anton, Impact, 'Arial Narrow', sans-serif;
+  font-family: var(--police-titre);
   font-weight: 400;
   font-size: 1.7rem;
   line-height: 1.05;
   text-transform: uppercase;
 }
 .event-cards h2 a {
-  color: #111;
+  color: var(--encre);
   text-decoration: none;
 }
 .event-cards h2 a:hover {
   text-decoration: underline;
-  text-decoration-color: #c8221a;
+  text-decoration-color: var(--rouge);
 }
 /* Toute la carte est cliquable grâce au lien du titre, étendu à la carte. */
 .event-cards h2 a::after {
@@ -392,7 +392,7 @@ watch(() => route.query, load, { immediate: true })
   height: 18px;
   margin-top: 2px;
   fill: none;
-  stroke: #111;
+  stroke: var(--encre);
   stroke-width: 2;
 }
 @media (max-width: 900px) {

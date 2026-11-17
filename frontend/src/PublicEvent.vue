@@ -96,7 +96,7 @@ onMounted(async () => {
   padding-inline: max(16px, calc((100% - 1200px) / 2));
 }
 .back {
-  color: #111;
+  color: var(--encre);
   font-weight: 700;
 }
 .event-detail {
@@ -108,12 +108,12 @@ onMounted(async () => {
 }
 h1 {
   margin: 0 0 28px;
-  font-family: Anton, Impact, 'Arial Narrow', sans-serif;
+  font-family: var(--police-titre);
   font-weight: 400;
   font-size: clamp(48px, 6.5vw, 92px);
   line-height: 0.98;
   text-transform: uppercase;
-  color: #111;
+  color: var(--encre);
 }
 h1::after {
   content: '';
@@ -122,7 +122,7 @@ h1::after {
   max-width: 60%;
   height: 9px;
   margin-top: 14px;
-  background: #ffd836;
+  background: var(--jaune);
   transform: rotate(-1.5deg);
 }
 .main-col img {
@@ -137,8 +137,8 @@ h1::after {
   display: block;
   margin: 0;
   padding: 8px 28px;
-  border: 2px solid #111;
-  background: #fbf8f1;
+  border: 2px solid var(--encre);
+  background: var(--creme);
 }
 .facts div {
   display: grid;
@@ -146,7 +146,7 @@ h1::after {
   gap: 0 18px;
   align-items: center;
   padding: 16px 0;
-  border-top: 1px solid #111;
+  border-top: 1px solid var(--encre);
 }
 .facts div:first-child {
   border-top: 0;
@@ -161,15 +161,15 @@ h1::after {
 }
 .tile.red {
   background: #d9342b;
-  color: #111;
+  color: var(--encre);
 }
 .tile.blue {
-  background: #1d3fbf;
-  color: #111;
+  background: var(--bleu);
+  color: var(--encre);
 }
 .tile.yellow {
-  background: #ffd836;
-  color: #111;
+  background: var(--jaune);
+  color: var(--encre);
 }
 .tile :deep(.icon) {
   width: 30px;
@@ -188,7 +188,7 @@ dd {
   display: inline-block;
   padding: 2px 14px;
   border-radius: 999px;
-  background: #ffd836;
+  background: var(--jaune);
   font-weight: 600;
 }
 .quote-band {
@@ -205,7 +205,7 @@ dd {
 .quote-band h2 {
   margin: 0;
   max-width: 7em;
-  font-family: Anton, Impact, 'Arial Narrow', sans-serif;
+  font-family: var(--police-titre);
   font-weight: 400;
   font-size: clamp(40px, 5vw, 64px);
   line-height: 1;
@@ -222,12 +222,12 @@ dd {
 .band-button {
   display: inline-block;
   padding: 14px 26px;
-  color: #111;
-  background: #ffd836;
-  font-family: Anton, Impact, 'Arial Narrow', sans-serif;
+  color: var(--encre);
+  background: var(--jaune);
+  font-family: var(--police-titre);
   font-size: 1.5rem;
   text-decoration: none;
-  box-shadow: 4px 4px 0 #111;
+  box-shadow: 4px 4px 0 var(--encre);
   transform: rotate(-1deg);
 }
 .band-button:hover {

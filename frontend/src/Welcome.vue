@@ -117,11 +117,11 @@ const programme = [
 <style scoped>
 /* Palette de l'affiche : papier crème, rouge, bleu et jaune, encre noire. */
 .home {
-  --paper: #f4efe4;
-  --red: #c8221a;
-  --blue: #1d3fbf;
-  --yellow: #ffd836;
-  --ink: #111;
+  --paper: var(--papier);
+  --red: var(--rouge);
+  --blue: var(--bleu);
+  --yellow: var(--jaune);
+  --ink: var(--encre);
   margin-bottom: -72px;
   background: var(--paper);
   color: var(--ink);
@@ -134,7 +134,7 @@ h2,
 figcaption,
 .ticket-title,
 .mark {
-  font-family: Anton, Impact, 'Arial Narrow', sans-serif;
+  font-family: var(--police-titre);
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.01em;

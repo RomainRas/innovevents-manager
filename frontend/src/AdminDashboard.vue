@@ -136,7 +136,7 @@ onMounted(async () => {
   align-items: center;
   padding: 18px 20px 18px 26px;
   color: white;
-  background: #172033;
+  background: var(--nuit);
   border-radius: 6px;
   overflow: hidden;
 }
@@ -147,13 +147,13 @@ onMounted(async () => {
   bottom: 0;
   left: 0;
   width: 8px;
-  background: var(--accent, #c8221a);
+  background: var(--accent, var(--rouge));
 }
 .kpis .blue {
-  --accent: #1d3fbf;
+  --accent: var(--bleu);
 }
 .kpis .yellow {
-  --accent: #ffd836;
+  --accent: var(--jaune);
 }
 .kpis :deep(.icon) {
   width: 34px;
@@ -165,14 +165,14 @@ dt {
 }
 dt a {
   display: block;
-  color: #ffd836;
+  color: var(--jaune);
   font-size: 0.9rem;
 }
 dd {
   margin: 0;
   padding-left: 18px;
   border-left: 1px solid #8a93a5;
-  font-family: Anton, Impact, 'Arial Narrow', sans-serif;
+  font-family: var(--police-titre);
   font-size: 2.6rem;
   line-height: 1;
 }
@@ -184,8 +184,8 @@ dd {
 }
 .widget {
   padding: 8px 20px 12px;
-  background: #fbf8f1;
-  border: 1px solid #d8cfbd;
+  background: var(--creme);
+  border: 1px solid var(--filet);
   border-radius: 8px;
 }
 .widget-head {
@@ -194,14 +194,14 @@ dd {
   align-items: center;
   justify-content: space-between;
   gap: 4px 16px;
-  border-bottom: 1px solid #d8cfbd;
+  border-bottom: 1px solid var(--filet);
 }
 .widget-head .slash-title {
   margin: 12px 0;
   font-size: 1.9rem;
 }
 .widget-head a {
-  color: #1d3fbf;
+  color: var(--bleu);
   font-size: 0.95rem;
 }
 .plain {
@@ -215,7 +215,7 @@ dd {
   gap: 16px;
   margin: 0;
   padding: 12px 0;
-  border-bottom: 1px solid #e5dccb;
+  border-bottom: 1px solid var(--filet-clair);
   overflow-wrap: anywhere;
 }
 .plain li:last-child {
@@ -228,7 +228,7 @@ dd {
   align-items: center;
   gap: 10px;
   padding: 8px 12px;
-  background: #efe8d8;
+  background: var(--creme-fonce);
   border-radius: 6px;
   font-weight: 700;
   line-height: 1.2;
@@ -238,13 +238,11 @@ dd {
   min-width: 0;
 }
 .item a {
-  color: #111;
+  color: var(--encre);
   font-weight: 700;
 }
 .meta {
   display: block;
-  font-size: 0.95rem;
-  color: #4a4a4a;
 }
 .note {
   margin: 0 0 4px;
@@ -262,14 +260,14 @@ dd {
 }
 .pill.yellow {
   background: #fff1a8;
-  color: #111;
+  color: var(--encre);
 }
 .pill.green {
   background: #d9f0e1;
-  color: #0b6b3a;
+  color: var(--succes);
 }
 .pill.grey {
-  background: #e5dccb;
+  background: var(--filet-clair);
   color: #333;
 }
 @media (max-width: 600px) {

@@ -36,6 +36,8 @@ Les écrans actuels ne ressemblent donc plus aux premières maquettes. Ce qui n�
 
 Les liens intégrés dans un texte sont soulignés. Un état ne repose jamais uniquement sur sa couleur : les statuts ont un libellé, les erreurs un texte.
 
+Dans le code du site, la palette et la police de titre sont déclarées une seule fois, en variables CSS en tête de `frontend/src/style.css` (`--papier`, `--carte`, `--rouge`, `--bleu`, `--jaune`, `--encre`, `--texte-secondaire`, `--succes`, `--erreur`, `--police-titre`…). Les composants utilisent ces variables plutôt que des couleurs écrites en dur : modifier une couleur de la charte se fait à un seul endroit. Les éléments communs à plusieurs écrans (message de réussite, groupe de boutons, confirmation de suppression, bouton de suppression, champ en erreur, informations secondaires) sont aussi définis une seule fois dans cette feuille ; chaque composant Vue garde dans son style local (`scoped`) uniquement ce qui lui est propre.
+
 ## Typographie
 
 | Usage | Police | Style |
@@ -63,7 +65,7 @@ Anton est servie par le site et par l’application mobile eux-mêmes (`frontend
 - Espacements : 8, 16, 24, 32 et 48 pixels.
 - Zones tactiles d’au moins 48 pixels de haut.
 - Libellés au-dessus des champs ; les exemples ne les remplacent pas.
-- Focus clavier visible : contour bleu de 3 px décalé de 2 px.
+- Focus clavier visible : contour bleu de 3 px décalé de 2 px (jaune sur les fonds sombres : pied de page, notes de l’équipe).
 - Erreurs près des champs, informations saisies conservées en cas d’échec.
 - Mises en page adaptées au support, vérifiées à 1440 et 390 pixels de large, sans défilement horizontal.
 

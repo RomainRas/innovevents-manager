@@ -130,10 +130,10 @@ async function upload() {
 }
 h2 {
   margin: 0 0 12px;
-  font-family: Anton, Impact, 'Arial Narrow', sans-serif;
+  font-family: var(--police-titre);
   font-weight: 400;
   font-size: 1.9rem;
-  color: #111;
+  color: var(--encre);
 }
 .event-picture {
   display: block;
@@ -143,17 +143,14 @@ h2 {
   border-radius: 6px;
 }
 #image-help {
-  color: #4a4a4a;
+  color: var(--texte-secondaire);
   font-size: 0.95rem;
 }
 input[type='file'] {
   max-width: 100%;
   box-sizing: border-box;
   padding: 18px;
-  border: 2px dashed #1d3fbf;
+  border: 2px dashed var(--bleu);
   background: #f4f6fd;
-}
-[aria-invalid='true'] {
-  border: 2px solid #b42318;
 }
 </style>

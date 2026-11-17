@@ -66,7 +66,4 @@ async function save() {
   </main>
 </template>
 <style scoped>
-textarea {
-  resize: vertical;
-}
 </style>

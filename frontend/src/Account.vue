@@ -157,11 +157,11 @@ onMounted(async () => {
 }
 .account-title {
   margin: 8px 0 12px;
-  font-family: Anton, Impact, 'Arial Narrow', sans-serif;
+  font-family: var(--police-titre);
   font-weight: 400;
   font-size: clamp(44px, 6vw, 68px);
   line-height: 1.05;
-  color: #111;
+  color: var(--encre);
 }
 .account-links {
   display: flex;
@@ -173,7 +173,7 @@ onMounted(async () => {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  color: #111;
+  color: var(--encre);
   font-size: 1.05rem;
 }
 .account-links a + a {
@@ -201,7 +201,7 @@ onMounted(async () => {
   flex: none;
   width: 13px;
   height: 0.8em;
-  background: var(--accent, #c8221a);
+  background: var(--accent, var(--rouge));
   transform: skew(-18deg);
 }
 .welcome {
@@ -220,15 +220,15 @@ onMounted(async () => {
   gap: 16px;
   min-height: 72px;
   padding: 14px 18px;
-  color: #111;
+  color: var(--encre);
   font-weight: 600;
   text-decoration: none;
-  background: #fbf8f1;
-  border: 1px solid #d8cfbd;
+  background: var(--creme);
+  border: 1px solid var(--filet);
   border-radius: 8px;
 }
 .card:hover {
-  border-color: #111;
+  border-color: var(--encre);
 }
 .card-label {
   flex: 1;
@@ -239,13 +239,13 @@ onMounted(async () => {
 }
 .shortcuts .card,
 .card.logs {
-  border-bottom: 4px solid var(--accent, #c8221a);
+  border-bottom: 4px solid var(--accent, var(--rouge));
 }
 .card.blue {
-  --accent: #1d3fbf;
+  --accent: var(--bleu);
 }
 .card.yellow {
-  --accent: #ffd836;
+  --accent: var(--jaune);
 }
 .team-notes.solo {
   grid-template-columns: minmax(0, 1fr);
@@ -277,14 +277,14 @@ onMounted(async () => {
 /* La date passe dans sa propre colonne ; le tiret reste pour la lecture vocale. */
 .row-date {
   padding-left: 24px;
-  border-left: 1px solid #d8cfbd;
+  border-left: 1px solid var(--filet);
   white-space: nowrap;
 }
 .cal.red {
-  color: #c8221a;
+  color: var(--rouge);
 }
 .cal.blue {
-  color: #1d3fbf;
+  color: var(--bleu);
 }
 .cal.yellow {
   color: #d4a600;
@@ -299,14 +299,14 @@ onMounted(async () => {
 .stripes i {
   width: 26px;
   height: 64px;
-  background: #c8221a;
+  background: var(--rouge);
   transform: skew(-22deg);
 }
 .stripes i:nth-child(2) {
-  background: #1d3fbf;
+  background: var(--bleu);
 }
 .stripes i:nth-child(3) {
-  background: #ffd836;
+  background: var(--jaune);
 }
 .disc {
   position: absolute;
@@ -318,21 +318,21 @@ onMounted(async () => {
   right: 80px;
   width: 300px;
   height: 300px;
-  background: #c8221a;
+  background: var(--rouge);
 }
 .disc.blue {
   top: -40px;
   right: -120px;
   width: 300px;
   height: 300px;
-  background: #1d3fbf;
+  background: var(--bleu);
 }
 .disc.yellow {
   top: 90px;
   right: -170px;
   width: 300px;
   height: 300px;
-  background: #ffd836;
+  background: var(--jaune);
 }
 @media (max-width: 900px) {
   .disc,

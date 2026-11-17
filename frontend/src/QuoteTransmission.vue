@@ -207,15 +207,14 @@ async function send() {
 </template>
 
 <style scoped>
-.actions { display: flex; flex-wrap: wrap; gap: 12px }
-.secondary { background: #FFFDF8; color: #111; border: 2px solid #111 }
-.secondary:hover { background: #EFE8D8 }
-.confirm { border: 2px solid #111; background: #FFFDF8; border-radius: 8px; padding: 16px; margin: 16px 0 }
+.secondary { background: var(--carte); color: var(--encre); border: 2px solid var(--encre) }
+.secondary:hover { background: var(--creme-fonce) }
+.confirm { border: 2px solid var(--encre); background: var(--carte); border-radius: 8px; padding: 16px; margin: 16px 0 }
 dt { font-weight: 700 }
 dd { margin: 4px 0 12px; overflow-wrap: anywhere }
 .check { display: flex; gap: 12px; align-items: flex-start }
 .check input { width: 24px; min-height: 24px; margin-top: 4px; flex: none }
 .check label { margin: 0; font-weight: 400 }
 .history li, .decisions li { margin-block: 8px }
-.decisions { border-left: 4px solid #1D3FBF; padding-left: 12px }
+.decisions { border-left: 4px solid var(--bleu); padding-left: 12px }
 </style>

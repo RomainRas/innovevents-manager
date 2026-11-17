@@ -234,8 +234,8 @@ async function remove() {
 .admin {
   padding: 0 20px 20px;
   margin: 24px 0;
-  background: #fbf8f1;
-  border: 1px solid #172033;
+  background: var(--creme);
+  border: 1px solid var(--nuit);
   border-radius: 10px;
   overflow: hidden;
 }
@@ -243,11 +243,11 @@ async function remove() {
 .admin h2 {
   margin: 0 -20px 16px;
   padding: 12px 20px;
-  background: #efe8d8;
-  font-family: Anton, Impact, 'Arial Narrow', sans-serif;
+  background: var(--creme-fonce);
+  font-family: var(--police-titre);
   font-weight: 400;
   font-size: 1.7rem;
-  color: #111;
+  color: var(--encre);
 }
 h3 {
   font-size: 1.1rem;
@@ -262,17 +262,8 @@ h3 {
 .row > div {
   flex: 1 1 200px;
 }
-.actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-.meta {
-  color: #4a4a4a;
-  font-size: 0.95rem;
-}
 .task {
-  border-top: 1px solid #d8cfbd;
+  border-top: 1px solid var(--filet);
   margin-top: 16px;
 }
 .task button {
@@ -284,7 +275,7 @@ h3 {
   min-height: 48px;
   padding: 12px 20px;
   border-radius: 6px;
-  background: #172033;
+  background: var(--nuit);
   color: #fff;
   font-weight: 700;
   text-decoration: none;
@@ -292,26 +283,15 @@ h3 {
 .button-link:hover {
   background: #000;
 }
-.dialog {
-  border: 2px solid #b42318;
-  border-radius: 8px;
-  padding: 16px;
-  margin-top: 12px;
-  background: #fbe4e1;
-}
 .secondary {
-  border: 2px solid #111;
+  border: 2px solid var(--encre);
   border-radius: 6px;
 }
 .danger-button {
-  background: #b42318;
+  background: var(--erreur);
 }
 .danger-button:hover {
-  background: #8f1c13;
-}
-.success {
-  color: #0b6b3a;
-  font-weight: 600;
+  background: var(--erreur-fonce);
 }
 .sr-only {
   position: absolute;

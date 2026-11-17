@@ -187,13 +187,13 @@ async function submit(e) {
   left: 14px;
   width: 4px;
   border-radius: 2px;
-  background: #c8221a;
+  background: var(--rouge);
 }
 .review-item.blue::before {
-  background: #1d3fbf;
+  background: var(--bleu);
 }
 .review-item.yellow::before {
-  background: #ffd836;
+  background: var(--jaune);
 }
 .review-item form {
   grid-column: 1 / -1;
@@ -219,7 +219,7 @@ blockquote {
   gap: 10px;
   margin: 0;
   padding-left: 24px;
-  border-left: 1px solid #d8cfbd;
+  border-left: 1px solid var(--filet);
 }
 .review-status strong {
   font-weight: 400;
@@ -236,7 +236,7 @@ blockquote {
   stroke-linejoin: round;
 }
 .review-status.valide svg {
-  color: #0b6b3a;
+  color: var(--succes);
 }
 .give {
   display: inline-flex;
@@ -244,24 +244,15 @@ blockquote {
   gap: 10px;
   grid-column: 3;
   border-radius: 6px;
-  background: #c8221a;
+  background: var(--rouge);
 }
 .give:hover {
-  background: #a51b14;
+  background: var(--rouge-fonce);
 }
 textarea {
-  border: 1px solid #6e6658;
+  border: 1px solid var(--bordure-champ);
   border-radius: 6px;
-  background: #fffdf8;
-}
-.actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-.success {
-  color: #0b6b3a;
-  font-weight: 600;
+  background: var(--carte);
 }
 @media (max-width: 900px) {
   .review-item {

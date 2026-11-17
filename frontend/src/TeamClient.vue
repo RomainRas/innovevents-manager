@@ -258,11 +258,11 @@ async function remove() {
 }
 h1 {
   margin: 0 0 6px;
-  font-family: Anton, Impact, 'Arial Narrow', sans-serif;
+  font-family: var(--police-titre);
   font-weight: 400;
   font-size: clamp(36px, 5vw, 56px);
   line-height: 1.05;
-  color: #111;
+  color: var(--encre);
   overflow-wrap: anywhere;
 }
 .facts {
@@ -277,8 +277,8 @@ h1 {
   gap: 2px 14px;
   align-items: start;
   padding: 16px 18px;
-  background: #fbf8f1;
-  border: 1px solid #d8cfbd;
+  background: var(--creme);
+  border: 1px solid var(--filet);
   border-radius: 8px;
 }
 .fact-icon {
@@ -288,7 +288,7 @@ h1 {
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  background: #efe8d8;
+  background: var(--creme-fonce);
 }
 .fact-icon :deep(.icon) {
   width: 22px;
@@ -296,7 +296,7 @@ h1 {
 }
 dt {
   font-size: 0.92rem;
-  color: #4a4a4a;
+  color: var(--texte-secondaire);
 }
 dd {
   margin: 0;
@@ -304,15 +304,12 @@ dd {
   overflow-wrap: anywhere;
 }
 dd a {
-  color: #1d3fbf;
+  color: var(--bleu);
 }
 .actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
   align-items: center;
   padding-bottom: 24px;
-  border-bottom: 1px solid #d8cfbd;
+  border-bottom: 1px solid var(--filet);
 }
 .actions > * {
   flex: 1 1 220px;
@@ -330,31 +327,31 @@ dd a {
 }
 .edit {
   color: white !important;
-  background: #172033 !important;
+  background: var(--nuit) !important;
   border: 0 !important;
 }
 .button-link {
   color: #fff;
-  background: #c8221a;
+  background: var(--rouge);
   text-decoration: none;
 }
 .button-link:hover {
-  background: #a51b14;
+  background: var(--rouge-fonce);
 }
 .delete {
-  color: #c8221a !important;
-  border: 2px solid #c8221a !important;
-  background: #fffdf8 !important;
+  color: var(--rouge) !important;
+  border: 2px solid var(--rouge) !important;
+  background: var(--carte) !important;
 }
 .history-title {
   display: flex;
   align-items: center;
   gap: 14px;
   margin: 28px 0 14px;
-  font-family: Anton, Impact, 'Arial Narrow', sans-serif;
+  font-family: var(--police-titre);
   font-weight: 400;
   font-size: 2rem;
-  color: #111;
+  color: var(--encre);
 }
 .history-title :deep(.icon) {
   width: 34px;
@@ -364,8 +361,8 @@ dd a {
 table {
   width: 100%;
   border-collapse: collapse;
-  background: #fbf8f1;
-  border: 1px solid #d8cfbd;
+  background: var(--creme);
+  border: 1px solid var(--filet);
   border-radius: 8px;
   overflow: hidden;
 }
@@ -373,14 +370,14 @@ th,
 td {
   text-align: left;
   padding: 12px 16px;
-  border-bottom: 1px solid #e5dccb;
+  border-bottom: 1px solid var(--filet-clair);
   overflow-wrap: anywhere;
 }
 th {
-  background: #efe8d8;
+  background: var(--creme-fonce);
 }
 td a {
-  color: #111;
+  color: var(--encre);
   font-weight: 700;
 }
 @media (max-width: 600px) {
@@ -389,7 +386,7 @@ td a {
   }
   tr {
     display: block;
-    border-bottom: 1px solid #d8cfbd;
+    border-bottom: 1px solid var(--filet);
     padding: 8px 0;
   }
   td {
@@ -409,22 +406,8 @@ td a {
 .box {
   padding: 20px;
   margin: 16px 0;
-  background: #fbf8f1;
-  border: 1px solid #d8cfbd;
+  background: var(--creme);
+  border: 1px solid var(--filet);
   border-radius: 8px;
-}
-.dialog {
-  margin-top: 12px;
-  padding: 16px;
-  border: 2px solid #b42318;
-  border-radius: 8px;
-  background: #fbe4e1;
-}
-.danger-button {
-  background: #b42318 !important;
-}
-.success {
-  color: #0b6b3a;
-  font-weight: 600;
 }
 </style>

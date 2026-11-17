@@ -95,23 +95,23 @@ onMounted(load)
   margin: 0 0 12px;
   padding: 14px 20px;
   line-height: 1.8;
-  background: #fbf8f1;
-  border: 1px solid #d8cfbd;
+  background: var(--creme);
+  border: 1px solid var(--filet);
   border-left: 5px solid #b9b09c;
   border-radius: 8px;
 }
 .quotes li.modification,
 .quotes li.refuse {
-  border-left-color: #c8221a;
+  border-left-color: var(--rouge);
 }
 .quotes li.accepte {
-  border-left-color: #0b6b3a;
+  border-left-color: var(--succes);
 }
 .quotes li.etude_client {
   border-left-color: #d4a600;
 }
 .quotes a {
-  color: #111;
+  color: var(--encre);
   font-weight: 800;
   font-size: 1.1rem;
 }
@@ -121,7 +121,7 @@ onMounted(load)
 .version {
   padding: 1px 8px;
   border-radius: 6px;
-  background: #e5dccb;
+  background: var(--filet-clair);
   font-size: 0.9rem;
 }
 .badge {
@@ -133,11 +133,11 @@ onMounted(load)
 }
 .badge.modification,
 .badge.refuse {
-  background: #fbe4e1;
-  color: #8f1c13;
+  background: var(--erreur-fond);
+  color: var(--erreur-fonce);
 }
 .badge.accepte {
   background: #d9f0e1;
-  color: #0b6b3a;
+  color: var(--succes);
 }
 </style>

@@ -114,15 +114,15 @@ onMounted(load)
   gap: 6px 8px;
 }
 .contact a {
-  color: #1d3fbf;
+  color: var(--bleu);
 }
 .file-link {
   display: inline-flex;
   align-items: center;
   gap: 10px;
   padding-left: 24px;
-  border-left: 1px solid #d8cfbd;
-  color: #a51b14;
+  border-left: 1px solid var(--filet);
+  color: var(--rouge-fonce);
   font-weight: 700;
 }
 .result-tile {
@@ -132,15 +132,11 @@ onMounted(load)
 .box {
   padding: 20px;
   margin: 16px 0;
-  background: #fbf8f1;
-  border: 1px solid #d8cfbd;
+  background: var(--creme);
+  border: 1px solid var(--filet);
   border-radius: 8px;
 }
 #client-new-button {
   margin-bottom: 16px;
-}
-.success {
-  color: #0b6b3a;
-  font-weight: 600;
 }
 </style>

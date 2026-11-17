@@ -209,16 +209,16 @@ async function submit() {
 }
 .disc.yellow {
   right: 200px;
-  background: #ffd836;
+  background: var(--jaune);
 }
 .disc.blue {
   right: 60px;
-  background: #1d3fbf;
+  background: var(--bleu);
 }
 .disc.red {
   right: -110px;
   top: -150px;
-  background: #c8221a;
+  background: var(--rouge);
 }
 .fields {
   display: grid;
@@ -255,7 +255,7 @@ async function submit() {
   gap: 12px;
   margin-top: 8px;
   padding-top: 20px;
-  border-top: 1px solid #d8cfbd;
+  border-top: 1px solid var(--filet);
 }
 @media (max-width: 900px) {
   .disc {

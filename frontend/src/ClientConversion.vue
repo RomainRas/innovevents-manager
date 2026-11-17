@@ -170,13 +170,10 @@ async function submit() {
 #conversion-success {
   padding: 18px 22px;
   background: #d9f0e1;
-  border-left: 6px solid #0b6b3a;
+  border-left: 6px solid var(--succes);
   border-radius: 6px;
 }
 #conversion-success h2 {
   margin-top: 0;
-}
-[aria-invalid='true'] {
-  border: 2px solid #b42318;
 }
 </style>

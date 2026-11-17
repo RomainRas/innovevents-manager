@@ -70,12 +70,12 @@ onMounted(async () => {
 }
 .reviews-title {
   margin: 0 0 8px;
-  font-family: Anton, Impact, 'Arial Narrow', sans-serif;
+  font-family: var(--police-titre);
   font-weight: 400;
   font-size: clamp(52px, 8vw, 104px);
   line-height: 1;
   text-transform: uppercase;
-  color: #111;
+  color: var(--encre);
 }
 .reviews-title::after {
   content: '';
@@ -84,7 +84,7 @@ onMounted(async () => {
   max-width: 50%;
   height: 8px;
   margin-top: 6px;
-  background: #ffd836;
+  background: var(--jaune);
   transform: rotate(-1deg);
 }
 .reviews-page .poster-lead {
@@ -102,13 +102,13 @@ onMounted(async () => {
 .count span {
   padding: 6px 16px;
   color: white;
-  background: #1d3fbf;
+  background: var(--bleu);
   transform: rotate(-2deg);
 }
 .count::after {
   content: '';
   flex: 1;
-  border-top: 2px solid #111;
+  border-top: 2px solid var(--encre);
 }
 .reviews {
   display: grid;
@@ -127,8 +127,8 @@ onMounted(async () => {
   padding: 16px;
   border: 0;
   border-radius: 0;
-  background: #fbf8f1;
-  box-shadow: 0 3px 0 #d8cfbd;
+  background: var(--creme);
+  box-shadow: 0 3px 0 var(--filet);
 }
 /* Rubans de papier collés en haut à gauche et en bas à droite. */
 .reviews li::before,
@@ -151,16 +151,16 @@ onMounted(async () => {
   background: var(--tape2);
 }
 .reviews li.red {
-  --tape: #c8221a;
-  --tape2: #ffd836;
+  --tape: var(--rouge);
+  --tape2: var(--jaune);
 }
 .reviews li.blue {
-  --tape: #1d3fbf;
-  --tape2: #c8221a;
+  --tape: var(--bleu);
+  --tape2: var(--rouge);
 }
 .reviews li.yellow {
-  --tape: #ffd836;
-  --tape2: #1d3fbf;
+  --tape: var(--jaune);
+  --tape2: var(--bleu);
 }
 .reviews img {
   width: 100%;
@@ -191,7 +191,7 @@ blockquote::before {
 }
 blockquote p {
   margin: 0;
-  font-family: Anton, Impact, 'Arial Narrow', sans-serif;
+  font-family: var(--police-titre);
   font-size: 1.45rem;
   line-height: 1.25;
 }
@@ -200,7 +200,7 @@ figcaption {
   padding-top: 14px;
   font-size: 0.95rem;
   line-height: 1.45;
-  border-top: 2px solid #111;
+  border-top: 2px solid var(--encre);
   width: fit-content;
 }
 .deco-a {

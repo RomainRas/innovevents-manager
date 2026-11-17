@@ -243,9 +243,9 @@ async function deleteNote(n) {
 .note-form {
   margin-bottom: 16px;
   padding: 18px 20px;
-  background: #fffdf8;
-  border: 2px solid #111;
-  box-shadow: 4px 4px 0 #111;
+  background: var(--carte);
+  border: 2px solid var(--encre);
+  box-shadow: 4px 4px 0 var(--encre);
 }
 .note-form label {
   margin-top: 0;
@@ -258,7 +258,7 @@ async function deleteNote(n) {
   padding: 8px 24px;
   list-style: none;
   color: white;
-  background: #172033;
+  background: var(--nuit);
   border-radius: 8px;
 }
 .notes-box li {
@@ -302,15 +302,13 @@ async function deleteNote(n) {
   width: 100%;
 }
 .actions {
-  display: flex;
-  flex-wrap: wrap;
   gap: 10px;
   margin: 10px 0 0;
 }
 .notes-box .secondary {
-  color: #111;
-  background: #fffdf8;
-  border: 2px solid #fffdf8;
+  color: var(--encre);
+  background: var(--carte);
+  border: 2px solid var(--carte);
 }
 .notes-box .error {
   color: #ffb4ab;
@@ -318,19 +316,13 @@ async function deleteNote(n) {
 .dialog {
   margin-top: 10px;
   padding: 12px 16px;
-  color: #111;
-  border: 2px solid #a31b14;
-  border-radius: 8px;
-  background: #fbe4e1;
+  color: var(--encre);
 }
 .dialog .secondary {
-  border-color: #111;
+  border-color: var(--encre);
 }
-.danger-button {
-  background: #a31b14 !important;
-}
-.success {
-  color: #0b6b3a;
-  font-weight: 600;
+/* Focus jaune sur le fond sombre, comme dans le pied de page. */
+.notes-box :focus-visible {
+  outline-color: var(--jaune);
 }
 </style>
